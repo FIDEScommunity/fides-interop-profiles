@@ -6,7 +6,7 @@
 (function() {
   'use strict';
 
-  // Capability groups with labels
+  // Capability groups with labels for the matrix
   const CAPABILITY_GROUPS = [
     {
       key: 'issuanceProtocol',
@@ -105,6 +105,7 @@
 
   let currentData = null;
   let currentMobileProfileIndex = 0;
+  let hideEmptyRows = localStorage.getItem('fides-interop-hide-empty') === 'true';
 
   /**
    * Initialize the matrix
@@ -126,7 +127,7 @@
   }
 
   /**
-   * Load data from GitHub or fallback
+   * Load data from GitHub CDN with local fallback
    */
   async function loadData(profilesFilter) {
     const config = window.fidesInteropMatrix || {};
@@ -176,7 +177,7 @@
   }
 
   /**
-   * Render the complete matrix
+   * Render the complete matrix view
    */
   function render(root, data, theme) {
     if (!data.profiles || data.profiles.length === 0) {
@@ -186,25 +187,21 @@
 
     root.innerHTML = `
       <div class="fides-interop-container">
-        <div class="fides-interop-header">
-          <h2 class="fides-interop-title">Interop Profile Comparison</h2>
-          <p class="fides-interop-subtitle">${data.profiles.length} profile${data.profiles.length !== 1 ? 's' : ''}</p>
-        </div>
-        
         ${renderDesktopMatrix(data.profiles)}
         ${renderMobileView(data.profiles)}
       </div>
     `;
 
-    // Add event listeners for tooltips
+    // Initialize event listeners
     initTooltips(root);
+    initToggle(root, data.profiles);
   }
 
   /**
-   * Render desktop matrix view
+   * Render desktop matrix view with sections
    */
   function renderDesktopMatrix(profiles) {
-    // Main profile headers (once at the top)
+    // Main profile headers at the top
     const mainProfileHeaders = profiles.map(p => `
       <th class="fides-matrix-profile-header">
         <div class="fides-profile-header-content">
@@ -226,13 +223,22 @@
       ).join('');
 
       const rows = group.items.map(item => {
+        // Check if all profiles have this capability unsupported
+        const allNotSupported = profiles.every(profile => {
+          const capability = profile.capabilities[group.key]?.[item.key];
+          return !capability || !capability.supported;
+        });
+
         const cells = profiles.map(profile => {
           const capability = profile.capabilities[group.key]?.[item.key];
           return renderCapabilityCell(capability, item.hasVersion);
         }).join('');
 
+        const hideClass = allNotSupported ? 'fides-row-all-unsupported' : '';
+        const hideStyle = (hideEmptyRows && allNotSupported) ? 'display: none;' : '';
+
         return `
-          <tr class="fides-matrix-row">
+          <tr class="fides-matrix-row ${hideClass}" style="${hideStyle}">
             <td class="fides-matrix-capability-name">${escapeHtml(item.label)}</td>
             ${cells}
           </tr>
@@ -258,11 +264,29 @@
 
     return `
       <div class="fides-matrix-desktop">
+        <div class="fides-matrix-controls">
+          <div class="fides-view-toggle">
+            <button type="button" class="fides-view-btn ${hideEmptyRows ? '' : 'active'}" data-view="all" title="Show all rows">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              </svg>
+            </button>
+            <button type="button" class="fides-view-btn ${hideEmptyRows ? 'active' : ''}" data-view="supported" title="Hide unsupported rows">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
         <div class="fides-matrix-main-header">
           <table class="fides-matrix-table">
             <thead>
               <tr>
-                <th class="fides-matrix-capability-header"></th>
+                <th class="fides-matrix-empty-cell"></th>
                 ${mainProfileHeaders}
               </tr>
             </thead>
@@ -342,7 +366,7 @@
   }
 
   /**
-   * Render single profile for mobile
+   * Render single profile view for mobile
    */
   function renderMobileProfile(profile) {
     const sections = CAPABILITY_GROUPS.map(group => {
@@ -372,7 +396,7 @@
   }
 
   /**
-   * Render single capability for mobile
+   * Render single capability row for mobile
    */
   function renderMobileCapability(label, capability, hasVersion) {
     if (!capability) {
@@ -549,7 +573,33 @@
   }
 
   /**
-   * Show error message
+   * Initialize view toggle control
+   */
+  function initToggle(root, profiles) {
+    const viewBtns = root.querySelectorAll('.fides-view-btn');
+    if (viewBtns.length === 0) return;
+
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const view = btn.dataset.view;
+        hideEmptyRows = view === 'supported';
+        localStorage.setItem('fides-interop-hide-empty', hideEmptyRows);
+
+        // Update button states
+        viewBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Toggle visibility of empty rows
+        const emptyRows = root.querySelectorAll('.fides-row-all-unsupported');
+        emptyRows.forEach(row => {
+          row.style.display = hideEmptyRows ? 'none' : '';
+        });
+      });
+    });
+  }
+
+  /**
+   * Display error message
    */
   function showError(root, error) {
     root.innerHTML = `
@@ -561,7 +611,7 @@
   }
 
   /**
-   * Escape HTML
+   * Escape HTML to prevent XSS
    */
   function escapeHtml(text) {
     const div = document.createElement('div');
@@ -569,7 +619,7 @@
     return div.innerHTML;
   }
 
-  // Initialize when DOM is ready
+  // Initialize on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

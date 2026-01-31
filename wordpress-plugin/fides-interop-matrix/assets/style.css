@@ -104,24 +104,48 @@
 }
 
 /* ==========================================================================
-   HEADER
+   VIEW TOGGLE (in header)
    ========================================================================== */
 
-.fides-interop-header {
-  margin-bottom: 2rem;
+
+.fides-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--fides-bg-secondary);
+  border: 1px solid var(--fides-border);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
 }
 
-.fides-interop-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
+.fides-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--fides-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.fides-view-btn:hover {
+  background: var(--fides-bg-card);
   color: var(--fides-text-primary);
 }
 
-.fides-interop-subtitle {
-  color: var(--fides-text-secondary);
-  margin: 0;
-  font-size: 0.875rem;
+.fides-view-btn.active {
+  background: var(--fides-accent);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fides-view-btn svg {
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -138,11 +162,12 @@
   background: var(--fides-bg-secondary);
   border-radius: var(--fides-radius);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .fides-matrix-main-header .fides-matrix-table {
   margin-bottom: 0;
+  min-width: 740px;
 }
 
 .fides-matrix-main-header thead {
@@ -175,7 +200,7 @@
 }
 
 .fides-section-title-cell {
-  width: 240px;
+  width: 200px;
   padding: 1rem 1rem 1rem 1rem !important;
   text-align: left !important;
   font-size: 1.125rem;
@@ -200,6 +225,7 @@
 
 .fides-matrix-table {
   width: 100%;
+  min-width: 740px;
   border-collapse: collapse;
   table-layout: fixed;
   border-spacing: 0;
@@ -219,9 +245,17 @@
   border: none;
 }
 
-.fides-matrix-capability-header {
-  width: 240px;
-  text-align: left;
+/* Controls container (above header) */
+.fides-matrix-controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Empty cell in main header to match capability column width */
+.fides-matrix-empty-cell {
+  width: 200px;
+  border: none;
 }
 
 .fides-matrix-profile-header {
@@ -279,7 +313,7 @@
   color: var(--fides-text-secondary);
   font-size: 0.9375rem;
   text-align: left;
-  width: 240px;
+  width: 200px;
   padding: 0.875rem 1rem 0.875rem 1rem;
 }
 
@@ -576,9 +610,6 @@
     padding: 1rem;
   }
 
-  .fides-interop-title {
-    font-size: 1.5rem;
-  }
 }
 
 @media (max-width: 480px) {
