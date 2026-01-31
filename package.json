@@ -1,0 +1,32 @@
+{
+  "name": "fides-interop-profiles",
+  "version": "1.0.0",
+  "description": "FIDES Interoperability Profile Matrix - Compare interop profiles like DIIP, HAIP, EWC, and Swiyu",
+  "main": "src/crawler/index.ts",
+  "scripts": {
+    "crawl": "tsx src/crawler/index.ts",
+    "build": "npm run crawl",
+    "validate": "tsx src/crawler/index.ts --validate-only"
+  },
+  "keywords": [
+    "fides",
+    "interoperability",
+    "profiles",
+    "diip",
+    "haip",
+    "ewc",
+    "openid4vc"
+  ],
+  "author": "FIDES Labs BV",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "ajv": "^8.12.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FIDEScommunity/interop-profiles.git"
+  }
+}

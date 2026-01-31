@@ -1,0 +1,156 @@
+{
+  "$comment": "This is a template file. Copy it and rename to: interop-profile.<your-profile-id>.json",
+  "schemaVersion": "v1",
+  "profile": {
+    "id": "example-v1",
+    "name": "Example Profile Full Name",
+    "shortName": "Example v1",
+    "version": "v1",
+    "status": "draft",
+    "specUrl": "https://example.com/spec",
+    "publisher": "Your Organization",
+    "updated": "2026-01-30T12:00:00Z",
+    "notes": "Optional notes about this profile"
+  },
+  "capabilities": {
+    "issuanceProtocol": {
+      "oid4vci": {
+        "supported": true,
+        "version": "draft-13",
+        "note": "Optional note about OID4VCI support"
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "presentationProtocol": {
+      "oid4vp": {
+        "supported": true,
+        "version": "v1.0"
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "credentialFormat": {
+      "sdJwtVc": {
+        "supported": true
+      },
+      "isoMdoc": {
+        "supported": true,
+        "note": "Limited support for specific document types"
+      },
+      "vcdm20": {
+        "supported": false
+      }
+    },
+    "credentialIssuerIdentifiers": {
+      "httpsIss": {
+        "supported": true
+      },
+      "x509DocumentSigner": {
+        "supported": false
+      },
+      "didWeb": {
+        "supported": true
+      },
+      "didWebvh": {
+        "supported": false
+      },
+      "didJwk": {
+        "supported": false
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "credentialHolderBinding": {
+      "cnfKeyBinding": {
+        "supported": true
+      },
+      "deviceBound": {
+        "supported": false
+      },
+      "didWebOrganisations": {
+        "supported": true
+      },
+      "didJwkPersons": {
+        "supported": true
+      },
+      "didWebvh": {
+        "supported": false
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "verifierAuthentication": {
+      "openidClientIdAuth": {
+        "supported": true
+      },
+      "x509ReaderCertificate": {
+        "supported": false
+      },
+      "didWeb": {
+        "supported": true
+      },
+      "didWebvh": {
+        "supported": false
+      },
+      "didJwk": {
+        "supported": false
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "credentialStatus": {
+      "jwtValidity": {
+        "supported": true
+      },
+      "pkiCertValidity": {
+        "supported": false
+      },
+      "ietfTokenStatusList": {
+        "supported": true
+      },
+      "w3cStatusList2021": {
+        "supported": false
+      },
+      "w3cBitstringStatusList": {
+        "supported": false
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "signatureScheme": {
+      "joseJws": {
+        "supported": true
+      },
+      "cose": {
+        "supported": false
+      },
+      "w3cDataIntegrity": {
+        "supported": false
+      },
+      "other": {
+        "supported": false
+      }
+    },
+    "signatureAlgorithms": {
+      "ecdsaEs256": {
+        "supported": true
+      },
+      "eddsa": {
+        "supported": true
+      },
+      "rsa": {
+        "supported": false
+      },
+      "pqOther": {
+        "supported": false
+      }
+    }
+  }
+}
