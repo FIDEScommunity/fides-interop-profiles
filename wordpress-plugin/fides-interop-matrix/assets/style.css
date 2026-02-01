@@ -479,17 +479,28 @@
 }
 
 .fides-mobile-spec-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   margin-top: 0.5rem;
   color: var(--fides-accent);
-  font-size: 0.875rem;
   text-decoration: none;
-  font-weight: 500;
+  border: 1px solid var(--fides-border);
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
 .fides-mobile-spec-link:hover {
   color: var(--fides-accent-hover);
-  text-decoration: underline;
+  border-color: var(--fides-accent);
+  background: rgba(0, 119, 204, 0.05);
+}
+
+.fides-mobile-spec-link svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* Mobile sections */
@@ -543,6 +554,15 @@
   font-weight: 600;
   text-align: right;
   margin-left: 1rem;
+}
+
+/* Mobile capability value colors */
+.fides-mobile-cap-value.fides-cell-supported {
+  color: var(--fides-success);
+}
+
+.fides-mobile-cap-value.fides-cell-not-supported {
+  color: var(--fides-error);
 }
 
 /* ==========================================================================
