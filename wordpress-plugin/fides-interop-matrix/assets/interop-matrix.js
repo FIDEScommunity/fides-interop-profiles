@@ -205,14 +205,11 @@
     const mainProfileHeaders = profiles.map(p => `
       <th class="fides-matrix-profile-header">
         <div class="fides-profile-header-content">
-          <strong class="fides-profile-name">${escapeHtml(p.profile.shortName || p.profile.name + ' ' + p.profile.version)}</strong>
-          ${p.profile.specUrl ? `
-            <a href="${escapeHtml(p.profile.specUrl)}" target="_blank" rel="noopener" class="fides-profile-spec-link" title="View specification">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-              </svg>
-            </a>
-          ` : ''}
+          <strong class="fides-profile-name">${escapeHtml(p.profile.shortName || p.profile.name + ' ' + p.profile.version)}</strong>${p.profile.specUrl ? `<a href="${escapeHtml(p.profile.specUrl)}" target="_blank" rel="noopener" class="fides-profile-spec-link" title="View specification">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>` : ''}
         </div>
       </th>
     `).join('');
@@ -405,13 +402,13 @@
 
     return `
       <div class="fides-mobile-profile-header">
-        <h3>${escapeHtml(profile.profile.shortName || profile.profile.name + ' ' + profile.profile.version)}</h3>
-        <span class="fides-profile-status fides-status-${profile.profile.status}">${escapeHtml(profile.profile.status)}</span>
-        ${profile.profile.specUrl ? `<a href="${escapeHtml(profile.profile.specUrl)}" target="_blank" rel="noopener" class="fides-mobile-spec-link" title="View specification">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-          </svg>
-        </a>` : ''}
+        <h3>
+          ${escapeHtml(profile.profile.shortName || profile.profile.name + ' ' + profile.profile.version)}${profile.profile.specUrl ? `<a href="${escapeHtml(profile.profile.specUrl)}" target="_blank" rel="noopener" class="fides-mobile-spec-link" title="View specification">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>` : ''}
+        </h3>
       </div>
       ${sections}
     `;

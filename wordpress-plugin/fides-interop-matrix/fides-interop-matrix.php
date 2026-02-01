@@ -156,7 +156,7 @@ class FIDES_Interop_Matrix {
                 <tbody>
                     <tr>
                         <td><code>profiles</code></td>
-                        <td>diip-v5,haip-v1,ewc-v3</td>
+                        <td>diip-v4,diip-v5,haip-v1</td>
                         <td>Filter specific profiles (comma-separated). Leave empty for all.</td>
                     </tr>
                     <tr>
@@ -175,10 +175,9 @@ class FIDES_Interop_Matrix {
             <h2>Available Profiles</h2>
             <p>Current profiles in the matrix:</p>
             <ul>
-                <li><strong>DIIP</strong> - Digital Identity Interoperability Profile</li>
-                <li><strong>HAIP</strong> - High Assurance Interoperability Profile</li>
-                <li><strong>EWC</strong> - European Wallet Consortium</li>
-                <li><strong>Swiyu</strong> - Swiyu Interoperability Profile</li>
+                <li><strong>DIIP v4</strong> - Digital Identity Interoperability Profile v4</li>
+                <li><strong>DIIP v5</strong> - Digital Identity Interoperability Profile v5</li>
+                <li><strong>HAIP v1</strong> - OpenID4VC High Assurance Interoperability Profile v1</li>
             </ul>
         </div>
         <?php
