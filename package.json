@@ -5,8 +5,11 @@
   "main": "src/crawler/index.ts",
   "scripts": {
     "crawl": "tsx src/crawler/index.ts",
-    "build": "npm run crawl",
-    "validate": "tsx src/crawler/index.ts --validate-only"
+    "validate": "tsx src/crawler/index.ts --validate-only",
+    "build": "npm run crawl && npm run minify",
+    "minify": "npm run minify:css && npm run minify:js",
+    "minify:css": "cleancss -o wordpress-plugin/fides-interop-matrix/assets/style.min.css wordpress-plugin/fides-interop-matrix/assets/style.css",
+    "minify:js": "terser wordpress-plugin/fides-interop-matrix/assets/interop-matrix.js -o wordpress-plugin/fides-interop-matrix/assets/interop-matrix.min.js -c -m"
   },
   "keywords": [
     "fides",
@@ -22,6 +25,8 @@
   "devDependencies": {
     "@types/node": "^20.11.5",
     "ajv": "^8.12.0",
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.46.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },

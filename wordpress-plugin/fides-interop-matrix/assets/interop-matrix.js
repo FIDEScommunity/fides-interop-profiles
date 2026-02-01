@@ -265,17 +265,29 @@
     return `
       <div class="fides-matrix-desktop">
         <div class="fides-matrix-controls">
-          <div class="fides-view-toggle">
-            <button type="button" class="fides-view-btn ${hideEmptyRows ? '' : 'active'}" data-view="all" title="Show all rows">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="fides-view-toggle" role="group" aria-label="Row visibility controls">
+            <button 
+              type="button" 
+              class="fides-view-btn ${hideEmptyRows ? '' : 'active'}" 
+              data-view="all" 
+              aria-label="Show all rows"
+              aria-pressed="${!hideEmptyRows}"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                 <rect x="14" y="3" width="7" height="7" rx="1"></rect>
                 <rect x="3" y="14" width="7" height="7" rx="1"></rect>
                 <rect x="14" y="14" width="7" height="7" rx="1"></rect>
               </svg>
             </button>
-            <button type="button" class="fides-view-btn ${hideEmptyRows ? 'active' : ''}" data-view="supported" title="Hide unsupported rows">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button 
+              type="button" 
+              class="fides-view-btn ${hideEmptyRows ? 'active' : ''}" 
+              data-view="supported" 
+              aria-label="Hide unsupported rows"
+              aria-pressed="${hideEmptyRows}"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
@@ -348,7 +360,13 @@
     `).join('');
 
     const profilePanels = profiles.map((p, idx) => `
-      <div class="fides-mobile-panel ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+      <div 
+        class="fides-mobile-panel ${idx === 0 ? 'active' : ''}" 
+        data-index="${idx}"
+        role="tabpanel"
+        aria-labelledby="fides-mobile-tab-${idx}"
+        id="fides-mobile-panel-${idx}"
+      >
         ${renderMobileProfile(p)}
       </div>
     `).join('');
@@ -527,7 +545,9 @@
     const panels = root.querySelectorAll('.fides-mobile-panel');
 
     tabs.forEach((tab, i) => {
-      tab.classList.toggle('active', i === index);
+      const isActive = i === index;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
 
     panels.forEach((panel, i) => {
@@ -585,9 +605,13 @@
         hideEmptyRows = view === 'supported';
         localStorage.setItem('fides-interop-hide-empty', hideEmptyRows);
 
-        // Update button states
-        viewBtns.forEach(b => b.classList.remove('active'));
+        // Update button states and ARIA attributes
+        viewBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
 
         // Toggle visibility of empty rows
         const emptyRows = root.querySelectorAll('.fides-row-all-unsupported');

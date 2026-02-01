@@ -52,16 +52,19 @@ class FIDES_Interop_Matrix {
      * Register CSS and JS assets
      */
     public function register_assets() {
+        // Use minified assets in production, full assets in development
+        $suffix = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min';
+        
         wp_register_style(
             'fides-interop-matrix',
-            $this->plugin_url . 'assets/style.css',
+            $this->plugin_url . 'assets/style' . $suffix . '.css',
             array(),
             FIDES_INTEROP_MATRIX_VERSION
         );
         
         wp_register_script(
             'fides-interop-matrix',
-            $this->plugin_url . 'assets/interop-matrix.js',
+            $this->plugin_url . 'assets/interop-matrix' . $suffix . '.js',
             array(),
             FIDES_INTEROP_MATRIX_VERSION,
             true
@@ -84,6 +87,13 @@ class FIDES_Interop_Matrix {
             'theme' => 'fides', // fides, light, or dark
         ), $atts);
         
+        // Validate theme against whitelist
+        $allowed_themes = array('fides', 'light', 'dark');
+        $theme = in_array($atts['theme'], $allowed_themes, true) ? $atts['theme'] : 'fides';
+        
+        // Sanitize profiles parameter (alphanumeric, hyphens, commas only)
+        $profiles = preg_replace('/[^a-z0-9,\-]/i', '', $atts['profiles']);
+        
         // Enqueue assets
         wp_enqueue_style('fides-interop-matrix');
         wp_enqueue_script('fides-interop-matrix');
@@ -91,8 +101,8 @@ class FIDES_Interop_Matrix {
         // Data attributes for configuration
         $data_attrs = sprintf(
             'data-profiles="%s" data-theme="%s"',
-            esc_attr($atts['profiles']),
-            esc_attr($atts['theme'])
+            esc_attr($profiles),
+            esc_attr($theme)
         );
         
         // Container where the matrix renders
