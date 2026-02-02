@@ -142,24 +142,41 @@ class FIDES_Interop_Matrix {
     }
     
     /**
+     * Sanitize catalog URL while preserving {profile} placeholder
+     */
+    public function sanitize_catalog_url($url) {
+        // Temporarily replace {profile} placeholder to protect it
+        $placeholder = '___PROFILE_PLACEHOLDER___';
+        $url = str_replace('{profile}', $placeholder, $url);
+        
+        // Sanitize the URL
+        $url = esc_url_raw($url);
+        
+        // Restore the placeholder
+        $url = str_replace($placeholder, '{profile}', $url);
+        
+        return $url;
+    }
+    
+    /**
      * Register settings
      */
     public function register_settings() {
         register_setting('fides_interop_matrix_settings', 'fides_interop_personal_wallets_url', array(
             'type' => 'string',
-            'sanitize_callback' => 'esc_url_raw',
+            'sanitize_callback' => array($this, 'sanitize_catalog_url'),
             'default' => 'https://fides.community/community-tools/personal-wallets/?profile={profile}',
         ));
         
         register_setting('fides_interop_matrix_settings', 'fides_interop_business_wallets_url', array(
             'type' => 'string',
-            'sanitize_callback' => 'esc_url_raw',
+            'sanitize_callback' => array($this, 'sanitize_catalog_url'),
             'default' => 'https://fides.community/community-tools/organizational-wallets/?profile={profile}',
         ));
         
         register_setting('fides_interop_matrix_settings', 'fides_interop_relying_parties_url', array(
             'type' => 'string',
-            'sanitize_callback' => 'esc_url_raw',
+            'sanitize_callback' => array($this, 'sanitize_catalog_url'),
             'default' => 'https://fides.community/community-tools/relying-party-catalog/?profile={profile}',
         ));
         

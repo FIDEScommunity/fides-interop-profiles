@@ -267,8 +267,18 @@
   /**
    * Get catalog URL with profile ID replaced
    */
-  function getCatalogUrl(urlTemplate, profileId) {
-    return urlTemplate.replace('{profile}', profileId);
+  function getCatalogUrl(urlTemplate, profileName) {
+    // URL encode the profile name to handle spaces and special characters
+    const encodedProfile = encodeURIComponent(profileName);
+    
+    // Replace {profile} placeholder if it exists
+    if (urlTemplate.includes('{profile}')) {
+      return urlTemplate.replace('{profile}', encodedProfile);
+    }
+    
+    // If no placeholder, append as query parameter
+    const separator = urlTemplate.includes('?') ? '&' : '?';
+    return urlTemplate + separator + 'profile=' + encodedProfile;
   }
 
   /**
@@ -296,14 +306,14 @@
             </svg>
           </a>` : ''}
           ${catalogUrls.personalWallets ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.personalWallets, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Personal Wallets">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.personalWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Personal Wallets">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </a>` : ''}
           ${catalogUrls.businessWallets ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.businessWallets, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Business Wallets">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.businessWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Business Wallets">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
               <rect x="8" y="6" width="2" height="2"></rect>
@@ -315,7 +325,7 @@
             </svg>
           </a>` : ''}
           ${catalogUrls.relyingParties ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.relyingParties, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Relying Party Websites">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.relyingParties, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Relying Party Websites">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
