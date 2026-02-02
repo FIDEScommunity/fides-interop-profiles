@@ -1,10 +1,10 @@
 {
   "schemaVersion": "v1",
   "profile": {
-    "id": "swiyu-public-beta",
+    "id": "swiyu-v0",
     "name": "swiyu Trust Infrastructure Interoperability Profile (Public Beta)",
     "shortName": "swiyu beta",
-    "version": "public-beta",
+    "version": "v0",
     "status": "draft",
     "specUrl": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/",
     "publisher": "swiyu (Swiss e-ID program)",
