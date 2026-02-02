@@ -228,17 +228,16 @@
       }
     }
     
-    // Default: select DIIP v5 and HAIP v1 (skip DIIP v4)
-    // This gives a good comparison of the two main stable versions
-    const defaultIds = ['diip-v5', 'haip-v1'];
+    // Default: select first 3 profiles (typically DIIP v4, DIIP v5, HAIP v1)
+    const defaultIds = ['diip-v4', 'diip-v5', 'haip-v1'];
     const defaults = availableProfiles
       .filter(p => defaultIds.includes(p.profile.id))
       .map(p => p.profile.id);
     
-    // If those don't exist, fall back to first 2 profiles
+    // If those don't exist, fall back to first 3 profiles
     if (defaults.length === 0) {
       return availableProfiles
-        .slice(0, 2)
+        .slice(0, 3)
         .map(p => p.profile.id);
     }
     
@@ -306,14 +305,14 @@
             </svg>
           </a>` : ''}
           ${catalogUrls.personalWallets ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.personalWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Personal Wallets">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.personalWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" class="fides-profile-link" title="Show compliant Personal Wallets">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </a>` : ''}
           ${catalogUrls.businessWallets ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.businessWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Business Wallets">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.businessWallets, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" class="fides-profile-link" title="Show compliant Business Wallets">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
               <rect x="8" y="6" width="2" height="2"></rect>
@@ -325,7 +324,7 @@
             </svg>
           </a>` : ''}
           ${catalogUrls.relyingParties ? `
-          <a href="${escapeHtml(getCatalogUrl(catalogUrls.relyingParties, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Relying Party Websites">
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.relyingParties, p.profile.shortName || p.profile.name + ' ' + p.profile.version))}" class="fides-profile-link" title="Show compliant Relying Party Websites">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -800,18 +799,18 @@
       });
     });
 
-    // Reset button - reset to default selection (DIIP v5 and HAIP v1)
+    // Reset button - reset to default selection (DIIP v4, DIIP v5, HAIP v1)
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        const defaultIds = ['diip-v5', 'haip-v1'];
+        const defaultIds = ['diip-v4', 'diip-v5', 'haip-v1'];
         const defaultSelection = allProfiles
           .filter(p => defaultIds.includes(p.profile.id))
           .map(p => p.profile.id);
         
-        // If defaults don't exist, use first 2
+        // If defaults don't exist, use first 3
         const finalSelection = defaultSelection.length > 0 
           ? defaultSelection 
-          : allProfiles.slice(0, 2).map(p => p.profile.id);
+          : allProfiles.slice(0, 3).map(p => p.profile.id);
         
         setSelectedProfiles(finalSelection);
         updateMatrixDisplay(root, allProfiles);
