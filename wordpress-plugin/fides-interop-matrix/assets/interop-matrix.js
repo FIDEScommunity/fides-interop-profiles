@@ -106,6 +106,8 @@
   let currentData = null;
   let currentMobileProfileIndex = 0;
   let hideEmptyRows = localStorage.getItem('fides-interop-hide-empty') === 'true';
+  let selectedProfiles = [];
+  const MAX_SELECTED_PROFILES = 3;
 
   /**
    * Initialize the matrix
@@ -185,29 +187,139 @@
       return;
     }
 
+    // Initialize selected profiles from localStorage or defaults
+    selectedProfiles = getSelectedProfiles(data.profiles);
+
+    // Filter profiles for desktop display
+    const displayProfiles = filterProfilesBySelection(data.profiles, selectedProfiles);
+
     root.innerHTML = `
       <div class="fides-interop-container">
-        ${renderDesktopMatrix(data.profiles)}
+        ${renderDesktopMatrix(displayProfiles, data.profiles)}
         ${renderMobileView(data.profiles)}
       </div>
     `;
 
     // Initialize event listeners
     initTooltips(root);
-    initToggle(root, data.profiles);
+    initToggle(root, displayProfiles);
+    initProfileSelector(root, data.profiles);
+  }
+
+  /**
+   * Get selected profiles from localStorage or use defaults
+   */
+  function getSelectedProfiles(availableProfiles) {
+    const stored = localStorage.getItem('fides-interop-selected-profiles');
+    
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        // Validate that stored profiles exist in available profiles
+        const validProfiles = parsed.filter(id => 
+          availableProfiles.some(p => p.profile.id === id)
+        );
+        
+        if (validProfiles.length > 0) {
+          return validProfiles.slice(0, MAX_SELECTED_PROFILES);
+        }
+      } catch (e) {
+        console.warn('Failed to parse stored profile selection', e);
+      }
+    }
+    
+    // Default: select DIIP v5 and HAIP v1 (skip DIIP v4)
+    // This gives a good comparison of the two main stable versions
+    const defaultIds = ['diip-v5', 'haip-v1'];
+    const defaults = availableProfiles
+      .filter(p => defaultIds.includes(p.profile.id))
+      .map(p => p.profile.id);
+    
+    // If those don't exist, fall back to first 2 profiles
+    if (defaults.length === 0) {
+      return availableProfiles
+        .slice(0, 2)
+        .map(p => p.profile.id);
+    }
+    
+    return defaults;
+  }
+
+  /**
+   * Save selected profiles to localStorage
+   */
+  function setSelectedProfiles(profileIds) {
+    try {
+      localStorage.setItem('fides-interop-selected-profiles', JSON.stringify(profileIds));
+      selectedProfiles = profileIds;
+    } catch (e) {
+      console.warn('Failed to save profile selection', e);
+    }
+  }
+
+  /**
+   * Filter profiles by selection
+   */
+  function filterProfilesBySelection(profiles, selectedIds) {
+    return profiles.filter(p => selectedIds.includes(p.profile.id));
+  }
+
+  /**
+   * Get catalog URL with profile ID replaced
+   */
+  function getCatalogUrl(urlTemplate, profileId) {
+    return urlTemplate.replace('{profile}', profileId);
   }
 
   /**
    * Render desktop matrix view with sections
    */
-  function renderDesktopMatrix(profiles) {
+  function renderDesktopMatrix(profiles, allProfiles) {
+    const config = window.fidesInteropMatrix || {};
+    const catalogUrls = config.catalogUrls || {};
+    
     // Main profile headers at the top
     const mainProfileHeaders = profiles.map(p => `
       <th class="fides-matrix-profile-header">
         <div class="fides-profile-header-content">
-          <strong class="fides-profile-name">${escapeHtml(p.profile.shortName || p.profile.name + ' ' + p.profile.version)}</strong>${p.profile.specUrl ? `<a href="${escapeHtml(p.profile.specUrl)}" target="_blank" rel="noopener" class="fides-profile-spec-link" title="View specification">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          <strong class="fides-profile-name">${escapeHtml(p.profile.shortName || p.profile.name + ' ' + p.profile.version)}</strong>
+        </div>
+        <div class="fides-profile-links">
+          ${p.profile.specUrl ? `
+          <a href="${escapeHtml(p.profile.specUrl)}" target="_blank" rel="noopener" class="fides-profile-link" title="View Interop Profile Details">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </a>` : ''}
+          ${catalogUrls.personalWallets ? `
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.personalWallets, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Personal Wallets">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>` : ''}
+          ${catalogUrls.businessWallets ? `
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.businessWallets, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Business Wallets">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <rect x="8" y="6" width="2" height="2"></rect>
+              <rect x="14" y="6" width="2" height="2"></rect>
+              <rect x="8" y="11" width="2" height="2"></rect>
+              <rect x="14" y="11" width="2" height="2"></rect>
+              <rect x="8" y="16" width="2" height="2"></rect>
+              <rect x="14" y="16" width="2" height="2"></rect>
+            </svg>
+          </a>` : ''}
+          ${catalogUrls.relyingParties ? `
+          <a href="${escapeHtml(getCatalogUrl(catalogUrls.relyingParties, p.profile.id))}" target="_blank" rel="noopener" class="fides-profile-link" title="Show compliant Relying Party Websites">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
             </svg>
           </a>` : ''}
         </div>
@@ -262,6 +374,7 @@
     return `
       <div class="fides-matrix-desktop">
         <div class="fides-matrix-controls">
+          ${renderProfileSelector(allProfiles)}
           <div class="fides-view-toggle" role="group" aria-label="Row visibility controls">
             <button 
               type="button" 
@@ -590,6 +703,149 @@
         // Swipe right - previous profile
         switchMobileTab(root, currentMobileProfileIndex - 1);
       }
+    }
+  }
+
+  /**
+   * Render profile selector
+   */
+  function renderProfileSelector(profiles) {
+    const checkboxes = profiles.map(p => {
+      const isSelected = selectedProfiles.includes(p.profile.id);
+      const profileName = p.profile.shortName || `${p.profile.name} ${p.profile.version}`;
+      
+      return `
+        <label class="fides-profile-checkbox">
+          <input 
+            type="checkbox" 
+            value="${escapeHtml(p.profile.id)}"
+            ${isSelected ? 'checked' : ''}
+            data-profile-checkbox
+          />
+          <span class="fides-profile-checkbox-label">${escapeHtml(profileName)}</span>
+        </label>
+      `;
+    }).join('');
+
+    return `
+      <div class="fides-profile-selector">
+        <div class="fides-profile-selector-header">
+          <span class="fides-selector-title">Compare Profiles</span>
+          <span class="fides-selector-count">${selectedProfiles.length}/${MAX_SELECTED_PROFILES} selected</span>
+        </div>
+        <div class="fides-profile-selector-content">
+          <div class="fides-profile-checkbox-group">
+            ${checkboxes}
+          </div>
+          <div class="fides-selector-actions">
+            <button type="button" class="fides-selector-btn" data-action="reset">Reset</button>
+            <button type="button" class="fides-selector-btn" data-action="select-all">Select All</button>
+          </div>
+        </div>
+        <div class="fides-selector-warning" style="display: none;">
+          Select up to ${MAX_SELECTED_PROFILES} profiles to compare
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Initialize profile selector event handlers
+   */
+  function initProfileSelector(root, allProfiles) {
+    const checkboxes = root.querySelectorAll('[data-profile-checkbox]');
+    const warningEl = root.querySelector('.fides-selector-warning');
+    const countEl = root.querySelector('.fides-selector-count');
+    const resetBtn = root.querySelector('[data-action="reset"]');
+    const selectAllBtn = root.querySelector('[data-action="select-all"]');
+
+    if (!checkboxes.length) return;
+
+    // Checkbox change handler
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const profileId = checkbox.value;
+        let newSelection = [...selectedProfiles];
+
+        if (checkbox.checked) {
+          if (newSelection.length >= MAX_SELECTED_PROFILES) {
+            checkbox.checked = false;
+            showWarning(warningEl);
+            return;
+          }
+          newSelection.push(profileId);
+        } else {
+          newSelection = newSelection.filter(id => id !== profileId);
+          
+          // Require at least 1 profile
+          if (newSelection.length === 0) {
+            checkbox.checked = true;
+            return;
+          }
+        }
+
+        // Save and re-render
+        setSelectedProfiles(newSelection);
+        updateMatrixDisplay(root, allProfiles);
+      });
+    });
+
+    // Reset button - reset to default selection (DIIP v5 and HAIP v1)
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const defaultIds = ['diip-v5', 'haip-v1'];
+        const defaultSelection = allProfiles
+          .filter(p => defaultIds.includes(p.profile.id))
+          .map(p => p.profile.id);
+        
+        // If defaults don't exist, use first 2
+        const finalSelection = defaultSelection.length > 0 
+          ? defaultSelection 
+          : allProfiles.slice(0, 2).map(p => p.profile.id);
+        
+        setSelectedProfiles(finalSelection);
+        updateMatrixDisplay(root, allProfiles);
+      });
+    }
+
+    // Select all button - select first 3 profiles
+    if (selectAllBtn) {
+      selectAllBtn.addEventListener('click', () => {
+        const allIds = allProfiles
+          .slice(0, MAX_SELECTED_PROFILES)
+          .map(p => p.profile.id);
+        setSelectedProfiles(allIds);
+        updateMatrixDisplay(root, allProfiles);
+      });
+    }
+  }
+
+  /**
+   * Show warning message temporarily
+   */
+  function showWarning(warningEl) {
+    if (!warningEl) return;
+    warningEl.style.display = 'block';
+    setTimeout(() => {
+      warningEl.style.display = 'none';
+    }, 3000);
+  }
+
+  /**
+   * Update matrix display after selection change
+   */
+  function updateMatrixDisplay(root, allProfiles) {
+    const displayProfiles = filterProfilesBySelection(allProfiles, selectedProfiles);
+    
+    // Re-render desktop matrix
+    const desktopContainer = root.querySelector('.fides-matrix-desktop');
+    if (desktopContainer) {
+      desktopContainer.outerHTML = renderDesktopMatrix(displayProfiles, allProfiles);
+      
+      // Re-initialize event listeners
+      initTooltips(root);
+      initToggle(root, displayProfiles);
+      initProfileSelector(root, allProfiles);
     }
   }
 

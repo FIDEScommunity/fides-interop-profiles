@@ -1,1 +1,918 @@
-.fides-interop-matrix{--fides-bg-primary:#EAEAEE;--fides-bg-secondary:#ffffff;--fides-bg-card:#ffffff;--fides-text-primary:#000000;--fides-text-secondary:#374151;--fides-text-muted:#6b7280;--fides-border:rgba(0, 0, 0, 0.12);--fides-accent:#0A6EF3;--fides-accent-hover:#0858c4;--fides-success:#16a34a;--fides-warning:#f59e0b;--fides-error:#dc2626;--fides-radius:12px;--fides-radius-lg:16px}.fides-interop-matrix[data-theme=light]{--fides-bg-primary:#f8fafc;--fides-bg-secondary:#ffffff;--fides-bg-card:#ffffff;--fides-text-primary:#1e293b;--fides-text-secondary:#475569;--fides-text-muted:#94a3b8;--fides-border:rgba(0, 0, 0, 0.1)}.fides-interop-matrix[data-theme=dark]{--fides-bg-primary:#0f172a;--fides-bg-secondary:#1e293b;--fides-bg-card:rgba(30, 41, 59, 0.8);--fides-text-primary:#f1f5f9;--fides-text-secondary:#94a3b8;--fides-text-muted:#64748b;--fides-border:rgba(255, 255, 255, 0.1)}.fides-interop-matrix{font-family:'Source Sans Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--fides-bg-primary);color:var(--fides-text-primary);padding:2rem;border-radius:var(--fides-radius-lg);min-height:400px}.fides-interop-container{max-width:100%;position:relative}.fides-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;color:var(--fides-text-secondary)}.fides-spinner{width:40px;height:40px;border:3px solid var(--fides-border);border-top-color:var(--fides-accent);border-radius:50%;animation:fides-spin 1s linear infinite;margin-bottom:1rem}@keyframes fides-spin{to{transform:rotate(360deg)}}.fides-error{text-align:center;padding:3rem 1rem;color:var(--fides-error)}.fides-empty{text-align:center;padding:3rem 1rem;color:var(--fides-text-secondary)}.fides-view-toggle{display:inline-flex;align-items:center;background:var(--fides-bg-secondary);border:1px solid var(--fides-border);border-radius:8px;padding:2px;gap:2px}.fides-view-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;background:0 0;border:none;border-radius:6px;color:var(--fides-text-muted);cursor:pointer;transition:all .2s}.fides-view-btn:hover{background:var(--fides-bg-card);color:var(--fides-text-primary)}.fides-view-btn.active{background:var(--fides-accent);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1)}.fides-view-btn svg{flex-shrink:0}.fides-matrix-desktop{display:block}.fides-matrix-main-header{margin-bottom:2rem;background:var(--fides-bg-secondary);border-radius:var(--fides-radius);box-shadow:0 1px 3px rgba(0,0,0,.08);overflow-x:auto}.fides-matrix-main-header .fides-matrix-table{margin-bottom:0;min-width:740px}.fides-matrix-main-header thead{border-bottom:none}.fides-matrix-main-header th{border-bottom:none;padding:1.25rem 1rem}.fides-matrix-desktop{max-width:100%;overflow-x:auto}.fides-matrix-section{margin-bottom:2rem;background:var(--fides-bg-secondary);border-radius:var(--fides-radius);overflow-x:auto;box-shadow:0 1px 3px rgba(0,0,0,.08)}.fides-section-header-row{background:rgba(10,110,243,.05);border-bottom:2px solid var(--fides-accent)}.fides-section-title-cell{width:200px;padding:1rem 1rem 1rem 1rem!important;text-align:left!important;font-size:1.125rem;font-weight:700;color:var(--fides-accent);background:rgba(10,110,243,.05);border:none;vertical-align:middle}.fides-section-profile-header{width:180px;padding:1rem;text-align:center;font-weight:600;font-size:.9375rem;color:var(--fides-text-primary);background:rgba(10,110,243,.05);border:none;vertical-align:middle}.fides-matrix-table{width:100%;min-width:740px;border-collapse:collapse;table-layout:fixed;border-spacing:0}.fides-matrix-table thead{background:var(--fides-bg-secondary)}.fides-matrix-table th{padding:.875rem 1rem;text-align:center;font-weight:700;font-size:1rem;color:var(--fides-text-primary);border:none}.fides-matrix-controls{margin-bottom:1.5rem;display:flex;justify-content:flex-start}.fides-matrix-empty-cell{width:200px;border:none}.fides-matrix-profile-header{width:180px;border-left:1px solid var(--fides-border)}.fides-profile-header-content{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:.5rem}.fides-profile-name{font-size:1.125rem}.fides-profile-spec-link{display:inline-flex;align-items:center;gap:.25rem;color:var(--fides-accent);text-decoration:none;font-size:.8125rem;transition:color .2s}.fides-profile-spec-link:hover{color:var(--fides-accent-hover)}.fides-profile-spec-link svg{width:14px;height:14px}.fides-matrix-table tbody tr{transition:background-color .15s}.fides-matrix-table tbody tr:hover{background:rgba(10,110,243,.02)}.fides-matrix-table td{padding:.875rem 1rem;border:none}.fides-matrix-capability-name{font-weight:500;color:var(--fides-text-secondary);font-size:.9375rem;text-align:left;width:200px;padding:.875rem 1rem .875rem 1rem}.fides-matrix-cell{text-align:center;vertical-align:middle;font-size:1.125rem;font-weight:600;white-space:nowrap;width:180px;border:none}.fides-cell-icon{font-size:1.5rem;display:inline-block;font-weight:700;line-height:1}.fides-icon-check{color:var(--fides-success)}.fides-icon-cross{color:#dc2626;opacity:.7}.fides-cell-note-indicator{margin-left:.5rem;font-size:1rem;color:var(--fides-warning);cursor:help}.fides-cell-supported{color:var(--fides-text-primary);font-size:.9375rem}.fides-cell-not-supported{opacity:1}.fides-cell-unknown{color:var(--fides-text-muted);font-style:italic;opacity:.5}.fides-cell-has-note{cursor:help}.fides-matrix-mobile{display:none}@media (max-width:768px){.fides-matrix-desktop{display:none}.fides-matrix-mobile{display:block}}@media (max-width:1024px){.fides-matrix-section{overflow-x:auto}.fides-matrix-table{min-width:500px}}.fides-mobile-tabs{display:flex;gap:.5rem;margin-bottom:1rem;overflow-x:auto;padding-bottom:.5rem;-webkit-overflow-scrolling:touch}.fides-mobile-tab{flex-shrink:0;padding:.625rem 1rem;background:var(--fides-bg-secondary);border:1px solid var(--fides-border);border-radius:var(--fides-radius);color:var(--fides-text-secondary);font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}.fides-mobile-tab:hover{background:var(--fides-bg-card);border-color:var(--fides-accent)}.fides-mobile-tab.active{background:var(--fides-accent);border-color:var(--fides-accent);color:#fff}.fides-mobile-panels{position:relative;touch-action:pan-y}.fides-mobile-panel{display:none;background:var(--fides-bg-secondary);border-radius:var(--fides-radius);padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.1)}.fides-mobile-panel.active{display:block;animation:fides-fade-in .3s ease}@keyframes fides-fade-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.fides-mobile-profile-header{padding-bottom:1rem;margin-bottom:1.5rem;border-bottom:2px solid var(--fides-border)}.fides-mobile-profile-header h3{display:flex;align-items:center;gap:.5rem;margin:0;font-size:1.25rem;font-weight:700;color:var(--fides-text-primary)}.fides-mobile-spec-link{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;color:var(--fides-accent);text-decoration:none;border:1px solid var(--fides-border);border-radius:4px;transition:all .2s;flex-shrink:0}.fides-mobile-spec-link:hover{color:var(--fides-accent-hover);border-color:var(--fides-accent);background:rgba(0,119,204,.05)}.fides-mobile-spec-link svg{width:14px;height:14px}.fides-mobile-section{margin-bottom:1.5rem}.fides-mobile-section:last-child{margin-bottom:0}.fides-mobile-section-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--fides-accent);margin:0 0 .75rem 0;padding-bottom:.5rem;border-bottom:1px solid var(--fides-border)}.fides-mobile-capabilities{display:flex;flex-direction:column;gap:.5rem}.fides-mobile-capability{display:flex;justify-content:space-between;align-items:center;padding:.625rem 0;border-bottom:1px solid var(--fides-border)}.fides-mobile-capability:last-child{border-bottom:none}.fides-mobile-cap-label{font-size:.875rem;color:var(--fides-text-secondary);font-weight:500;flex:1}.fides-mobile-cap-value{font-size:.9375rem;font-weight:600;text-align:right;margin-left:1rem}.fides-mobile-cap-value.fides-cell-supported{color:var(--fides-success)}.fides-mobile-cap-value.fides-cell-not-supported{color:var(--fides-error)}.fides-tooltip{position:fixed;z-index:9999;background:rgba(0,0,0,.9);color:#fff;padding:.625rem .875rem;border-radius:6px;font-size:.8125rem;line-height:1.5;max-width:280px;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 12px rgba(0,0,0,.2)}.fides-tooltip.visible{opacity:1}.fides-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(0,0,0,.9)}@media (max-width:1024px){.fides-interop-matrix{padding:1.5rem}.fides-section-title-cell{font-size:1rem;padding:.875rem 1rem}.fides-section-profile-header{font-size:.875rem;width:140px;padding:.875rem .75rem}.fides-matrix-profile-header{font-size:.9375rem;min-width:120px}}@media (max-width:768px){.fides-interop-matrix{padding:1rem}}@media (max-width:480px){.fides-interop-matrix{padding:1rem .5rem}.fides-mobile-panel{padding:1rem}.fides-mobile-tab{padding:.5rem .75rem;font-size:.8125rem}}.fides-interop-matrix[data-theme=dark] .fides-matrix-table tbody tr:hover{background:rgba(255,255,255,.05)}.fides-interop-matrix[data-theme=dark] .fides-section-header-row,.fides-interop-matrix[data-theme=dark] .fides-section-profile-header,.fides-interop-matrix[data-theme=dark] .fides-section-title-cell{background:rgba(59,130,246,.1)}.fides-interop-matrix[data-theme=dark] .fides-icon-check{color:#22c55e}.fides-interop-matrix[data-theme=dark] .fides-icon-cross{color:#ef4444}@media print{.fides-interop-matrix{background:#fff;padding:0}.fides-matrix-mobile{display:none}.fides-matrix-desktop{display:block;overflow:visible}.fides-matrix-capability-cell,.fides-matrix-capability-header{position:static;box-shadow:none}.fides-tooltip{display:none}}
+/**
+ * FIDES Interop Profile Matrix - Styles
+ * © 2026 FIDES Labs BV
+ */
+
+/* ==========================================================================
+   CSS VARIABLES (FIDES THEME)
+   ========================================================================== */
+
+.fides-interop-matrix {
+  --fides-bg-primary: #EAEAEE;
+  --fides-bg-secondary: #ffffff;
+  --fides-bg-card: #ffffff;
+  --fides-text-primary: #000000;
+  --fides-text-secondary: #374151;
+  --fides-text-muted: #6b7280;
+  --fides-border: rgba(0, 0, 0, 0.12);
+  --fides-accent: #0A6EF3;
+  --fides-accent-hover: #0858c4;
+  --fides-success: #16a34a;
+  --fides-warning: #f59e0b;
+  --fides-error: #dc2626;
+  --fides-radius: 12px;
+  --fides-radius-lg: 16px;
+}
+
+/* Light theme */
+.fides-interop-matrix[data-theme="light"] {
+  --fides-bg-primary: #f8fafc;
+  --fides-bg-secondary: #ffffff;
+  --fides-bg-card: #ffffff;
+  --fides-text-primary: #1e293b;
+  --fides-text-secondary: #475569;
+  --fides-text-muted: #94a3b8;
+  --fides-border: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+.fides-interop-matrix[data-theme="dark"] {
+  --fides-bg-primary: #0f172a;
+  --fides-bg-secondary: #1e293b;
+  --fides-bg-card: rgba(30, 41, 59, 0.8);
+  --fides-text-primary: #f1f5f9;
+  --fides-text-secondary: #94a3b8;
+  --fides-text-muted: #64748b;
+  --fides-border: rgba(255, 255, 255, 0.1);
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-profile-selector {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-profile-link {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-profile-link:hover {
+  background: var(--fides-accent);
+  border-color: var(--fides-accent);
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
+.fides-interop-matrix {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--fides-bg-primary);
+  color: var(--fides-text-primary);
+  padding: 2rem;
+  border-radius: var(--fides-radius-lg);
+  min-height: 400px;
+}
+
+.fides-interop-container {
+  max-width: 100%;
+  position: relative;
+}
+
+/* ==========================================================================
+   LOADING & ERROR STATES
+   ========================================================================== */
+
+.fides-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--fides-text-secondary);
+}
+
+.fides-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--fides-border);
+  border-top-color: var(--fides-accent);
+  border-radius: 50%;
+  animation: fides-spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes fides-spin {
+  to { transform: rotate(360deg); }
+}
+
+.fides-error {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--fides-error);
+}
+
+.fides-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--fides-text-secondary);
+}
+
+/* ==========================================================================
+   PROFILE SELECTOR
+   ========================================================================== */
+
+.fides-profile-selector {
+  flex: 1;
+  background: rgba(10, 110, 243, 0.06);
+  border: 1px solid rgba(10, 110, 243, 0.15);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 300px;
+}
+
+.fides-profile-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--fides-border);
+}
+
+.fides-selector-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--fides-text-primary);
+}
+
+.fides-selector-count {
+  font-size: 0.75rem;
+  color: var(--fides-text-muted);
+  font-weight: 500;
+}
+
+.fides-profile-selector-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fides-profile-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.fides-profile-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  min-width: 110px;
+  height: 38px;
+  background: var(--fides-bg-card);
+  border: 1px solid var(--fides-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.fides-profile-checkbox:hover {
+  background: rgba(10, 110, 243, 0.05);
+  border-color: var(--fides-accent);
+}
+
+.fides-profile-checkbox input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--fides-accent);
+  flex-shrink: 0;
+}
+
+.fides-profile-checkbox-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fides-text-secondary);
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.fides-profile-checkbox input[type="checkbox"]:checked + .fides-profile-checkbox-label {
+  color: var(--fides-accent);
+  font-weight: 600;
+}
+
+.fides-profile-checkbox.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fides-selector-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--fides-border);
+  flex-shrink: 0;
+}
+
+.fides-selector-btn {
+  padding: 0.5rem 0.875rem;
+  height: 38px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fides-text-secondary);
+  background: var(--fides-bg-card);
+  border: 1px solid var(--fides-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fides-selector-btn:hover {
+  background: var(--fides-accent);
+  color: white;
+  border-color: var(--fides-accent);
+}
+
+.fides-selector-btn:active {
+  transform: scale(0.98);
+}
+
+.fides-selector-warning {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--fides-warning);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: var(--fides-warning);
+  animation: fides-fade-in 0.3s ease;
+}
+
+/* ==========================================================================
+   VIEW TOGGLE (in header)
+   ========================================================================== */
+
+.fides-view-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  background: var(--fides-bg-secondary);
+  border: 1px solid var(--fides-border);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.fides-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--fides-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.fides-view-btn:hover {
+  background: var(--fides-bg-card);
+  color: var(--fides-text-primary);
+}
+
+.fides-view-btn.active {
+  background: var(--fides-accent);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fides-view-btn svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   DESKTOP MATRIX
+   ========================================================================== */
+
+.fides-matrix-desktop {
+  display: block;
+}
+
+/* Main header with profile names */
+.fides-matrix-main-header {
+  margin-bottom: 2rem;
+  background: var(--fides-bg-secondary);
+  border-radius: var(--fides-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.fides-matrix-main-header .fides-matrix-table {
+  margin-bottom: 0;
+  min-width: 740px;
+}
+
+.fides-matrix-main-header thead {
+  border-bottom: none;
+}
+
+.fides-matrix-main-header th {
+  border-bottom: none;
+  padding: 1.25rem 1rem;
+}
+
+/* Ensure table doesn't overflow container */
+.fides-matrix-desktop {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Matrix sections (per capability group) */
+.fides-matrix-section {
+  margin-bottom: 2rem;
+  background: var(--fides-bg-secondary);
+  border-radius: var(--fides-radius);
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.fides-section-header-row {
+  background: rgba(10, 110, 243, 0.05);
+  border-bottom: 2px solid var(--fides-accent);
+}
+
+.fides-section-title-cell {
+  width: 200px;
+  padding: 1rem 1rem 1rem 1rem !important;
+  text-align: left !important;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--fides-accent);
+  background: rgba(10, 110, 243, 0.05);
+  border: none;
+  vertical-align: middle;
+}
+
+.fides-section-profile-header {
+  width: 180px;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--fides-text-primary);
+  background: rgba(10, 110, 243, 0.05);
+  border: none;
+  vertical-align: middle;
+}
+
+.fides-matrix-table {
+  width: 100%;
+  min-width: 740px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-spacing: 0;
+}
+
+/* Table header */
+.fides-matrix-table thead {
+  background: var(--fides-bg-secondary);
+}
+
+.fides-matrix-table th {
+  padding: 0.875rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--fides-text-primary);
+  border: none;
+}
+
+/* Controls container (above header) */
+.fides-matrix-controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Empty cell in main header to match capability column width */
+.fides-matrix-empty-cell {
+  width: 200px;
+  border: none;
+}
+
+.fides-matrix-profile-header {
+  width: 180px;
+  border-left: 1px solid var(--fides-border);
+}
+
+.fides-profile-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.fides-profile-name {
+  font-size: 1.125rem;
+}
+
+.fides-profile-links {
+  display: flex;
+  gap: 0.375rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.fides-profile-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--fides-accent);
+  background: var(--fides-bg-card);
+  border: 1px solid var(--fides-border);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.fides-profile-link:hover {
+  background: var(--fides-accent);
+  color: white;
+  border-color: var(--fides-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fides-profile-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Table body */
+.fides-matrix-table tbody tr {
+  transition: background-color 0.15s;
+}
+
+.fides-matrix-table tbody tr:hover {
+  background: rgba(10, 110, 243, 0.02);
+}
+
+.fides-matrix-table td {
+  padding: 0.875rem 1rem;
+  border: none;
+}
+
+/* Capability name cells */
+.fides-matrix-capability-name {
+  font-weight: 500;
+  color: var(--fides-text-secondary);
+  font-size: 0.9375rem;
+  text-align: left;
+  width: 200px;
+  padding: 0.875rem 1rem 0.875rem 1rem;
+}
+
+/* Capability value cells */
+.fides-matrix-cell {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 180px;
+  border: none;
+}
+
+.fides-cell-icon {
+  font-size: 1.5rem;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fides-icon-check {
+  color: var(--fides-success);
+}
+
+.fides-icon-cross {
+  color: #dc2626;
+  opacity: 0.7;
+}
+
+.fides-cell-note-indicator {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: var(--fides-warning);
+  cursor: help;
+}
+
+/* Cell states */
+.fides-cell-supported {
+  color: var(--fides-text-primary);
+  font-size: 0.9375rem;
+}
+
+.fides-cell-not-supported {
+  opacity: 1;
+}
+
+.fides-cell-unknown {
+  color: var(--fides-text-muted);
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.fides-cell-has-note {
+  cursor: help;
+}
+
+/* ==========================================================================
+   MOBILE VIEW
+   ========================================================================== */
+
+.fides-matrix-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .fides-matrix-desktop {
+    display: none;
+  }
+
+  .fides-matrix-mobile {
+    display: block;
+  }
+
+  .fides-profile-selector {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fides-matrix-section {
+    overflow-x: auto;
+  }
+  
+  .fides-matrix-table {
+    min-width: 500px;
+  }
+}
+
+/* Mobile tabs */
+.fides-mobile-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fides-mobile-tab {
+  flex-shrink: 0;
+  padding: 0.625rem 1rem;
+  background: var(--fides-bg-secondary);
+  border: 1px solid var(--fides-border);
+  border-radius: var(--fides-radius);
+  color: var(--fides-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.fides-mobile-tab:hover {
+  background: var(--fides-bg-card);
+  border-color: var(--fides-accent);
+}
+
+.fides-mobile-tab.active {
+  background: var(--fides-accent);
+  border-color: var(--fides-accent);
+  color: white;
+}
+
+/* Mobile panels */
+.fides-mobile-panels {
+  position: relative;
+  touch-action: pan-y;
+}
+
+.fides-mobile-panel {
+  display: none;
+  background: var(--fides-bg-secondary);
+  border-radius: var(--fides-radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.fides-mobile-panel.active {
+  display: block;
+  animation: fides-fade-in 0.3s ease;
+}
+
+@keyframes fides-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile profile header */
+.fides-mobile-profile-header {
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--fides-border);
+}
+
+.fides-mobile-profile-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fides-text-primary);
+}
+
+.fides-mobile-spec-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--fides-accent);
+  text-decoration: none;
+  border: 1px solid var(--fides-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.fides-mobile-spec-link:hover {
+  color: var(--fides-accent-hover);
+  border-color: var(--fides-accent);
+  background: rgba(0, 119, 204, 0.05);
+}
+
+.fides-mobile-spec-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Mobile sections */
+.fides-mobile-section {
+  margin-bottom: 1.5rem;
+}
+
+.fides-mobile-section:last-child {
+  margin-bottom: 0;
+}
+
+.fides-mobile-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fides-accent);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--fides-border);
+}
+
+.fides-mobile-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Mobile capability rows */
+.fides-mobile-capability {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--fides-border);
+}
+
+.fides-mobile-capability:last-child {
+  border-bottom: none;
+}
+
+.fides-mobile-cap-label {
+  font-size: 0.875rem;
+  color: var(--fides-text-secondary);
+  font-weight: 500;
+  flex: 1;
+}
+
+.fides-mobile-cap-value {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: right;
+  margin-left: 1rem;
+}
+
+/* Mobile capability value colors */
+.fides-mobile-cap-value.fides-cell-supported {
+  color: var(--fides-success);
+}
+
+.fides-mobile-cap-value.fides-cell-not-supported {
+  color: var(--fides-error);
+}
+
+/* ==========================================================================
+   TOOLTIPS
+   ========================================================================== */
+
+.fides-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.625rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  max-width: 280px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.fides-tooltip.visible {
+  opacity: 1;
+}
+
+.fides-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .fides-interop-matrix {
+    padding: 1.5rem;
+  }
+  
+  .fides-section-title-cell {
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
+  }
+  
+  .fides-section-profile-header {
+    font-size: 0.875rem;
+    width: 140px;
+    padding: 0.875rem 0.75rem;
+  }
+  
+  .fides-matrix-profile-header {
+    font-size: 0.9375rem;
+    min-width: 120px;
+  }
+
+  .fides-matrix-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .fides-profile-selector {
+    width: 100%;
+  }
+
+  .fides-profile-selector-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fides-selector-actions {
+    border-left: none;
+    border-top: 1px solid var(--fides-border);
+    padding-left: 0;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .fides-profile-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .fides-profile-link svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fides-interop-matrix {
+    padding: 1rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .fides-interop-matrix {
+    padding: 1rem 0.5rem;
+  }
+
+  .fides-mobile-panel {
+    padding: 1rem;
+  }
+
+  .fides-mobile-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ==========================================================================
+   DARK THEME ADJUSTMENTS
+   ========================================================================== */
+
+.fides-interop-matrix[data-theme="dark"] .fides-matrix-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-section-header-row,
+.fides-interop-matrix[data-theme="dark"] .fides-section-title-cell,
+.fides-interop-matrix[data-theme="dark"] .fides-section-profile-header {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-icon-check {
+  color: #22c55e;
+}
+
+.fides-interop-matrix[data-theme="dark"] .fides-icon-cross {
+  color: #ef4444;
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  .fides-interop-matrix {
+    background: white;
+    padding: 0;
+  }
+
+  .fides-matrix-mobile {
+    display: none;
+  }
+
+  .fides-matrix-desktop {
+    display: block;
+    overflow: visible;
+  }
+
+  .fides-matrix-capability-header,
+  .fides-matrix-capability-cell {
+    position: static;
+    box-shadow: none;
+  }
+
+  .fides-tooltip {
+    display: none;
+  }
+}
