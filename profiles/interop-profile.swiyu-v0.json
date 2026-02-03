@@ -8,7 +8,7 @@
     "status": "draft",
     "specUrl": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/",
     "publisher": "swiyu (Swiss e-ID program)",
-    "updated": "2026-02-02T19:01:00Z",
+    "updated": "2026-02-02T19:02:00Z",
     "notes": "Mapped to the swiyu Interoperability Profile page. OID4VCI and OID4VP draft numbers and DID method names reflect the profile's stated mappings; where the profile uses DID:TDW terminology, this is mapped to didWebvh in the FIDES capability set."
   },
   "capabilities": {
