@@ -50,7 +50,7 @@
         "supported": false
       },
       "ietfTokenStatusList": {
-        "supported": false
+        "supported": true
       }
     },
     "identifiers": {
@@ -64,8 +64,7 @@
         "supported": true
       },
       "httpsIss": {
-        "supported": false,
-        "note": "Issuer identified by DID:Web (DID-first)."
+        "supported": false
       },
       "openidClientId": {
         "supported": false,
@@ -93,8 +92,7 @@
     },
     "signatureAlgorithm": {
       "ecdsaEs256": {
-        "supported": true,
-        "note": "ES256 baseline"
+        "supported": true
       }
     }
   }
