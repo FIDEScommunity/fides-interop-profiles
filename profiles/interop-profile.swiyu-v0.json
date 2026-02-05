@@ -24,66 +24,52 @@
     "remotePresentationProtocol": {
       "oid4vp": {
         "supported": true,
-        "version": "draft-20",
-        "note": "Uses OpenID4VP draft-20 mapping; presentation for vc+sd-jwt."
+        "version": "draft-20"
       },
       "iso18013_7": {
-        "supported": false,
-        "note": "Other presentation transports (e.g., offline/BLE) are out of scope for this profile."
+        "supported": false
       }
     },
     "credentialFormat": {
       "vcdm20": {
-        "supported": false,
-        "note": "Profile focuses on SD-JWT VC (JWT/JOSE). It does not profile W3C VCDM 2.0 with Data Integrity proofs."
+        "supported": false
       },
       "sdJwtVc": {
-        "supported": true,
-        "note": "SD-JWT VC is the profiled credential format (OID4VCI/OID4VP format identifier: vc+sd-jwt)."
+        "supported": true
       },
       "isoMdoc": {
-        "supported": false,
-        "note": "ISO mdoc is not included in the Public Beta interop profile."
+        "supported": false
       }
     },
     "credentialStatus": {
       "jwtValidity": {
-        "supported": true,
-        "note": "JWT validity fields (e.g., exp/iat) are used/supported in profiled flows."
+        "supported": true
       },
       "pkiCertValidity": {
-        "supported": false,
-        "note": "No PKI certificate validity model is specified for credential status."
+        "supported": false
       },
       "ietfTokenStatusList": {
-        "supported": true,
-        "note": "IETF Token Status List is used/supported for SD-JWT VC status."
+        "supported": true
       }
     },
     "identifiers": {
       "didWeb": {
-        "supported": false,
-        "note": "Profile uses DID:TDW (mapped here to didWebvh), not did:web. | Verifier identification is DID:TDW (mapped here to didWebvh), not did:web."
+        "supported": false
       },
       "didWebvh": {
-        "supported": true,
-        "note": "Profile uses DID:TDW terminology (mapped to did:webvh in this capability set) for issuer identity. | Profile uses DID:TDW terminology (mapped to did:webvh) for verifier identity."
+        "supported": true
       },
       "didJwk": {
-        "supported": false,
-        "note": "did:jwk is used for wallet proof key references (see holder binding), not as issuer identifier. | did:jwk is used for holder key references rather than verifier identifiers."
+        "supported": true
       },
       "httpsIss": {
-        "supported": false,
-        "note": "Issuer identification is DID-based in the profile rather than https issuer identifiers."
+        "supported": false
       },
       "openidClientId": {
-        "supported": true,
-        "note": "OID4VP client_id / client_id_scheme mechanisms are used as profiled."
+        "supported": true
       },
       "x509Certificate": {
-        "supported": false,
-        "note": "No X.509 document signer identifier scheme is specified. | No X.509 reader certificate mechanism is profiled."
+        "supported": false
       }
     },
     "keyBinding": {
@@ -98,18 +84,15 @@
     },
     "signatureScheme": {
       "joseJws": {
-        "supported": true,
-        "note": "JWT/JOSE signing is used for SD-JWT VC and proof JWTs."
+        "supported": true
       },
       "cose": {
-        "supported": false,
-        "note": "COSE is not in scope of this profile."
+        "supported": false
       }
     },
     "signatureAlgorithm": {
       "ecdsaEs256": {
-        "supported": true,
-        "note": "ES256 (P-256) is profiled."
+        "supported": true
       }
     }
   }
