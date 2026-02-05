@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-05T19:21:36.356Z",
+  "generatedAt": "2026-02-05T19:24:20.614Z",
   "profiles": [
     {
       "schemaVersion": "v2",
@@ -53,7 +53,7 @@
             "supported": false
           },
           "ietfTokenStatusList": {
-            "supported": false
+            "supported": true
           }
         },
         "identifiers": {
@@ -67,8 +67,7 @@
             "supported": true
           },
           "httpsIss": {
-            "supported": false,
-            "note": "Issuer identified by DID:Web (DID-first)."
+            "supported": false
           },
           "openidClientId": {
             "supported": false,
@@ -96,8 +95,7 @@
         },
         "signatureAlgorithm": {
           "ecdsaEs256": {
-            "supported": true,
-            "note": "ES256 baseline"
+            "supported": true
           }
         }
       }
