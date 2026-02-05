@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-05T16:54:22.868Z",
+  "generatedAt": "2026-02-05T18:54:26.210Z",
   "profiles": [
     {
       "schemaVersion": "v2",
@@ -328,12 +328,10 @@
         "issuanceProtocol": {
           "oid4vci": {
             "supported": true,
-            "version": "draft-13",
-            "note": "Uses OpenID4VCI draft-13 mapping; supports issuance for vc+sd-jwt (SD-JWT VC)."
+            "version": "draft-13"
           },
           "iso18013_5": {
-            "supported": false,
-            "note": "No other issuance protocols profiled for Public Beta."
+            "supported": false
           }
         },
         "remotePresentationProtocol": {
