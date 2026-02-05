@@ -1,6 +1,6 @@
 {
   "$comment": "This is a template file. Copy it and rename to: interop-profile.<your-profile-id>.json",
-  "schemaVersion": "v1",
+  "schemaVersion": "v2",
   "profile": {
     "id": "example-v1",
     "name": "Example Profile Full Name",
@@ -19,137 +19,100 @@
         "version": "draft-13",
         "note": "Optional note about OID4VCI support"
       },
-      "other": {
-        "supported": false
+      "iso18013_5": {
+        "supported": true,
+        "note": "Optional note about ISO 18013-5 support"
       }
     },
-    "presentationProtocol": {
+    "remotePresentationProtocol": {
       "oid4vp": {
         "supported": true,
-        "version": "v1.0"
+        "version": "v1.0",
+        "note": "Optional note about OID4VP support"
       },
-      "other": {
-        "supported": false
+      "iso18013_7": {
+        "supported": true,
+        "note": "Optional note about ISO 18013-7 support"
       }
     },
     "credentialFormat": {
+      "vcdm20": {
+        "supported": false,
+        "note": "Optional note about VCDM 2.0"
+      },
       "sdJwtVc": {
-        "supported": true
+        "supported": true,
+        "note": "Optional note about SD-JWT VC support"
       },
       "isoMdoc": {
         "supported": true,
-        "note": "Limited support for specific document types"
-      },
-      "vcdm20": {
-        "supported": false
-      }
-    },
-    "credentialIssuerIdentifiers": {
-      "httpsIss": {
-        "supported": true
-      },
-      "x509DocumentSigner": {
-        "supported": false
-      },
-      "didWeb": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false
-      },
-      "didJwk": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
-      }
-    },
-    "credentialHolderBinding": {
-      "cnfKeyBinding": {
-        "supported": true
-      },
-      "deviceBound": {
-        "supported": false
-      },
-      "didWebOrganisations": {
-        "supported": true
-      },
-      "didJwkPersons": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
-      }
-    },
-    "verifierAuthentication": {
-      "openidClientIdAuth": {
-        "supported": true
-      },
-      "x509ReaderCertificate": {
-        "supported": false
-      },
-      "didWeb": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false
-      },
-      "didJwk": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
+        "note": "Optional note about ISO mDL support"
       }
     },
     "credentialStatus": {
       "jwtValidity": {
-        "supported": true
+        "supported": true,
+        "note": "Optional note about JWT validity (exp, nbf)"
       },
       "pkiCertValidity": {
-        "supported": false
+        "supported": false,
+        "note": "Optional note about PKI certificate validity"
       },
       "ietfTokenStatusList": {
-        "supported": true
+        "supported": true,
+        "note": "Optional note about IETF Token Status List"
+      }
+    },
+    "identifiers": {
+      "didWeb": {
+        "supported": true,
+        "note": "Optional note about did:web support"
       },
-      "w3cStatusList2021": {
-        "supported": false
+      "didWebvh": {
+        "supported": false,
+        "note": "Optional note about did:webvh"
       },
-      "w3cBitstringStatusList": {
-        "supported": false
+      "didJwk": {
+        "supported": false,
+        "note": "Optional note about did:jwk"
       },
-      "other": {
-        "supported": false
+      "httpsIss": {
+        "supported": true,
+        "note": "Optional note about HTTPS issuer identifiers"
+      },
+      "openidClientId": {
+        "supported": true,
+        "note": "Optional note about OpenID client_id authentication"
+      },
+      "x509Certificate": {
+        "supported": false,
+        "note": "Optional note about X.509 certificate support"
+      }
+    },
+    "keyBinding": {
+      "keyBindingPop": {
+        "supported": true,
+        "note": "Optional note about key binding via proof-of-possession"
+      },
+      "hardwareDeviceBinding": {
+        "supported": false,
+        "note": "Optional note about hardware device binding"
       }
     },
     "signatureScheme": {
       "joseJws": {
-        "supported": true
+        "supported": true,
+        "note": "Optional note about JOSE JWS support"
       },
       "cose": {
-        "supported": false
-      },
-      "w3cDataIntegrity": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
+        "supported": false,
+        "note": "Optional note about COSE support"
       }
     },
-    "signatureAlgorithms": {
+    "signatureAlgorithm": {
       "ecdsaEs256": {
-        "supported": true
-      },
-      "eddsa": {
-        "supported": true
-      },
-      "rsa": {
-        "supported": false
-      },
-      "pqOther": {
-        "supported": false
+        "supported": true,
+        "note": "Optional note about ECDSA ES256 algorithm"
       }
     }
   }

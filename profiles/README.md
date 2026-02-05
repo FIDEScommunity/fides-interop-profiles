@@ -1,67 +1,107 @@
 # Interop Profiles
 
-Deze folder bevat alle interoperability profile definities in JSON formaat.
+This folder contains all interoperability profile definitions in JSON format.
 
 ## Naming Convention
 
-Bestanden moeten de volgende naming convention volgen:
+Files must follow this naming convention:
 
 ```
 interop-profile.<profile-id>.json
 ```
 
-Waarbij `<profile-id>` het format heeft: `<afkorting>-<versie>`
+Where `<profile-id>` has the format: `<abbreviation>-<version>`
 
-## Voorbeelden
+## Examples
 
-- `interop-profile.diip-v4.json` - DIIP versie 4
-- `interop-profile.diip-v5.json` - DIIP versie 5
-- `interop-profile.haip-v1.json` - HAIP versie 1
-- `interop-profile.ewc-v3.json` - EWC versie 3
-- `interop-profile.swiyu-v1.json` - Swiyu versie 1
+- `interop-profile.diip-v4.json` - DIIP version 4
+- `interop-profile.diip-v5.json` - DIIP version 5
+- `interop-profile.haip-v1.json` - HAIP version 1
+- `interop-profile.ewc-v3.json` - EWC version 3
+- `interop-profile.swiyu-v0.json` - Swiyu version 0
 
 ## Profile ID Format
 
-Het `id` veld in de JSON moet overeenkomen met de `<profile-id>` in de bestandsnaam:
+The `id` field in the JSON must match the `<profile-id>` in the filename:
 
 ```json
 {
+  "schemaVersion": "v2",
   "profile": {
     "id": "diip-v5",
-    "name": "DIIP",
+    "name": "Digital Identity Interoperability Profile",
+    "shortName": "DIIP v5",
     "version": "v5",
     ...
   }
 }
 ```
 
-## Schema Validatie
+## Schema Validation
 
-Alle profiles worden automatisch gevalideerd tegen het JSON Schema in `schemas/interop-profile.schema.json`.
+All profiles are automatically validated against the JSON Schema in `schemas/interop-profile.schema.json`.
 
-Valideer handmatig met:
+Validate manually with:
 
 ```bash
 npm run validate
 ```
 
-## Nieuw Profile Toevoegen
+## Adding a New Profile
 
-1. Maak een nieuw bestand met de juiste naming convention
-2. Vul alle verplichte velden in volgens het schema
-3. Run `npm run validate` om te controleren
-4. Run `npm run crawl` om `data/aggregated.json` te updaten
+1. Copy the template:
+   ```bash
+   cp profiles/EXAMPLE.interop-profile.template.json profiles/interop-profile.<your-id>.json
+   ```
 
-## Verplichte Velden
+2. Fill in all required fields according to the v2 schema
 
-Zie `schemas/interop-profile.schema.json` voor de volledige schema definitie. De belangrijkste secties:
+3. Run validation:
+   ```bash
+   npm run validate
+   ```
 
-- `profile`: Metadata (id, name, version, status, specUrl, publisher)
-- `capabilities`: Alle capability groepen met `supported` boolean en optionele `note`/`version` velden
+4. Generate aggregated data:
+   ```bash
+   npm run build
+   ```
+
+## Required Fields (v2)
+
+See `schemas/interop-profile.schema.json` for the complete schema definition. The main capability groups in v2:
+
+- `issuanceProtocol`: Credential issuance protocols (OID4VCI, ISO 18013-5)
+- `remotePresentationProtocol`: Credential presentation protocols (OID4VP, ISO 18013-7)
+- `credentialFormat`: Supported credential formats (VCDM 2.0, SD-JWT VC, ISO mdoc)
+- `credentialStatus`: Status checking mechanisms
+- `identifiers`: Entity identification methods (DIDs, HTTPS ISS, X.509, OpenID Client ID)
+- `keyBinding`: Holder key binding mechanisms
+- `signatureScheme`: Digital signature schemes (JOSE JWS, COSE)
+- `signatureAlgorithm`: Cryptographic algorithms (ECDSA ES256)
 
 ## Support Status
 
-- `supported: true` - De capability wordt ondersteund
-- `supported: false` - De capability wordt niet ondersteund
-- `note: "..."` - Extra informatie over de support (optioneel)
-- `version: "..."` - Specifieke versie voor protocols zoals OID4VCI (optioneel)
+- `supported: true` - The capability is supported
+- `supported: false` - The capability is not supported
+- `note: "..."` - Additional information about support (optional)
+- `version: "..."` - Specific version for protocols like OID4VCI/OID4VP (optional)
+
+## v2 Schema Changes
+
+v2 simplifies and reorganizes capability groups to align with FIDES Interop Profile categories:
+
+**Renamed:**
+- `presentationProtocol` → `remotePresentationProtocol`
+- `signatureAlgorithms` → `signatureAlgorithm` (singular)
+
+**Merged:**
+- `credentialIssuerIdentifiers` + `verifierAuthentication` → `identifiers`
+
+**Simplified:**
+- `credentialHolderBinding` → `keyBinding` (2 fields instead of 6)
+- `credentialStatus` (3 fields instead of 6)
+- `signatureScheme` (2 fields instead of 4)
+- `signatureAlgorithm` (1 field instead of 4)
+
+**Added:**
+- `iso18013_5` and `iso18013_7` protocol support

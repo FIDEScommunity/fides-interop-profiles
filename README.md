@@ -5,8 +5,8 @@ An interactive matrix view for comparing interoperability profiles like DIIP, HA
 ## Overview
 
 This repository contains:
-- **JSON Schema** for interop profile definitions
-- **Profile Data** in machine-readable format
+- **JSON Schema v2** for interop profile definitions
+- **Profile Data** in machine-readable format (v2 schema)
 - **Crawler Script** for aggregating profile data
 - **WordPress Plugin** for matrix display on websites
 

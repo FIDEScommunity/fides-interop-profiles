@@ -13,60 +13,24 @@
       label: 'Issuance Protocol',
       items: [
         { key: 'oid4vci', label: 'OID4VCI', hasVersion: true },
-        { key: 'other', label: 'Other' }
+        { key: 'iso18013_5', label: 'ISO 18013-5' }
       ]
     },
     {
-      key: 'presentationProtocol',
-      label: 'Presentation Protocol',
+      key: 'remotePresentationProtocol',
+      label: 'Remote Presentation Protocol',
       items: [
         { key: 'oid4vp', label: 'OID4VP', hasVersion: true },
-        { key: 'other', label: 'Other' }
+        { key: 'iso18013_7', label: 'ISO 18013-7' }
       ]
     },
     {
       key: 'credentialFormat',
       label: 'Credential Format',
       items: [
+        { key: 'vcdm20', label: 'VCDM 2.0' },
         { key: 'sdJwtVc', label: 'SD-JWT VC' },
-        { key: 'isoMdoc', label: 'ISO mDL' },
-        { key: 'vcdm20', label: 'VCDM 2.0' }
-      ]
-    },
-    {
-      key: 'credentialIssuerIdentifiers',
-      label: 'Issuer Identifiers',
-      items: [
-        { key: 'httpsIss', label: 'HTTPS ISS' },
-        { key: 'x509DocumentSigner', label: 'X.509 Document Signer' },
-        { key: 'didWeb', label: 'did:web' },
-        { key: 'didWebvh', label: 'did:webvh' },
-        { key: 'didJwk', label: 'did:jwk' },
-        { key: 'other', label: 'Other' }
-      ]
-    },
-    {
-      key: 'credentialHolderBinding',
-      label: 'Holder Binding',
-      items: [
-        { key: 'cnfKeyBinding', label: 'CNF Key Binding' },
-        { key: 'deviceBound', label: 'Device Bound' },
-        { key: 'didWebOrganisations', label: 'did:web (Orgs)' },
-        { key: 'didJwkPersons', label: 'did:jwk (Persons)' },
-        { key: 'didWebvh', label: 'did:webvh' },
-        { key: 'other', label: 'Other' }
-      ]
-    },
-    {
-      key: 'verifierAuthentication',
-      label: 'Verifier Authentication',
-      items: [
-        { key: 'openidClientIdAuth', label: 'OpenID Client ID Auth' },
-        { key: 'x509ReaderCertificate', label: 'X.509 Reader Cert' },
-        { key: 'didWeb', label: 'did:web' },
-        { key: 'didWebvh', label: 'did:webvh' },
-        { key: 'didJwk', label: 'did:jwk' },
-        { key: 'other', label: 'Other' }
+        { key: 'isoMdoc', label: 'ISO mdoc' }
       ]
     },
     {
@@ -75,10 +39,19 @@
       items: [
         { key: 'jwtValidity', label: 'JWT Validity' },
         { key: 'pkiCertValidity', label: 'PKI Cert Validity' },
-        { key: 'ietfTokenStatusList', label: 'IETF Token Status List' },
-        { key: 'w3cStatusList2021', label: 'W3C Status List 2021' },
-        { key: 'w3cBitstringStatusList', label: 'W3C Bitstring Status List' },
-        { key: 'other', label: 'Other' }
+        { key: 'ietfTokenStatusList', label: 'IETF Token Status List' }
+      ]
+    },
+    {
+      key: 'identifiers',
+      label: 'Entity Identification',
+      items: [
+        { key: 'didWeb', label: 'did:web' },
+        { key: 'didWebvh', label: 'did:webvh' },
+        { key: 'didJwk', label: 'did:jwk' },
+        { key: 'httpsIss', label: 'HTTPS ISS' },
+        { key: 'openidClientId', label: 'OpenID Client ID' },
+        { key: 'x509Certificate', label: 'X.509 Certificate' }
       ]
     },
     {
@@ -86,19 +59,14 @@
       label: 'Signature Scheme',
       items: [
         { key: 'joseJws', label: 'JOSE JWS' },
-        { key: 'cose', label: 'COSE' },
-        { key: 'w3cDataIntegrity', label: 'W3C Data Integrity' },
-        { key: 'other', label: 'Other' }
+        { key: 'cose', label: 'COSE' }
       ]
     },
     {
-      key: 'signatureAlgorithms',
-      label: 'Signature Algorithms',
+      key: 'signatureAlgorithm',
+      label: 'Signature Algorithm',
       items: [
-        { key: 'ecdsaEs256', label: 'ECDSA ES256' },
-        { key: 'eddsa', label: 'EdDSA' },
-        { key: 'rsa', label: 'RSA' },
-        { key: 'pqOther', label: 'Post-Quantum / Other' }
+        { key: 'ecdsaEs256', label: 'ECDSA ES256' }
       ]
     }
   ];

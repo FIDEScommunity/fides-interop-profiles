@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fides.community/schemas/interop-profiles/v1/interop-profile.schema.json",
+  "$id": "https://fides.community/schemas/interop-profiles/v2/interop-profile.schema.json",
   "title": "Interop Profile",
-  "description": "Machine-readable description of an interoperability profile (e.g., DIIP, HAIP) and its key capability choices used for matrix-style comparisons.",
+  "description": "Machine-readable description of an interoperability profile (e.g., DIIP, HAIP, SWIYU) and its key capability choices used for matrix-style comparisons. v2 aligns with the FIDES Interop Profile category set: Issuance Protocol, Remote Presentation Protocol, Credential Format, Credential Status, Entity Identification, Key Binding, Signature Scheme, Signature Algorithm.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -13,7 +13,7 @@
   "properties": {
     "schemaVersion": {
       "type": "string",
-      "const": "v1"
+      "const": "v2"
     },
     "profile": {
       "type": "object",
@@ -72,42 +72,43 @@
       "additionalProperties": false,
       "required": [
         "issuanceProtocol",
-        "presentationProtocol",
+        "remotePresentationProtocol",
         "credentialFormat",
-        "credentialIssuerIdentifiers",
-        "credentialHolderBinding",
-        "verifierAuthentication",
         "credentialStatus",
+        "identifiers",
+        "keyBinding",
         "signatureScheme",
-        "signatureAlgorithms"
+        "signatureAlgorithm"
       ],
       "properties": {
         "issuanceProtocol": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "oid4vci"
+            "oid4vci",
+            "iso18013_5"
           ],
           "properties": {
             "oid4vci": {
               "$ref": "#/$defs/capabilityVersioned"
             },
-            "other": {
+            "iso18013_5": {
               "$ref": "#/$defs/capability"
             }
           }
         },
-        "presentationProtocol": {
+        "remotePresentationProtocol": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "oid4vp"
+            "oid4vp",
+            "iso18013_7"
           ],
           "properties": {
             "oid4vp": {
               "$ref": "#/$defs/capabilityVersioned"
             },
-            "other": {
+            "iso18013_7": {
               "$ref": "#/$defs/capability"
             }
           }
@@ -116,114 +117,18 @@
           "type": "object",
           "additionalProperties": false,
           "required": [
+            "vcdm20",
             "sdJwtVc",
-            "isoMdoc",
-            "vcdm20"
+            "isoMdoc"
           ],
           "properties": {
+            "vcdm20": {
+              "$ref": "#/$defs/capability"
+            },
             "sdJwtVc": {
               "$ref": "#/$defs/capability"
             },
             "isoMdoc": {
-              "$ref": "#/$defs/capability"
-            },
-            "vcdm20": {
-              "$ref": "#/$defs/capability"
-            }
-          }
-        },
-        "credentialIssuerIdentifiers": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "httpsIss",
-            "x509DocumentSigner",
-            "didWeb",
-            "didWebvh",
-            "didJwk",
-            "other"
-          ],
-          "properties": {
-            "httpsIss": {
-              "$ref": "#/$defs/capability"
-            },
-            "x509DocumentSigner": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWeb": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWebvh": {
-              "$ref": "#/$defs/capability"
-            },
-            "didJwk": {
-              "$ref": "#/$defs/capability"
-            },
-            "other": {
-              "$ref": "#/$defs/capability"
-            }
-          }
-        },
-        "credentialHolderBinding": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "cnfKeyBinding",
-            "deviceBound",
-            "didWebOrganisations",
-            "didJwkPersons",
-            "didWebvh",
-            "other"
-          ],
-          "properties": {
-            "cnfKeyBinding": {
-              "$ref": "#/$defs/capability"
-            },
-            "deviceBound": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWebOrganisations": {
-              "$ref": "#/$defs/capability"
-            },
-            "didJwkPersons": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWebvh": {
-              "$ref": "#/$defs/capability"
-            },
-            "other": {
-              "$ref": "#/$defs/capability"
-            }
-          }
-        },
-        "verifierAuthentication": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "openidClientIdAuth",
-            "x509ReaderCertificate",
-            "didWeb",
-            "didWebvh",
-            "didJwk",
-            "other"
-          ],
-          "properties": {
-            "openidClientIdAuth": {
-              "$ref": "#/$defs/capability"
-            },
-            "x509ReaderCertificate": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWeb": {
-              "$ref": "#/$defs/capability"
-            },
-            "didWebvh": {
-              "$ref": "#/$defs/capability"
-            },
-            "didJwk": {
-              "$ref": "#/$defs/capability"
-            },
-            "other": {
               "$ref": "#/$defs/capability"
             }
           }
@@ -234,10 +139,7 @@
           "required": [
             "jwtValidity",
             "pkiCertValidity",
-            "ietfTokenStatusList",
-            "w3cStatusList2021",
-            "w3cBitstringStatusList",
-            "other"
+            "ietfTokenStatusList"
           ],
           "properties": {
             "jwtValidity": {
@@ -248,14 +150,53 @@
             },
             "ietfTokenStatusList": {
               "$ref": "#/$defs/capability"
-            },
-            "w3cStatusList2021": {
+            }
+          }
+        },
+        "identifiers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "didWeb",
+            "didWebvh",
+            "didJwk",
+            "httpsIss",
+            "openidClientId",
+            "x509Certificate"
+          ],
+          "properties": {
+            "didWeb": {
               "$ref": "#/$defs/capability"
             },
-            "w3cBitstringStatusList": {
+            "didWebvh": {
               "$ref": "#/$defs/capability"
             },
-            "other": {
+            "didJwk": {
+              "$ref": "#/$defs/capability"
+            },
+            "httpsIss": {
+              "$ref": "#/$defs/capability"
+            },
+            "openidClientId": {
+              "$ref": "#/$defs/capability"
+            },
+            "x509Certificate": {
+              "$ref": "#/$defs/capability"
+            }
+          }
+        },
+        "keyBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "keyBindingPop",
+            "hardwareDeviceBinding"
+          ],
+          "properties": {
+            "keyBindingPop": {
+              "$ref": "#/$defs/capability"
+            },
+            "hardwareDeviceBinding": {
               "$ref": "#/$defs/capability"
             }
           }
@@ -265,9 +206,7 @@
           "additionalProperties": false,
           "required": [
             "joseJws",
-            "cose",
-            "w3cDataIntegrity",
-            "other"
+            "cose"
           ],
           "properties": {
             "joseJws": {
@@ -275,35 +214,17 @@
             },
             "cose": {
               "$ref": "#/$defs/capability"
-            },
-            "w3cDataIntegrity": {
-              "$ref": "#/$defs/capability"
-            },
-            "other": {
-              "$ref": "#/$defs/capability"
             }
           }
         },
-        "signatureAlgorithms": {
+        "signatureAlgorithm": {
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "ecdsaEs256",
-            "eddsa",
-            "rsa",
-            "pqOther"
+            "ecdsaEs256"
           ],
           "properties": {
             "ecdsaEs256": {
-              "$ref": "#/$defs/capability"
-            },
-            "eddsa": {
-              "$ref": "#/$defs/capability"
-            },
-            "rsa": {
-              "$ref": "#/$defs/capability"
-            },
-            "pqOther": {
               "$ref": "#/$defs/capability"
             }
           }

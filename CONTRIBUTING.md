@@ -33,15 +33,17 @@ cp profiles/EXAMPLE.interop-profile.template.json profiles/interop-profile.<your
 
 ```json
 {
+  "schemaVersion": "v2",              // Must be "v2"
   "profile": {
-    "id": "your-profile-v1",        // Must match filename
-    "name": "Your Profile Name",     // Display name
-    "version": "v1",                 // Version string
-    "status": "stable",              // stable | draft | deprecated
-    "specUrl": "https://...",        // Link to specification
-    "publisher": "Organization",     // Optional
-    "updated": "2026-01-30",        // Optional (ISO 8601)
-    "notes": "Additional info"       // Optional
+    "id": "your-profile-v1",          // Must match filename
+    "name": "Your Profile Name",      // Full display name
+    "shortName": "Your Profile v1",   // Short display name for matrix
+    "version": "v1",                  // Version string
+    "status": "stable",               // stable | draft | deprecated
+    "specUrl": "https://...",         // Link to specification
+    "publisher": "Organization",      // Optional
+    "updated": "2026-01-30T12:00:00Z", // Optional (ISO 8601 date-time)
+    "notes": "Additional info"        // Optional
   }
 }
 ```
@@ -141,68 +143,48 @@ git commit -m "chore: update <Profile Name> profile"
 git push origin update-profile-<profile-id>
 ```
 
-## Capability Reference
+## Capability Reference (Schema v2)
 
 ### Required Capability Groups
 
-Every profile must include all 9 capability groups:
+Every profile must include all 8 capability groups:
 
 1. **issuanceProtocol**
    - `oid4vci` (has `version` field)
-   - `other`
+   - `iso18013_5`
 
-2. **presentationProtocol**
+2. **remotePresentationProtocol**
    - `oid4vp` (has `version` field)
-   - `other`
+   - `iso18013_7`
 
 3. **credentialFormat**
+   - `vcdm20`
    - `sdJwtVc`
    - `isoMdoc`
-   - `vcdm20`
 
-4. **credentialIssuerIdentifiers**
-   - `httpsIss`
-   - `x509DocumentSigner`
-   - `didWeb`
-   - `didWebvh`
-   - `didJwk`
-   - `other`
-
-5. **credentialHolderBinding**
-   - `cnfKeyBinding`
-   - `deviceBound`
-   - `didWebOrganisations`
-   - `didJwkPersons`
-   - `didWebvh`
-   - `other`
-
-6. **verifierAuthentication**
-   - `openidClientIdAuth`
-   - `x509ReaderCertificate`
-   - `didWeb`
-   - `didWebvh`
-   - `didJwk`
-   - `other`
-
-7. **credentialStatus**
+4. **credentialStatus**
    - `jwtValidity`
    - `pkiCertValidity`
    - `ietfTokenStatusList`
-   - `w3cStatusList2021`
-   - `w3cBitstringStatusList`
-   - `other`
 
-8. **signatureScheme**
+5. **identifiers** (Entity Identification)
+   - `didWeb`
+   - `didWebvh`
+   - `didJwk`
+   - `httpsIss`
+   - `openidClientId`
+   - `x509Certificate`
+
+6. **keyBinding**
+   - `keyBindingPop`
+   - `hardwareDeviceBinding`
+
+7. **signatureScheme**
    - `joseJws`
    - `cose`
-   - `w3cDataIntegrity`
-   - `other`
 
-9. **signatureAlgorithms**
+8. **signatureAlgorithm** (singular)
    - `ecdsaEs256`
-   - `eddsa`
-   - `rsa`
-   - `pqOther`
 
 ## Best Practices
 

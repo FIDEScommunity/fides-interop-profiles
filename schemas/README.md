@@ -1,22 +1,35 @@
 # Interop Profile JSON Schema
 
-Dit schema definieert de structuur voor interoperability profile definities.
+This schema defines the structure for interoperability profile definitions.
 
-## Schema Locatie
+## Schema Location
 
 - **Schema**: `interop-profile.schema.json`
-- **Schema ID**: `https://fides.community/schemas/interop-profiles/v1/interop-profile.schema.json`
-- **Schema Version**: v1
+- **Schema ID**: `https://fides.community/schemas/interop-profiles/v2/interop-profile.schema.json`
+- **Schema Version**: v2
 
-## Structuur
+## Schema v2 Overview
+
+v2 aligns with the FIDES Interop Profile category set, simplifying and reorganizing capability groups:
+- Issuance Protocol
+- Remote Presentation Protocol (renamed from Presentation Protocol)
+- Credential Format
+- Credential Status (simplified)
+- Entity Identification (merged from Issuer Identifiers + Verifier Authentication)
+- Key Binding (simplified from Holder Binding)
+- Signature Scheme (simplified)
+- Signature Algorithm (singular, simplified)
+
+## Structure
 
 ### Profile Metadata
 
 ```json
 {
   "profile": {
-    "id": "diip-v5",           // Slug format: afkorting-versie
+    "id": "diip-v5",           // Slug format: abbreviation-version
     "name": "DIIP",             // Display name
+    "shortName": "DIIP v5",     // Short display name for matrix
     "version": "v5",            // Version string
     "status": "stable",         // stable | draft | deprecated
     "specUrl": "https://...",   // Link to specification
@@ -29,7 +42,7 @@ Dit schema definieert de structuur voor interoperability profile definities.
 
 ### Capabilities
 
-Alle capability groepen volgen hetzelfde patroon:
+All capability groups follow the same pattern:
 
 ```json
 {
@@ -45,117 +58,162 @@ Alle capability groepen volgen hetzelfde patroon:
 }
 ```
 
-## Capability Groepen
+## Capability Groups
 
 ### 1. Issuance Protocol
 
-- `oid4vci` - OpenID for Verifiable Credential Issuance (heeft `version` field)
-- `other` - Andere issuance protocols
+- `oid4vci` - OpenID for Verifiable Credential Issuance (has `version` field)
+- `iso18013_5` - ISO/IEC 18013-5 issuance protocol
 
-### 2. Presentation Protocol
+### 2. Remote Presentation Protocol
 
-- `oid4vp` - OpenID for Verifiable Presentations (heeft `version` field)
-- `other` - Andere presentation protocols
+- `oid4vp` - OpenID for Verifiable Presentations (has `version` field)
+- `iso18013_7` - ISO/IEC 18013-7 presentation protocol
 
 ### 3. Credential Format
 
-- `sdJwtVc` - SD-JWT VC format
-- `isoMdoc` - ISO 18013-5 mDL format
 - `vcdm20` - W3C VCDM 2.0 format
+- `sdJwtVc` - SD-JWT VC format
+- `isoMdoc` - ISO mdoc format
 
-### 4. Credential Issuer Identifiers
-
-- `httpsIss` - HTTPS issuer identifiers
-- `x509DocumentSigner` - X.509 certificate-based
-- `didWeb` - did:web method
-- `didWebvh` - did:webvh method
-- `didJwk` - did:jwk method
-- `other` - Andere identifier methods
-
-### 5. Credential Holder Binding
-
-- `cnfKeyBinding` - Confirmation key binding (cnf claim)
-- `deviceBound` - Device-bound credentials
-- `didWebOrganisations` - did:web voor organisaties
-- `didJwkPersons` - did:jwk voor personen
-- `didWebvh` - did:webvh binding
-- `other` - Andere binding methods
-
-### 6. Verifier Authentication
-
-- `openidClientIdAuth` - OpenID client_id authentication
-- `x509ReaderCertificate` - X.509 reader certificates
-- `didWeb` - did:web method
-- `didWebvh` - did:webvh method
-- `didJwk` - did:jwk method
-- `other` - Andere auth methods
-
-### 7. Credential Status
+### 4. Credential Status
 
 - `jwtValidity` - JWT validity period (exp/nbf claims)
 - `pkiCertValidity` - PKI certificate validity
 - `ietfTokenStatusList` - IETF Token Status List
-- `w3cStatusList2021` - W3C Status List 2021
-- `w3cBitstringStatusList` - W3C Bitstring Status List
-- `other` - Andere status mechanisms
 
-### 8. Signature Scheme
+### 5. Entity Identification
+
+Unified identifier support for issuers, holders, and verifiers:
+
+- `didWeb` - did:web method
+- `didWebvh` - did:webvh method
+- `didJwk` - did:jwk method
+- `httpsIss` - HTTPS issuer identifiers
+- `openidClientId` - OpenID client_id authentication
+- `x509Certificate` - X.509 certificate-based identification
+
+### 6. Key Binding
+
+Credential holder binding mechanisms:
+
+- `keyBindingPop` - Key binding via proof-of-possession (e.g., cnf claim)
+- `hardwareDeviceBinding` - Hardware device-bound credentials
+
+### 7. Signature Scheme
 
 - `joseJws` - JOSE JWS (JSON Web Signature)
 - `cose` - COSE (CBOR Object Signing and Encryption)
-- `w3cDataIntegrity` - W3C Data Integrity
-- `other` - Andere signature schemes
 
-### 9. Signature Algorithms
+### 8. Signature Algorithm
 
 - `ecdsaEs256` - ECDSA with P-256 and SHA-256
-- `eddsa` - EdDSA (Ed25519)
-- `rsa` - RSA signatures
-- `pqOther` - Post-quantum or other algorithms
 
-## Voorbeeld
+## Example
 
 ```json
 {
-  "schemaVersion": "v1",
+  "schemaVersion": "v2",
   "profile": {
     "id": "diip-v5",
-    "name": "DIIP",
+    "name": "Digital Identity Interoperability Profile",
+    "shortName": "DIIP v5",
     "version": "v5",
     "status": "stable",
     "specUrl": "https://example.com/diip-v5",
-    "publisher": "JoinUp"
+    "publisher": "FIDES.community"
   },
   "capabilities": {
     "issuanceProtocol": {
       "oid4vci": {
         "supported": true,
-        "version": "draft-13"
+        "version": "v1.0"
       },
-      "other": {
+      "iso18013_5": {
+        "supported": false
+      }
+    },
+    "remotePresentationProtocol": {
+      "oid4vp": {
+        "supported": true,
+        "version": "v1.0"
+      },
+      "iso18013_7": {
         "supported": false
       }
     },
     "credentialFormat": {
+      "vcdm20": {
+        "supported": true
+      },
       "sdJwtVc": {
         "supported": true
       },
       "isoMdoc": {
-        "supported": true,
-        "note": "Limited support for specific document types"
-      },
-      "vcdm20": {
         "supported": false
       }
+    },
+    "credentialStatus": {
+      "jwtValidity": {
+        "supported": true,
+        "note": "exp, nbf"
+      },
+      "pkiCertValidity": {
+        "supported": false
+      },
+      "ietfTokenStatusList": {
+        "supported": true
+      }
+    },
+    "identifiers": {
+      "didWeb": {
+        "supported": true
+      },
+      "didWebvh": {
+        "supported": false
+      },
+      "didJwk": {
+        "supported": false
+      },
+      "httpsIss": {
+        "supported": false
+      },
+      "openidClientId": {
+        "supported": false
+      },
+      "x509Certificate": {
+        "supported": false
+      }
+    },
+    "keyBinding": {
+      "keyBindingPop": {
+        "supported": false
+      },
+      "hardwareDeviceBinding": {
+        "supported": false
+      }
+    },
+    "signatureScheme": {
+      "joseJws": {
+        "supported": true
+      },
+      "cose": {
+        "supported": false
+      }
+    },
+    "signatureAlgorithm": {
+      "ecdsaEs256": {
+        "supported": true,
+        "note": "ES256 baseline"
+      }
     }
-    // ... alle andere capability groepen
   }
 }
 ```
 
-## Validatie
+## Validation
 
-Gebruik AJV of een andere JSON Schema validator om profiles te valideren:
+Use AJV or another JSON Schema validator to validate profiles:
 
 ```bash
 npm run validate
@@ -163,9 +221,20 @@ npm run validate
 
 ## Matrix Display
 
-De matrix view toont:
+The matrix view displays:
 
-- **✓** (groen) wanneer `supported: true`
-- **✗** (grijs) wanneer `supported: false`
-- **⚠** (oranje) wanneer er een `note` field aanwezig is
-- Versie info wordt getoond voor protocols met `version` field
+- **✓** (green) when `supported: true`
+- **✗** (red) when `supported: false`
+- **⚠** (orange) when a `note` field is present
+- Version info is shown for protocols with `version` field
+
+## Migration from v1 to v2
+
+Key changes from v1:
+
+- **presentationProtocol** → **remotePresentationProtocol**
+- **credentialIssuerIdentifiers** + **verifierAuthentication** → **identifiers** (merged)
+- **credentialHolderBinding** → **keyBinding** (simplified)
+- **signatureAlgorithms** → **signatureAlgorithm** (singular)
+- Removed capability groups with minimal usage (w3cStatusList2021, w3cDataIntegrity, etc.)
+- Added ISO 18013-5 and ISO 18013-7 protocol support

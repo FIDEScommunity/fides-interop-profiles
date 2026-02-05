@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-01-30T20:04:46.876Z",
+  "generatedAt": "2026-02-05T16:31:28.015Z",
   "profiles": [
     {
-      "schemaVersion": "v1",
+      "schemaVersion": "v2",
       "profile": {
         "id": "diip-v4",
         "name": "Digital Identity Interoperability Profile",
@@ -20,89 +20,27 @@
             "supported": true,
             "version": "Draft 15"
           },
-          "other": {
+          "iso18013_5": {
             "supported": false
           }
         },
-        "presentationProtocol": {
+        "remotePresentationProtocol": {
           "oid4vp": {
             "supported": true,
             "version": "Draft 28"
           },
-          "other": {
+          "iso18013_7": {
             "supported": false
           }
         },
         "credentialFormat": {
+          "vcdm20": {
+            "supported": true
+          },
           "sdJwtVc": {
             "supported": true
           },
           "isoMdoc": {
-            "supported": false
-          },
-          "vcdm20": {
-            "supported": false
-          }
-        },
-        "credentialIssuerIdentifiers": {
-          "httpsIss": {
-            "supported": false,
-            "note": "Issuer identified by DID:Web (DID-first)."
-          },
-          "x509DocumentSigner": {
-            "supported": false
-          },
-          "didWeb": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "credentialHolderBinding": {
-          "cnfKeyBinding": {
-            "supported": false
-          },
-          "deviceBound": {
-            "supported": false
-          },
-          "didWebOrganisations": {
-            "supported": true
-          },
-          "didJwkPersons": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "verifierAuthentication": {
-          "openidClientIdAuth": {
-            "supported": false,
-            "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
-          },
-          "x509ReaderCertificate": {
-            "supported": false
-          },
-          "didWeb": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
             "supported": false
           }
         },
@@ -116,14 +54,35 @@
           },
           "ietfTokenStatusList": {
             "supported": false
+          }
+        },
+        "identifiers": {
+          "didWeb": {
+            "supported": true
           },
-          "w3cStatusList2021": {
+          "didWebvh": {
             "supported": false
           },
-          "w3cBitstringStatusList": {
+          "didJwk": {
+            "supported": true
+          },
+          "httpsIss": {
+            "supported": false,
+            "note": "Issuer identified by DID:Web (DID-first)."
+          },
+          "openidClientId": {
+            "supported": false,
+            "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
+          },
+          "x509Certificate": {
+            "supported": false
+          }
+        },
+        "keyBinding": {
+          "keyBindingPop": {
             "supported": false
           },
-          "other": {
+          "hardwareDeviceBinding": {
             "supported": false
           }
         },
@@ -133,33 +92,18 @@
           },
           "cose": {
             "supported": false
-          },
-          "w3cDataIntegrity": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
           }
         },
-        "signatureAlgorithms": {
+        "signatureAlgorithm": {
           "ecdsaEs256": {
             "supported": true,
             "note": "ES256 baseline"
-          },
-          "eddsa": {
-            "supported": false
-          },
-          "rsa": {
-            "supported": false
-          },
-          "pqOther": {
-            "supported": false
           }
         }
       }
     },
     {
-      "schemaVersion": "v1",
+      "schemaVersion": "v2",
       "profile": {
         "id": "diip-v5",
         "name": "Digital Identity Interoperability Profile",
@@ -177,90 +121,27 @@
             "supported": true,
             "version": "v1.0"
           },
-          "other": {
+          "iso18013_5": {
             "supported": false
           }
         },
-        "presentationProtocol": {
+        "remotePresentationProtocol": {
           "oid4vp": {
             "supported": true,
             "version": "v1.0"
           },
-          "other": {
+          "iso18013_7": {
             "supported": false
           }
         },
         "credentialFormat": {
+          "vcdm20": {
+            "supported": true
+          },
           "sdJwtVc": {
             "supported": true
           },
           "isoMdoc": {
-            "supported": false
-          },
-          "vcdm20": {
-            "supported": true
-          }
-        },
-        "credentialIssuerIdentifiers": {
-          "httpsIss": {
-            "supported": false,
-            "note": "Issuer identified by DID:Web (DID-first)."
-          },
-          "x509DocumentSigner": {
-            "supported": false
-          },
-          "didWeb": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false,
-            "note": "Not supported in DIIP v5."
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "credentialHolderBinding": {
-          "cnfKeyBinding": {
-            "supported": false
-          },
-          "deviceBound": {
-            "supported": false
-          },
-          "didWebOrganisations": {
-            "supported": true
-          },
-          "didJwkPersons": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "verifierAuthentication": {
-          "openidClientIdAuth": {
-            "supported": false,
-            "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
-          },
-          "x509ReaderCertificate": {
-            "supported": false
-          },
-          "didWeb": {
-            "supported": true
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
             "supported": false
           }
         },
@@ -274,14 +155,36 @@
           },
           "ietfTokenStatusList": {
             "supported": true
+          }
+        },
+        "identifiers": {
+          "didWeb": {
+            "supported": true
           },
-          "w3cStatusList2021": {
+          "didWebvh": {
+            "supported": false,
+            "note": "Not supported in DIIP v5."
+          },
+          "didJwk": {
+            "supported": true
+          },
+          "httpsIss": {
+            "supported": false,
+            "note": "Issuer identified by DID:Web (DID-first)."
+          },
+          "openidClientId": {
+            "supported": false,
+            "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
+          },
+          "x509Certificate": {
+            "supported": false
+          }
+        },
+        "keyBinding": {
+          "keyBindingPop": {
             "supported": false
           },
-          "w3cBitstringStatusList": {
-            "supported": false
-          },
-          "other": {
+          "hardwareDeviceBinding": {
             "supported": false
           }
         },
@@ -291,33 +194,18 @@
           },
           "cose": {
             "supported": false
-          },
-          "w3cDataIntegrity": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
           }
         },
-        "signatureAlgorithms": {
+        "signatureAlgorithm": {
           "ecdsaEs256": {
             "supported": true,
             "note": "ES256 baseline"
-          },
-          "eddsa": {
-            "supported": false
-          },
-          "rsa": {
-            "supported": false
-          },
-          "pqOther": {
-            "supported": false
           }
         }
       }
     },
     {
-      "schemaVersion": "v1",
+      "schemaVersion": "v2",
       "profile": {
         "id": "haip-v1",
         "name": "OpenID4VC High Assurance Interoperability Profile",
@@ -335,94 +223,28 @@
             "supported": true,
             "version": "v1.0"
           },
-          "other": {
-            "supported": false
+          "iso18013_5": {
+            "supported": true
           }
         },
-        "presentationProtocol": {
+        "remotePresentationProtocol": {
           "oid4vp": {
             "supported": true,
             "version": "v1.0"
           },
-          "other": {
-            "supported": false
+          "iso18013_7": {
+            "supported": true
           }
         },
         "credentialFormat": {
+          "vcdm20": {
+            "supported": false
+          },
           "sdJwtVc": {
             "supported": true
           },
           "isoMdoc": {
             "supported": true
-          },
-          "vcdm20": {
-            "supported": false
-          }
-        },
-        "credentialIssuerIdentifiers": {
-          "httpsIss": {
-            "supported": true,
-            "note": "SD-JWT VC issuer identifier via iss (HTTPS URL)."
-          },
-          "x509DocumentSigner": {
-            "supported": true,
-            "note": "ISO mDoc issuer identifier via Document Signer certificate."
-          },
-          "didWeb": {
-            "supported": false
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "credentialHolderBinding": {
-          "cnfKeyBinding": {
-            "supported": true,
-            "note": "SD-JWT VC key binding via cnf."
-          },
-          "deviceBound": {
-            "supported": true,
-            "note": "ISO mDoc is device-bound."
-          },
-          "didWebOrganisations": {
-            "supported": false
-          },
-          "didJwkPersons": {
-            "supported": false
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
-          }
-        },
-        "verifierAuthentication": {
-          "openidClientIdAuth": {
-            "supported": true,
-            "note": "OpenID client_id and client authentication."
-          },
-          "x509ReaderCertificate": {
-            "supported": true,
-            "note": "ISO mDoc reader authentication via X.509 reader certificate."
-          },
-          "didWeb": {
-            "supported": false
-          },
-          "didWebvh": {
-            "supported": false
-          },
-          "didJwk": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
           }
         },
         "credentialStatus": {
@@ -436,15 +258,39 @@
           },
           "ietfTokenStatusList": {
             "supported": false
-          },
-          "w3cStatusList2021": {
+          }
+        },
+        "identifiers": {
+          "didWeb": {
             "supported": false
           },
-          "w3cBitstringStatusList": {
+          "didWebvh": {
             "supported": false
           },
-          "other": {
+          "didJwk": {
             "supported": false
+          },
+          "httpsIss": {
+            "supported": true,
+            "note": "SD-JWT VC issuer identifier via iss (HTTPS URL)."
+          },
+          "openidClientId": {
+            "supported": true,
+            "note": "OpenID client_id and client authentication."
+          },
+          "x509Certificate": {
+            "supported": true,
+            "note": "ISO mDoc issuer identifier via Document Signer certificate. | ISO mDoc reader authentication via X.509 reader certificate."
+          }
+        },
+        "keyBinding": {
+          "keyBindingPop": {
+            "supported": true,
+            "note": "SD-JWT VC key binding via cnf."
+          },
+          "hardwareDeviceBinding": {
+            "supported": true,
+            "note": "ISO mDoc is device-bound."
           }
         },
         "signatureScheme": {
@@ -455,36 +301,139 @@
           "cose": {
             "supported": true,
             "note": "ISO mDoc"
-          },
-          "w3cDataIntegrity": {
-            "supported": false
-          },
-          "other": {
-            "supported": false
           }
         },
-        "signatureAlgorithms": {
+        "signatureAlgorithm": {
           "ecdsaEs256": {
             "supported": true,
             "note": "ES256 baseline (ECDSA P-256 + SHA-256)."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "v2",
+      "profile": {
+        "id": "swiyu-v0",
+        "name": "swiyu Trust Infrastructure Interoperability Profile (Public Beta)",
+        "shortName": "swiyu beta",
+        "version": "v0",
+        "status": "draft",
+        "specUrl": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/",
+        "publisher": "swiyu (Swiss e-ID program)",
+        "updated": "2026-02-02T19:01:00Z",
+        "notes": "Mapped to the swiyu Interoperability Profile page. OID4VCI and OID4VP draft numbers and DID method names reflect the profile's stated mappings; where the profile uses DID:TDW terminology, this is mapped to didWebvh in the FIDES capability set."
+      },
+      "capabilities": {
+        "issuanceProtocol": {
+          "oid4vci": {
+            "supported": true,
+            "version": "draft-13",
+            "note": "Uses OpenID4VCI draft-13 mapping; supports issuance for vc+sd-jwt (SD-JWT VC)."
           },
-          "eddsa": {
-            "supported": false
+          "iso18013_5": {
+            "supported": false,
+            "note": "No other issuance protocols profiled for Public Beta."
+          }
+        },
+        "remotePresentationProtocol": {
+          "oid4vp": {
+            "supported": true,
+            "version": "draft-20",
+            "note": "Uses OpenID4VP draft-20 mapping; presentation for vc+sd-jwt."
           },
-          "rsa": {
-            "supported": false
+          "iso18013_7": {
+            "supported": false,
+            "note": "Other presentation transports (e.g., offline/BLE) are out of scope for this profile."
+          }
+        },
+        "credentialFormat": {
+          "vcdm20": {
+            "supported": false,
+            "note": "Profile focuses on SD-JWT VC (JWT/JOSE). It does not profile W3C VCDM 2.0 with Data Integrity proofs."
           },
-          "pqOther": {
-            "supported": false
+          "sdJwtVc": {
+            "supported": true,
+            "note": "SD-JWT VC is the profiled credential format (OID4VCI/OID4VP format identifier: vc+sd-jwt)."
+          },
+          "isoMdoc": {
+            "supported": false,
+            "note": "ISO mdoc is not included in the Public Beta interop profile."
+          }
+        },
+        "credentialStatus": {
+          "jwtValidity": {
+            "supported": true,
+            "note": "JWT validity fields (e.g., exp/iat) are used/supported in profiled flows."
+          },
+          "pkiCertValidity": {
+            "supported": false,
+            "note": "No PKI certificate validity model is specified for credential status."
+          },
+          "ietfTokenStatusList": {
+            "supported": true,
+            "note": "IETF Token Status List is used/supported for SD-JWT VC status."
+          }
+        },
+        "identifiers": {
+          "didWeb": {
+            "supported": false,
+            "note": "Profile uses DID:TDW (mapped here to didWebvh), not did:web. | Verifier identification is DID:TDW (mapped here to didWebvh), not did:web."
+          },
+          "didWebvh": {
+            "supported": true,
+            "note": "Profile uses DID:TDW terminology (mapped to did:webvh in this capability set) for issuer identity. | Profile uses DID:TDW terminology (mapped to did:webvh) for verifier identity."
+          },
+          "didJwk": {
+            "supported": false,
+            "note": "did:jwk is used for wallet proof key references (see holder binding), not as issuer identifier. | did:jwk is used for holder key references rather than verifier identifiers."
+          },
+          "httpsIss": {
+            "supported": false,
+            "note": "Issuer identification is DID-based in the profile rather than https issuer identifiers."
+          },
+          "openidClientId": {
+            "supported": true,
+            "note": "OID4VP client_id / client_id_scheme mechanisms are used as profiled."
+          },
+          "x509Certificate": {
+            "supported": false,
+            "note": "No X.509 document signer identifier scheme is specified. | No X.509 reader certificate mechanism is profiled."
+          }
+        },
+        "keyBinding": {
+          "keyBindingPop": {
+            "supported": true,
+            "note": "Key binding via cnf claim is supported/used for holder binding in SD-JWT VC flows."
+          },
+          "hardwareDeviceBinding": {
+            "supported": true,
+            "note": "Device/key-bound holding supported as profiled by SD-JWT VC + proof-of-possession flows."
+          }
+        },
+        "signatureScheme": {
+          "joseJws": {
+            "supported": true,
+            "note": "JWT/JOSE signing is used for SD-JWT VC and proof JWTs."
+          },
+          "cose": {
+            "supported": false,
+            "note": "COSE is not in scope of this profile."
+          }
+        },
+        "signatureAlgorithm": {
+          "ecdsaEs256": {
+            "supported": true,
+            "note": "ES256 (P-256) is profiled."
           }
         }
       }
     }
   ],
   "statistics": {
-    "totalProfiles": 3,
+    "totalProfiles": 4,
     "byStatus": {
-      "draft": 0,
+      "draft": 1,
       "stable": 3,
       "deprecated": 0
     }

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "v1",
+  "schemaVersion": "v2",
   "profile": {
     "id": "diip-v5",
     "name": "Digital Identity Interoperability Profile",
@@ -17,90 +17,27 @@
         "supported": true,
         "version": "v1.0"
       },
-      "other": {
+      "iso18013_5": {
         "supported": false
       }
     },
-    "presentationProtocol": {
+    "remotePresentationProtocol": {
       "oid4vp": {
         "supported": true,
         "version": "v1.0"
       },
-      "other": {
+      "iso18013_7": {
         "supported": false
       }
     },
     "credentialFormat": {
+      "vcdm20": {
+        "supported": true
+      },
       "sdJwtVc": {
         "supported": true
       },
       "isoMdoc": {
-        "supported": false
-      },
-      "vcdm20": {
-        "supported": true
-      }
-    },
-    "credentialIssuerIdentifiers": {
-      "httpsIss": {
-        "supported": false,
-        "note": "Issuer identified by DID:Web (DID-first)."
-      },
-      "x509DocumentSigner": {
-        "supported": false
-      },
-      "didWeb": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false,
-        "note": "Not supported in DIIP v5."
-      },
-      "didJwk": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
-      }
-    },
-    "credentialHolderBinding": {
-      "cnfKeyBinding": {
-        "supported": false
-      },
-      "deviceBound": {
-        "supported": false
-      },
-      "didWebOrganisations": {
-        "supported": true
-      },
-      "didJwkPersons": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
-      }
-    },
-    "verifierAuthentication": {
-      "openidClientIdAuth": {
-        "supported": false,
-        "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
-      },
-      "x509ReaderCertificate": {
-        "supported": false
-      },
-      "didWeb": {
-        "supported": true
-      },
-      "didWebvh": {
-        "supported": false
-      },
-      "didJwk": {
-        "supported": false
-      },
-      "other": {
         "supported": false
       }
     },
@@ -114,14 +51,36 @@
       },
       "ietfTokenStatusList": {
         "supported": true
+      }
+    },
+    "identifiers": {
+      "didWeb": {
+        "supported": true
       },
-      "w3cStatusList2021": {
+      "didWebvh": {
+        "supported": false,
+        "note": "Not supported in DIIP v5."
+      },
+      "didJwk": {
+        "supported": true
+      },
+      "httpsIss": {
+        "supported": false,
+        "note": "Issuer identified by DID:Web (DID-first)."
+      },
+      "openidClientId": {
+        "supported": false,
+        "note": "OID4VP uses client_id at protocol level; verifier identity anchored in DID:Web."
+      },
+      "x509Certificate": {
+        "supported": false
+      }
+    },
+    "keyBinding": {
+      "keyBindingPop": {
         "supported": false
       },
-      "w3cBitstringStatusList": {
-        "supported": false
-      },
-      "other": {
+      "hardwareDeviceBinding": {
         "supported": false
       }
     },
@@ -131,27 +90,12 @@
       },
       "cose": {
         "supported": false
-      },
-      "w3cDataIntegrity": {
-        "supported": false
-      },
-      "other": {
-        "supported": false
       }
     },
-    "signatureAlgorithms": {
+    "signatureAlgorithm": {
       "ecdsaEs256": {
         "supported": true,
         "note": "ES256 baseline"
-      },
-      "eddsa": {
-        "supported": false
-      },
-      "rsa": {
-        "supported": false
-      },
-      "pqOther": {
-        "supported": false
       }
     }
   }

@@ -51,6 +51,12 @@
   border-color: rgba(59, 130, 246, 0.2);
 }
 
+.fides-interop-matrix[data-theme="dark"] .fides-selector-warning {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fcd34d;
+}
+
 .fides-interop-matrix[data-theme="dark"] .fides-profile-link {
   background: rgba(30, 41, 59, 0.8);
   border-color: rgba(255, 255, 255, 0.1);
@@ -251,11 +257,12 @@
 .fides-selector-warning {
   margin-top: 0.75rem;
   padding: 0.5rem 0.75rem;
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(245, 158, 11, 0.15);
   border: 1px solid var(--fides-warning);
   border-radius: 6px;
   font-size: 0.8125rem;
-  color: var(--fides-warning);
+  font-weight: 500;
+  color: #92400e;
   animation: fides-fade-in 0.3s ease;
 }
 
