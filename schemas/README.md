@@ -15,7 +15,7 @@ v2 aligns with the FIDES Interop Profile category set, simplifying and reorganiz
 - Remote Presentation Protocol (renamed from Presentation Protocol)
 - Credential Format
 - Credential Status (simplified)
-- Entity Identification (merged from Issuer Identifiers + Verifier Authentication)
+- Identifiers (merged from Issuer Identifiers + Verifier Authentication)
 - Key Binding (simplified from Holder Binding)
 - Signature Scheme (simplified)
 - Signature Algorithm (singular, simplified)
@@ -82,7 +82,7 @@ All capability groups follow the same pattern:
 - `pkiCertValidity` - PKI certificate validity
 - `ietfTokenStatusList` - IETF Token Status List
 
-### 5. Entity Identification
+### 5. Identifiers
 
 Unified identifier support for issuers, holders, and verifiers:
 

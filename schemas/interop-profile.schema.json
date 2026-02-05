@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://fides.community/schemas/interop-profiles/v2/interop-profile.schema.json",
   "title": "Interop Profile",
-  "description": "Machine-readable description of an interoperability profile (e.g., DIIP, HAIP, SWIYU) and its key capability choices used for matrix-style comparisons. v2 aligns with the FIDES Interop Profile category set: Issuance Protocol, Remote Presentation Protocol, Credential Format, Credential Status, Entity Identification, Key Binding, Signature Scheme, Signature Algorithm.",
+  "description": "Machine-readable description of an interoperability profile (e.g., DIIP, HAIP, SWIYU) and its key capability choices used for matrix-style comparisons. v2 aligns with the FIDES Interop Profile category set: Issuance Protocol, Remote Presentation Protocol, Credential Format, Credential Status, Identifiers, Key Binding, Signature Scheme, Signature Algorithm.",
   "type": "object",
   "additionalProperties": false,
   "required": [

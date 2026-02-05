@@ -167,7 +167,7 @@ Every profile must include all 8 capability groups:
    - `pkiCertValidity`
    - `ietfTokenStatusList`
 
-5. **identifiers** (Entity Identification)
+5. **identifiers**
    - `didWeb`
    - `didWebvh`
    - `didJwk`

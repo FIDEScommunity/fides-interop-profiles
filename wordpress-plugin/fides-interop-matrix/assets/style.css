@@ -524,9 +524,9 @@
   color: var(--fides-success);
 }
 
-.fides-icon-cross {
-  color: #dc2626;
-  opacity: 0.7;
+.fides-icon-dash {
+  color: #9ca3af;
+  font-weight: 600;
 }
 
 .fides-cell-note-indicator {
@@ -890,8 +890,8 @@
   color: #22c55e;
 }
 
-.fides-interop-matrix[data-theme="dark"] .fides-icon-cross {
-  color: #ef4444;
+.fides-interop-matrix[data-theme="dark"] .fides-icon-dash {
+  color: #6b7280;
 }
 
 /* ==========================================================================

@@ -74,7 +74,7 @@ See `schemas/interop-profile.schema.json` for the complete schema definition. Th
 - `remotePresentationProtocol`: Credential presentation protocols (OID4VP, ISO 18013-7)
 - `credentialFormat`: Supported credential formats (VCDM 2.0, SD-JWT VC, ISO mdoc)
 - `credentialStatus`: Status checking mechanisms
-- `identifiers`: Entity identification methods (DIDs, HTTPS ISS, X.509, OpenID Client ID)
+- `identifiers`: Identifier methods (DIDs, HTTPS ISS, X.509, OpenID Client ID)
 - `keyBinding`: Holder key binding mechanisms
 - `signatureScheme`: Digital signature schemes (JOSE JWS, COSE)
 - `signatureAlgorithm`: Cryptographic algorithms (ECDSA ES256)

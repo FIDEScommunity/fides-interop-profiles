@@ -44,7 +44,7 @@
     },
     {
       key: 'identifiers',
-      label: 'Entity Identification',
+      label: 'Identifiers',
       items: [
         { key: 'didWeb', label: 'did:web' },
         { key: 'didWebvh', label: 'did:webvh' },
@@ -414,7 +414,7 @@
       content = `<span class="fides-cell-icon fides-icon-check">✓</span>${versionText}`;
       className = 'fides-cell-supported';
     } else {
-      content = '<span class="fides-cell-icon fides-icon-cross">✗</span>';
+      content = '<span class="fides-cell-icon fides-icon-dash">–</span>';
       className = 'fides-cell-not-supported';
     }
 
@@ -526,7 +526,7 @@
       icon = '✓';
       className = 'fides-cell-supported';
     } else {
-      icon = '✗';
+      icon = '–';
       className = 'fides-cell-not-supported';
     }
 
