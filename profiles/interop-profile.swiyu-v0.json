@@ -18,7 +18,7 @@
         "version": "draft-13"
       },
       "iso18013_5": {
-        "supported": false,
+        "supported": false
       }
     },
     "remotePresentationProtocol": {
