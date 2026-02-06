@@ -472,6 +472,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Explicit white icon on hover so theme CSS cannot override (avoids blue-on-blue on live) */
+.fides-profile-link:hover svg {
+  color: #fff;
+}
+
 .fides-profile-link svg {
   width: 16px;
   height: 16px;
