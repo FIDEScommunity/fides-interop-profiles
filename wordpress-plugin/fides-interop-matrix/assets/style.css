@@ -364,7 +364,8 @@
 
 .fides-section-title-cell {
   width: 200px;
-  padding: 1rem 1rem 1rem 1rem !important;
+  min-width: 200px;
+  padding: 0 !important;
   text-align: left !important;
   font-size: 1.125rem;
   font-weight: 700;
@@ -372,6 +373,23 @@
   background: rgba(10, 110, 243, 0.05);
   border: none;
   vertical-align: middle;
+}
+.fides-section-title-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.fides-section-title-text {
+  flex: 0 1 auto;
+  min-width: 0;
+  line-height: 1.3;
+}
+.fides-section-title-inner .fides-vocab-info {
+  flex-shrink: 0;
+  margin-left: 0;
 }
 
 .fides-section-profile-header {
@@ -796,6 +814,109 @@
   border-top-color: rgba(0, 0, 0, 0.9);
 }
 
+/* Vocabulary [i] info button and popup */
+.fides-section-title-cell .fides-vocab-info {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  min-width: 1.35rem;
+  min-height: 1.35rem;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--fides-border);
+  border-radius: 50%;
+  background: var(--fides-bg-secondary);
+  color: var(--fides-text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.fides-section-title-cell .fides-vocab-info:hover {
+  color: #fff;
+  background: var(--fides-accent);
+  border-color: var(--fides-accent);
+  transform: scale(1.05);
+}
+.fides-section-title-cell .fides-vocab-info:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--fides-accent);
+}
+/* Overlay backdrop behind popup */
+.fides-vocab-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10000000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.fides-vocab-overlay.visible {
+  opacity: 1;
+}
+
+/* Popup: solid background so it stays readable (renders in document.body) */
+.fides-vocab-popup {
+  position: fixed;
+  z-index: 10000001;
+  max-width: 480px;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 1.125rem 1.375rem;
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.fides-vocab-popup.visible {
+  opacity: 1;
+}
+.fides-vocab-popup-intro {
+  margin: 0 0 0.875rem 0;
+  color: #475569;
+  font-size: 0.875rem;
+}
+.fides-vocab-popup-list {
+  margin: 0;
+  padding-left: 1.375rem;
+  color: #334155;
+}
+.fides-vocab-popup-list li {
+  margin-bottom: 0.5rem;
+}
+.fides-vocab-popup-list li:last-child {
+  margin-bottom: 0;
+}
+.fides-vocab-popup-list strong {
+  color: #1e293b;
+}
+
+@media (max-width: 520px) {
+  .fides-vocab-popup {
+    left: 1rem !important;
+    right: 1rem !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: 85vh;
+    box-sizing: border-box;
+  }
+}
+
 /* ==========================================================================
    RESPONSIVE ADJUSTMENTS
    ========================================================================== */
@@ -807,6 +928,8 @@
   
   .fides-section-title-cell {
     font-size: 1rem;
+  }
+  .fides-section-title-inner {
     padding: 0.875rem 1rem;
   }
   
@@ -924,7 +1047,8 @@
     box-shadow: none;
   }
 
-  .fides-tooltip {
+  .fides-tooltip,
+  .fides-vocab-popup {
     display: none;
   }
 }

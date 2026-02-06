@@ -5,6 +5,8 @@
 
 (function() {
   'use strict';
+  
+  console.log('FIDES Interop Matrix JS loaded');
 
   // Capability groups with labels for the matrix
   const CAPABILITY_GROUPS = [
@@ -71,11 +73,20 @@
     }
   ];
 
+  /** Map matrix item keys to canonical vocabulary keys (avoid duplicate terms in vocabulary.json) */
+  const VOCAB_ALIASES = {
+    oid4vci: 'OpenID4VCI',
+    oid4vp: 'OpenID4VP',
+    sdJwtVc: 'SD-JWT-VC',
+    isoMdoc: 'mDL/mDoc'
+  };
+
   let currentData = null;
   let currentMobileProfileIndex = 0;
   let hideEmptyRows = localStorage.getItem('fides-interop-hide-empty') === 'true';
   let selectedProfiles = [];
   const MAX_SELECTED_PROFILES = 3;
+  let vocabulary = null;
 
   /**
    * Initialize the matrix
@@ -87,13 +98,55 @@
     const profilesFilter = root.dataset.profiles || '';
     const theme = root.dataset.theme || 'fides';
 
-    loadData(profilesFilter).then(data => {
+    const config = window.fidesInteropMatrix || {};
+    console.log('Interop matrix config:', config);
+    const vocabPromise = (config.vocabularyUrl || config.vocabularyFallbackUrl)
+      ? loadVocabulary(config.vocabularyUrl, config.vocabularyFallbackUrl)
+      : Promise.resolve(null);
+
+    Promise.all([loadData(profilesFilter), vocabPromise]).then(([data, vocab]) => {
       currentData = data;
+      vocabulary = vocab;
+      console.log('After loading - vocabulary:', vocabulary ? 'loaded' : 'null');
       render(root, data, theme);
       initMobileGestures(root);
+      initVocabularyInfo(root);
     }).catch(error => {
+      console.error('Interop matrix init error:', error);
       showError(root, error);
     });
+  }
+
+  /**
+   * Load vocabulary JSON for [i] info popups. Tries primary URL first, then fallback if provided.
+   */
+  async function loadVocabulary(primaryUrl, fallbackUrl) {
+    const tryLoad = async (url) => {
+      console.log('Loading vocabulary from:', url);
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const json = await res.json();
+      console.log('Vocabulary loaded successfully, terms:', Object.keys(json.terms || {}).length);
+      return json.terms || null;
+    };
+    if (primaryUrl) {
+      try {
+        return await tryLoad(primaryUrl);
+      } catch (e) {
+        console.warn('Vocabulary load failed (primary):', primaryUrl, e.message);
+      }
+    }
+    if (fallbackUrl) {
+      try {
+        const terms = await tryLoad(fallbackUrl);
+        if (terms) console.log('Vocabulary loaded from fallback');
+        return terms;
+      } catch (e) {
+        console.warn('Vocabulary load failed (fallback):', fallbackUrl, e.message);
+      }
+    }
+    console.error('Vocabulary loading completely failed');
+    return null;
   }
 
   /**
@@ -172,6 +225,7 @@
     initTooltips(root);
     initToggle(root, displayProfiles);
     initProfileSelector(root, data.profiles);
+    initVocabularyInfo(root);
   }
 
   /**
@@ -336,7 +390,12 @@
           <table class="fides-matrix-table">
             <thead>
               <tr class="fides-section-header-row">
-                <th class="fides-section-title-cell">${escapeHtml(group.label)}</th>
+                <th class="fides-section-title-cell">
+                  <div class="fides-section-title-inner">
+                    <span class="fides-section-title-text">${escapeHtml(group.label)}</span>
+                    <button type="button" class="fides-vocab-info" data-group="${escapeHtml(group.key)}" aria-label="Explain ${escapeHtml(group.label)}">i</button>
+                  </div>
+                </th>
                 ${profileNameCells}
               </tr>
             </thead>
@@ -627,6 +686,102 @@
   }
 
   /**
+   * Initialize [i] vocabulary info buttons: show popup with group + option descriptions
+   */
+  function initVocabularyInfo(root) {
+    if (!vocabulary) {
+      console.warn('Vocabulary not loaded, [i] buttons disabled');
+      return;
+    }
+    hideVocabularyPopup();
+    const buttons = root.querySelectorAll('.fides-vocab-info');
+    console.log('Found', buttons.length, 'vocabulary info buttons');
+    buttons.forEach(btn => {
+      btn.removeEventListener('click', onVocabularyInfoClick);
+      btn.addEventListener('click', onVocabularyInfoClick);
+    });
+  }
+
+  function onVocabularyInfoClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const groupKey = event.currentTarget.dataset.group;
+    if (!groupKey || !vocabulary) return;
+    const group = CAPABILITY_GROUPS.find(g => g.key === groupKey);
+    if (!group) return;
+
+    hideVocabularyPopup();
+    hideTooltip();
+
+    const groupTerm = vocabulary[groupKey];
+    let html = '';
+    if (groupTerm && groupTerm.description) {
+      html += '<p class="fides-vocab-popup-intro">' + escapeHtml(groupTerm.description) + '</p>';
+    }
+    if (group.items && group.items.length > 0) {
+      html += '<ul class="fides-vocab-popup-list">';
+      group.items.forEach(item => {
+        const vocabKey = VOCAB_ALIASES[item.key] || item.key;
+        const term = vocabulary[vocabKey];
+        const desc = term && term.description ? escapeHtml(term.description) : '';
+        html += '<li><strong>' + escapeHtml(item.label) + '</strong>' + (desc ? ': ' + desc : '') + '</li>';
+      });
+      html += '</ul>';
+    }
+    if (!html) html = '<p>No description available.</p>';
+
+    // Create overlay backdrop
+    const overlay = document.createElement('div');
+    overlay.className = 'fides-vocab-overlay';
+    document.body.appendChild(overlay);
+
+    const popup = document.createElement('div');
+    popup.className = 'fides-vocab-popup';
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-label', 'Filter explanation');
+    popup.innerHTML = html;
+    document.body.appendChild(popup);
+
+    // Position popup: more to the right (over first column of tiles), vertically centered; clamp to viewport
+    const margin = 20;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const pw = popup.offsetWidth;
+    const ph = popup.offsetHeight;
+    const popupLeft = Math.min(rect.right + 40, w - pw - margin);
+    const left = Math.max(margin, Math.min(popupLeft, w - pw - margin));
+    const top = Math.max(margin, Math.min((h - ph) / 2, h - ph - margin));
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+    
+    setTimeout(() => {
+      overlay.classList.add('visible');
+      popup.classList.add('visible');
+    }, 10);
+
+    const close = (e) => {
+      if (e && e.target.closest('.fides-vocab-popup')) return; // Don't close if clicking inside popup
+      hideVocabularyPopup();
+      document.removeEventListener('click', close, true);
+      document.removeEventListener('keydown', onKeydown);
+    };
+    function onKeydown(e) {
+      if (e.key === 'Escape') close();
+    }
+    document.addEventListener('keydown', onKeydown);
+    // Use capture phase to intercept clicks before they reach links
+    setTimeout(() => document.addEventListener('click', close, true), 0);
+  }
+
+  function hideVocabularyPopup() {
+    const overlay = document.querySelector('.fides-vocab-overlay');
+    const popup = document.querySelector('.fides-vocab-popup');
+    if (overlay) overlay.remove();
+    if (popup) popup.remove();
+  }
+
+  /**
    * Switch mobile tab
    */
   function switchMobileTab(root, index) {
@@ -823,6 +978,7 @@
       initTooltips(root);
       initToggle(root, displayProfiles);
       initProfileSelector(root, allProfiles);
+      initVocabularyInfo(root);
     }
   }
 

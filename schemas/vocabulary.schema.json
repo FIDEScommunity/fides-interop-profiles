@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fides.community/schemas/vocabulary/v1",
+  "title": "Vocabulary",
+  "description": "Glossary of terms for catalog filters and interop matrix; used for [i] info popups.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "terms"],
+  "properties": {
+    "version": { "type": "string" },
+    "terms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "description": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

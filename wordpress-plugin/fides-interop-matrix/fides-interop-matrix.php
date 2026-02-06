@@ -3,7 +3,7 @@
  * Plugin Name: FIDES Interop Profile Matrix
  * Plugin URI: https://fides.community
  * Description: Interactive matrix comparison of interoperability profiles (DIIP, HAIP, EWC, Swiyu)
- * Version: 1.2.6
+ * Version: 1.2.7
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -53,19 +53,17 @@ class FIDES_Interop_Matrix {
      * Register CSS and JS assets
      */
     public function register_assets() {
-        // Use minified assets in production, full assets in development
-        $suffix = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min';
-        
+        // Always use non-minified assets for easier development
         wp_register_style(
             'fides-interop-matrix',
-            $this->plugin_url . 'assets/style' . $suffix . '.css',
+            $this->plugin_url . 'assets/style.css',
             array(),
             FIDES_INTEROP_MATRIX_VERSION
         );
         
         wp_register_script(
             'fides-interop-matrix',
-            $this->plugin_url . 'assets/interop-matrix' . $suffix . '.js',
+            $this->plugin_url . 'assets/interop-matrix.js',
             array(),
             FIDES_INTEROP_MATRIX_VERSION,
             true
@@ -81,6 +79,8 @@ class FIDES_Interop_Matrix {
             'pluginUrl' => $this->plugin_url,
             'githubDataUrl' => 'https://raw.githubusercontent.com/FIDEScommunity/fides-interop-profiles/main/data/aggregated.json',
             'dataUrl' => $this->plugin_url . 'assets/aggregated.json',
+            'vocabularyUrl' => 'https://raw.githubusercontent.com/FIDEScommunity/fides-interop-profiles/main/data/vocabulary.json',
+            'vocabularyFallbackUrl' => $this->plugin_url . 'assets/vocabulary.json',
             'catalogUrls' => array(
                 'personalWallets' => $personal_wallets_url,
                 'businessWallets' => $business_wallets_url,
