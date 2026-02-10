@@ -714,7 +714,11 @@
     hideTooltip();
 
     const groupTerm = vocabulary[groupKey];
+    const categoryName = (group && group.label) ? group.label : '';
     let html = '';
+    if (categoryName) {
+      html += '<p class="fides-vocab-popup-title"><strong>' + escapeHtml(categoryName) + '</strong></p>';
+    }
     if (groupTerm && groupTerm.description) {
       html += '<p class="fides-vocab-popup-intro">' + escapeHtml(groupTerm.description) + '</p>';
     }
