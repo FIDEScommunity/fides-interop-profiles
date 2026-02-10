@@ -9,37 +9,37 @@
       "description": "Wallet for individuals to store and present their own credentials, such as ID cards or diplomas."
     },
     "organizational": {
-      "description": "Wallet for organizations to issue, hold, or verify credentials in professional contexts."
+      "description": "Wallet for businesses to issue, hold, or verify credentials in professional contexts."
     },
     "capabilities": {
-      "description": "What organizational wallets can do: store credentials (holder), issue new credentials (issuer), or verify credentials from others (verifier)."
+      "description": "What business wallets can do: store credentials (holder), issue new credentials (issuer), or verify credentials from others (verifier)."
     },
     "holder": {
       "description": "Can store and present credentials to verifiers (holder role)."
     },
     "issuer": {
-      "description": "Can create and issue new credentials to users or organizations (issuer role)."
+      "description": "Can create and issue new credentials to users or businesses (issuer role)."
     },
     "verifier": {
       "description": "Can request and verify credentials presented by holders (verifier role)."
     },
     "interopProfile": {
-      "description": "Interoperability profiles define standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations."
+      "description": "Interoperability profiles define choices within existing standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations."
     },
     "DIIP v4": {
-      "description": "Community-driven interoperability profile based on W3C DID Core and Verifiable Credentials Data Model 2.0 (VCDM), using OpenID4VC and SD-JWT VC for organizational credentials."
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP combined with DIDs, VCDM 2.0 and SD-JWT VC credentials."
     },
     "DIIP v5": {
-      "description": "Update of DIIP v4 aligned with the current or final versions of OpenID4VCI and OpenID4VP."
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials."
     },
     "EWC v3": {
-      "description": "European Wallet Consortium profile with specification set and conformance approach targeting EUDI Wallet implementations."
+      "description": "European Wallet Consortium LSP profile with specification set and conformance approach targeting EUDI Wallet implementations."
     },
     "HAIP v1": {
-      "description": "OpenID Foundation interoperability profile for high-assurance exchanges, typically combining SD-JWT VC with ISO mdoc."
+      "description": "OpenID Foundation interoperability profile for high-assurance exchanges, including both SD-JWT VC and ISO mdoc vc formats. Will be used in EUDI-Wallet implementations."
     },
     "EUDI Wallet ARF": {
-      "description": "EU Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets."
+      "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets."
     },
     "availability": {
       "description": "Whether the wallet is generally available to users or still in development."
@@ -48,16 +48,16 @@
       "description": "Whether the wallet or service is provided by government or private sector."
     },
     "platform": {
-      "description": "Operating system or environment the wallet runs on (e.g. iOS, Android, Web)."
+      "description": "Operating system or environment the wallet runs on (e.g. iOS (iPhone), Android, Web)."
     },
     "country": {
-      "description": "Country or region where the wallet is available or the organization is based."
+      "description": "Country where the provider is based."
     },
     "readiness": {
-      "description": "Maturity or deployment stage of the relying party (e.g. production, pilot)."
+      "description": "Maturity or deployment stage of the relying party website (e.g. production, pilot)."
     },
     "supportedWallet": {
-      "description": "Wallets that the relying party has been tested with or supports."
+      "description": "Wallets that the relying party website has been tested with or supports."
     },
     "sector": {
       "description": "Industry or domain the relying party operates in."
@@ -78,19 +78,19 @@
       "description": "Privacy-preserving format using zero-knowledge proofs for selective disclosure without correlatable identifiers."
     },
     "JSON-LD VC": {
-      "description": "Supports rich semantic data with linked data capabilities."
+      "description": "W3C VC format supporting rich semantic data with linked data capabilities."
     },
     "issuanceProtocol": {
       "description": "The protocol used to issue credentials from an issuer to a wallet. Defines how authentication, credential request, and delivery work."
     },
     "OpenID4VCI": {
-      "description": "OAuth 2.0-based protocol for securely issuing credentials to wallets."
+      "description": "OpenID-based protocol for securely issuing credentials to wallets."
     },
     "presentationProtocol": {
       "description": "The protocol used to present credentials from a wallet to a verifier. Defines how credential requests and presentations are exchanged."
     },
     "OpenID4VP": {
-      "description": "OAuth 2.0-based protocol for requesting and presenting credentials to verifiers."
+      "description": "OpenID-based protocol for requesting and presenting credentials to verifiers."
     },
     "identifiers": {
       "description": "Methods for identifying issuers, holders, and verifiers in credential exchanges. Includes decentralized identifiers (DIDs), HTTPS URLs, OAuth client IDs, and X.509 certificates."
