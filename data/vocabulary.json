@@ -241,6 +241,12 @@
     },
     "W3C Verifiable Credentials Status List v2021": {
       "description": "Standard status list format for checking revocation and suspension of W3C credentials."
+    },
+    "documentIdentifiers": {
+      "description": "Document identifiers define which standardized document types this organization can exchange (e.g. invoice, credit note, order). Defined by national, international, or domain-specific standards, these machine-readable identifiers enable systems to recognize and process the documents correctly. Examples include Peppol UBL Invoice and Credit Note 2.0, and UN/CEFACT Cross Industry Invoice and Credit Note (D22A)."
+    },
+    "processIdentifiers": {
+      "description": "While document identifiers define which document types this organization can exchange, process identifiers define how this organization processes and exchanges those documents. They represent standardized workflows that define how documents are handled and how messages are sequenced. Examples include Peppol BIS Billing 3.0 (used for invoices and credit notes), Peppol BIS Order 3.0, and UN/CEFACT Buy-Ship-Pay workflows."
     }
   }
 }
