@@ -88,6 +88,16 @@
   const MAX_SELECTED_PROFILES = 3;
   let vocabulary = null;
 
+  function isFidesLocalDevHost() {
+    try {
+      const h = window.location.hostname || '';
+      const href = window.location.href || '';
+      return h.includes('.local') || href.includes('.local');
+    } catch {
+      return false;
+    }
+  }
+
   /**
    * Initialize the matrix
    */
@@ -121,6 +131,12 @@
    * Load vocabulary JSON for [i] info popups. Tries primary URL first, then fallback if provided.
    */
   async function loadVocabulary(primaryUrl, fallbackUrl) {
+    let first = primaryUrl;
+    let second = fallbackUrl;
+    if (isFidesLocalDevHost() && primaryUrl && fallbackUrl) {
+      first = fallbackUrl;
+      second = primaryUrl;
+    }
     const tryLoad = async (url) => {
       console.log('Loading vocabulary from:', url);
       const res = await fetch(url);
@@ -129,20 +145,20 @@
       console.log('Vocabulary loaded successfully, terms:', Object.keys(json.terms || {}).length);
       return json.terms || null;
     };
-    if (primaryUrl) {
+    if (first) {
       try {
-        return await tryLoad(primaryUrl);
+        return await tryLoad(first);
       } catch (e) {
-        console.warn('Vocabulary load failed (primary):', primaryUrl, e.message);
+        console.warn('Vocabulary load failed (first):', first, e.message);
       }
     }
-    if (fallbackUrl) {
+    if (second) {
       try {
-        const terms = await tryLoad(fallbackUrl);
-        if (terms) console.log('Vocabulary loaded from fallback');
+        const terms = await tryLoad(second);
+        if (terms) console.log('Vocabulary loaded from second source');
         return terms;
       } catch (e) {
-        console.warn('Vocabulary load failed (fallback):', fallbackUrl, e.message);
+        console.warn('Vocabulary load failed (second):', second, e.message);
       }
     }
     console.error('Vocabulary loading completely failed');
@@ -150,32 +166,26 @@
   }
 
   /**
-   * Load data from GitHub CDN with local fallback
+   * Default: GitHub/raw JSON first, then plugin data URL. *.local: local first, then GitHub.
    */
   async function loadData(profilesFilter) {
     const config = window.fidesInteropMatrix || {};
-    
-    try {
-      // Try GitHub CDN first
-      const response = await fetch(config.githubDataUrl);
-      if (!response.ok) throw new Error('GitHub fetch failed');
-      
-      const data = await response.json();
-      return filterProfiles(data, profilesFilter);
-    } catch (error) {
-      console.warn('GitHub CDN failed, trying local fallback...', error);
-      
+    const remote = config.githubDataUrl;
+    const local = config.dataUrl;
+    const order = (isFidesLocalDevHost() ? [local, remote] : [remote, local]).filter(Boolean);
+    let lastErr = null;
+    for (const url of order) {
       try {
-        // Fallback to local data
-        const response = await fetch(config.dataUrl);
-        if (!response.ok) throw new Error('Local fetch failed');
-        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
         const data = await response.json();
         return filterProfiles(data, profilesFilter);
-      } catch (fallbackError) {
-        throw new Error('Failed to load profile data from both GitHub and local source');
+      } catch (e) {
+        lastErr = e;
+        console.warn('Profile data load failed:', url, e.message);
       }
     }
+    throw new Error(lastErr ? String(lastErr.message) : 'Failed to load profile data (no URLs)');
   }
 
   /**
