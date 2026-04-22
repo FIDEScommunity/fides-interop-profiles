@@ -3,7 +3,7 @@ Contributors: fideslabs
 Tags: fides, interoperability, profiles, comparison, matrix, diip, haip
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.0.0
+Stable tag: 1.2.8
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -70,6 +70,9 @@ Yes, the plugin includes a local fallback for optimal performance and reliabilit
 
 == Changelog ==
 
+= 1.2.8 =
+* Version bump; vocabulary includes vcFormat term for catalog tooltips.
+
 = 1.0.0 =
 * Initial release
 * Desktop matrix view with sticky columns
@@ -79,6 +82,9 @@ Yes, the plugin includes a local fallback for optimal performance and reliabilit
 * Tooltip support for notes
 
 == Upgrade Notice ==
+
+= 1.2.8 =
+Maintenance release (vocabulary alignment).
 
 = 1.0.0 =
 Initial release of the FIDES Interop Profile Matrix plugin.

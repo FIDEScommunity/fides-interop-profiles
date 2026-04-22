@@ -65,6 +65,9 @@
     "credentialFormat": {
       "description": "The technical format in which credentials are encoded. Different formats support different features like selective disclosure, privacy protection, or compatibility with specific standards."
     },
+    "vcFormat": {
+      "description": "The technical format in which credentials are encoded. Different formats support different features like selective disclosure, privacy protection, or compatibility with specific standards."
+    },
     "SD-JWT-VC": {
       "description": "IETF JWT-based format allowing holders to selectively reveal only necessary claims using cryptographic hashing."
     },

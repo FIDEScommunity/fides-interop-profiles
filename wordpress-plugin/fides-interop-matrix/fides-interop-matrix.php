@@ -3,7 +3,7 @@
  * Plugin Name: FIDES Interop Profile Matrix
  * Plugin URI: https://fides.community
  * Description: Interactive matrix comparison of interoperability profiles (DIIP, HAIP, EWC, Swiyu)
- * Version: 1.2.7
+ * Version: 1.2.8
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('FIDES_INTEROP_MATRIX_VERSION', '1.0.0');
+define('FIDES_INTEROP_MATRIX_VERSION', '1.2.8');
 
 class FIDES_Interop_Matrix {
     
