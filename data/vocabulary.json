@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -81,10 +81,12 @@
       "description": "The technical format in which credentials are encoded. Different formats support different features like selective disclosure, privacy protection, or compatibility with specific standards."
     },
     "SD-JWT-VC": {
-      "description": "IETF JWT-based format allowing holders to selectively reveal only necessary claims using cryptographic hashing."
+      "description": "IETF JWT-based format allowing holders to selectively reveal only necessary claims using cryptographic hashing.",
+      "aliases": ["SD-JWT VC", "SD JWT VC", "SD-JWT", "Selective Disclosure JWT"]
     },
     "mDL/mDoc": {
-      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure."
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure.",
+      "aliases": ["mDL", "mDoc", "mdoc", "ISO mdoc", "mobile driving licence", "mobile driver's license"]
     },
     "JWT-VC": {
       "description": "W3C credential format using JSON Web Tokens for signing and verification."
@@ -99,13 +101,15 @@
       "description": "The protocol used to issue credentials from an issuer to a wallet. Defines how authentication, credential request, and delivery work."
     },
     "OpenID4VCI": {
-      "description": "OpenID-based protocol for securely issuing credentials to wallets."
+      "description": "OpenID-based protocol for securely issuing credentials to wallets.",
+      "aliases": ["OID4VCI", "OpenID for Verifiable Credential Issuance"]
     },
     "presentationProtocol": {
       "description": "The protocol used to present credentials from a wallet to a verifier. Defines how credential requests and presentations are exchanged."
     },
     "OpenID4VP": {
-      "description": "OpenID-based protocol for requesting and presenting credentials to verifiers."
+      "description": "OpenID-based protocol for requesting and presenting credentials to verifiers.",
+      "aliases": ["OID4VP", "OpenID for Verifiable Presentations"]
     },
     "identifiers": {
       "description": "Methods for identifying issuers, holders, and verifiers in credential exchanges. Includes decentralized identifiers (DIDs), HTTPS URLs, OAuth client IDs, and X.509 certificates."

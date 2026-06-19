@@ -15,7 +15,12 @@
         "additionalProperties": false,
         "properties": {
           "description": { "type": "string" },
-          "url": { "type": "string", "format": "uri" }
+          "url": { "type": "string", "format": "uri" },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Synonyms / alternative spellings that should resolve to this term (case-insensitive)."
+          }
         }
       }
     }
