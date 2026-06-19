@@ -418,7 +418,75 @@
       "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program.",
       "aliases": [
         "CAB"
-        ]
-    }
+   ]
+    },
+"National Accreditation Body": {
+  "description": "An organization responsible for accrediting conformity assessment bodies and other assessment organizations against defined competence and impartiality requirements within a jurisdiction.",
+  "aliases": [
+    "NAB"
+  ]
+},
+"Certification Body": {
+  "description": "A conformity assessment body authorized to issue certifications or certificates based on the results of conformity assessments. A certification body may perform assessments itself or rely on assessment results produced within its accredited scope.",
+  "aliases": [
+    "CB"
+  ]
+},
+"National Cybersecurity Certification Authority": {
+  "description": "A national authority responsible for overseeing cybersecurity certification schemes, supervising certification activities, and coordinating national implementation of cybersecurity certification frameworks.",
+  "aliases": [
+    "NCCA"
+  ]
+},
+"Scheme": {
+  "description": "A defined framework of rules, requirements, governance, participants, and trust mechanisms that participants follow to achieve a specific purpose."
+},
+"Scheme Owner": {
+  "description": "The organization responsible for defining, governing, maintaining, and evolving a scheme, including its requirements, policies, governance processes, and oversight mechanisms."
+},
+"Supervisory Body": {
+  "description": "An organization responsible for overseeing ongoing compliance with the requirements of a scheme, trust framework, or regulatory programme and for taking corrective or enforcement actions where necessary."
+},
+"Certification Scheme": {
+  "description": "A defined set of rules, requirements, assessment criteria, governance processes, and assurance mechanisms used to evaluate and certify conformance."
+},
+"Accreditation": {
+  "description": "The formal recognition that an assessment or certification body is competent to perform specific conformity assessment activities within a defined scope."
+},
+"Conformity Assessment": {
+  "description": "The process of evaluating whether specified requirements have been fulfilled by a product, service, system, process, organization, or claim."
+},
+"Certification": {
+  "description": "The formal attestation that a product, service, system, process, organization, or claim has successfully demonstrated conformance with the requirements of a certification scheme or assessment programme."
+},
+"European Digital Identity Wallet": {
+  "description": "A digital wallet that enables individuals and organizations to securely store, manage, and share identity data, attributes, and credentials within the European Digital Identity ecosystem.",
+  "aliases": [
+    "EUDI Wallet",
+    "EUDIW",
+    "EU Digital Identity Wallet",
+    "EU Digital Wallet"
+  ]
+},
+"European Business Wallet": {
+  "description": "A digital wallet for organizations that enables businesses and other legal entities to securely store, manage, and share identity data, attributes, credentials, authorizations, and other verifiable business information.",
+  "aliases": [
+    "EU Business Wallet",
+    "EUBW",
+    "European Digital Business Wallet"
+  ]
+},
+"Qualified Trust Service Provider": {
+  "description": "A trust service provider that has been granted qualified status under an applicable trust framework and is authorized to provide one or more qualified trust services.",
+  "aliases": [
+    "QTSP"
+  ]
+},
+"Once-Only Technical System": {
+  "description": "A cross-border data exchange system that enables competent authorities to retrieve evidence directly from authoritative sources, reducing the need for citizens and organizations to repeatedly submit the same information.",
+  "aliases": [
+    "OOTS"
+  ]
+}
   }
 }
