@@ -413,6 +413,12 @@
     },
     "Other": {
       "description": "Other or proprietary schema specification type."
+    },
+    "Conformity Assessment Body": {
+      "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program.",
+      "aliases": [
+        "CAB"
+        ]
     }
   }
 }
