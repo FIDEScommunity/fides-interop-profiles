@@ -141,3 +141,68 @@ Alle content in het **Engels**. Voor elk term: `description` (1-2 zinnen); optio
 ---
 
 **Gebruik bij invullen**: vervang "[1 sentence + optional url]" door de feitelijke Engelse zin en voeg `url` toe waar een spec beschikbaar is.
+
+---
+
+## ARF / EUDI ecosystem terms (glossary + assistant)
+
+Added in vocabulary `v1.3.0`. These terms are not all bound to a single filter
+facet; they exist so the `[i]` tooltips and the LLM assistant can explain the
+core EUDI Wallet / ARF terminology a visitor encounters. Source: EUDI Wallet
+ARF 2.9.0 Annex 1 (Definitions) and the Commission Implementing Regulations.
+
+House style for these terms: **full name as key, abbreviation as alias** (the
+alias resolver is case-insensitive, so case/spacing variants are not needed).
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Core roles & objects | `Person Identification Data` (PID), `PID Provider`, `Electronic Attestation of Attributes` (EAA), `Qualified Electronic Attestation of Attributes` (QEAA), `Public Sector Body EAA` (PuB-EAA), `Attestation`, `Attestation Provider`, `Wallet Unit`, `Wallet Instance`, `Wallet Solution`, `Wallet Provider`, `Relying Party` (RP) |
+| Trust infrastructure | `Trust Anchor`, `Trusted List`, `List of Trusted Entities` (LoTE), `Certificate Authority` (CA), `Access Certificate Authority` (Access CA), `Access Certificate`, `Registrar`, `Authentic Source`, `Intermediary`, `EUDI Wallet Trust Mark` |
+| Attestation lifecycle & wallet security | `Wallet Unit Attestation` (WUA), `Wallet Instance Attestation` (WIA), `Key Attestation` (KA), `Wallet Secure Cryptographic Application` (WSCA), `Wallet Secure Cryptographic Device` (WSCD), `Keystore`, `Attestation Rulebook`, `Attestation Type`, `Namespace`, `Attestation Revocation List` (ARL), `Attestation Status List`, `Administrative validity period`, `Technical validity period` |
+| Protocols, query languages & APIs | `Digital Credentials Query Language` (DCQL), `Digital Credentials API` (DC API), `Presentation Exchange` (PEX), `Verifiable Credential` (VC), `Verifiable Presentation` (VP), `Credential Offer`, `Decentralized Identifier` (DID), `Verifiable Credentials Data Model` (VCDM), `Key Binding` |
+| Privacy & authentication | `Selective Disclosure`, `Embedded Disclosure Policy` (EDP), `Pseudonym`, `Zero-Knowledge Proof` (ZKP), `Attribute`, `Strong User Authentication` (SCA) |
+| Regulation & abbreviations | `eIDAS`, `European Digital Identity Regulation` (eIDAS 2), `Implementing Act` (CIR), `Qualified Electronic Signature` (QES), `Qualified Electronic Signature Creation Device` (QSCD), `Electronic Seal`, `Large Scale Pilot` (LSP), `Member State` |
+
+Already present from the certification/governance batch (not re-added):
+`Conformity Assessment Body` (CAB), `National Accreditation Body` (NAB),
+`Qualified Trust Service Provider` (QTSP), `European Digital Identity Wallet`
+(EUDI Wallet), `European Business Wallet` (EUBW).
+
+---
+
+## European Business Wallet (EBW) terms (glossary + assistant)
+
+Added in vocabulary `v1.4.0`. Sources: FIDES Community business wallets page,
+COM(2025) 838 EBW proposal, EWC LPID rulebook, EU Business Wallet Initiative,
+issuer/credential catalogs (`LPID`, `EBWOID`).
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Wallet concepts | `Organizational Wallet` (Organisation Wallet, Business Wallet), updated `European Business Wallet` (+ EBW alias) |
+| Organization identity | `Legal Person Identification Data` (LPID), `European Business Wallet Owner Identification Data`, `EBWOID`, `European Unique Identifier` (EUID), `European Digital Directory` (EDD) |
+| Roles & delegation | `Economic operator`, `Legal person`, `Mandate`, `Representation rights`, `Power of Attorney` (PoA) |
+| Regulation & trust services | `Legal equivalence`, `Core minimum functionalities`, `Qualified Electronic Registered Delivery Service` (QERDS), `Qualified Electronic Seal` (QSeal) |
+| Related EU programmes | `WE BUILD` (WeBuild), `APTITUDE`, `Single Digital Gateway` (SDG), `EU Company Certificate`, `Business Registers Interconnection System` (BRIS), `Beneficial Ownership Registers Interconnection System` (BORIS) |
+
+Deferred (not added): architecture/interaction terms (Trust Framework, B2B/B2G,
+Data Plane, etc.) and other policy terms (Digital Package, Payment Authenticator,
+Verified Employee Credential).
+
+---
+
+## UNTP terms (glossary + assistant)
+
+Added in vocabulary `v1.5.0`. High-priority UNTP terms only; UNVTD trade documents
+and other medium-priority items deferred. Source: [UNTP v0.7.0 specifications](https://untp.unece.org/docs/specification/).
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Protocol & authority | `UN Transparency Protocol` (UNTP), `UN/CEFACT` (UNECE) |
+| Credential types | `Digital Product Passport` (DPP), `Digital Conformity Credential` (DCC), `Digital Traceability Event` (DTE), `Digital Facility Record` (DFR), `Digital Identity Anchor` (DIA) |
+| Foundational specs | `Verifiable Credentials Profile` (VCP), `Decentralised Access Control` (DAC), `UNTP Core Vocabulary`, `Identity Resolver` (IDR), `Conformity Vocabulary Catalog` (CVC) |
+| Domain classes | `Conformity Attestation`, `Performance Claim`, `Criterion`, `Facility`, `Party`, `Conformity Topic`, `Conformity Scheme`, `Conformity Profile`, `Endorsement`, `Registered Identity` (+ existing `Conformity Assessment` extended for UNTP) |
+| Traceability events | `Lifecycle Event`, `Make Event`, `Move Event`, `Modify Event` |
+
+**Attestation disambiguation:** EUDI `Attestation` (EAA/QEAA) and UNTP
+`Conformity Attestation` are separate keys with cross-references in their
+descriptions; no shared alias on the bare word "attestation".
