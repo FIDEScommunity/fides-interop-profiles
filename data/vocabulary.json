@@ -487,6 +487,20 @@
   "aliases": [
     "OOTS"
   ]
+},
+"FIDES": {
+  "description": "FIDES means trust in Latin. The name was chosen for the FIDES Community to reflect the shared ambition of improving online trust through open collaboration, interoperable digital wallets, verifiable credentials, and related trust technologies. The community is guided by the principles of the FIDES Manifesto.",
+  "url": "https://fides.community/manifesto"
+},
+"FIDES Community": {
+  "description": "An open community focused on improving online trust through interoperable digital wallets, verifiable credentials, trust ecosystems, and open collaboration. The community brings together public and private sector participants to accelerate trusted digital interactions based on the principles of the FIDES Manifesto. The community is supported by FIDES Labs.",
+  "aliases": [
+    "FIDES"
+  ],
+  "url": "https://fides.community"
+},
+"Wallet": {
+  "description": "The digital equivalent of a physical wallet. A wallet enables a person or organization to securely store, manage, receive, present, and use digital identities, credentials, certificates, documents, payment instruments, digital currencies, and other digital assets."
 }
   }
 }
