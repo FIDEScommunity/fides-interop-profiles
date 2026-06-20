@@ -716,6 +716,12 @@
         "Rulebook"
       ]
     },
+    "Wallet Relying Party Repository": {
+    "description": "A repository defined under the eIDAS 2.0 European Digital Identity Wallet framework that provides trusted information about relying parties, including their identifiers, authorizations and service metadata. EUDI Wallets can use the repository to validate relying parties and inform users before data is shared.",
+    "aliases": [
+    "WRPR"
+    ]
+    },
     "Attestation Type": {
       "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem."
     },
