@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.5.0",
+  "version": "1.9.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -33,7 +33,19 @@
       "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials."
     },
     "EWC v3": {
-      "description": "European Wallet Consortium LSP profile with specification set and conformance approach targeting EUDI Wallet implementations."
+      "description": "European Wallet Consortium LSP interoperability profile with specification set and conformance approach targeting EUDI Wallet implementations. See also European Wallet Consortium (EWC).",
+      "aliases": [
+        "EWC profile"
+      ]
+    },
+    "swiyu v0": {
+      "description": "Swiss national digital identity interoperability profile (public beta) for SD-JWT VC credentials using OpenID4VCI and OpenID4VP. Published by the swiyu (Swiss e-ID) programme.",
+      "aliases": [
+        "Swiyu beta",
+        "swiyu Interoperability Profile",
+        "swiyu profile"
+      ],
+      "url": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/"
     },
     "HAIP v1": {
       "description": "OpenID Foundation interoperability profile for high-assurance exchanges, including both SD-JWT VC and ISO mdoc vc formats. Will be used in EUDI-Wallet implementations."
@@ -81,23 +93,19 @@
       "description": "The technical format in which credentials are encoded. Different formats support different features like selective disclosure, privacy protection, or compatibility with specific standards."
     },
     "SD-JWT-VC": {
-      "description": "IETF JWT-based format allowing holders to selectively reveal only necessary claims using cryptographic hashing.",
+      "description": "IETF SD-JWT-based verifiable credential format allowing holders to selectively reveal only necessary claims using salted hashes; builds on the core Selective Disclosure JWT (SD-JWT) specification.",
       "aliases": [
         "SD-JWT VC",
-        "SD JWT VC",
-        "SD-JWT",
-        "Selective Disclosure JWT"
+        "SD JWT VC"
       ]
     },
     "mDL/mDoc": {
-      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure.",
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
       "aliases": [
         "mDL",
         "mDoc",
         "mdoc",
-        "ISO mdoc",
-        "mobile driving licence",
-        "mobile driver's license"
+        "ISO mdoc"
       ]
     },
     "JWT-VC": {
@@ -190,7 +198,11 @@
       "description": "Credential status verified through X.509 certificate validity periods."
     },
     "ietfTokenStatusList": {
-      "description": "Standard mechanism for representing revocation and suspension status of credentials using status lists."
+      "description": "IETF mechanism for representing revocation and suspension status of credentials using token status lists; commonly used with SD-JWT VC credentials.",
+      "aliases": [
+        "Token Status List",
+        "IETF Token Status List"
+      ]
     },
     "didWeb": {
       "description": "DID method using web domains; DID document hosted at a URL leveraging existing domain reputation and TLS security."
@@ -298,16 +310,39 @@
       ]
     },
     "gaia_x": {
-      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation."
+      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
+      "aliases": [
+        "GaiaX ecosystem"
+      ]
     },
     "open_badges": {
-      "description": "Open Badges and open recognition ecosystems for education, training, and achievement credentials."
+      "description": "Open Badges and open recognition ecosystems for education, training, and achievement credentials. See also Open Badges 3.0 and Comprehensive Learner Record (CLR)."
     },
     "iso_mdl": {
       "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards."
     },
     "india_stack": {
-      "description": "India Stack and related national digital infrastructure contexts where verifiable credentials are used."
+      "description": "India Stack and related national digital infrastructure contexts where verifiable credentials are used. See also Aadhaar and UIDAI.",
+      "aliases": [
+        "IndiaStack"
+      ]
+    },
+    "swiyu": {
+      "description": "Swiss national digital identity programme (swiyu) and credential ecosystem, including the Beta-ID credential and swiyu interoperability profile.",
+      "aliases": [
+        "Swiss e-ID",
+        "swiyu programme",
+        "swiyu ecosystem"
+      ],
+      "url": "https://www.eid.admin.ch/"
+    },
+    "vlei": {
+      "description": "GLEIF verifiable Legal Entity Identifier ecosystem using ACDC credentials to represent organizations, roles, and engagement context.",
+      "aliases": [
+        "vLEI ecosystem",
+        "verifiable LEI ecosystem"
+      ],
+      "url": "https://www.gleif.org/en/vlei/introducing-the-vlei"
     },
     "credentialTheme": {
       "description": "Cross-sector use-case themes for discovering credential types (for example identity, payments, or trade documents). Themes complement sector and ecosystem tags and describe why a credential might be used, not only which industry it belongs to."
@@ -418,7 +453,7 @@
       "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats."
     },
     "acdc": {
-      "description": "Authentic Chained Data Container (KERI-related) credential representation."
+      "description": "Authentic Chained Data Container (KERI-related) credential representation; used notably in the GLEIF vLEI credential family."
     },
     "other": {
       "description": "Credential format not covered by the standard formats listed in the catalog."
@@ -592,13 +627,17 @@
     "Trusted List": {
       "description": "A list providing the status and status history of trust services from trust service providers regarding compliance with applicable requirements (ETSI TS 119 612).",
       "aliases": [
-        "TL"
+        "TL",
+        "ETSI TS 119 612",
+        "TS 119 612"
       ]
     },
     "List of Trusted Entities": {
       "description": "A list of entities recognized as trustworthy within a given approval scheme for a specific scope or purpose (based on ETSI TS 119 602).",
       "aliases": [
-        "LoTE"
+        "LoTE",
+        "ETSI TS 119 602",
+        "TS 119 602"
       ]
     },
     "Certificate Authority": {
@@ -614,7 +653,7 @@
       ]
     },
     "Access Certificate": {
-      "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates.",
+      "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates; governed by ETSI TS 119 411-8 (RP Access Certificate Policy).",
       "aliases": [
         "RP access certificate",
         "Relying Party access certificate"
@@ -821,7 +860,7 @@
       ]
     },
     "Large Scale Pilot": {
-      "description": "An EU-funded pilot consortium testing EUDI Wallet use cases across Member States (for example EWC and POTENTIAL).",
+      "description": "An EU-funded pilot consortium testing EUDI Wallet use cases across Member States. Examples include the European Wallet Consortium (EWC) and POTENTIAL.",
       "aliases": [
         "LSP"
       ]
@@ -945,6 +984,540 @@
       "aliases": [
         "BORIS"
       ]
+    },
+    "Electronic Signatures and Infrastructures": {
+      "description": "ETSI technical committee suite (ESI) specifying trust services, qualified signatures, certificate profiles, and related protocols underpinning eIDAS and the EUDI Wallet ecosystem.",
+      "aliases": [
+        "ESI",
+        "ETSI ESI"
+      ],
+      "url": "https://portal.etsi.org/tb.aspx?tbid=826&SubTB=826"
+    },
+    "EAA and PID Profiles": {
+      "description": "ETSI technical specifications defining general, presentation, and issuance requirements for Person Identification Data and Electronic Attestations of Attributes in the EUDI Wallet (ETSI TS 119 472 parts 1–3).",
+      "aliases": [
+        "ETSI TS 119 472",
+        "TS 119 472",
+        "TS 119 472-1",
+        "TS 119 472-2",
+        "TS 119 472-3"
+      ],
+      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/"
+    },
+    "Relying Party Attributes": {
+      "description": "Standardized information about a Relying Party shown to the user when deciding whether to share attributes, as specified in ETSI TS 119 475.",
+      "aliases": [
+        "ETSI TS 119 475",
+        "TS 119 475"
+      ]
+    },
+    "EUDI Certificate Profiles": {
+      "description": "ETSI certificate profile requirements for PID Providers, Wallet Providers, Attestation Providers, and related EUDI actors (ETSI TS 119 412-6).",
+      "aliases": [
+        "ETSI TS 119 412-6",
+        "TS 119 412-6"
+      ]
+    },
+    "RP Access Certificate Policy": {
+      "description": "ETSI policy for access certificates that authenticate Wallet Relying Parties, complementing the Access Certificate concept (ETSI TS 119 411-8).",
+      "aliases": [
+        "ETSI TS 119 411-8",
+        "TS 119 411-8",
+        "Access Certificate Policy"
+      ]
+    },
+    "Remote Signature Protocols": {
+      "description": "Protocols for creating qualified electronic signatures remotely via a cloud or server-side QSCD, including ETSI TS 119 432 and the Cloud Signature Consortium (CSC) API used in EUDI Wallet signing scenarios.",
+      "aliases": [
+        "ETSI TS 119 432",
+        "TS 119 432",
+        "CSC API",
+        "Cloud Signature Consortium API"
+      ]
+    },
+    "PAdES": {
+      "description": "PDF Advanced Electronic Signatures; ETSI baseline format for signing PDF documents with the wallet (ETSI EN 319 142-1).",
+      "aliases": [
+        "ETSI EN 319 142-1",
+        "EN 319 142-1",
+        "PDF Advanced Electronic Signatures"
+      ]
+    },
+    "JAdES": {
+      "description": "JSON Advanced Electronic Signatures; ETSI baseline format for signing JSON payloads, relevant alongside JOSE-secured credentials (ETSI TS 119 182-1).",
+      "aliases": [
+        "ETSI TS 119 182-1",
+        "TS 119 182-1",
+        "JSON Advanced Electronic Signatures"
+      ]
+    },
+    "XAdES": {
+      "description": "XML Advanced Electronic Signatures; ETSI baseline format for signing XML documents (ETSI EN 319 132-1).",
+      "aliases": [
+        "ETSI EN 319 132-1",
+        "EN 319 132-1",
+        "XML Advanced Electronic Signatures"
+      ]
+    },
+    "EU Attestation Catalog": {
+      "description": "The set of standardized EUDI Wallet attestation and credential types defined by the European Commission and Large Scale Pilots (for example EHIC, PDA1, CoR, and PoR), published as schemas and rulebooks for interoperable issuance and presentation.",
+      "aliases": [
+        "EUDI attestation catalog",
+        "Commission attestation types",
+        "EU credential catalog"
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet"
+    },
+    "European Health Insurance Card": {
+      "description": "A verifiable credential representing the European Health Insurance Card (EHIC), used to prove entitlement to medically necessary healthcare during a temporary stay in another European country.",
+      "aliases": [
+        "EHIC",
+        "European Health Insurance Card credential"
+      ]
+    },
+    "Portable Document A1": {
+      "description": "A verifiable credential representing the EU PDA1 certificate, proving that an employee remains covered by their home country's social security system when working across borders.",
+      "aliases": [
+        "PDA1",
+        "ESSPASS PDA1",
+        "Portable Document A1 credential"
+      ]
+    },
+    "Portable Document A2": {
+      "description": "A verifiable credential representing the EU PDA2 certificate, used in cross-border social security contexts to document applicable legislation for posted workers or multi-state employment.",
+      "aliases": [
+        "PDA2",
+        "ESSPASS PDA2",
+        "Portable Document A2 credential"
+      ]
+    },
+    "European Social Security Pass": {
+      "description": "An EU initiative and credential family for portable social security documents (notably PDA1 and PDA2) carried in the EUDI Wallet to support cross-border employment and social protection.",
+      "aliases": [
+        "ESSPASS",
+        "European Social Security Pass programme"
+      ]
+    },
+    "Certificate of Residence": {
+      "description": "A verifiable credential attesting a person's place of residence, used in EUDI Wallet flows for address verification and compliance with residence-based entitlements.",
+      "aliases": [
+        "CoR",
+        "Certificate of Residence credential"
+      ]
+    },
+    "Power of Representation": {
+      "description": "An EUDI Wallet attestation documenting that a natural person is authorised to act on behalf of another person or organisation within defined limits. Not the same as a European Business Wallet Power of Attorney (PoA) or mandate.",
+      "aliases": [
+        "PoR",
+        "Power of Representation credential"
+      ]
+    },
+    "Health ID": {
+      "description": "A verifiable credential carrying a person's health-related identifier for use in cross-border or digital healthcare contexts within the EUDI Wallet ecosystem.",
+      "aliases": [
+        "HIID",
+        "Health ID credential",
+        "Health Identifier"
+      ]
+    },
+    "European Diploma": {
+      "description": "A verifiable credential representing a formal educational qualification or diploma issued in an EU context, for use in EUDI Wallet education and employment flows.",
+      "aliases": [
+        "Diploma",
+        "Diploma credential",
+        "Learning Credential"
+      ]
+    },
+    "Photo ID": {
+      "description": "A verifiable credential carrying a holder's portrait and core identity attributes for visual identification, distinct from full PID or mDL credentials.",
+      "aliases": [
+        "PhotoID",
+        "Photo ID credential"
+      ]
+    },
+    "Age Verification Credential": {
+      "description": "A verifiable credential used to prove that a holder meets a minimum age threshold without revealing full identity, common in age-restricted access scenarios.",
+      "aliases": [
+        "Proof of Age",
+        "Age Verification"
+      ]
+    },
+    "IBAN Attestation": {
+      "description": "A verifiable credential attesting a holder's International Bank Account Number (IBAN) and related account attributes for payment and financial onboarding use cases.",
+      "aliases": [
+        "IBAN credential"
+      ]
+    },
+    "Tax Number Attestation": {
+      "description": "A verifiable credential attesting a holder's tax identification number as registered with the relevant tax authority.",
+      "aliases": [
+        "Tax Number credential",
+        "Tax ID attestation"
+      ]
+    },
+    "Tax Residency Attestation": {
+      "description": "A verifiable credential attesting a holder's tax residency status for cross-border tax and compliance workflows.",
+      "aliases": [
+        "Tax Residency credential"
+      ]
+    },
+    "MSISDN Attestation": {
+      "description": "A verifiable credential attesting a holder's mobile phone number (MSISDN) for identity binding, authentication, or contact verification.",
+      "aliases": [
+        "MSISDN credential",
+        "Mobile phone number attestation"
+      ]
+    },
+    "Employee ID Credential": {
+      "description": "A verifiable credential identifying an employee and their association with an employer, used in workforce and access-management scenarios.",
+      "aliases": [
+        "Employee ID",
+        "Employee attestation",
+        "Employee credential"
+      ]
+    },
+    "Seafarer Credential": {
+      "description": "A verifiable credential for maritime workers documenting seafarer identity, qualifications, or employment status in mobility and transport contexts.",
+      "aliases": [
+        "Seafarer attestation",
+        "Seafarer ID credential"
+      ]
+    },
+    "OpenID Connect": {
+      "description": "An identity layer on top of OAuth 2.0; OpenID4VCI and OpenID4VP build on OpenID Connect patterns for wallet issuance and presentation flows.",
+      "aliases": [
+        "OIDC",
+        "OpenID Connect Core"
+      ]
+    },
+    "OAuth 2.0": {
+      "description": "The authorization framework underlying OpenID Connect and OpenID4VC; governs how wallets, issuers, and verifiers obtain and delegate access tokens during credential flows.",
+      "aliases": [
+        "OAuth",
+        "OAuth2"
+      ]
+    },
+    "Selective Disclosure JWT": {
+      "description": "IETF format for JWTs with selectively disclosable claims using salted hashes; the cryptographic basis for SD-JWT VC credentials.",
+      "aliases": [
+        "SD-JWT"
+      ],
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
+    },
+    "Verifiable Credential Type": {
+      "description": "A string identifier (vct) in SD-JWT VC metadata that names the credential type and links to its schema, commonly used in EU and EWC attestation catalogs.",
+      "aliases": [
+        "vct",
+        "VCT"
+      ]
+    },
+    "Mobile Document Type": {
+      "description": "A docType string identifying an ISO mdoc credential type in MSO mdoc issuance and presentation (for example eu.europa.ec.eudi.pid.1).",
+      "aliases": [
+        "docType",
+        "MSO mdoc type"
+      ]
+    },
+    "Deferred Credential Issuance": {
+      "description": "An OpenID4VCI pattern where the wallet receives a transaction reference first and fetches the credential later once the issuer has prepared it.",
+      "aliases": [
+        "deferred issuance",
+        "deferred credential"
+      ]
+    },
+    "Pre-authorized Code": {
+      "description": "An OpenID4VCI issuance flow where the holder scans a QR code or follows a link containing a pre-authorized code to receive credentials without a separate authorization step.",
+      "aliases": [
+        "pre-authorized flow",
+        "pre-authorized_code"
+      ]
+    },
+    "Transaction Code": {
+      "description": "A user-facing code in OpenID4VP that the holder confirms to approve a presentation, providing explicit consent before credentials are shared.",
+      "aliases": [
+        "Tx Code",
+        "transaction code"
+      ]
+    },
+    "ISO 18013-7": {
+      "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification.",
+      "aliases": [
+        "ISO mDL remote",
+        "18013-7"
+      ]
+    },
+    "VC-JOSE-COSE": {
+      "description": "W3C specification for securing verifiable credentials using JSON Web Signature/Encryption (JOSE) and CBOR Object Signing and Encryption (COSE).",
+      "aliases": [
+        "Securing Verifiable Credentials using JOSE and COSE",
+        "JOSE and COSE securing"
+      ],
+      "url": "https://www.w3.org/TR/vc-jose-cose/"
+    },
+    "Verifiable Credential Data Integrity": {
+      "description": "W3C specification defining data integrity proofs for verifiable credentials, including proof types used with JSON-LD and related VC 2.0 securing mechanisms.",
+      "aliases": [
+        "VC Data Integrity 1.0",
+        "Data Integrity proofs"
+      ],
+      "url": "https://www.w3.org/TR/vc-data-integrity/"
+    },
+    "OpenID Identity Assurance": {
+      "description": "OpenID Connect extension for conveying verified identity claims and assurance levels; referenced in EUDI Wallet identity proofing and issuer metadata contexts.",
+      "aliases": [
+        "eKYC",
+        "OIDC Identity Assurance",
+        "Identity Assurance"
+      ]
+    },
+    "ISO/IEC 23220": {
+      "description": "ISO standard family for identity management via mobile devices, covering generic eID data objects and encoding rules referenced alongside mdoc in EUDI Wallet specifications.",
+      "aliases": [
+        "ISO 23220",
+        "ISO/IEC 23220-2"
+      ]
+    },
+    "Credential Issuer Metadata": {
+      "description": "OpenID4VCI discovery document at a credential issuer's well-known endpoint describing supported credential types, formats, and cryptographic parameters.",
+      "aliases": [
+        "issuer metadata",
+        "openid-credential-issuer",
+        ".well-known/openid-credential-issuer"
+      ]
+    },
+    "Web Authentication": {
+      "description": "W3C API for strong user authentication with public-key credentials; referenced in EUDI Wallet user authentication and device binding requirements.",
+      "aliases": [
+        "WebAuthn"
+      ],
+      "url": "https://www.w3.org/TR/webauthn/"
+    },
+    "Client to Authenticator Protocol": {
+      "description": "Protocol between a client (browser or OS) and an authenticator device; pairs with WebAuthn for hardware-backed user authentication.",
+      "aliases": [
+        "CTAP",
+        "CTAP2"
+      ]
+    },
+    "Gaia-X": {
+      "description": "A European initiative for federated, interoperable data infrastructure where participants exchange data and services under common trust rules using verifiable credentials.",
+      "aliases": [
+        "Gaia-X AISBL",
+        "GaiaX"
+      ],
+      "url": "https://gaia-x.eu/"
+    },
+    "Gaia-X Trust Framework": {
+      "description": "The Gaia-X policy and technical rules defining how participants prove compliance, identity, and trustworthiness in federated data spaces.",
+      "aliases": [
+        "GX Trust Framework",
+        "Gaia-X compliance framework"
+      ]
+    },
+    "Gaia-X Federation Services": {
+      "description": "Operational services that support Gaia-X federations, including compliance verification, identity management, and credential issuance infrastructure.",
+      "aliases": [
+        "GXFS",
+        "Gaia-X Federation Services catalogue"
+      ],
+      "url": "https://gaia-x.eu/services/federation-services/"
+    },
+    "Data Space": {
+      "description": "A governed ecosystem where organisations share data under agreed rules; Gaia-X credentials commonly attest participant identity, resources, and compliance in data spaces.",
+      "aliases": [
+        "dataspace",
+        "European data space"
+      ]
+    },
+    "Gaia-X Compliance Credential": {
+      "description": "A Gaia-X verifiable credential attesting that a participant or service meets the Gaia-X Trust Framework requirements for a given compliance level.",
+      "aliases": [
+        "GX Compliance Credential",
+        "Gaia-X Compliance"
+      ]
+    },
+    "Gaia-X Participant Credentials": {
+      "description": "Gaia-X credential types describing legal participants: Legal Participant, Legal Registration Number, and Terms and Conditions credentials.",
+      "aliases": [
+        "Legal Participant Credential",
+        "Legal Registration Number Credential",
+        "Gaia-X Terms and Conditions Credential"
+      ]
+    },
+    "Gaia-X Resource Credentials": {
+      "description": "Gaia-X credential types describing federated assets and offerings: Resource, Service Offering, Data Resource, Physical Resource, and Software Resource credentials.",
+      "aliases": [
+        "Gaia-X Service Offering Credential",
+        "Gaia-X Resource Credential",
+        "Gaia-X Data Resource Credential"
+      ]
+    },
+    "European Wallet Consortium": {
+      "description": "An EU Large Scale Pilot consortium developing EUDI Wallet specifications, schemas, and conformance tooling. Publishes the EWC v3 interoperability profile.",
+      "aliases": [
+        "EWC",
+        "EU Digital Wallet Consortium"
+      ],
+      "url": "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/920064565/LSP-EWC"
+    },
+    "POTENTIAL": {
+      "description": "An EU Large Scale Pilot consortium testing EUDI Wallet use cases in mobility, transport, and banking, including digital travel documents and strong authentication for digital payments.",
+      "aliases": [
+        "POTENTIAL LSP"
+      ]
+    },
+    "Beta-ID": {
+      "description": "Swiss Beta-ID personal identity credential issued through the swiyu Beta Credential Service, carrying core identity attributes and derived age proofs in SD-JWT VC format.",
+      "aliases": [
+        "Beta ID",
+        "Beta-ID credential"
+      ]
+    },
+    "verifiable LEI": {
+      "description": "A digitally verifiable representation of a Legal Entity Identifier (LEI) and related organizational roles, issued under the GLEIF vLEI ecosystem using ACDC credentials.",
+      "aliases": [
+        "vLEI credentials",
+        "verifiable Legal Entity Identifier"
+      ],
+      "url": "https://www.gleif.org/en/vlei/introducing-the-vlei"
+    },
+    "Global Legal Entity Identifier Foundation": {
+      "description": "The global authority that maintains the LEI system and governs the verifiable LEI (vLEI) credential framework for digital organizational identity.",
+      "aliases": [
+        "GLEIF"
+      ],
+      "url": "https://www.gleif.org/"
+    },
+    "Legal Entity Identifier": {
+      "description": "A globally unique 20-character code identifying a legal entity in financial and trade transactions; the basis for vLEI credentials.",
+      "aliases": [
+        "LEI"
+      ],
+      "url": "https://www.gleif.org/en/about-lei/introducing-the-legal-entity-identifier-lei"
+    },
+    "Qualified vLEI Issuer": {
+      "description": "An organization authorized by GLEIF to issue vLEI credentials to legal entities and their representatives.",
+      "aliases": [
+        "QVI",
+        "Qualified vLEI Issuer credential"
+      ]
+    },
+    "vLEI Legal Entity Credential": {
+      "description": "A vLEI credential issued to a legal entity, providing a verifiable digital representation of the organization based on its LEI.",
+      "aliases": [
+        "Legal Entity vLEI",
+        "Legal Entity vLEI Credential"
+      ]
+    },
+    "Official Organizational Role": {
+      "description": "A vLEI credential linking a person to a formal role within a legal entity, such as CEO, director, or board member.",
+      "aliases": [
+        "OOR",
+        "Official Organizational Role credential"
+      ]
+    },
+    "Engagement Context Role": {
+      "description": "A vLEI credential expressing a context-specific business role in an engagement, such as supplier, buyer, customer, or auditor.",
+      "aliases": [
+        "ECR",
+        "Engagement Context Role credential"
+      ]
+    },
+    "IATA Contactless Travel": {
+      "description": "IATA programme for digital travel credentials and contactless passenger flows using ISO mdoc credentials such as boarding passes and booking orders.",
+      "aliases": [
+        "contactless travel",
+        "IATA DAT",
+        "Digital Travel Credentials"
+      ],
+      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/"
+    },
+    "Boarding Pass Credential": {
+      "description": "A digital boarding pass credential representing a passenger's entitlement to board a specific flight, used in IATA contactless travel flows.",
+      "aliases": [
+        "digital boarding pass",
+        "boarding pass mdoc"
+      ]
+    },
+    "Booking Order Credential": {
+      "description": "A digital travel credential representing a flight reservation or booking order in contactless travel scenarios.",
+      "aliases": [
+        "flight reservation credential",
+        "booking order mdoc"
+      ]
+    },
+    "Mobile Driving Licence Credential": {
+      "description": "An ISO/IEC 18013-5 mobile driving licence (mDL) credential carried as an MSO mdoc; used for identity and driving entitlement verification.",
+      "aliases": [
+        "MDL credential",
+        "ISO mDL",
+        "Mobile Driving Licence"
+      ]
+    },
+    "Vehicle Registration Certificate": {
+      "description": "An ISO mobile document credential attesting vehicle registration details, carried as an MSO mdoc (mVRC).",
+      "aliases": [
+        "mVRC",
+        "vehicle registration mdoc"
+      ]
+    },
+    "Reservation Credential": {
+      "description": "An ISO mobile document credential representing a reservation or booking entitlement, carried as an MSO mdoc.",
+      "aliases": [
+        "ISO reservation",
+        "reservation mdoc"
+      ]
+    },
+    "Aadhaar": {
+      "description": "India's national digital identity programme; Aadhaar verifiable credentials are issued as ISO 18013-5 mdoc credentials under UIDAI.",
+      "aliases": [
+        "Aadhaar credential",
+        "Aadhaar mdoc"
+      ]
+    },
+    "Unique Identification Authority of India": {
+      "description": "The Indian government authority responsible for the Aadhaar identity system and related digital identity credentials.",
+      "aliases": [
+        "UIDAI"
+      ],
+      "url": "https://uidai.gov.in/"
+    },
+    "Open Badges 3.0": {
+      "description": "The current Open Badges standard for issuing and verifying digital badges and learning achievements, aligned with verifiable credentials practices.",
+      "aliases": [
+        "Open Badges 3",
+        "OB 3.0"
+      ],
+      "url": "https://openbadges.org/"
+    },
+    "Comprehensive Learner Record": {
+      "description": "A standard for verifiable digital records of learning achievements and competencies, complementary to Open Badges in education ecosystems.",
+      "aliases": [
+        "CLR"
+      ],
+      "url": "https://www.imsglobal.org/activity/comprehensive-learner-record"
+    },
+    "Pan-Canadian Trust Framework": {
+      "description": "A Canadian digital identity trust framework developed by DIACC, defining components such as digital wallets, verified persons, and privacy requirements.",
+      "aliases": [
+        "PCTF"
+      ],
+      "url": "https://diacc.ca/trust-framework/"
+    },
+    "Digital Identification and Authentication Council of Canada": {
+      "description": "Canadian non-profit coalition advancing digital trust and identity; develops and maintains the Pan-Canadian Trust Framework (PCTF).",
+      "aliases": [
+        "DIACC"
+      ],
+      "url": "https://diacc.ca/"
+    },
+    "Peppol": {
+      "description": "Pan-European network and standards for secure exchange of electronic documents such as e-invoices and orders between businesses and governments.",
+      "aliases": [
+        "PEPPOL",
+        "Pan-European Public Procurement OnLine"
+      ],
+      "url": "https://peppol.org/"
     },
     "UN Transparency Protocol": {
       "description": "A UN/CEFACT standard (UNTP) for interoperable digital credentials and discovery mechanisms that enable verifiable supply chain transparency at scale without a central data store.",

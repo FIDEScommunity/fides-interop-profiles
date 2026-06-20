@@ -204,5 +204,135 @@ and other medium-priority items deferred. Source: [UNTP v0.7.0 specifications](h
 | Traceability events | `Lifecycle Event`, `Make Event`, `Move Event`, `Modify Event` |
 
 **Attestation disambiguation:** EUDI `Attestation` (EAA/QEAA) and UNTP
+
+---
+
+## ETSI / ESI standards (glossary + assistant)
+
+Added in vocabulary `v1.6.0`. ETSI Electronic Signatures and Infrastructures
+(ESI) specs referenced in the EUDI Wallet essential standards list and ARF
+bibliography. Source: [EUDI ARF 2.9.0 Essential STS](https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/).
+
+House style unchanged: **concept name as key, ETSI document number as alias**.
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Umbrella | `Electronic Signatures and Infrastructures` (ESI, ETSI ESI) |
+| EAA/PID & RP | `EAA and PID Profiles` (ETSI TS 119 472, parts 1–3), `Relying Party Attributes` (ETSI TS 119 475) |
+| Certificates & trust | `EUDI Certificate Profiles` (ETSI TS 119 412-6), `RP Access Certificate Policy` (ETSI TS 119 411-8); existing `Trusted List` (+ TS 119 612), `List of Trusted Entities` (+ TS 119 602), `Access Certificate` (description cross-ref) |
+| Remote signing | `Remote Signature Protocols` (ETSI TS 119 432, CSC API) |
+| AdES formats | `PAdES` (EN 319 142-1), `JAdES` (TS 119 182-1), `XAdES` (EN 319 132-1) |
+
+Deferred (medium priority): TS 119 431-1/2 (remote QSCD/AdES components),
+TS 119 471 (EAA provider policy), TS 119 461 (identity proofing), EN 319 401
+(general TSP policy), CAdES, ASiC.
 `Conformity Attestation` are separate keys with cross-references in their
 descriptions; no shared alias on the bare word "attestation".
+
+---
+
+## EU attestation credentials (glossary + assistant)
+
+Added in vocabulary `v1.7.0`. Standardized EUDI Wallet credential types from the
+European Commission catalog and Large Scale Pilot schemas. Source:
+[fides-credential-catalog EU community catalog](https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu).
+
+House style unchanged: **credential name as key, abbreviation as alias**. Format
+variants (SD-JWT VC vs MSO mdoc) are not separate keys.
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Umbrella | `EU Attestation Catalog` (EUDI attestation catalog, Commission attestation types) |
+| High priority | `European Health Insurance Card` (EHIC), `Portable Document A1` (PDA1, ESSPASS PDA1), `Certificate of Residence` (CoR), `Power of Representation` (PoR), `Health ID` (HIID), `European Diploma` (Diploma, Learning Credential), `Photo ID` (PhotoID), `Age Verification Credential` (Proof of Age) |
+| Medium priority | `Portable Document A2` (PDA2), `European Social Security Pass` (ESSPASS), `IBAN Attestation`, `Tax Number Attestation`, `Tax Residency Attestation`, `MSISDN Attestation`, `Employee ID Credential`, `Seafarer Credential` |
+
+**Disambiguation:** `Power of Representation` (PoR) is an EUDI attestation;
+`Power of Attorney` (PoA) and `Mandate` are European Business Wallet delegation
+terms. `Health ID` (HIID) is the EU health identifier credential; national
+registry attestations (for example Dutch BRI/BRP) are out of scope for this batch.
+
+Deferred: EWC pilot-only credentials (vReceipt, loyalty, ferry boarding pass);
+deferred issuance patterns; national/FIDES-specific attestations.
+
+---
+
+## OpenID4VC & standards depth (glossary + assistant)
+
+Added in vocabulary `v1.8.0` (batch B). Protocol and securing-spec terms for
+assistant questions about how OpenID4VC, SD-JWT, and related standards work.
+Sources: OpenID4VCI/VP 1.0, IETF SD-JWT drafts, W3C VC 2.0 securing specs,
+EUDI ARF essential STS.
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| OpenID stack | `OpenID Connect` (OIDC), `OAuth 2.0` (OAuth), existing `OpenID4VCI`, `OpenID4VP` |
+| SD-JWT & identifiers | `Selective Disclosure JWT` (SD-JWT); existing `SD-JWT-VC` (SD-JWT alias moved); `Verifiable Credential Type` (vct), `Mobile Document Type` (docType) |
+| Issuance & presentation flows | `Deferred Credential Issuance`, `Pre-authorized Code`, `Transaction Code`; existing `Presentation Exchange` (includes Presentation Definition alias) |
+| ISO mobile docs | `ISO 18013-7` (remote mDL), `ISO/IEC 23220` |
+| W3C securing | `VC-JOSE-COSE`, `Verifiable Credential Data Integrity` |
+| Identity & discovery | `OpenID Identity Assurance` (eKYC), `Credential Issuer Metadata` |
+| Authentication | `Web Authentication` (WebAuthn), `Client to Authenticator Protocol` (CTAP) |
+| Status | existing `ietfTokenStatusList` (+ Token Status List alias) |
+
+---
+
+## Gaia-X & data spaces (glossary + assistant)
+
+Added in vocabulary `v1.8.0` (batch C). Gaia-X trust and credential concepts
+from the [Gaia-X credential catalog](https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx).
+Existing ecosystem filter `gaia_x` retained; glossary term `Gaia-X` added separately.
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Trust & federation | `Gaia-X`, `Gaia-X Trust Framework`, `Gaia-X Federation Services` (GXFS), `Data Space` |
+| Credentials (grouped) | `Gaia-X Compliance Credential`, `Gaia-X Participant Credentials`, `Gaia-X Resource Credentials` |
+
+Deferred: Self-Description, Digital Clearing House, SHACL shape details.
+National/FIDES-specific attestations remain out of scope.
+
+---
+
+## Community ecosystem catalogs (glossary + assistant)
+
+Added in vocabulary `v1.9.0` (batch D: D1, D2, D3, D4, D7). Terms from community
+credential catalogs and organization-catalog trust frameworks. FIDES NL-specific
+attestations and UNVTD trade documents remain out of scope.
+
+### D1 — LSP governance & swiyu
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| LSP & profiles | `European Wallet Consortium` (EWC), `POTENTIAL` (POTENTIAL LSP), existing `EWC v3`, new `swiyu v0` (Swiyu beta) |
+| Swiss e-ID | `Beta-ID`, ecosystem filter `swiyu` (Swiss e-ID) |
+
+### D2 — vLEI / GLEIF
+
+| Group | Vocabulary keys (alias) |
+|-------|--------------------------|
+| Trust & identity | `verifiable LEI` (vLEI), `Global Legal Entity Identifier Foundation` (GLEIF), `Legal Entity Identifier` (LEI), `Qualified vLEI Issuer` (QVI) |
+| Credentials | `vLEI Legal Entity Credential`, `Official Organizational Role` (OOR), `Engagement Context Role` (ECR) |
+| Ecosystem | filter `vlei`; existing `acdc` description extended for vLEI |
+
+### D3 — Mobility & travel
+
+| Vocabulary keys (alias) |
+|--------------------------|
+| `IATA Contactless Travel`, `Boarding Pass Credential`, `Booking Order Credential`, `Mobile Driving Licence Credential` (ISO mDL), `Vehicle Registration Certificate` (mVRC), `Reservation Credential` |
+
+EWC pilot-only travel credentials (ferry boarding pass, vReceipt) deferred.
+
+### D4 — India Stack & Open Badges
+
+| Vocabulary keys (alias) |
+|--------------------------|
+| `Aadhaar`, `Unique Identification Authority of India` (UIDAI), `Open Badges 3.0`, `Comprehensive Learner Record` (CLR) |
+
+Existing filters `india_stack` and `open_badges` cross-reference these terms.
+
+### D7 — Trust frameworks (org catalog)
+
+| Vocabulary keys (alias) |
+|--------------------------|
+| `Pan-Canadian Trust Framework` (PCTF), `Digital Identification and Authentication Council of Canada` (DIACC), `Peppol` |
+
+Deferred from batch D: Findynet (D5), UNVTD trade documents (D6).
