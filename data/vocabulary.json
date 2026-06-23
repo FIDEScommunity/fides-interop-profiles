@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -27,16 +27,19 @@
       "description": "Interoperability profiles define choices within existing standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations."
     },
     "DIIP v4": {
-      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP combined with DIDs, VCDM 2.0 and SD-JWT VC credentials."
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP combined with DIDs, VCDM 2.0 and SD-JWT VC credentials.",
+      "url": "https://fidescommunity.github.io/DIIP/"
     },
     "DIIP v5": {
-      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials."
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials.",
+      "url": "https://fidescommunity.github.io/DIIP/"
     },
     "EWC v3": {
       "description": "European Wallet Consortium LSP interoperability profile with specification set and conformance approach targeting EUDI Wallet implementations. See also European Wallet Consortium (EWC).",
       "aliases": [
         "EWC profile"
-      ]
+      ],
+      "url": "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/920064565/LSP-EWC"
     },
     "swiyu v0": {
       "description": "Swiss national digital identity interoperability profile (public beta) for SD-JWT VC credentials using OpenID4VCI and OpenID4VP. Published by the swiyu (Swiss e-ID) programme.",
@@ -48,10 +51,12 @@
       "url": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/"
     },
     "HAIP v1": {
-      "description": "OpenID Foundation interoperability profile for high-assurance exchanges, including both SD-JWT VC and ISO mdoc vc formats. Will be used in EUDI-Wallet implementations."
+      "description": "OpenID Foundation interoperability profile for high-assurance exchanges, including both SD-JWT VC and ISO mdoc vc formats. Will be used in EUDI-Wallet implementations.",
+      "url": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0.html"
     },
     "EUDI Wallet ARF": {
-      "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets."
+      "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/"
     },
     "availability": {
       "description": "Whether the wallet is generally available to users or still in development."
@@ -97,7 +102,8 @@
       "aliases": [
         "SD-JWT VC",
         "SD JWT VC"
-      ]
+      ],
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
     "mDL/mDoc": {
       "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
@@ -125,7 +131,8 @@
       "aliases": [
         "OID4VCI",
         "OpenID for Verifiable Credential Issuance"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
     },
     "presentationProtocol": {
       "description": "The protocol used to present credentials from a wallet to a verifier. Defines how credential requests and presentations are exchanged."
@@ -135,7 +142,8 @@
       "aliases": [
         "OID4VP",
         "OpenID for Verifiable Presentations"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html"
     },
     "identifiers": {
       "description": "Methods for identifying issuers, holders, and verifiers in credential exchanges. Includes decentralized identifiers (DIDs), HTTPS URLs, OAuth client IDs, and X.509 certificates."
@@ -256,7 +264,8 @@
       "description": "Self-Issued OpenID Provider; allows the holder to act as an OpenID provider and present self-issued or other credentials."
     },
     "ISO 18013-5": {
-      "description": "International standard for mobile driver's licenses with device retrieval (local presentation)."
+      "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
+      "url": "https://www.iso.org/standard/69084.html"
     },
     "BBS+": {
       "description": "Signature scheme supporting selective disclosure and unlinkable proofs; used in some privacy-preserving credential systems."
@@ -441,16 +450,19 @@
       "description": "The kind of formal specification used to define the credential's structure (for example JSON Schema or an ISO data model)."
     },
     "sd_jwt_vc": {
-      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes."
+      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes.",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
     "mdoc": {
       "description": "ISO (18013-5 style) mobile document encoding (CBOR/COSE), often used for mDL and similar credentials."
     },
     "vcdm_1_1": {
-      "description": "W3C Verifiable Credentials Data Model 1.1, commonly carried as JWT VC."
+      "description": "W3C Verifiable Credentials Data Model 1.1, commonly carried as JWT VC.",
+      "url": "https://www.w3.org/TR/vc-data-model/"
     },
     "vcdm_2_0": {
-      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats."
+      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "acdc": {
       "description": "Authentic Chained Data Container (KERI-related) credential representation; used notably in the GLEIF vLEI credential family."
@@ -474,13 +486,15 @@
       "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program. In UNTP, CABs issue Digital Conformity Credentials.",
       "aliases": [
         "CAB"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767"
     },
     "National Accreditation Body": {
       "description": "An organization responsible for accrediting conformity assessment bodies and other assessment organizations against defined competence and impartiality requirements within a jurisdiction.",
       "aliases": [
         "NAB"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767"
     },
     "Certification Body": {
       "description": "A conformity assessment body authorized to issue certifications or certificates based on the results of conformity assessments. A certification body may perform assessments itself or rely on assessment results produced within its accredited scope.",
@@ -510,7 +524,8 @@
       "description": "The formal recognition that an assessment or certification body is competent to perform specific conformity assessment activities within a defined scope."
     },
     "Conformity Assessment": {
-      "description": "The process of evaluating whether specified requirements have been fulfilled by a product, service, system, process, organization, or claim. In UNTP, a conformity assessment is a specific measured evaluation against a criterion, recorded in a Digital Conformity Credential."
+      "description": "The process of evaluating whether specified requirements have been fulfilled by a product, service, system, process, organization, or claim. In UNTP, a conformity assessment is a specific measured evaluation against a criterion, recorded in a Digital Conformity Credential.",
+      "url": "https://untp.unece.org/docs/specification/ConformityCredential/"
     },
     "Certification": {
       "description": "The formal attestation that a product, service, system, process, organization, or claim has successfully demonstrated conformance with the requirements of a certification scheme or assessment programme."
@@ -522,7 +537,8 @@
         "EUDIW",
         "EU Digital Identity Wallet",
         "EU Digital Wallet"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet"
     },
     "European Business Wallet": {
       "description": "A digital wallet for organizations, developed at EU level, that enables businesses and public sector bodies to identify themselves, manage mandates, exchange verifiable data, and interact securely across borders with full legal effect. A specialised form of an organizational wallet, built on the EUDI Wallet architecture.",
@@ -531,13 +547,15 @@
         "EUBW",
         "European Digital Business Wallet",
         "EBW"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Qualified Trust Service Provider": {
       "description": "A trust service provider that has been granted qualified status under an applicable trust framework and is authorized to provide one or more qualified trust services.",
       "aliases": [
         "QTSP"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "Once-Only Technical System": {
       "description": "A cross-border data exchange system that enables competent authorities to retrieve evidence directly from authoritative sources, reducing the need for citizens and organizations to repeatedly submit the same information.",
@@ -563,66 +581,79 @@
       "description": "A set of identity attributes, issued under EU or national law, that establishes the identity of a natural or legal person. Forms the foundational identity in the EUDI Wallet.",
       "aliases": [
         "PID"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "PID Provider": {
       "description": "The party responsible for issuing and revoking Person Identification Data and for cryptographically binding it to a Wallet Unit.",
       "aliases": [
         "Provider of person identification data"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Electronic Attestation of Attributes": {
       "description": "An attestation in electronic form that allows attributes of a person or object to be authenticated. The general building block alongside PID.",
       "aliases": [
         "EAA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Qualified Electronic Attestation of Attributes": {
       "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
       "aliases": [
         "QEAA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Public Sector Body EAA": {
       "description": "An Electronic Attestation of Attributes issued by, or on behalf of, a public sector body responsible for an authentic source.",
       "aliases": [
         "PuB-EAA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Attestation": {
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or (non-qualified) EAA that can be stored in and presented from a Wallet Unit. Not the same as a UNTP Conformity Attestation (supply chain conformity assessment).",
       "aliases": [
         "EUDI attestation",
         "EAA attestation"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Attestation Provider": {
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or EAA Provider that issues wallet attestations. For UNTP conformity issuers, see Conformity Assessment Body.",
       "aliases": [
         "Attestation Issuer"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Unit": {
-      "description": "A unique configuration of a Wallet Solution, including Wallet Instances and the Wallet Secure Cryptographic Applications and Devices, provided by a Wallet Provider to an individual user."
+      "description": "A unique configuration of a Wallet Solution, including Wallet Instances and the Wallet Secure Cryptographic Applications and Devices, provided by a Wallet Provider to an individual user.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Instance": {
-      "description": "The application installed and configured on a user's device or environment that the user interacts with; part of a Wallet Unit. Can also be a web application."
+      "description": "The application installed and configured on a user's device or environment that the user interacts with; part of a Wallet Unit. Can also be a web application.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Solution": {
-      "description": "The combination of software, hardware, services, settings and configurations (including Wallet Instances, WSCAs and WSCDs) that makes up a wallet product."
+      "description": "The combination of software, hardware, services, settings and configurations (including Wallet Instances, WSCAs and WSCDs) that makes up a wallet product.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Provider": {
-      "description": "A natural or legal person who provides Wallet Solutions in the EUDI Wallet ecosystem."
+      "description": "A natural or legal person who provides Wallet Solutions in the EUDI Wallet ecosystem.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Relying Party": {
       "description": "A service provider that interacts with a Wallet Unit to request and receive user attributes (for example to authenticate a user or verify a credential).",
       "aliases": [
         "RP",
         "Wallet-relying party"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Trust Anchor": {
-      "description": "An authoritative entity, represented by a public key and associated data, that serves as a root of trust for validating certificates and attestations."
+      "description": "An authoritative entity, represented by a public key and associated data, that serves as a root of trust for validating certificates and attestations.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Trusted List": {
       "description": "A list providing the status and status history of trust services from trust service providers regarding compliance with applicable requirements (ETSI TS 119 612).",
@@ -630,7 +661,8 @@
         "TL",
         "ETSI TS 119 612",
         "TS 119 612"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119600_119699/119612/"
     },
     "List of Trusted Entities": {
       "description": "A list of entities recognized as trustworthy within a given approval scheme for a specific scope or purpose (based on ETSI TS 119 602).",
@@ -638,83 +670,98 @@
         "LoTE",
         "ETSI TS 119 602",
         "TS 119 602"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119600_119699/119602/"
     },
     "Certificate Authority": {
       "description": "An entity trusted by one or more parties in the ecosystem to create and seal certificates.",
       "aliases": [
         "CA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Access Certificate Authority": {
       "description": "A provider mandated by a Member State to issue Relying Party access certificates to (wallet-)relying parties registered in that Member State.",
       "aliases": [
         "Access CA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Access Certificate": {
       "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates; governed by ETSI TS 119 411-8 (RP Access Certificate Policy).",
       "aliases": [
         "RP access certificate",
         "Relying Party access certificate"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119411/08.01.01_60/ts_119411v080101p.pdf"
     },
     "Registrar": {
-      "description": "The body designated by a Member State that establishes and maintains the list of registered wallet-relying parties in its territory."
+      "description": "The body designated by a Member State that establishes and maintains the list of registered wallet-relying parties in its territory.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Authentic Source": {
-      "description": "A repository or system, under the responsibility of a public or private body, that is the primary or recognized source of attributes about a person or object."
+      "description": "A repository or system, under the responsibility of a public or private body, that is the primary or recognized source of attributes about a person or object.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Intermediary": {
-      "description": "A Relying Party that offers services to other (intermediated) Relying Parties to connect to Wallet Units and request user attributes on their behalf."
+      "description": "A Relying Party that offers services to other (intermediated) Relying Parties to connect to Wallet Units and request user attributes on their behalf.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "EUDI Wallet Trust Mark": {
       "description": "A mark indicating that a wallet or service is a recognized, certified part of the European Digital Identity Wallet ecosystem.",
       "aliases": [
         "Trust Mark"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet"
     },
     "Wallet Unit Attestation": {
       "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components.",
       "aliases": [
         "WUA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Instance Attestation": {
       "description": "A type of Wallet Unit Attestation that attests the integrity and authenticity of a Wallet Instance and carries information about the Wallet Solution.",
       "aliases": [
         "WIA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Key Attestation": {
       "description": "A type of Wallet Unit Attestation that attests the certification and properties of a WSCA/WSCD or keystore and the public keys whose private keys it protects.",
       "aliases": [
         "KA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Secure Cryptographic Application": {
       "description": "An application that manages critical assets by using the cryptographic and non-cryptographic functions provided by the Wallet Secure Cryptographic Device.",
       "aliases": [
         "WSCA"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Secure Cryptographic Device": {
       "description": "A tamper-resistant device that protects critical assets and provides cryptographic functions for the secure execution of critical operations in a Wallet Unit.",
       "aliases": [
         "WSCD"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Keystore": {
       "description": "A hardware-backed repository and service in which non-critical cryptographic keys are generated, stored and used inside a dedicated hardware security boundary (e.g. Secure Element, TPM, TEE, secure enclave, or remote HSM).",
       "aliases": [
         "key store"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Attestation Rulebook": {
       "description": "A document describing an attestation type, its namespace(s) and other features for a specific attestation type.",
       "aliases": [
         "Rulebook"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Wallet Relying Party Repository": {
     "description": "A repository defined under the eIDAS 2.0 European Digital Identity Wallet framework that provides trusted information about relying parties, including their identifiers, authorizations and service metadata. EUDI Wallets can use the repository to validate relying parties and inform users before data is shared.",
@@ -723,60 +770,72 @@
     ]
     },
     "Attestation Type": {
-      "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem."
+      "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Namespace": {
-      "description": "A specification of the attribute identifiers, syntax and semantics of attributes that can be used in an attestation, with an identifier unique within the ecosystem."
+      "description": "A specification of the attribute identifiers, syntax and semantics of attributes that can be used in an attestation, with an identifier unique within the ecosystem.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Attestation Revocation List": {
       "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing a list of identifiers of revoked items.",
       "aliases": [
         "ARL"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Attestation Status List": {
-      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing Valid or Invalid status information for all relevant items."
+      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing Valid or Invalid status information for all relevant items.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Administrative validity period": {
-      "description": "The date(s) from and/or up to which the attributes in a PID or attestation are valid, represented as attributes in the attestation (some attestations, such as diplomas, have none)."
+      "description": "The date(s) from and/or up to which the attributes in a PID or attestation are valid, represented as attributes in the attestation (some attestations, such as diplomas, have none).",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Technical validity period": {
-      "description": "The dates from and up to which an attestation is technically valid, represented as metadata; typically much shorter than the administrative validity period for privacy reasons."
+      "description": "The dates from and up to which an attestation is technically valid, represented as metadata; typically much shorter than the administrative validity period for privacy reasons.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Digital Credentials Query Language": {
       "description": "A query language used in OpenID4VP that lets a verifier describe exactly which credentials and claims it requests from a wallet.",
       "aliases": [
         "DCQL"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html"
     },
     "Digital Credentials API": {
       "description": "A browser and operating-system API that lets websites and apps invoke a wallet to request and present digital credentials.",
       "aliases": [
         "DC API",
         "DC-API"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/"
     },
     "Presentation Exchange": {
       "description": "A DIF specification format used to describe which credentials and claims a verifier requires and how a wallet should respond.",
       "aliases": [
         "PEX",
         "Presentation Definition"
-      ]
+      ],
+      "url": "https://identity.foundation/presentation-exchange/"
     },
     "Verifiable Credential": {
       "description": "A tamper-evident credential whose authorship (issuer) can be cryptographically verified.",
       "aliases": [
         "VC"
-      ]
+      ],
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Verifiable Presentation": {
       "description": "A tamper-evident presentation of one or more credentials that a holder shares with a verifier, with cryptographic proof of provenance.",
       "aliases": [
         "VP"
-      ]
+      ],
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Credential Offer": {
-      "description": "An OpenID4VCI object by which an issuer offers one or more credentials to a wallet, initiating the issuance flow."
+      "description": "An OpenID4VCI object by which an issuer offers one or more credentials to a wallet, initiating the issuance flow.",
+      "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
     },
     "Decentralized Identifier": {
       "description": "A self-controlled, resolvable identifier that does not depend on a central registry; the basis for DID methods such as did:web and did:key.",
@@ -788,33 +847,39 @@
       "description": "The W3C data model for expressing verifiable credentials; an umbrella term covering versions 1.1 and 2.0.",
       "aliases": [
         "VCDM"
-      ]
+      ],
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Key Binding": {
       "description": "Cryptographic proof that the wallet holder controls the private key bound to a presented credential, preventing replay by another party.",
       "aliases": [
         "holder binding",
         "device binding"
-      ]
+      ],
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Selective Disclosure": {
-      "description": "The capability that enables a user to present only a subset of the attributes contained in a PID or attestation."
+      "description": "The capability that enables a user to present only a subset of the attributes contained in a PID or attestation.",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
     },
     "Embedded Disclosure Policy": {
       "description": "A set of rules embedded in an attestation by its provider that indicates the conditions a relying party must meet to access the attestation.",
       "aliases": [
         "EDP"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Pseudonym": {
-      "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer."
+      "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer.",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Zero-Knowledge Proof": {
       "description": "A cryptographic method that proves a statement is true without revealing the underlying data (for example proving age over 18 without revealing the birth date).",
       "aliases": [
         "ZKP",
         "zero knowledge proof"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/"
     },
     "Attribute": {
       "description": "A characteristic, quality, right or permission of a natural or legal person or of an object, carried inside a PID or attestation."
@@ -824,13 +889,15 @@
       "aliases": [
         "SCA",
         "Strong Customer Authentication"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767"
     },
     "eIDAS": {
       "description": "The EU Regulation (No 910/2014) on electronic identification and trust services for electronic transactions in the internal market.",
       "aliases": [
         "eIDAS 1"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767"
     },
     "European Digital Identity Regulation": {
       "description": "Regulation (EU) 2024/1183 amending eIDAS, which establishes the European Digital Identity Wallet framework. Commonly called eIDAS 2.",
@@ -838,125 +905,147 @@
         "eIDAS 2",
         "eIDAS 2.0",
         "EUDIR"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767"
     },
     "Implementing Act": {
       "description": "A Commission Implementing Regulation that provides binding technical rules and specifications under the European Digital Identity Regulation.",
       "aliases": [
         "CIR",
         "Implementing Regulation"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet"
     },
     "Qualified Electronic Signature": {
       "description": "An advanced electronic signature created with a qualified signature creation device and based on a qualified certificate; legally equivalent to a handwritten signature.",
       "aliases": [
         "QES"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "Qualified Electronic Signature Creation Device": {
       "description": "Configured software or hardware used to create an electronic signature that meets the requirements of Annex II of the European Digital Identity Regulation.",
       "aliases": [
         "QSCD"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "Electronic Seal": {
       "description": "Data in electronic form attached to or logically associated with other data to ensure the latter's origin and integrity; used by a legal person.",
       "aliases": [
         "eSeal"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "Large Scale Pilot": {
       "description": "An EU-funded pilot consortium testing EUDI Wallet use cases across Member States. Examples include the European Wallet Consortium (EWC) and POTENTIAL.",
       "aliases": [
         "LSP"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/digital-identity-wallet/large-scale-pilots"
     },
     "Member State": {
       "description": "A country of the European Union, obligated under the European Digital Identity Regulation to offer at least one EUDI Wallet to its citizens and residents.",
       "aliases": [
         "MS"
-      ]
+      ],
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Organizational Wallet": {
       "description": "A digital wallet used by organizations to issue, hold, and verify credentials. Often called a business wallet; broader than the EU-regulated European Business Wallet product.",
       "aliases": [
         "Organisation Wallet",
         "Business Wallet"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Legal Person Identification Data": {
       "description": "A set of standardized identity attributes that establishes the identity of a legal person (such as a company). The organizational counterpart to Person Identification Data (PID) in business wallet ecosystems.",
       "aliases": [
         "LPID"
-      ]
+      ],
+      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns"
     },
     "European Business Wallet Owner Identification Data": {
-      "description": "Identification data issued for an economic operator or public sector body that owns a European Business Wallet, used to verify identity and attributes in a business context."
+      "description": "Identification data issued for an economic operator or public sector body that owns a European Business Wallet, used to verify identity and attributes in a business context.",
+      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns"
     },
     "EBWOID": {
       "description": "European Business Wallet Owner ID: a verifiable credential carrying an organization's identity attributes, issued via OpenID4VCI for use in European Business Wallet workflows.",
       "aliases": [
         "European Business Wallet Owner ID"
-      ]
+      ],
+      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns"
     },
     "European Unique Identifier": {
       "description": "A Union-wide unique identifier for companies and other legal entities, used in European Business Wallets where assigned under EU company law or anti-money-laundering rules.",
       "aliases": [
         "EUID"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "European Digital Directory": {
       "description": "A Commission-maintained directory of economic operators and public sector bodies using European Business Wallets, enabling trusted contact and identification across borders.",
       "aliases": [
         "EDD"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Economic operator": {
-      "description": "Any natural or legal person, or entity conducting economic activity, that may use a European Business Wallet to interact with public authorities or other businesses."
+      "description": "Any natural or legal person, or entity conducting economic activity, that may use a European Business Wallet to interact with public authorities or other businesses.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Legal person": {
-      "description": "A legal entity such as a company, association, or public body, as distinct from a natural person (an individual human being)."
+      "description": "A legal entity such as a company, association, or public body, as distinct from a natural person (an individual human being).",
+      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/"
     },
     "Mandate": {
       "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
       "aliases": [
         "delegation"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Representation rights": {
-      "description": "The rights of a natural person to act on behalf of a legal person or organization, managed digitally through mandates in business wallet contexts."
+      "description": "The rights of a natural person to act on behalf of a legal person or organization, managed digitally through mandates in business wallet contexts.",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Power of Attorney": {
       "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; a key use case for European Business Wallets and the EU digital PoA.",
       "aliases": [
         "PoA"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Legal equivalence": {
       "description": "The principle that actions performed through a European Business Wallet have the same legal effect as equivalent actions in person, on paper, or via other established processes.",
       "aliases": [
         "principle of equivalence"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Core minimum functionalities": {
       "description": "The minimum interoperable set of European Business Wallet functions that public sector bodies must accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications.",
       "aliases": [
         "core functionalities"
-      ]
+      ],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets"
     },
     "Qualified Electronic Registered Delivery Service": {
       "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery; offered alongside European Business Wallets.",
       "aliases": [
         "QERDS",
         "qualified eDelivery"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "Qualified Electronic Seal": {
       "description": "An advanced electronic seal created with a qualified seal creation device and based on a qualified certificate; legally ensures origin and integrity of data for a legal person.",
       "aliases": [
         "QSeal",
         "QESeal"
-      ]
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "WE BUILD": {
       "description": "Wallet Ecosystem for Business and payments Use cases on Identification, Legal representation and Data sharing: an EU Large Scale Pilot consortium testing European Business Wallet and EUDI Wallet business, supply-chain and payment use cases.",
@@ -1015,14 +1104,16 @@
       "aliases": [
         "ETSI TS 119 475",
         "TS 119 475"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119475/"
     },
     "EUDI Certificate Profiles": {
       "description": "ETSI certificate profile requirements for PID Providers, Wallet Providers, Attestation Providers, and related EUDI actors (ETSI TS 119 412-6).",
       "aliases": [
         "ETSI TS 119 412-6",
         "TS 119 412-6"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_en/319400_319499/319412/02.03.01_60/en_319412v020301p.pdf"
     },
     "RP Access Certificate Policy": {
       "description": "ETSI policy for access certificates that authenticate Wallet Relying Parties, complementing the Access Certificate concept (ETSI TS 119 411-8).",
@@ -1030,7 +1121,8 @@
         "ETSI TS 119 411-8",
         "TS 119 411-8",
         "Access Certificate Policy"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119411/08.01.01_60/ts_119411v080101p.pdf"
     },
     "Remote Signature Protocols": {
       "description": "Protocols for creating qualified electronic signatures remotely via a cloud or server-side QSCD, including ETSI TS 119 432 and the Cloud Signature Consortium (CSC) API used in EUDI Wallet signing scenarios.",
@@ -1039,7 +1131,8 @@
         "TS 119 432",
         "CSC API",
         "Cloud Signature Consortium API"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119432/01.01.01_60/ts_119432v010101p.pdf"
     },
     "PAdES": {
       "description": "PDF Advanced Electronic Signatures; ETSI baseline format for signing PDF documents with the wallet (ETSI EN 319 142-1).",
@@ -1047,7 +1140,8 @@
         "ETSI EN 319 142-1",
         "EN 319 142-1",
         "PDF Advanced Electronic Signatures"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/319142/01.01.01_60/en_319142v010101p.pdf"
     },
     "JAdES": {
       "description": "JSON Advanced Electronic Signatures; ETSI baseline format for signing JSON payloads, relevant alongside JOSE-secured credentials (ETSI TS 119 182-1).",
@@ -1055,7 +1149,8 @@
         "ETSI TS 119 182-1",
         "TS 119 182-1",
         "JSON Advanced Electronic Signatures"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119100_119199/119182/01.01.01_60/ts_119182v010101p.pdf"
     },
     "XAdES": {
       "description": "XML Advanced Electronic Signatures; ETSI baseline format for signing XML documents (ETSI EN 319 132-1).",
@@ -1063,7 +1158,8 @@
         "ETSI EN 319 132-1",
         "EN 319 132-1",
         "XML Advanced Electronic Signatures"
-      ]
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/319132/01.01.01_60/en_319132v010101p.pdf"
     },
     "EU Attestation Catalog": {
       "description": "The set of standardized EUDI Wallet attestation and credential types defined by the European Commission and Large Scale Pilots (for example EHIC, PDA1, CoR, and PoR), published as schemas and rulebooks for interoperable issuance and presentation.",
@@ -1079,7 +1175,8 @@
       "aliases": [
         "EHIC",
         "European Health Insurance Card credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/ehic-sd-jwt-vc.schema.json"
     },
     "Portable Document A1": {
       "description": "A verifiable credential representing the EU PDA1 certificate, proving that an employee remains covered by their home country's social security system when working across borders.",
@@ -1087,7 +1184,8 @@
         "PDA1",
         "ESSPASS PDA1",
         "Portable Document A1 credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/pda1-sd-jwt-vc.schema.json"
     },
     "Portable Document A2": {
       "description": "A verifiable credential representing the EU PDA2 certificate, used in cross-border social security contexts to document applicable legislation for posted workers or multi-state employment.",
@@ -1095,28 +1193,32 @@
         "PDA2",
         "ESSPASS PDA2",
         "Portable Document A2 credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu"
     },
     "European Social Security Pass": {
       "description": "An EU initiative and credential family for portable social security documents (notably PDA1 and PDA2) carried in the EUDI Wallet to support cross-border employment and social protection.",
       "aliases": [
         "ESSPASS",
         "European Social Security Pass programme"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu"
     },
     "Certificate of Residence": {
       "description": "A verifiable credential attesting a person's place of residence, used in EUDI Wallet flows for address verification and compliance with residence-based entitlements.",
       "aliases": [
         "CoR",
         "Certificate of Residence credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/cor-mdoc.schema.json"
     },
     "Power of Representation": {
       "description": "An EUDI Wallet attestation documenting that a natural person is authorised to act on behalf of another person or organisation within defined limits. Not the same as a European Business Wallet Power of Attorney (PoA) or mandate.",
       "aliases": [
         "PoR",
         "Power of Representation credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/por-sd-jwt-vc.schema.json"
     },
     "Health ID": {
       "description": "A verifiable credential carrying a person's health-related identifier for use in cross-border or digital healthcare contexts within the EUDI Wallet ecosystem.",
@@ -1124,7 +1226,8 @@
         "HIID",
         "Health ID credential",
         "Health Identifier"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/hiid-sd-jwt-vc.schema.json"
     },
     "European Diploma": {
       "description": "A verifiable credential representing a formal educational qualification or diploma issued in an EU context, for use in EUDI Wallet education and employment flows.",
@@ -1132,47 +1235,54 @@
         "Diploma",
         "Diploma credential",
         "Learning Credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/diploma-vc-sd-jwt.schema.json"
     },
     "Photo ID": {
       "description": "A verifiable credential carrying a holder's portrait and core identity attributes for visual identification, distinct from full PID or mDL credentials.",
       "aliases": [
         "PhotoID",
         "Photo ID credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu"
     },
     "Age Verification Credential": {
       "description": "A verifiable credential used to prove that a holder meets a minimum age threshold without revealing full identity, common in age-restricted access scenarios.",
       "aliases": [
         "Proof of Age",
         "Age Verification"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/age-verification-mdoc.schema.json"
     },
     "IBAN Attestation": {
       "description": "A verifiable credential attesting a holder's International Bank Account Number (IBAN) and related account attributes for payment and financial onboarding use cases.",
       "aliases": [
         "IBAN credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/iban-sd-jwt-vc.schema.json"
     },
     "Tax Number Attestation": {
       "description": "A verifiable credential attesting a holder's tax identification number as registered with the relevant tax authority.",
       "aliases": [
         "Tax Number credential",
         "Tax ID attestation"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/tax-sd-jwt-vc.schema.json"
     },
     "Tax Residency Attestation": {
       "description": "A verifiable credential attesting a holder's tax residency status for cross-border tax and compliance workflows.",
       "aliases": [
         "Tax Residency credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/tax-residency-vc-sd-jwt.schema.json"
     },
     "MSISDN Attestation": {
       "description": "A verifiable credential attesting a holder's mobile phone number (MSISDN) for identity binding, authentication, or contact verification.",
       "aliases": [
         "MSISDN credential",
         "Mobile phone number attestation"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/msisdn-sd-jwt-vc.schema.json"
     },
     "Employee ID Credential": {
       "description": "A verifiable credential identifying an employee and their association with an employer, used in workforce and access-management scenarios.",
@@ -1180,28 +1290,32 @@
         "Employee ID",
         "Employee attestation",
         "Employee credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/employee-mdoc.schema.json"
     },
     "Seafarer Credential": {
       "description": "A verifiable credential for maritime workers documenting seafarer identity, qualifications, or employment status in mobility and transport contexts.",
       "aliases": [
         "Seafarer attestation",
         "Seafarer ID credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas/seafarer-mdoc.schema.json"
     },
     "OpenID Connect": {
       "description": "An identity layer on top of OAuth 2.0; OpenID4VCI and OpenID4VP build on OpenID Connect patterns for wallet issuance and presentation flows.",
       "aliases": [
         "OIDC",
         "OpenID Connect Core"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-connect-core-1_0.html"
     },
     "OAuth 2.0": {
       "description": "The authorization framework underlying OpenID Connect and OpenID4VC; governs how wallets, issuers, and verifiers obtain and delegate access tokens during credential flows.",
       "aliases": [
         "OAuth",
         "OAuth2"
-      ]
+      ],
+      "url": "https://datatracker.ietf.org/doc/html/rfc6749"
     },
     "Selective Disclosure JWT": {
       "description": "IETF format for JWTs with selectively disclosable claims using salted hashes; the cryptographic basis for SD-JWT VC credentials.",
@@ -1215,42 +1329,48 @@
       "aliases": [
         "vct",
         "VCT"
-      ]
+      ],
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
     "Mobile Document Type": {
       "description": "A docType string identifying an ISO mdoc credential type in MSO mdoc issuance and presentation (for example eu.europa.ec.eudi.pid.1).",
       "aliases": [
         "docType",
         "MSO mdoc type"
-      ]
+      ],
+      "url": "https://www.iso.org/standard/69084.html"
     },
     "Deferred Credential Issuance": {
       "description": "An OpenID4VCI pattern where the wallet receives a transaction reference first and fetches the credential later once the issuer has prepared it.",
       "aliases": [
         "deferred issuance",
         "deferred credential"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
     },
     "Pre-authorized Code": {
       "description": "An OpenID4VCI issuance flow where the holder scans a QR code or follows a link containing a pre-authorized code to receive credentials without a separate authorization step.",
       "aliases": [
         "pre-authorized flow",
         "pre-authorized_code"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
     },
     "Transaction Code": {
       "description": "A user-facing code in OpenID4VP that the holder confirms to approve a presentation, providing explicit consent before credentials are shared.",
       "aliases": [
         "Tx Code",
         "transaction code"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html"
     },
     "ISO 18013-7": {
       "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification.",
       "aliases": [
         "ISO mDL remote",
         "18013-7"
-      ]
+      ],
+      "url": "https://www.iso.org/standard/82772.html"
     },
     "VC-JOSE-COSE": {
       "description": "W3C specification for securing verifiable credentials using JSON Web Signature/Encryption (JOSE) and CBOR Object Signing and Encryption (COSE).",
@@ -1274,14 +1394,16 @@
         "eKYC",
         "OIDC Identity Assurance",
         "Identity Assurance"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html"
     },
     "ISO/IEC 23220": {
       "description": "ISO standard family for identity management via mobile devices, covering generic eID data objects and encoding rules referenced alongside mdoc in EUDI Wallet specifications.",
       "aliases": [
         "ISO 23220",
         "ISO/IEC 23220-2"
-      ]
+      ],
+      "url": "https://www.iso.org/standard/86886.html"
     },
     "Credential Issuer Metadata": {
       "description": "OpenID4VCI discovery document at a credential issuer's well-known endpoint describing supported credential types, formats, and cryptographic parameters.",
@@ -1289,7 +1411,8 @@
         "issuer metadata",
         "openid-credential-issuer",
         ".well-known/openid-credential-issuer"
-      ]
+      ],
+      "url": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
     },
     "Web Authentication": {
       "description": "W3C API for strong user authentication with public-key credentials; referenced in EUDI Wallet user authentication and device binding requirements.",
@@ -1303,7 +1426,8 @@
       "aliases": [
         "CTAP",
         "CTAP2"
-      ]
+      ],
+      "url": "https://fidoalliance.org/specifications/download/Client-to-Authenticator-Protocol-v2.1-Implementation-Guide.pdf"
     },
     "Gaia-X": {
       "description": "A European initiative for federated, interoperable data infrastructure where participants exchange data and services under common trust rules using verifiable credentials.",
@@ -1318,7 +1442,8 @@
       "aliases": [
         "GX Trust Framework",
         "Gaia-X compliance framework"
-      ]
+      ],
+      "url": "https://docs.gaia-x.eu/"
     },
     "Gaia-X Federation Services": {
       "description": "Operational services that support Gaia-X federations, including compliance verification, identity management, and credential issuance infrastructure.",
@@ -1333,14 +1458,16 @@
       "aliases": [
         "dataspace",
         "European data space"
-      ]
+      ],
+      "url": "https://docs.gaia-x.eu/"
     },
     "Gaia-X Compliance Credential": {
       "description": "A Gaia-X verifiable credential attesting that a participant or service meets the Gaia-X Trust Framework requirements for a given compliance level.",
       "aliases": [
         "GX Compliance Credential",
         "Gaia-X Compliance"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx"
     },
     "Gaia-X Participant Credentials": {
       "description": "Gaia-X credential types describing legal participants: Legal Participant, Legal Registration Number, and Terms and Conditions credentials.",
@@ -1348,7 +1475,8 @@
         "Legal Participant Credential",
         "Legal Registration Number Credential",
         "Gaia-X Terms and Conditions Credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx"
     },
     "Gaia-X Resource Credentials": {
       "description": "Gaia-X credential types describing federated assets and offerings: Resource, Service Offering, Data Resource, Physical Resource, and Software Resource credentials.",
@@ -1356,7 +1484,8 @@
         "Gaia-X Service Offering Credential",
         "Gaia-X Resource Credential",
         "Gaia-X Data Resource Credential"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx"
     },
     "European Wallet Consortium": {
       "description": "An EU Large Scale Pilot consortium developing EUDI Wallet specifications, schemas, and conformance tooling. Publishes the EWC v3 interoperability profile.",
@@ -1370,14 +1499,16 @@
       "description": "An EU Large Scale Pilot consortium testing EUDI Wallet use cases in mobility, transport, and banking, including digital travel documents and strong authentication for digital payments.",
       "aliases": [
         "POTENTIAL LSP"
-      ]
+      ],
+      "url": "https://potential-project.eu/"
     },
     "Beta-ID": {
       "description": "Swiss Beta-ID personal identity credential issued through the swiyu Beta Credential Service, carrying core identity attributes and derived age proofs in SD-JWT VC format.",
       "aliases": [
         "Beta ID",
         "Beta-ID credential"
-      ]
+      ],
+      "url": "https://www.eid.admin.ch/"
     },
     "verifiable LEI": {
       "description": "A digitally verifiable representation of a Legal Entity Identifier (LEI) and related organizational roles, issued under the GLEIF vLEI ecosystem using ACDC credentials.",
@@ -1406,28 +1537,32 @@
       "aliases": [
         "QVI",
         "Qualified vLEI Issuer credential"
-      ]
+      ],
+      "url": "https://github.com/GLEIF-IT/vLEI-schema"
     },
     "vLEI Legal Entity Credential": {
       "description": "A vLEI credential issued to a legal entity, providing a verifiable digital representation of the organization based on its LEI.",
       "aliases": [
         "Legal Entity vLEI",
         "Legal Entity vLEI Credential"
-      ]
+      ],
+      "url": "https://github.com/GLEIF-IT/vLEI-schema"
     },
     "Official Organizational Role": {
       "description": "A vLEI credential linking a person to a formal role within a legal entity, such as CEO, director, or board member.",
       "aliases": [
         "OOR",
         "Official Organizational Role credential"
-      ]
+      ],
+      "url": "https://github.com/GLEIF-IT/vLEI-schema"
     },
     "Engagement Context Role": {
       "description": "A vLEI credential expressing a context-specific business role in an engagement, such as supplier, buyer, customer, or auditor.",
       "aliases": [
         "ECR",
         "Engagement Context Role credential"
-      ]
+      ],
+      "url": "https://github.com/GLEIF-IT/vLEI-schema"
     },
     "IATA Contactless Travel": {
       "description": "IATA programme for digital travel credentials and contactless passenger flows using ISO mdoc credentials such as boarding passes and booking orders.",
@@ -1443,14 +1578,16 @@
       "aliases": [
         "digital boarding pass",
         "boarding pass mdoc"
-      ]
+      ],
+      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/"
     },
     "Booking Order Credential": {
       "description": "A digital travel credential representing a flight reservation or booking order in contactless travel scenarios.",
       "aliases": [
         "flight reservation credential",
         "booking order mdoc"
-      ]
+      ],
+      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/"
     },
     "Mobile Driving Licence Credential": {
       "description": "An ISO/IEC 18013-5 mobile driving licence (mDL) credential carried as an MSO mdoc; used for identity and driving entitlement verification.",
@@ -1458,28 +1595,32 @@
         "MDL credential",
         "ISO mDL",
         "Mobile Driving Licence"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/iso"
     },
     "Vehicle Registration Certificate": {
       "description": "An ISO mobile document credential attesting vehicle registration details, carried as an MSO mdoc (mVRC).",
       "aliases": [
         "mVRC",
         "vehicle registration mdoc"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/iso"
     },
     "Reservation Credential": {
       "description": "An ISO mobile document credential representing a reservation or booking entitlement, carried as an MSO mdoc.",
       "aliases": [
         "ISO reservation",
         "reservation mdoc"
-      ]
+      ],
+      "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/iso"
     },
     "Aadhaar": {
       "description": "India's national digital identity programme; Aadhaar verifiable credentials are issued as ISO 18013-5 mdoc credentials under UIDAI.",
       "aliases": [
         "Aadhaar credential",
         "Aadhaar mdoc"
-      ]
+      ],
+      "url": "https://uidai.gov.in/en/ecosystem/authentication-devices-documents/seeding-documents/aadhaar-paperless-offline-e-kyc-xml.html"
     },
     "Unique Identification Authority of India": {
       "description": "The Indian government authority responsible for the Aadhaar identity system and related digital identity credentials.",
@@ -1580,13 +1721,15 @@
       "description": "The UNTP profile specifying W3C Verifiable Credentials and DID standards that underpin all UNTP credentials, ensuring they are signed, tamper-evident, revocable, and independently verifiable.",
       "aliases": [
         "VCP"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/VerifiableCredentialsProfile/"
     },
     "Decentralised Access Control": {
       "description": "The UNTP specification defining access-control patterns that balance transparency with confidentiality when sharing supply chain credentials, from anonymous public access to decentralised authentication.",
       "aliases": [
         "DAC"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/DecentralisedAccessControl/"
     },
     "UNTP Core Vocabulary": {
       "description": "The shared UNTP linked-data vocabulary of classes and properties (such as Product, Facility, Party, and Claim) reused across all UNTP credential types for consistent semantics.",
@@ -1610,61 +1753,75 @@
       "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Conformity Attestation": {
-      "description": "In the UNTP context, a conformity attestation issued by a competent body that defines one or more assessments about a product or facility against a standard or regulation; the subject of a Digital Conformity Credential. Not the same as an EUDI Wallet attestation (EAA/QEAA/PuB-EAA)."
+      "description": "In the UNTP context, a conformity attestation issued by a competent body that defines one or more assessments about a product or facility against a standard or regulation; the subject of a Digital Conformity Credential. Not the same as an EUDI Wallet attestation (EAA/QEAA/PuB-EAA).",
+      "url": "https://untp.unece.org/docs/specification/ConformityCredential/"
     },
     "Performance Claim": {
-      "description": "In the UNTP context, a declaration in a Digital Product Passport or Digital Facility Record that a product or facility meets a specific criterion, which can be verified against an independent Digital Conformity Credential."
+      "description": "In the UNTP context, a declaration in a Digital Product Passport or Digital Facility Record that a product or facility meets a specific criterion, which can be verified against an independent Digital Conformity Credential.",
+      "url": "https://untp.unece.org/docs/specification/CoreVocabulary"
     },
     "Criterion": {
-      "description": "In the UNTP context, a specific auditable rule within a conformity scheme or standard (for example a carbon-intensity calculation rule), identified by a unique URI and referenced in claims and assessments."
+      "description": "In the UNTP context, a specific auditable rule within a conformity scheme or standard (for example a carbon-intensity calculation rule), identified by a unique URI and referenced in claims and assessments.",
+      "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Facility": {
-      "description": "In the UNTP context, a production or processing site (such as a factory, mine, or warehouse) whose identity and sustainability performance are described in a Digital Facility Record."
+      "description": "In the UNTP context, a production or processing site (such as a factory, mine, or warehouse) whose identity and sustainability performance are described in a Digital Facility Record.",
+      "url": "https://untp.unece.org/docs/specification/DigitalFacilityRecord/"
     },
     "Party": {
-      "description": "In the UNTP context, an organisation involved in a supply chain (manufacturer, shipper, assessor, etc.), referenced across UNTP credentials to identify actors. Not the same as a Relying Party in the EUDI Wallet context."
+      "description": "In the UNTP context, an organisation involved in a supply chain (manufacturer, shipper, assessor, etc.), referenced across UNTP credentials to identify actors. Not the same as a Relying Party in the EUDI Wallet context.",
+      "url": "https://untp.unece.org/docs/specification/CoreVocabulary"
     },
     "Conformity Topic": {
       "description": "A UNTP standard classification for what is being assessed (for example emissions, forced labour, or water usage), used to align criterion and assessments across schemes.",
       "aliases": [
         "ConformityTopic"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Conformity Scheme": {
-      "description": "In the UNTP context, a formal governance framework under which conformity attestations are issued, published as a versioned linked-data vocabulary in the Conformity Vocabulary Catalog."
+      "description": "In the UNTP context, a formal governance framework under which conformity attestations are issued, published as a versioned linked-data vocabulary in the Conformity Vocabulary Catalog.",
+      "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Conformity Profile": {
       "description": "In the UNTP context, a versioned scope of audit under a conformity scheme, composing one or more criterion and defining the subject type (product, facility, or organisation).",
       "aliases": [
         "scheme profile"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Endorsement": {
-      "description": "In the UNTP context, the authority under which a conformity scheme or assessment is issued (for example accreditation of a test lab by a national authority)."
+      "description": "In the UNTP context, the authority under which a conformity scheme or assessment is issued (for example accreditation of a test lab by a national authority).",
+      "url": "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/"
     },
     "Registered Identity": {
-      "description": "In the UNTP context, an identity as recorded in an authoritative register (such as a business or product registry), bound to a DID through a Digital Identity Anchor."
+      "description": "In the UNTP context, an identity as recorded in an authoritative register (such as a business or product registry), bound to a DID through a Digital Identity Anchor.",
+      "url": "https://untp.unece.org/docs/specification/DigitalIdentityAnchor/"
     },
     "Lifecycle Event": {
-      "description": "In the UNTP context, a product lifecycle activity recorded as a Digital Traceability Event, modelled as a make, move, or modify event."
+      "description": "In the UNTP context, a product lifecycle activity recorded as a Digital Traceability Event, modelled as a make, move, or modify event.",
+      "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
     },
     "Make Event": {
       "description": "A UNTP traceability event type recording manufacturing or production of a product at a facility.",
       "aliases": [
         "make"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
     },
     "Move Event": {
       "description": "A UNTP traceability event type recording movement of a product between facilities or locations in the supply chain.",
       "aliases": [
         "move"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
     },
     "Modify Event": {
       "description": "A UNTP traceability event type recording modification or transformation of a product at a facility.",
       "aliases": [
         "modify"
-      ]
+      ],
+      "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
     }
   }
 }

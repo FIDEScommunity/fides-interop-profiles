@@ -1,10 +1,11 @@
 # Vocabulary: opzet per element (template voor uitleg)
 
-Alle content in het **Engels**. Voor elk term: `description` (1-2 zinnen); optioneel `url` naar spec.
+Alle content in het **Engels**. Voor elk term: `description` (1-2 zinnen); optioneel `url` naar de **canonieke bron** (spec, ARF, EU policy, catalog schema).
 
 **Richtlijn**
 - **Groep**: 1-2 zinnen wat de filter/sectie betekent voor de gebruiker.
-- **Optie**: 1-2 zinnen wat het is; eventueel link naar spec.
+- **Optie**: 1-2 zinnen wat het is; `url` naar normatieve bron waar beschikbaar (ARF Annex 1, ETSI deliverable, UNTP spec page, EU credential schema, …).
+- **Bulk fill**: `node scripts/enrich-vocabulary-urls.mjs` vult `url` voor externe batches (alleen waar nog leeg).
 
 ---
 
@@ -336,3 +337,18 @@ Existing filters `india_stack` and `open_badges` cross-reference these terms.
 | `Pan-Canadian Trust Framework` (PCTF), `Digital Identification and Authentication Council of Canada` (DIACC), `Peppol` |
 
 Deferred from batch D: Findynet (D5), UNVTD trade documents (D6).
+
+---
+
+## Source URLs (glossary links)
+
+Added in vocabulary `v1.10.0` (step 1). Optional per-term `url` points to the
+canonical external source: EUDI ARF Annex 1, ETSI deliverables, UNTP spec pages,
+EU credential catalog schemas, OpenID/IETF/W3C specs, Gaia-X, vLEI, etc.
+
+- **~194 / 334** terms now have a `url` (external batches + key standards).
+- **Maintained via** `scripts/enrich-vocabulary-urls.mjs` (only fills missing `url`).
+- Filter/group keys (`personal`, `holder`, `ecosystem`, …) intentionally often
+  have no `url` — they are UI taxonomy, not normative sources.
+- Future glossary plugin: render `url` as “Learn more” / “Source”; step 2 may add
+  structured `sources[]` for multiple links per term.
