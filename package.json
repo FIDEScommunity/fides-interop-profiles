@@ -6,7 +6,10 @@
   "scripts": {
     "crawl": "tsx src/crawler/index.ts",
     "validate": "tsx src/crawler/index.ts --validate-only",
-    "build": "npm run crawl && npm run minify",
+    "build:glossary": "node scripts/build-glossary-aggregated.mjs",
+    "import-wp-vocabulary-submissions": "node scripts/import-wp-vocabulary-submissions.mjs",
+    "import-wp-vocabulary-submissions:apply": "node scripts/import-wp-vocabulary-submissions.mjs --apply",
+    "build": "npm run crawl && npm run build:glossary && npm run minify",
     "minify": "npm run minify:css && npm run minify:js",
     "minify:css": "cleancss -o wordpress-plugin/fides-interop-matrix/assets/style.min.css wordpress-plugin/fides-interop-matrix/assets/style.css",
     "minify:js": "terser wordpress-plugin/fides-interop-matrix/assets/interop-matrix.js -o wordpress-plugin/fides-interop-matrix/assets/interop-matrix.min.js -c -m"
