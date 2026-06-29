@@ -1,6 +1,6 @@
 {
-  "version": "1.10.0",
-  "generatedAt": "2026-06-28T11:06:57.468Z",
+  "version": "1.10.1",
+  "generatedAt": "2026-06-29T08:30:33.060Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -19,7 +19,7 @@
       "key": "Access Certificate",
       "name": "Access Certificate",
       "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates; governed by ETSI TS 119 411-8 (RP Access Certificate Policy).",
-      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119411/08.01.01_60/ts_119411v080101p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941108/01.01.01_60/ts_11941108v010101p.pdf",
       "aliases": [
         "RP access certificate",
         "Relying Party access certificate"
@@ -31,7 +31,7 @@
       "key": "Access Certificate Authority",
       "name": "Access Certificate Authority",
       "description": "A provider mandated by a Member State to issue Relying Party access certificates to (wallet-)relying parties registered in that Member State.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Access CA"
       ],
@@ -69,7 +69,7 @@
       "key": "Administrative validity period",
       "name": "Administrative validity period",
       "description": "The date(s) from and/or up to which the attributes in a PID or attestation are valid, represented as attributes in the attestation (some attestations, such as diplomas, have none).",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -135,7 +135,7 @@
       "key": "Attestation",
       "name": "Attestation",
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or (non-qualified) EAA that can be stored in and presented from a Wallet Unit. Not the same as a UNTP Conformity Attestation (supply chain conformity assessment).",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EUDI attestation",
         "EAA attestation"
@@ -147,7 +147,7 @@
       "key": "Attestation Provider",
       "name": "Attestation Provider",
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or EAA Provider that issues wallet attestations. For UNTP conformity issuers, see Conformity Assessment Body.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Attestation Issuer"
       ],
@@ -158,7 +158,7 @@
       "key": "Attestation Revocation List",
       "name": "Attestation Revocation List",
       "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing a list of identifiers of revoked items.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "ARL"
       ],
@@ -169,7 +169,7 @@
       "key": "Attestation Rulebook",
       "name": "Attestation Rulebook",
       "description": "A document describing an attestation type, its namespace(s) and other features for a specific attestation type.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Rulebook"
       ],
@@ -180,7 +180,7 @@
       "key": "Attestation Status List",
       "name": "Attestation Status List",
       "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing Valid or Invalid status information for all relevant items.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -189,7 +189,7 @@
       "key": "Attestation Type",
       "name": "Attestation Type",
       "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -207,7 +207,7 @@
       "key": "Authentic Source",
       "name": "Authentic Source",
       "description": "A repository or system, under the responsibility of a public or private body, that is the primary or recognized source of attributes about a person or object.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -275,7 +275,7 @@
       "key": "Boarding Pass Credential",
       "name": "Boarding Pass Credential",
       "description": "A digital boarding pass credential representing a passenger's entitlement to board a specific flight, used in IATA contactless travel flows.",
-      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/",
+      "url": "https://www.iata.org/en/programs/passenger/one-id/",
       "aliases": [
         "digital boarding pass",
         "boarding pass mdoc"
@@ -287,7 +287,7 @@
       "key": "Booking Order Credential",
       "name": "Booking Order Credential",
       "description": "A digital travel credential representing a flight reservation or booking order in contactless travel scenarios.",
-      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/",
+      "url": "https://www.iata.org/en/programs/passenger/one-id/",
       "aliases": [
         "flight reservation credential",
         "booking order mdoc"
@@ -328,7 +328,7 @@
       "key": "Certificate Authority",
       "name": "Certificate Authority",
       "description": "An entity trusted by one or more parties in the ecosystem to create and seal certificates.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "CA"
       ],
@@ -380,7 +380,7 @@
       "key": "Client to Authenticator Protocol",
       "name": "Client to Authenticator Protocol",
       "description": "Protocol between a client (browser or OS) and an authenticator device; pairs with WebAuthn for hardware-backed user authentication.",
-      "url": "https://fidoalliance.org/specifications/download/Client-to-Authenticator-Protocol-v2.1-Implementation-Guide.pdf",
+      "url": "https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.pdf",
       "aliases": [
         "CTAP",
         "CTAP2"
@@ -492,7 +492,7 @@
       "key": "Core minimum functionalities",
       "name": "Core minimum functionalities",
       "description": "The minimum interoperable set of European Business Wallet functions that public sector bodies must accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "core functionalities"
       ],
@@ -736,7 +736,7 @@
       "key": "Digital Credentials API",
       "name": "Digital Credentials API",
       "description": "A browser and operating-system API that lets websites and apps invoke a wallet to request and present digital credentials.",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/",
+      "url": "https://eudi.dev/2.9.0/technical-specifications/",
       "aliases": [
         "DC API",
         "DC-API"
@@ -860,7 +860,7 @@
       "key": "EAA and PID Profiles",
       "name": "EAA and PID Profiles",
       "description": "ETSI technical specifications defining general, presentation, and issuance requirements for Person Identification Data and Electronic Attestations of Attributes in the EUDI Wallet (ETSI TS 119 472 parts 1–3).",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/",
+      "url": "https://eudi.dev/2.9.0/technical-specifications/",
       "aliases": [
         "ETSI TS 119 472",
         "TS 119 472",
@@ -875,7 +875,7 @@
       "key": "EBWOID",
       "name": "EBWOID",
       "description": "European Business Wallet Owner ID: a verifiable credential carrying an organization's identity attributes, issued via OpenID4VCI for use in European Business Wallet workflows.",
-      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns",
+      "url": "https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas",
       "aliases": [
         "European Business Wallet Owner ID"
       ],
@@ -895,7 +895,7 @@
       "key": "Economic operator",
       "name": "Economic operator",
       "description": "Any natural or legal person, or entity conducting economic activity, that may use a European Business Wallet to interact with public authorities or other businesses.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [],
       "letter": "E"
     },
@@ -942,7 +942,7 @@
       "key": "Electronic Attestation of Attributes",
       "name": "Electronic Attestation of Attributes",
       "description": "An attestation in electronic form that allows attributes of a person or object to be authenticated. The general building block alongside PID.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EAA"
       ],
@@ -976,7 +976,7 @@
       "key": "Embedded Disclosure Policy",
       "name": "Embedded Disclosure Policy",
       "description": "A set of rules embedded in an attestation by its provider that indicates the conditions a relying party must meet to access the attestation.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EDP"
       ],
@@ -1048,7 +1048,7 @@
       "key": "EU Attestation Catalog",
       "name": "EU Attestation Catalog",
       "description": "The set of standardized EUDI Wallet attestation and credential types defined by the European Commission and Large Scale Pilots (for example EHIC, PDA1, CoR, and PoR), published as schemas and rulebooks for interoperable issuance and presentation.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation",
       "aliases": [
         "EUDI attestation catalog",
         "Commission attestation types",
@@ -1070,7 +1070,7 @@
       "key": "EUDI Certificate Profiles",
       "name": "EUDI Certificate Profiles",
       "description": "ETSI certificate profile requirements for PID Providers, Wallet Providers, Attestation Providers, and related EUDI actors (ETSI TS 119 412-6).",
-      "url": "https://www.etsi.org/deliver/etsi_en/319400_319499/319412/02.03.01_60/en_319412v020301p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941206/01.02.01_60/ts_11941206v010201p.pdf",
       "aliases": [
         "ETSI TS 119 412-6",
         "TS 119 412-6"
@@ -1100,7 +1100,7 @@
       "key": "EUDI Wallet Trust Mark",
       "name": "EUDI Wallet Trust Mark",
       "description": "A mark indicating that a wallet or service is a recognized, certified part of the European Digital Identity Wallet ecosystem.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation",
       "aliases": [
         "Trust Mark"
       ],
@@ -1111,7 +1111,7 @@
       "key": "European Business Wallet",
       "name": "European Business Wallet",
       "description": "A digital wallet for organizations, developed at EU level, that enables businesses and public sector bodies to identify themselves, manage mandates, exchange verifiable data, and interact securely across borders with full legal effect. A specialised form of an organizational wallet, built on the EUDI Wallet architecture.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "EU Business Wallet",
         "EUBW",
@@ -1125,7 +1125,7 @@
       "key": "European Business Wallet Owner Identification Data",
       "name": "European Business Wallet Owner Identification Data",
       "description": "Identification data issued for an economic operator or public sector body that owns a European Business Wallet, used to verify identity and attributes in a business context.",
-      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns",
+      "url": "https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas",
       "aliases": [],
       "letter": "E"
     },
@@ -1134,7 +1134,7 @@
       "key": "European Digital Directory",
       "name": "European Digital Directory",
       "description": "A Commission-maintained directory of economic operators and public sector bodies using European Business Wallets, enabling trusted contact and identification across borders.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "EDD"
       ],
@@ -1158,7 +1158,7 @@
       "key": "European Digital Identity Wallet",
       "name": "European Digital Identity Wallet",
       "description": "A digital wallet that enables individuals and organizations to securely store, manage, and share identity data, attributes, and credentials within the European Digital Identity ecosystem.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation",
       "aliases": [
         "EUDI Wallet",
         "EUDIW",
@@ -1209,7 +1209,7 @@
       "key": "European Unique Identifier",
       "name": "European Unique Identifier",
       "description": "A Union-wide unique identifier for companies and other legal entities, used in European Business Wallets where assigned under EU company law or anti-money-laundering rules.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "EUID"
       ],
@@ -1325,7 +1325,7 @@
       "key": "Gaia-X Federation Services",
       "name": "Gaia-X Federation Services",
       "description": "Operational services that support Gaia-X federations, including compliance verification, identity management, and credential issuance infrastructure.",
-      "url": "https://gaia-x.eu/services/federation-services/",
+      "url": "https://gaia-x.eu/services/",
       "aliases": [
         "GXFS",
         "Gaia-X Federation Services catalogue"
@@ -1453,7 +1453,7 @@
       "key": "IATA Contactless Travel",
       "name": "IATA Contactless Travel",
       "description": "IATA programme for digital travel credentials and contactless passenger flows using ISO mdoc credentials such as boarding passes and booking orders.",
-      "url": "https://www.iata.org/en/programs/passenger/contactless-travel/",
+      "url": "https://www.iata.org/en/programs/passenger/one-id/",
       "aliases": [
         "contactless travel",
         "IATA DAT",
@@ -1509,7 +1509,7 @@
       "key": "Implementing Act",
       "name": "Implementing Act",
       "description": "A Commission Implementing Regulation that provides binding technical rules and specifications under the European Digital Identity Regulation.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation",
       "aliases": [
         "CIR",
         "Implementing Regulation"
@@ -1541,7 +1541,7 @@
       "key": "Intermediary",
       "name": "Intermediary",
       "description": "A Relying Party that offers services to other (intermediated) Relying Parties to connect to Wallet Units and request user attributes on their behalf.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "I"
     },
@@ -1616,7 +1616,7 @@
       "key": "ISO/IEC 23220",
       "name": "ISO/IEC 23220",
       "description": "ISO standard family for identity management via mobile devices, covering generic eID data objects and encoding rules referenced alongside mdoc in EUDI Wallet specifications.",
-      "url": "https://www.iso.org/standard/86886.html",
+      "url": "https://www.iso.org/standard/74910.html",
       "aliases": [
         "ISO 23220",
         "ISO/IEC 23220-2"
@@ -1646,7 +1646,7 @@
       "key": "JAdES",
       "name": "JAdES",
       "description": "JSON Advanced Electronic Signatures; ETSI baseline format for signing JSON payloads, relevant alongside JOSE-secured credentials (ETSI TS 119 182-1).",
-      "url": "https://www.etsi.org/deliver/etsi_ts/119100_119199/119182/01.01.01_60/ts_119182v010101p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.02.01_60/ts_11918201v010201p.pdf",
       "aliases": [
         "ETSI TS 119 182-1",
         "TS 119 182-1",
@@ -1704,7 +1704,7 @@
       "key": "Key Attestation",
       "name": "Key Attestation",
       "description": "A type of Wallet Unit Attestation that attests the certification and properties of a WSCA/WSCD or keystore and the public keys whose private keys it protects.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "KA"
       ],
@@ -1736,7 +1736,7 @@
       "key": "Keystore",
       "name": "Keystore",
       "description": "A hardware-backed repository and service in which non-critical cryptographic keys are generated, stored and used inside a dedicated hardware security boundary (e.g. Secure Element, TPM, TEE, secure enclave, or remote HSM).",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "key store"
       ],
@@ -1747,7 +1747,7 @@
       "key": "Large Scale Pilot",
       "name": "Large Scale Pilot",
       "description": "An EU-funded pilot consortium testing EUDI Wallet use cases across Member States. Examples include the European Wallet Consortium (EWC) and POTENTIAL.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/digital-identity-wallet/large-scale-pilots",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet-implementation",
       "aliases": [
         "LSP"
       ],
@@ -1758,7 +1758,7 @@
       "key": "Legal Entity Identifier",
       "name": "Legal Entity Identifier",
       "description": "A globally unique 20-character code identifying a legal entity in financial and trade transactions; the basis for vLEI credentials.",
-      "url": "https://www.gleif.org/en/about-lei/introducing-the-legal-entity-identifier-lei",
+      "url": "https://www.gleif.org/en/organizational-identity/lei-vlei/",
       "aliases": [
         "LEI"
       ],
@@ -1769,7 +1769,7 @@
       "key": "Legal equivalence",
       "name": "Legal equivalence",
       "description": "The principle that actions performed through a European Business Wallet have the same legal effect as equivalent actions in person, on paper, or via other established processes.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "principle of equivalence"
       ],
@@ -1780,7 +1780,7 @@
       "key": "Legal person",
       "name": "Legal person",
       "description": "A legal entity such as a company, association, or public body, as distinct from a natural person (an individual human being).",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "L"
     },
@@ -1789,7 +1789,7 @@
       "key": "Legal Person Identification Data",
       "name": "Legal Person Identification Data",
       "description": "A set of standardized identity attributes that establishes the identity of a legal person (such as a company). The organizational counterpart to Person Identification Data (PID) in business wallet ecosystems.",
-      "url": "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns",
+      "url": "https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas",
       "aliases": [
         "LPID"
       ],
@@ -1842,7 +1842,7 @@
       "key": "Mandate",
       "name": "Mandate",
       "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "delegation"
       ],
@@ -1885,7 +1885,7 @@
       "key": "Member State",
       "name": "Member State",
       "description": "A country of the European Union, obligated under the European Digital Identity Regulation to offer at least one EUDI Wallet to its citizens and residents.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "MS"
       ],
@@ -1973,7 +1973,7 @@
       "key": "Namespace",
       "name": "Namespace",
       "description": "A specification of the attribute identifiers, syntax and semantics of attributes that can be used in an attestation, with an identifier unique within the ecosystem.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "N"
     },
@@ -2154,7 +2154,7 @@
       "key": "Organizational Wallet",
       "name": "Organizational Wallet",
       "description": "A digital wallet used by organizations to issue, hold, and verify credentials. Often called a business wallet; broader than the EU-regulated European Business Wallet product.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "Organisation Wallet",
         "Business Wallet"
@@ -2184,7 +2184,7 @@
       "key": "PAdES",
       "name": "PAdES",
       "description": "PDF Advanced Electronic Signatures; ETSI baseline format for signing PDF documents with the wallet (ETSI EN 319 142-1).",
-      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/319142/01.01.01_60/en_319142v010101p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/31914201/01.02.01_60/en_31914201v010201p.pdf",
       "aliases": [
         "ETSI EN 319 142-1",
         "EN 319 142-1",
@@ -2208,7 +2208,7 @@
       "key": "Party",
       "name": "Party",
       "description": "In the UNTP context, an organisation involved in a supply chain (manufacturer, shipper, assessor, etc.), referenced across UNTP credentials to identify actors. Not the same as a Relying Party in the EUDI Wallet context.",
-      "url": "https://untp.unece.org/docs/specification/CoreVocabulary",
+      "url": "https://untp.unece.org/docs/specification/CoreVocabulary//",
       "aliases": [],
       "letter": "P"
     },
@@ -2238,7 +2238,7 @@
       "key": "Performance Claim",
       "name": "Performance Claim",
       "description": "In the UNTP context, a declaration in a Digital Product Passport or Digital Facility Record that a product or facility meets a specific criterion, which can be verified against an independent Digital Conformity Credential.",
-      "url": "https://untp.unece.org/docs/specification/CoreVocabulary",
+      "url": "https://untp.unece.org/docs/specification/CoreVocabulary//",
       "aliases": [],
       "letter": "P"
     },
@@ -2256,7 +2256,7 @@
       "key": "Person Identification Data",
       "name": "Person Identification Data",
       "description": "A set of identity attributes, issued under EU or national law, that establishes the identity of a natural or legal person. Forms the foundational identity in the EUDI Wallet.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "PID"
       ],
@@ -2297,7 +2297,7 @@
       "key": "PID Provider",
       "name": "PID Provider",
       "description": "The party responsible for issuing and revoking Person Identification Data and for cryptographically binding it to a Wallet Unit.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Provider of person identification data"
       ],
@@ -2352,7 +2352,7 @@
       "key": "POTENTIAL",
       "name": "POTENTIAL",
       "description": "An EU Large Scale Pilot consortium testing EUDI Wallet use cases in mobility, transport, and banking, including digital travel documents and strong authentication for digital payments.",
-      "url": "https://potential-project.eu/",
+      "url": "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/924976339/LSP-POTENTIAL",
       "aliases": [
         "POTENTIAL LSP"
       ],
@@ -2363,7 +2363,7 @@
       "key": "Power of Attorney",
       "name": "Power of Attorney",
       "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; a key use case for European Business Wallets and the EU digital PoA.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "PoA"
       ],
@@ -2473,7 +2473,7 @@
       "key": "Pseudonym",
       "name": "Pseudonym",
       "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "P"
     },
@@ -2491,7 +2491,7 @@
       "key": "Public Sector Body EAA",
       "name": "Public Sector Body EAA",
       "description": "An Electronic Attestation of Attributes issued by, or on behalf of, a public sector body responsible for an authentic source.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "PuB-EAA"
       ],
@@ -2502,7 +2502,7 @@
       "key": "Qualified Electronic Attestation of Attributes",
       "name": "Qualified Electronic Attestation of Attributes",
       "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "QEAA"
       ],
@@ -2600,7 +2600,7 @@
       "key": "Registrar",
       "name": "Registrar",
       "description": "The body designated by a Member State that establishes and maintains the list of registered wallet-relying parties in its territory.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "R"
     },
@@ -2609,7 +2609,7 @@
       "key": "Relying Party",
       "name": "Relying Party",
       "description": "A service provider that interacts with a Wallet Unit to request and receive user attributes (for example to authenticate a user or verify a credential).",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "RP",
         "Wallet-relying party"
@@ -2665,7 +2665,7 @@
       "key": "Representation rights",
       "name": "Representation rights",
       "description": "The rights of a natural person to act on behalf of a legal person or organization, managed digitally through mandates in business wallet contexts.",
-      "url": "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [],
       "letter": "R"
     },
@@ -2704,7 +2704,7 @@
       "key": "RP Access Certificate Policy",
       "name": "RP Access Certificate Policy",
       "description": "ETSI policy for access certificates that authenticate Wallet Relying Parties, complementing the Access Certificate concept (ETSI TS 119 411-8).",
-      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119411/08.01.01_60/ts_119411v080101p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941108/01.01.01_60/ts_11941108v010101p.pdf",
       "aliases": [
         "ETSI TS 119 411-8",
         "TS 119 411-8",
@@ -2968,7 +2968,7 @@
       "key": "swiyu v0",
       "name": "swiyu v0",
       "description": "Swiss national digital identity interoperability profile (public beta) for SD-JWT VC credentials using OpenID4VCI and OpenID4VP. Published by the swiyu (Swiss e-ID) programme.",
-      "url": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/",
+      "url": "https://swiyu-admin-ch.github.io/specifications/introduction/",
       "aliases": [
         "Swiyu beta",
         "swiyu Interoperability Profile",
@@ -3004,7 +3004,7 @@
       "key": "Technical validity period",
       "name": "Technical validity period",
       "description": "The dates from and up to which an attestation is technically valid, represented as metadata; typically much shorter than the administrative validity period for privacy reasons.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "T"
     },
@@ -3052,7 +3052,7 @@
       "key": "Trust Anchor",
       "name": "Trust Anchor",
       "description": "An authoritative entity, represented by a public key and associated data, that serves as a root of trust for validating certificates and attestations.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "T"
     },
@@ -3105,7 +3105,7 @@
       "key": "UN/CEFACT",
       "name": "UN/CEFACT",
       "description": "United Nations Centre for Trade Facilitation and Electronic Business; develops standards for cross-border trade data exchange, including the UN Transparency Protocol (UNTP).",
-      "url": "https://unece.org/trade/uncefact",
+      "url": "https://untp.unece.org/docs/specification/",
       "aliases": [
         "UNECE"
       ],
@@ -3127,7 +3127,7 @@
       "key": "UNTP Core Vocabulary",
       "name": "UNTP Core Vocabulary",
       "description": "The shared UNTP linked-data vocabulary of classes and properties (such as Product, Facility, Party, and Claim) reused across all UNTP credential types for consistent semantics.",
-      "url": "https://untp.unece.org/docs/specification/CoreVocabulary",
+      "url": "https://untp.unece.org/docs/specification/CoreVocabulary//",
       "aliases": [
         "Core Vocabulary"
       ],
@@ -3244,7 +3244,7 @@
       "key": "Verifiable Credentials Profile",
       "name": "Verifiable Credentials Profile",
       "description": "The UNTP profile specifying W3C Verifiable Credentials and DID standards that underpin all UNTP credentials, ensuring they are signed, tamper-evident, revocable, and independently verifiable.",
-      "url": "https://untp.unece.org/docs/specification/VerifiableCredentialsProfile/",
+      "url": "https://untp.unece.org/docs/specification/VerifiableCredentials/",
       "aliases": [
         "VCP"
       ],
@@ -3255,7 +3255,7 @@
       "key": "verifiable LEI",
       "name": "verifiable LEI",
       "description": "A digitally verifiable representation of a Legal Entity Identifier (LEI) and related organizational roles, issued under the GLEIF vLEI ecosystem using ACDC credentials.",
-      "url": "https://www.gleif.org/en/vlei/introducing-the-vlei",
+      "url": "https://www.gleif.org/en/organizational-identity/lei-vlei/the-verifiable-lei-vlei",
       "aliases": [
         "vLEI credentials",
         "verifiable Legal Entity Identifier"
@@ -3287,7 +3287,7 @@
       "key": "vlei",
       "name": "vLEI",
       "description": "GLEIF verifiable Legal Entity Identifier ecosystem using ACDC credentials to represent organizations, roles, and engagement context.",
-      "url": "https://www.gleif.org/en/vlei/introducing-the-vlei",
+      "url": "https://www.gleif.org/en/organizational-identity/lei-vlei/the-verifiable-lei-vlei",
       "aliases": [
         "vLEI ecosystem",
         "verifiable LEI ecosystem"
@@ -3329,7 +3329,7 @@
       "key": "Wallet Instance",
       "name": "Wallet Instance",
       "description": "The application installed and configured on a user's device or environment that the user interacts with; part of a Wallet Unit. Can also be a web application.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3338,7 +3338,7 @@
       "key": "Wallet Instance Attestation",
       "name": "Wallet Instance Attestation",
       "description": "A type of Wallet Unit Attestation that attests the integrity and authenticity of a Wallet Instance and carries information about the Wallet Solution.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WIA"
       ],
@@ -3349,7 +3349,7 @@
       "key": "Wallet Provider",
       "name": "Wallet Provider",
       "description": "A natural or legal person who provides Wallet Solutions in the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3369,7 +3369,7 @@
       "key": "Wallet Secure Cryptographic Application",
       "name": "Wallet Secure Cryptographic Application",
       "description": "An application that manages critical assets by using the cryptographic and non-cryptographic functions provided by the Wallet Secure Cryptographic Device.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WSCA"
       ],
@@ -3380,7 +3380,7 @@
       "key": "Wallet Secure Cryptographic Device",
       "name": "Wallet Secure Cryptographic Device",
       "description": "A tamper-resistant device that protects critical assets and provides cryptographic functions for the secure execution of critical operations in a Wallet Unit.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WSCD"
       ],
@@ -3391,7 +3391,7 @@
       "key": "Wallet Solution",
       "name": "Wallet Solution",
       "description": "The combination of software, hardware, services, settings and configurations (including Wallet Instances, WSCAs and WSCDs) that makes up a wallet product.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3400,7 +3400,7 @@
       "key": "Wallet Unit",
       "name": "Wallet Unit",
       "description": "A unique configuration of a Wallet Solution, including Wallet Instances and the Wallet Secure Cryptographic Applications and Devices, provided by a Wallet Provider to an individual user.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3409,7 +3409,7 @@
       "key": "Wallet Unit Attestation",
       "name": "Wallet Unit Attestation",
       "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WUA"
       ],
@@ -3452,7 +3452,7 @@
       "key": "XAdES",
       "name": "XAdES",
       "description": "XML Advanced Electronic Signatures; ETSI baseline format for signing XML documents (ETSI EN 319 132-1).",
-      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/319132/01.01.01_60/en_319132v010101p.pdf",
+      "url": "https://www.etsi.org/deliver/etsi_en/319100_319199/31913201/01.03.01_60/en_31913201v010301p.pdf",
       "aliases": [
         "ETSI EN 319 132-1",
         "EN 319 132-1",
@@ -3465,7 +3465,7 @@
       "key": "Zero-Knowledge Proof",
       "name": "Zero-Knowledge Proof",
       "description": "A cryptographic method that proves a statement is true without revealing the underlying data (for example proving age over 18 without revealing the birth date).",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/",
+      "url": "https://eudi.dev/2.9.0/technical-specifications/",
       "aliases": [
         "ZKP",
         "zero knowledge proof"

@@ -15,11 +15,11 @@ const VOCAB_PATH = join(__dirname, "../data/vocabulary.json");
 const U = {
   eudiArf: "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/",
   eudiArfAnnex1:
-    "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/",
+    "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
   eudiEssentialSts:
-    "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/",
-  euEudiPolicy: "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet",
-  euLsp: "https://digital-strategy.ec.europa.eu/en/policies/digital-identity-wallet/large-scale-pilots",
+    "https://eudi.dev/2.9.0/technical-specifications/",
+  euEudiPolicy: "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation",
+  euLsp: "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet-implementation",
   eidas2: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402767",
   eidas1: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
   euCredCatalog:
@@ -27,20 +27,20 @@ const U = {
   euCredSchemas:
     "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/eu/schemas",
   ebwPolicy:
-    "https://digital-strategy.ec.europa.eu/en/policies/european-business-wallets",
+    "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
   ewcLsp:
     "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/920064565/LSP-EWC",
   ewcLpidRulebook:
-    "https://github.com/eu-digital-identity-wallet/ewc-rules-and-patterns",
+    "https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas",
   untp: "https://untp.unece.org/docs/specification/",
-  untpVcp: "https://untp.unece.org/docs/specification/VerifiableCredentialsProfile/",
+  untpVcp: "https://untp.unece.org/docs/specification/VerifiableCredentials/",
   untpDac: "https://untp.unece.org/docs/specification/DecentralisedAccessControl/",
   untpDpp: "https://untp.unece.org/docs/specification/DigitalProductPassport/",
   untpDcc: "https://untp.unece.org/docs/specification/ConformityCredential/",
   untpDte: "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/",
   untpDfr: "https://untp.unece.org/docs/specification/DigitalFacilityRecord/",
   untpDia: "https://untp.unece.org/docs/specification/DigitalIdentityAnchor/",
-  untpCore: "https://untp.unece.org/docs/specification/CoreVocabulary",
+  untpCore: "https://untp.unece.org/docs/specification/CoreVocabulary//",
   untpIdr: "https://untp.unece.org/docs/specification/IdentityResolver/",
   untpCvc: "https://untp.unece.org/docs/specification/ConformityVocabularyCatalog/",
   etsiEsi: "https://portal.etsi.org/tb.aspx?tbid=826&SubTB=826",
@@ -48,12 +48,12 @@ const U = {
   etsi119602: "https://www.etsi.org/deliver/etsi_ts/119600_119699/119602/",
   etsi119472: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119472/",
   etsi119475: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119475/",
-  etsi1194126: "https://www.etsi.org/deliver/etsi_en/319400_319499/319412/02.03.01_60/en_319412v020301p.pdf",
-  etsi1194118: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119411/08.01.01_60/ts_119411v080101p.pdf",
+  etsi1194126: "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941206/01.02.01_60/ts_11941206v010201p.pdf",
+  etsi1194118: "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941108/01.01.01_60/ts_11941108v010101p.pdf",
   etsi119432: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119432/01.01.01_60/ts_119432v010101p.pdf",
-  etsiPades: "https://www.etsi.org/deliver/etsi_en/319100_319199/319142/01.01.01_60/en_319142v010101p.pdf",
-  etsiJades: "https://www.etsi.org/deliver/etsi_ts/119100_119199/119182/01.01.01_60/ts_119182v010101p.pdf",
-  etsiXades: "https://www.etsi.org/deliver/etsi_en/319100_319199/319132/01.01.01_60/en_319132v010101p.pdf",
+  etsiPades: "https://www.etsi.org/deliver/etsi_en/319100_319199/31914201/01.02.01_60/en_31914201v010201p.pdf",
+  etsiJades: "https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.02.01_60/ts_11918201v010201p.pdf",
+  etsiXades: "https://www.etsi.org/deliver/etsi_en/319100_319199/31913201/01.03.01_60/en_31913201v010301p.pdf",
   oid4vci: "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
   oid4vp: "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html",
   oidc: "https://openid.net/specs/openid-connect-core-1_0.html",
@@ -66,14 +66,14 @@ const U = {
   vcdm11: "https://www.w3.org/TR/vc-data-model/",
   iso180135: "https://www.iso.org/standard/69084.html",
   iso180137: "https://www.iso.org/standard/82772.html",
-  iso23220: "https://www.iso.org/standard/86886.html",
+  iso23220: "https://www.iso.org/standard/74910.html",
   oidcIa: "https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html",
   gxCatalog:
     "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx",
   gxTrust: "https://docs.gaia-x.eu/",
-  potential: "https://potential-project.eu/",
+  potential: "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/924976339/LSP-POTENTIAL",
   gleifVleiSchemas: "https://github.com/GLEIF-IT/vLEI-schema",
-  iataDat: "https://www.iata.org/en/programs/passenger/contactless-travel/",
+  iataDat: "https://www.iata.org/en/programs/passenger/one-id/",
   isoCatalog:
     "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/iso",
 };
@@ -221,7 +221,7 @@ const TERM_URLS = {
   "ISO/IEC 23220": U.iso23220,
   "Credential Issuer Metadata": U.oid4vci,
   "Client to Authenticator Protocol":
-    "https://fidoalliance.org/specifications/download/Client-to-Authenticator-Protocol-v2.1-Implementation-Guide.pdf",
+    "https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.pdf",
 
   // Gaia-X
   "Gaia-X Trust Framework": U.gxTrust,
