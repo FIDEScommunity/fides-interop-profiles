@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FIDES Vocabulary Glossary
  * Description: Browse the FIDES community glossary with search, alphabetical navigation, and detail modals. When fides_catalog_ssr_enabled is on (FIDES Community Tools Tiles ≥ 1.6.3), emits server-rendered listing and per-term SEO for indexable glossary pages.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.0');
+define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.1');
 
 const FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP = 'fides_vocabulary_glossary_settings';
 const FIDES_VOCABULARY_GLOSSARY_DEFAULT_SUGGEST_EMAIL = 'glossary@fides.community';
@@ -203,6 +203,25 @@ class Fides_Vocabulary_Glossary {
     }
 
     /**
+     * Same login target as other FIDES catalogs (OID4VP when configured).
+     */
+    private function resolve_ratings_login_url(): string {
+        $current_request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : '';
+        $current_host        = isset($_SERVER['HTTP_HOST']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_HOST'])) : '';
+        $current_url         = $current_host !== ''
+            ? ((is_ssl() ? 'https://' : 'http://') . $current_host . $current_request_uri)
+            : home_url('/');
+
+        $oid4vp_options = get_option('universal_openid4vp_options', array());
+        $oid4vp_login_url = '';
+        if (is_array($oid4vp_options) && ! empty($oid4vp_options['loginUrl'])) {
+            $oid4vp_login_url = esc_url_raw((string) $oid4vp_options['loginUrl']);
+        }
+
+        return $oid4vp_login_url !== '' ? $oid4vp_login_url : wp_login_url($current_url);
+    }
+
+    /**
      * @param array<string, mixed> $overrides
      * @return array<string, mixed>
      */
@@ -221,6 +240,8 @@ class Fides_Vocabulary_Glossary {
             ? esc_url_raw($update_opt)
             : home_url(Fides_Vocabulary_Glossary_Submission_Forms::DEFAULT_UPDATE_PATH);
 
+        $ratings_login_url = $this->resolve_ratings_login_url();
+
         $base = array(
             'pluginUrl'           => $this->plugin_url,
             'githubDataUrl'       => esc_url_raw($github_url),
@@ -229,7 +250,8 @@ class Fides_Vocabulary_Glossary {
             'ratingsApiBase'      => rest_url('fides-catalog/v1/ratings'),
             'ratingsNonce'        => wp_create_nonce('wp_rest'),
             'isLoggedIn'          => is_user_logged_in(),
-            'loginUrl'            => wp_login_url(),
+            'loginUrl'            => $ratings_login_url,
+            'ratingsLoginUrl'     => $ratings_login_url,
             'suggestEmail'        => get_option('fides_vocabulary_glossary_suggest_email', FIDES_VOCABULARY_GLOSSARY_DEFAULT_SUGGEST_EMAIL),
             'updateFormUrl'       => $update_form_url,
             'submitFormUrl'       => (function () {

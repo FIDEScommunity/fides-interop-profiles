@@ -187,13 +187,15 @@
   }
 
   function modalOptions() {
+    const ratingsLoginUrl = String(config.ratingsLoginUrl || config.loginUrl || '').trim();
     return {
       theme: root.getAttribute('data-theme') || 'fides',
       ratingsApiBase: config.ratingsApiBase || '',
       ratingsNonce: config.ratingsNonce || '',
       ratingsIsLoggedIn: config.isLoggedIn,
       isLoggedIn: config.isLoggedIn,
-      loginUrl: config.loginUrl || '',
+      loginUrl: ratingsLoginUrl,
+      ratingsLoginUrl: ratingsLoginUrl,
       updateFormUrl: config.updateFormUrl || '',
     };
   }
