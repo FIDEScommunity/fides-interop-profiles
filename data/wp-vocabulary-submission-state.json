@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogType": "vocabulary",
+  "lastImportAt": "2026-07-01T18:56:56.408Z",
+  "managedSlugs": [
+    "x509certificate"
+  ],
+  "managedKeys": {
+    "x509certificate": "x509Certificate"
+  }
+}

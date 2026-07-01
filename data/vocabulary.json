@@ -237,7 +237,12 @@
       "description": "OAuth 2.0 client identifier used in OpenID4VC flows to identify wallets and applications in authorization."
     },
     "x509Certificate": {
-      "description": "PKI certificate binding an identity to a public key; enables trust through established certificate chains."
+      "description": "PKI certificate binding an identity to a public key; enables trust through established certificate chains.",
+      "title": "X.509 Certificate",
+      "aliases": [
+        "x509",
+        "x.509"
+      ]
     },
     "joseJws": {
       "description": "JSON-based signature format for web applications providing integrity and authenticity."

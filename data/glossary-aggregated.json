@@ -1,6 +1,6 @@
 {
   "version": "1.10.1",
-  "generatedAt": "2026-06-29T08:30:33.060Z",
+  "generatedAt": "2026-07-01T18:56:56.658Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -3444,7 +3444,10 @@
       "name": "X.509 Certificate",
       "description": "PKI certificate binding an identity to a public key; enables trust through established certificate chains.",
       "url": "",
-      "aliases": [],
+      "aliases": [
+        "x509",
+        "x.509"
+      ],
       "letter": "X"
     },
     {
