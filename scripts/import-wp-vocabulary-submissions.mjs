@@ -16,6 +16,8 @@ const root = join(__dirname, '..');
 const VOCABULARY_PATH = join(root, 'data/vocabulary.json');
 const STATE_PATH = join(root, 'data/wp-vocabulary-submission-state.json');
 const SECRET_HEADER = 'X-FIDES-Catalog-Secret';
+/** Must match all catalog automation HTTP to fides.community (see fides-community-tools-tiles governance §14). */
+const USER_AGENT = 'FIDES-Catalog-Automation/1.0';
 const COMMUNITY_FILENAME = 'vocabulary-term.json';
 
 function parseArgs(argv) {
@@ -102,7 +104,7 @@ async function fetchExport(wpUrl, secret) {
     headers: {
       Accept: 'application/json',
       [SECRET_HEADER]: secret,
-      'User-Agent': 'FIDES-Vocabulary-Automation/1.0',
+      'User-Agent': USER_AGENT,
     },
     signal: AbortSignal.timeout(60_000),
   });
