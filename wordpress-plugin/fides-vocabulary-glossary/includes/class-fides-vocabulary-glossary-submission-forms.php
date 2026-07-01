@@ -126,12 +126,22 @@ if (! class_exists('Fides_Vocabulary_Glossary_Submission_Forms')) {
             return '<div id="' . esc_attr($root_id) . '" class="fides-vocabulary-submission-root fides-org-submission-root"></div>';
         }
 
+        /**
+         * Login URL with return_to current page (OID4VP or WP login).
+         */
         public static function form_login_url(): string {
             $current_request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : '';
             $current_host        = isset($_SERVER['HTTP_HOST']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_HOST'])) : '';
             $current_url         = $current_host !== ''
                 ? ((is_ssl() ? 'https://' : 'http://') . $current_host . $current_request_uri)
                 : home_url('/');
+
+            $oid4vp_options = get_option('universal_openid4vp_options', array());
+            if (is_array($oid4vp_options) && ! empty($oid4vp_options['loginUrl'])) {
+                return esc_url_raw(
+                    add_query_arg('return_to', $current_url, (string) $oid4vp_options['loginUrl'])
+                );
+            }
 
             return wp_login_url($current_url);
         }
