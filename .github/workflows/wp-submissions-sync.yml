@@ -43,7 +43,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [ -n "$(git status --porcelain data/vocabulary.json data/wp-vocabulary-submission-state.json data/glossary-aggregated.json wordpress-plugin/fides-vocabulary-glossary/data/glossary-aggregated.json)" ]; then
+          if [ -n "$(git status --porcelain data/vocabulary.json data/wp-vocabulary-submission-state.json data/glossary-aggregated.json)" ]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -55,7 +55,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/vocabulary.json data/wp-vocabulary-submission-state.json data/glossary-aggregated.json wordpress-plugin/fides-vocabulary-glossary/data/glossary-aggregated.json
+          git add data/vocabulary.json data/wp-vocabulary-submission-state.json data/glossary-aggregated.json
           if git diff --cached --quiet; then
             echo "No staged changes; another run may have committed already."
             exit 0
