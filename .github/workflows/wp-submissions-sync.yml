@@ -8,6 +8,10 @@ on:
     types: [fides-catalog-export]
   workflow_dispatch:
 
+concurrency:
+  group: wp-vocabulary-submissions-sync
+  cancel-in-progress: false
+
 jobs:
   sync-wp-vocabulary-submissions:
     if: github.repository == 'FIDEScommunity/fides-interop-profiles'
@@ -52,8 +56,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/vocabulary.json data/wp-vocabulary-submission-state.json data/glossary-aggregated.json wordpress-plugin/fides-vocabulary-glossary/data/glossary-aggregated.json
+          if git diff --cached --quiet; then
+            echo "No staged changes; another run may have committed already."
+            exit 0
+          fi
           git commit -m "chore: sync WordPress vocabulary submissions [skip ci]"
-          git push
+          git pull --rebase origin main
+          git push origin main
 
       - name: Notify production WordPress to flush catalog cache
         if: steps.changes.outputs.changed == 'true'
