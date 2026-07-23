@@ -15,6 +15,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const VOCABULARY_PATH = join(root, 'data/vocabulary.json');
 const STATE_PATH = join(root, 'data/wp-vocabulary-submission-state.json');
+// Committed export file (primary source): WordPress writes this via the GitHub
+// Contents API; its push triggers the sync workflow, which reads the file
+// locally — no ~65 KB repository_dispatch cap and no WAF-blocked HTTP pull.
+const WP_EXPORT_FILE = process.env.FIDES_WP_EXPORT_FILE
+  ? join(root, process.env.FIDES_WP_EXPORT_FILE)
+  : join(root, 'data/wp-export/vocabulary.json');
 const SECRET_HEADER = 'X-FIDES-Catalog-Secret';
 /** Must match all catalog automation HTTP to fides.community (see fides-community-tools-tiles governance §14). */
 const USER_AGENT = 'FIDES-Catalog-Automation/1.0';
@@ -69,11 +75,39 @@ function loadInlineExportPayload() {
   }
 }
 
+function loadCommittedExportPayload(filePath = WP_EXPORT_FILE) {
+  let raw;
+  try {
+    raw = readFileSync(filePath, 'utf8');
+  } catch (err) {
+    if (err && err.code === 'ENOENT') return null;
+    throw err;
+  }
+  try {
+    const payload = JSON.parse(raw);
+    if (!payload?.entries || !Array.isArray(payload.entries)) {
+      throw new Error('committed export is missing entries array.');
+    }
+    return payload;
+  } catch (err) {
+    throw new Error(
+      `Invalid committed export ${filePath}: ${err instanceof Error ? err.message : String(err)}`
+    );
+  }
+}
+
 async function loadExportPayload(wpUrl, secret) {
   const inline = loadInlineExportPayload();
   if (inline) {
     console.log('Using inline export payload (WordPress push sync).');
     return inline;
+  }
+
+  // Primary: the export file WordPress committed via the Contents API.
+  const committed = loadCommittedExportPayload();
+  if (committed) {
+    console.log(`Using committed WordPress export ${WP_EXPORT_FILE}.`);
+    return committed;
   }
 
   const event = String(process.env.GITHUB_EVENT_NAME || '').trim();
