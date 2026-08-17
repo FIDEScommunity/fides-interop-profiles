@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FIDES Vocabulary Glossary
  * Description: Browse the FIDES community glossary with search, alphabetical navigation, and detail modals. When fides_catalog_ssr_enabled is on (FIDES Community Tools Tiles ≥ 1.6.3), emits server-rendered listing and per-term SEO for indexable glossary pages.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.3');
+define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.4');
 
 const FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP = 'fides_vocabulary_glossary_settings';
 const FIDES_VOCABULARY_GLOSSARY_DEFAULT_SUGGEST_EMAIL = 'glossary@fides.community';
@@ -56,6 +56,11 @@ class Fides_Vocabulary_Glossary {
     }
 
     public function register_plugin_settings() {
+        register_setting(FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP, Fides_Vocabulary_Glossary_SSR::OPTION_CATALOG_URL, array(
+            'type'              => 'string',
+            'default'           => Fides_Vocabulary_Glossary_SSR::DEFAULT_CATALOG_PATH,
+            'sanitize_callback' => array('Fides_Vocabulary_Glossary_SSR', 'sanitize_path'),
+        ));
         register_setting(FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP, 'fides_vocabulary_glossary_github_data_url', array(
             'type'              => 'string',
             'sanitize_callback' => array($this, 'sanitize_optional_url'),
@@ -114,6 +119,39 @@ class Fides_Vocabulary_Glossary {
                 do_settings_sections(FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP);
                 ?>
                 <table class="form-table" role="presentation">
+                    <tr>
+                        <th scope="row">
+                            <label for="<?php echo esc_attr(Fides_Vocabulary_Glossary_SSR::OPTION_CATALOG_URL); ?>"><?php esc_html_e('Glossary page path', 'fides-vocabulary-glossary'); ?></label>
+                        </th>
+                        <td>
+                            <?php
+                            $catalog_path_option = Fides_Vocabulary_Glossary_SSR::OPTION_CATALOG_URL;
+                            $catalog_path_value  = (string) get_option(
+                                $catalog_path_option,
+                                Fides_Vocabulary_Glossary_SSR::DEFAULT_CATALOG_PATH
+                            );
+                            if ($catalog_path_value === '') {
+                                $catalog_path_value = Fides_Vocabulary_Glossary_SSR::DEFAULT_CATALOG_PATH;
+                            }
+                            ?>
+                            <input
+                                type="text"
+                                class="regular-text"
+                                id="<?php echo esc_attr($catalog_path_option); ?>"
+                                name="<?php echo esc_attr($catalog_path_option); ?>"
+                                value="<?php echo esc_attr($catalog_path_value); ?>"
+                                placeholder="<?php echo esc_attr(Fides_Vocabulary_Glossary_SSR::DEFAULT_CATALOG_PATH); ?>"
+                            />
+                            <p class="description">
+                                <?php
+                                esc_html_e(
+                                    'Path of the page with [fides_vocabulary_glossary]. Used for sitemap, SEO deeplinks (?term=), and SSR links. Accepts a path or full URL (path is stored). Example: /community-tools/glossary/',
+                                    'fides-vocabulary-glossary'
+                                );
+                                ?>
+                            </p>
+                        </td>
+                    </tr>
                     <tr>
                         <th scope="row">
                             <label for="fides_vocabulary_glossary_github_data_url"><?php esc_html_e('Glossary JSON URL', 'fides-vocabulary-glossary'); ?></label>

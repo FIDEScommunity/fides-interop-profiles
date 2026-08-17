@@ -20,6 +20,29 @@ if (! class_exists('Fides_Vocabulary_Glossary_SSR')) {
 
             public static function bootstrap() { /* no-op without base */ }
             public static function build_initial_html(array $atts) { return ''; }
+
+            public static function sanitize_path($value): string {
+                $value = is_string($value) ? trim($value) : '';
+                if ($value === '') {
+                    return '';
+                }
+                $path = function_exists('wp_parse_url') ? wp_parse_url($value, PHP_URL_PATH) : parse_url($value, PHP_URL_PATH);
+                if (! is_string($path) || $path === '') {
+                    return '';
+                }
+                if ($path[0] !== '/') {
+                    $path = '/' . $path;
+                }
+                return function_exists('user_trailingslashit') ? user_trailingslashit($path) : (rtrim($path, '/') . '/');
+            }
+
+            public static function catalog_path(): string {
+                $stored = (string) get_option(self::OPTION_CATALOG_URL, self::DEFAULT_CATALOG_PATH);
+                if ($stored === '') {
+                    return self::DEFAULT_CATALOG_PATH;
+                }
+                return $stored;
+            }
         }
 
     } else {
@@ -37,7 +60,6 @@ if (! class_exists('Fides_Vocabulary_Glossary_SSR')) {
                 if (self::$instance === null) {
                     self::$instance = new self();
                     self::$instance->bootstrap_renderer();
-                    add_action('admin_init', array(__CLASS__, 'register_settings'));
                 }
             }
 
@@ -72,14 +94,6 @@ if (! class_exists('Fides_Vocabulary_Glossary_SSR')) {
                     ),
                     'jsonld_type'       => 'DefinedTerm',
                     'cache_ttl'         => HOUR_IN_SECONDS,
-                ));
-            }
-
-            public static function register_settings(): void {
-                register_setting(FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP, self::OPTION_CATALOG_URL, array(
-                    'type'              => 'string',
-                    'default'           => self::DEFAULT_CATALOG_PATH,
-                    'sanitize_callback' => array(__CLASS__, 'sanitize_path'),
                 ));
             }
 

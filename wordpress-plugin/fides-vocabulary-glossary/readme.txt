@@ -4,7 +4,7 @@ Tags: fides, glossary, vocabulary, verifiable credentials, eudi
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: Apache-2.0
 
 Browse the FIDES community glossary with search, A–Z navigation, detail modals, and SEO-friendly term pages.
@@ -21,10 +21,14 @@ Requires **FIDES Community Tools Tiles ≥ 1.6.3** for SSR/SEO (master switch `f
 
 1. Upload the plugin folder to `/wp-content/plugins/fides-vocabulary-glossary/`
 2. Activate the plugin
-3. Add `[fides_vocabulary_glossary]` to a page (recommended path: `/glossary/`)
-4. Enable catalog SSR in Settings → FIDES Catalog SEO
+3. Add `[fides_vocabulary_glossary]` to a page
+4. In Settings → FIDES Glossary, set **Glossary page path** to that page (e.g. `/community-tools/glossary/` or `/glossary/`)
+5. Enable catalog SSR in Settings → FIDES Catalog SEO
 
 == Changelog ==
+
+= 1.1.4 =
+* Settings UI: add Glossary page path (`fides_vocabulary_glossary_page_url`) so sitemap and SEO deeplinks match the real glossary page (avoids 301 from `/glossary/`).
 
 = 1.1.3 =
 * Sync shared catalog modal library: fix term modal header share/close button layout (theme styles no longer crush the actions into one block).
