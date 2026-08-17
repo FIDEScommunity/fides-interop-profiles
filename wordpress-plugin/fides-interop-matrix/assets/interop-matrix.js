@@ -168,22 +168,77 @@
   /**
    * Default: GitHub/raw JSON first, then plugin data URL. *.local: local first, then GitHub.
    */
+  let interopUsedFallback = false;
+
+  function fetchJsonWithTimeout(url, timeoutMs) {
+    timeoutMs = timeoutMs || 4000;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(url, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      })
+      .finally(() => clearTimeout(timer));
+  }
+
+  const OUTAGE_CACHE_NAME = 'fides-catalog-outage-v1';
+  const OUTAGE_CACHE_MAX_AGE_MS = 12 * 60 * 60 * 1000;
+
+  function rememberGithubOutageCache(url, data) {
+    if (!url || !data || typeof caches === 'undefined') return;
+    try {
+      caches.open(OUTAGE_CACHE_NAME).then((cache) => cache.put(url, new Response(JSON.stringify({
+        cachedAt: Date.now(),
+        payload: data
+      }), { headers: { 'Content-Type': 'application/json' } }))).catch(() => {});
+    } catch (err) {}
+  }
+
+  function readGithubOutageCache(url) {
+    if (!url || typeof caches === 'undefined') return Promise.resolve(null);
+    return caches.open(OUTAGE_CACHE_NAME)
+      .then((cache) => cache.match(url))
+      .then((response) => response ? response.json() : null)
+      .then((wrapper) => {
+        if (!wrapper || !wrapper.payload) return null;
+        return { data: wrapper.payload, age: Date.now() - Number(wrapper.cachedAt || 0) };
+      })
+      .catch(() => null);
+  }
+
   async function loadData(profilesFilter) {
     const config = window.fidesInteropMatrix || {};
     const remote = config.githubDataUrl;
     const local = config.dataUrl;
-    const order = (isFidesLocalDevHost() ? [local, remote] : [remote, local]).filter(Boolean);
+    const preferLocal = isFidesLocalDevHost();
+    const order = (preferLocal ? [local, remote] : [remote, local]).filter(Boolean);
     let lastErr = null;
+    let remoteFailed = false;
+    interopUsedFallback = false;
     for (const url of order) {
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        const data = await response.json();
+        const data = await fetchJsonWithTimeout(url, 4000);
+        if (url === remote) rememberGithubOutageCache(remote, data);
+        if (!preferLocal && url === local && remoteFailed) interopUsedFallback = true;
         return filterProfiles(data, profilesFilter);
       } catch (e) {
         lastErr = e;
+        if (url === remote) {
+          remoteFailed = true;
+          const cached = await readGithubOutageCache(remote);
+          if (cached && cached.data && cached.age <= OUTAGE_CACHE_MAX_AGE_MS) {
+            if (!preferLocal) interopUsedFallback = true;
+            return filterProfiles(cached.data, profilesFilter);
+          }
+        }
         console.warn('Profile data load failed:', url, e.message);
       }
+    }
+    const staleCache = await readGithubOutageCache(remote);
+    if (staleCache && staleCache.data) {
+      if (!preferLocal && remoteFailed) interopUsedFallback = true;
+      return filterProfiles(staleCache.data, profilesFilter);
     }
     throw new Error(lastErr ? String(lastErr.message) : 'Failed to load profile data (no URLs)');
   }
@@ -226,6 +281,7 @@
 
     root.innerHTML = `
       <div class="fides-interop-container">
+        ${interopUsedFallback ? '<div class="fides-stale-catalog-notice" role="status"><p class="fides-stale-catalog-notice-text">Live catalog data is temporarily unavailable. This list may not include the latest entries.</p></div>' : ''}
         ${renderDesktopMatrix(displayProfiles, data.profiles)}
         ${renderMobileView(data.profiles)}
       </div>

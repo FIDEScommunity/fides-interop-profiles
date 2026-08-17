@@ -3,7 +3,7 @@ Contributors: fideslabs
 Tags: fides, interoperability, profiles, comparison, matrix, diip, haip
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.2.8
+Stable tag: 1.2.10
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -69,6 +69,12 @@ Yes, the plugin includes a local fallback for optimal performance and reliabilit
 3. Capability detail with tooltip
 
 == Changelog ==
+
+= 1.2.10 =
+* Keep a 12-hour browser cache of GitHub profile data so an outage does not immediately fall back to the bundled snapshot.
+
+= 1.2.9 =
+* Show a notice when GitHub profile data is unreachable and the plugin snapshot is used. GitHub fetches now time out after 4 seconds.
 
 = 1.2.8 =
 * Version bump; vocabulary includes vcFormat term for catalog tooltips.
