@@ -2,7 +2,7 @@
 /**
  * Plugin Name: FIDES Vocabulary Glossary
  * Description: Browse the FIDES community glossary with search, alphabetical navigation, and detail modals. When fides_catalog_ssr_enabled is on (FIDES Community Tools Tiles ≥ 1.6.3), emits server-rendered listing and per-term SEO for indexable glossary pages.
- * Version: 1.1.10
+ * Version: 1.1.11
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.10');
+define('FIDES_VOCABULARY_GLOSSARY_VERSION', '1.1.11');
 
 const FIDES_VOCABULARY_GLOSSARY_SETTINGS_GROUP = 'fides_vocabulary_glossary_settings';
 const FIDES_VOCABULARY_GLOSSARY_DEFAULT_SUGGEST_EMAIL = 'glossary@fides.community';

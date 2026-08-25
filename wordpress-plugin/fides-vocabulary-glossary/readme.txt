@@ -4,7 +4,7 @@ Tags: fides, glossary, vocabulary, verifiable credentials, eudi
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 License: Apache-2.0
 
 Browse the FIDES community glossary with search, A–Z navigation, detail modals, and SEO-friendly term pages.
@@ -26,6 +26,9 @@ Requires **FIDES Community Tools Tiles ≥ 1.6.3** for SSR/SEO (master switch `f
 5. Enable catalog SSR in Settings → FIDES Catalog SEO
 
 == Changelog ==
+
+= 1.1.11 =
+* Sync shared modal UI library (tiles ≥ 1.13.18).
 
 = 1.1.10 =
 * Sync shared modal UI library (tiles ≥ 1.13.17).
