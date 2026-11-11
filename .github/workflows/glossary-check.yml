@@ -1,0 +1,34 @@
+name: Glossary aggregate check
+
+# data/glossary-aggregated.json is generated from data/vocabulary.json. wp-submissions-sync.yml only rebuilds it
+# when a WordPress submission arrives, so a direct edit of vocabulary.json used to leave the aggregate stale.
+# This check fails the PR / push when the two files disagree or the glossary has ambiguous terms.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/vocabulary.json'
+      - 'data/glossary-aggregated.json'
+      - 'scripts/glossary-*.mjs'
+      - 'scripts/build-glossary-aggregated.mjs'
+      - 'scripts/check-glossary-aggregate.mjs'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/vocabulary.json'
+      - 'data/glossary-aggregated.json'
+      - 'scripts/glossary-*.mjs'
+      - 'scripts/build-glossary-aggregated.mjs'
+      - 'scripts/check-glossary-aggregate.mjs'
+
+jobs:
+  check-glossary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify the aggregate matches the vocabulary
+        run: npm run check:glossary

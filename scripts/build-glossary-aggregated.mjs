@@ -2,11 +2,12 @@
 /**
  * Transform data/vocabulary.json into glossary-aggregated.json for the
  * FIDES Vocabulary Glossary WordPress plugin and SSR/sitemap core.
+ * Run `npm run check:glossary` to verify the committed aggregate is current.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { formatDisplayName, sortLetter } from './glossary-display-name.mjs';
+import { buildGlossaryTerms } from './glossary-build-lib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -20,55 +21,11 @@ const outPlugin = join(
   'glossary-aggregated.json'
 );
 
-function slugify(key) {
-  const slug = String(key)
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  return slug || 'term';
-}
-
 const raw = JSON.parse(readFileSync(vocabularyPath, 'utf8'));
-const termsObj = raw.terms && typeof raw.terms === 'object' ? raw.terms : {};
-const slugUsed = new Map();
-const terms = [];
-
-for (const [key, value] of Object.entries(termsObj)) {
-  if (!value || typeof value !== 'object') continue;
-  let id = slugify(key);
-  if (slugUsed.has(id)) {
-    let n = 2;
-    while (slugUsed.has(`${id}-${n}`)) n += 1;
-    id = `${id}-${n}`;
-  }
-  slugUsed.set(id, key);
-
-  const canonicalKey = String(key).trim();
-  const explicitTitle = typeof value.title === 'string' ? value.title.trim() : '';
-  const name = formatDisplayName(canonicalKey, explicitTitle);
-  const description =
-    typeof value.description === 'string' ? value.description.trim() : '';
-  const url = typeof value.url === 'string' ? value.url.trim() : '';
-  const aliases = Array.isArray(value.aliases)
-    ? value.aliases.map((a) => String(a).trim()).filter(Boolean)
-    : [];
-
-  terms.push({
-    id,
-    key: canonicalKey,
-    name,
-    description,
-    url,
-    aliases,
-    letter: sortLetter(name),
-  });
-}
-
-terms.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+const { version, terms } = buildGlossaryTerms(raw);
 
 const payload = {
-  version: raw.version || '1.0.0',
+  version,
   generatedAt: new Date().toISOString(),
   terms,
 };

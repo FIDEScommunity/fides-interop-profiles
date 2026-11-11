@@ -19,6 +19,14 @@
             "type": "string",
             "description": "Optional human-readable label for glossary display; defaults to a formatted version of the term key."
           },
+          "duplicateOf": {
+            "type": "string",
+            "description": "Key of another term describing the same concept. The entry stays available for [i] popups that look it up by key, but is not listed separately in the glossary; its key and aliases become aliases of the target term. Description must match the target."
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "When true the entry is not listed in the glossary (page, search, sitemap) but stays available for [i] popups and filters that look it up by key."
+          },
           "url": { "type": "string", "format": "uri" },
           "aliases": {
             "type": "array",

@@ -1,6 +1,6 @@
 {
-  "version": "1.10.1",
-  "generatedAt": "2026-07-01T18:56:56.658Z",
+  "version": "1.12.0",
+  "generatedAt": "2026-11-11T19:12:47.948Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -517,6 +517,15 @@
       "letter": "C"
     },
     {
+      "id": "credential",
+      "key": "Credential",
+      "name": "Credential",
+      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
       "id": "credentialformat",
       "key": "credentialFormat",
       "name": "Credential Format",
@@ -563,6 +572,28 @@
       "description": "Cross-sector use-case themes for discovering credential types (for example identity, payments, or trade documents). Themes complement sector and ecosystem tags and describe why a credential might be used, not only which industry it belongs to.",
       "url": "",
       "aliases": [],
+      "letter": "C"
+    },
+    {
+      "id": "credential-type",
+      "key": "Credential Type",
+      "name": "Credential Type",
+      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
+      "id": "verifiable-credential-type",
+      "key": "Verifiable Credential Type",
+      "name": "Credential Type Identifier (vct)",
+      "description": "In SD-JWT VC, the identifier of a credential type. This string (vct) names the type and can link to its schema. Commonly used in EU and EWC attestation catalogs.",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
+      "aliases": [
+        "vct",
+        "VCT",
+        "Verifiable Credential Type"
+      ],
       "letter": "C"
     },
     {
@@ -938,6 +969,15 @@
       "letter": "E"
     },
     {
+      "id": "eidastrustservices",
+      "key": "eidasTrustServices",
+      "name": "eIDAS Trust Services",
+      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [],
+      "letter": "E"
+    },
+    {
       "id": "electronic-attestation-of-attributes",
       "key": "Electronic Attestation of Attributes",
       "name": "Electronic Attestation of Attributes",
@@ -1078,20 +1118,20 @@
       "letter": "E"
     },
     {
-      "id": "eudi-wallet",
-      "key": "eudi_wallet",
-      "name": "EUDI Wallet",
-      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
-      "url": "",
-      "aliases": [],
-      "letter": "E"
-    },
-    {
       "id": "eudi-wallet-arf",
       "key": "EUDI Wallet ARF",
       "name": "EUDI Wallet ARF",
       "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
       "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/",
+      "aliases": [],
+      "letter": "E"
+    },
+    {
+      "id": "eudi-wallet",
+      "key": "eudi_wallet",
+      "name": "EUDI Wallet Ecosystem",
+      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
+      "url": "",
       "aliases": [],
       "letter": "E"
     },
@@ -1286,17 +1326,6 @@
       "letter": "F"
     },
     {
-      "id": "gaia-x",
-      "key": "gaia_x",
-      "name": "Gaia-X",
-      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
-      "url": "",
-      "aliases": [
-        "GaiaX ecosystem"
-      ],
-      "letter": "G"
-    },
-    {
       "id": "gaia-x-2",
       "key": "Gaia-X",
       "name": "Gaia-X",
@@ -1317,6 +1346,17 @@
       "aliases": [
         "GX Compliance Credential",
         "Gaia-X Compliance"
+      ],
+      "letter": "G"
+    },
+    {
+      "id": "gaia-x",
+      "key": "gaia_x",
+      "name": "Gaia-X Ecosystem",
+      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
+      "url": "",
+      "aliases": [
+        "GaiaX ecosystem"
       ],
       "letter": "G"
     },
@@ -1555,31 +1595,18 @@
       "letter": "I"
     },
     {
-      "id": "iso18013-5",
-      "key": "iso18013_5",
-      "name": "ISO 18013-5",
-      "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
-      "url": "",
-      "aliases": [],
-      "letter": "I"
-    },
-    {
       "id": "iso-18013-5",
       "key": "ISO 18013-5",
       "name": "ISO 18013-5",
       "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
       "url": "https://www.iso.org/standard/69084.html",
-      "aliases": [],
-      "letter": "I"
-    },
-    {
-      "id": "iso18013-7",
-      "key": "iso18013_7",
-      "name": "ISO 18013-7",
-      "description": "Extension of ISO 18013-5 adding remote presentation capabilities for mobile driver's licenses over the internet.",
-      "url": "",
-      "aliases": [],
-      "letter": "I"
+      "aliases": [
+        "iso18013_5"
+      ],
+      "letter": "I",
+      "legacyIds": [
+        "iso18013-5"
+      ]
     },
     {
       "id": "iso-18013-7",
@@ -1589,9 +1616,13 @@
       "url": "https://www.iso.org/standard/82772.html",
       "aliases": [
         "ISO mDL remote",
-        "18013-7"
+        "18013-7",
+        "iso18013_7"
       ],
-      "letter": "I"
+      "letter": "I",
+      "legacyIds": [
+        "iso18013-7"
+      ]
     },
     {
       "id": "iso-data-model",
@@ -1605,7 +1636,7 @@
     {
       "id": "iso-mdl",
       "key": "iso_mdl",
-      "name": "ISO mDL",
+      "name": "ISO mDL Ecosystem",
       "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards.",
       "url": "",
       "aliases": [],
@@ -1841,7 +1872,7 @@
       "id": "mandate",
       "key": "Mandate",
       "name": "Mandate",
-      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
+      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits. Mandates are a common topic in business wallet discussions, including the proposed European Business Wallet.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "delegation"
@@ -1869,16 +1900,10 @@
         "mdoc",
         "ISO mdoc"
       ],
-      "letter": "M"
-    },
-    {
-      "id": "mdoc",
-      "key": "mdoc",
-      "name": "mdoc",
-      "description": "ISO (18013-5 style) mobile document encoding (CBOR/COSE), often used for mDL and similar credentials.",
-      "url": "",
-      "aliases": [],
-      "letter": "M"
+      "letter": "M",
+      "legacyIds": [
+        "mdoc"
+      ]
     },
     {
       "id": "member-state",
@@ -2159,24 +2184,6 @@
         "Organisation Wallet",
         "Business Wallet"
       ],
-      "letter": "O"
-    },
-    {
-      "id": "other",
-      "key": "other",
-      "name": "Other",
-      "description": "Credential format not covered by the standard formats listed in the catalog.",
-      "url": "",
-      "aliases": [],
-      "letter": "O"
-    },
-    {
-      "id": "other-2",
-      "key": "Other",
-      "name": "Other",
-      "description": "Other or proprietary schema specification type.",
-      "url": "",
-      "aliases": [],
       "letter": "O"
     },
     {
@@ -2498,6 +2505,18 @@
       "letter": "P"
     },
     {
+      "id": "qearch",
+      "key": "QEArch",
+      "name": "Qualified Electronic Archiving Service",
+      "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QEArch",
+        "Q_EARCH"
+      ],
+      "letter": "Q"
+    },
+    {
       "id": "qualified-electronic-attestation-of-attributes",
       "key": "Qualified Electronic Attestation of Attributes",
       "name": "Qualified Electronic Attestation of Attributes",
@@ -2506,7 +2525,10 @@
       "aliases": [
         "QEAA"
       ],
-      "letter": "Q"
+      "letter": "Q",
+      "legacyIds": [
+        "qeaa"
+      ]
     },
     {
       "id": "qualified-electronic-registered-delivery-service",
@@ -2516,9 +2538,13 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
         "QERDS",
-        "qualified eDelivery"
+        "qualified eDelivery",
+        "Q_ERDS"
       ],
-      "letter": "Q"
+      "letter": "Q",
+      "legacyIds": [
+        "qerds"
+      ]
     },
     {
       "id": "qualified-electronic-seal",
@@ -2527,8 +2553,19 @@
       "description": "An advanced electronic seal created with a qualified seal creation device and based on a qualified certificate; legally ensures origin and integrity of data for a legal person.",
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
-        "QSeal",
-        "QESeal"
+        "QSeal"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qeseal",
+      "key": "QESeal",
+      "name": "Qualified Electronic Seal Certificate",
+      "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESeal",
+        "Q_CERT_ESEAL"
       ],
       "letter": "Q"
     },
@@ -2544,6 +2581,18 @@
       "letter": "Q"
     },
     {
+      "id": "qesig",
+      "key": "QESig",
+      "name": "Qualified Electronic Signature Certificate",
+      "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESig",
+        "Q_CERT_ESIG"
+      ],
+      "letter": "Q"
+    },
+    {
       "id": "qualified-electronic-signature-creation-device",
       "key": "Qualified Electronic Signature Creation Device",
       "name": "Qualified Electronic Signature Creation Device",
@@ -2551,6 +2600,78 @@
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
         "QSCD"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qtimestamp",
+      "key": "QTimestamp",
+      "name": "Qualified Electronic Timestamp",
+      "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QTimestamp",
+        "Q_TIMESTAMP"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qremseal",
+      "key": "QRemSeal",
+      "name": "Qualified Management of Remote Seal Creation Devices",
+      "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSeal",
+        "Q_REM_MANAGE_Q_SEAL_CD"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qremsig",
+      "key": "QRemSig",
+      "name": "Qualified Management of Remote Signature Creation Devices",
+      "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSig",
+        "Q_REM_MANAGE_Q_SIG_CD"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpres",
+      "key": "QPres",
+      "name": "Qualified Preservation Service",
+      "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPres",
+        "Q_PRES"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpresseal",
+      "key": "QPresSeal",
+      "name": "Qualified Preservation Service for Electronic Seals",
+      "description": "Qualified preservation service for electronic seals.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSeal",
+        "Q_PRES_ESEAL"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpressig",
+      "key": "QPresSig",
+      "name": "Qualified Preservation Service for Electronic Signatures",
+      "description": "Qualified preservation service for electronic signatures.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSig",
+        "Q_PRES_ESIG"
       ],
       "letter": "Q"
     },
@@ -2566,6 +2687,42 @@
       "letter": "Q"
     },
     {
+      "id": "qval",
+      "key": "QVal",
+      "name": "Qualified Validation Service",
+      "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QVal",
+        "Q_VC"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qvalseal",
+      "key": "QValSeal",
+      "name": "Qualified Validation Service for Electronic Seals",
+      "description": "Qualified validation service for electronic seals.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSeal",
+        "Q_VAL_ESEAL"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qvalsig",
+      "key": "QValSig",
+      "name": "Qualified Validation Service for Electronic Signatures",
+      "description": "Qualified validation service for electronic signatures.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSig",
+        "Q_VAL_ESIG"
+      ],
+      "letter": "Q"
+    },
+    {
       "id": "qualified-vlei-issuer",
       "key": "Qualified vLEI Issuer",
       "name": "Qualified vLEI Issuer",
@@ -2574,6 +2731,18 @@
       "aliases": [
         "QVI",
         "Qualified vLEI Issuer credential"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qwac",
+      "key": "QWAC",
+      "name": "Qualified Website Authentication Certificate",
+      "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QWAC",
+        "Q_WAC"
       ],
       "letter": "Q"
     },
@@ -2756,18 +2925,13 @@
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
       "aliases": [
         "SD-JWT VC",
-        "SD JWT VC"
+        "SD JWT VC",
+        "sd_jwt_vc"
       ],
-      "letter": "S"
-    },
-    {
-      "id": "sd-jwt-vc-2",
-      "key": "sd_jwt_vc",
-      "name": "SD-JWT-VC",
-      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
-      "aliases": [],
-      "letter": "S"
+      "letter": "S",
+      "legacyIds": [
+        "sd-jwt-vc-2"
+      ]
     },
     {
       "id": "seafarer-credential",
@@ -3090,17 +3254,6 @@
       "letter": "U"
     },
     {
-      "id": "uncefact",
-      "key": "uncefact",
-      "name": "UN/CEFACT",
-      "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
-      "url": "",
-      "aliases": [
-        "UNTP ecosystem"
-      ],
-      "letter": "U"
-    },
-    {
       "id": "un-cefact",
       "key": "UN/CEFACT",
       "name": "UN/CEFACT",
@@ -3108,6 +3261,17 @@
       "url": "https://untp.unece.org/docs/specification/",
       "aliases": [
         "UNECE"
+      ],
+      "letter": "U"
+    },
+    {
+      "id": "uncefact",
+      "key": "uncefact",
+      "name": "UN/CEFACT Ecosystem",
+      "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
+      "url": "",
+      "aliases": [
+        "UNTP ecosystem"
       ],
       "letter": "U"
     },
@@ -3164,22 +3328,18 @@
       "letter": "V"
     },
     {
-      "id": "vcdm20",
-      "key": "vcdm20",
-      "name": "VCDM 2.0",
-      "description": "W3C standard data model for expressing verifiable credentials in a secure, privacy-respecting way.",
-      "url": "",
-      "aliases": [],
-      "letter": "V"
-    },
-    {
       "id": "vcdm-2-0",
       "key": "vcdm_2_0",
       "name": "VCDM 2.0",
       "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats.",
       "url": "https://www.w3.org/TR/vc-data-model-2.0/",
-      "aliases": [],
-      "letter": "V"
+      "aliases": [
+        "vcdm20"
+      ],
+      "letter": "V",
+      "legacyIds": [
+        "vcdm20"
+      ]
     },
     {
       "id": "vehicle-registration-certificate",
@@ -3213,18 +3373,6 @@
       "aliases": [
         "VC Data Integrity 1.0",
         "Data Integrity proofs"
-      ],
-      "letter": "V"
-    },
-    {
-      "id": "verifiable-credential-type",
-      "key": "Verifiable Credential Type",
-      "name": "Verifiable Credential Type",
-      "description": "A string identifier (vct) in SD-JWT VC metadata that names the credential type and links to its schema, commonly used in EU and EWC attestation catalogs.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
-      "aliases": [
-        "vct",
-        "VCT"
       ],
       "letter": "V"
     },
