@@ -11,9 +11,18 @@ import { buildGlossaryTerms, findVocabularyProblems } from './glossary-build-lib
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-/** Labels that already resolved to several terms before this check existed; fix in vocabulary.json, then remove here. */
+/**
+ * Labels that still resolve to two glossary terms; each is an open editorial question, not an accepted state.
+ * - 'iso 18013-5', 'iso 18013-7', 'sd-jwt-vc', 'vcdm 2.0': the catalog filter value (iso18013_5, sd_jwt_vc, ...)
+ *   and the standard describe the same thing. Both ids are published in the live sitemap (?term=...), so merging
+ *   them with duplicateOf would drop a published id until the glossary page and the SEO core can resolve legacy ids.
+ * - 'mdoc' (mDL/mDoc vs mdoc), 'other' (credential format vs schema type), 'fides' (FIDES vs FIDES Community):
+ *   definitions differ; an editor has to decide whether they are one concept.
+ * Remove a label here once its pair is resolved in vocabulary.json.
+ */
 const KNOWN_COLLISIONS = [
-  'mdoc', 'other', 'fides', 'eudi wallet', 'gaia-x', 'iso 18013-5', 'iso 18013-7', 'iso mdl', 'sd-jwt-vc', 'un/cefact', 'vcdm 2.0',
+  'iso 18013-5', 'iso 18013-7', 'sd-jwt-vc', 'vcdm 2.0',
+  'mdoc', 'other', 'fides',
 ];
 
 const vocabulary = JSON.parse(readFileSync(join(root, 'data', 'vocabulary.json'), 'utf8'));
