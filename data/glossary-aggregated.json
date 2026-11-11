@@ -1,6 +1,6 @@
 {
-  "version": "1.12.0",
-  "generatedAt": "2026-11-11T19:12:47.948Z",
+  "version": "1.12.1",
+  "generatedAt": "2026-11-11T20:30:21.408Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -1150,7 +1150,7 @@
       "id": "european-business-wallet",
       "key": "European Business Wallet",
       "name": "European Business Wallet",
-      "description": "A digital wallet for organizations, developed at EU level, that enables businesses and public sector bodies to identify themselves, manage mandates, exchange verifiable data, and interact securely across borders with full legal effect. A specialised form of an organizational wallet, built on the EUDI Wallet architecture.",
+      "description": "A digital wallet for businesses and public sector bodies that the European Commission has proposed in a draft regulation. The proposal aims to let them identify and authenticate themselves and exchange data across the EU. As proposed, public sector bodies would have to accept its core functions, while companies could choose whether to use it. Its technical architecture is intended to build on the EUDI Wallet. The proposal has not been adopted, so scope, requirements and legal effects can still change. A specific, proposed form of an organizational wallet.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "EU Business Wallet",
