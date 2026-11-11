@@ -1,6 +1,6 @@
 {
-  "version": "1.10.1",
-  "generatedAt": "2026-07-01T18:56:56.658Z",
+  "version": "1.11.0",
+  "generatedAt": "2026-11-11T16:59:00.512Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -517,6 +517,15 @@
       "letter": "C"
     },
     {
+      "id": "credential",
+      "key": "Credential",
+      "name": "Credential",
+      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
       "id": "credentialformat",
       "key": "credentialFormat",
       "name": "Credential Format",
@@ -563,6 +572,28 @@
       "description": "Cross-sector use-case themes for discovering credential types (for example identity, payments, or trade documents). Themes complement sector and ecosystem tags and describe why a credential might be used, not only which industry it belongs to.",
       "url": "",
       "aliases": [],
+      "letter": "C"
+    },
+    {
+      "id": "credential-type",
+      "key": "Credential Type",
+      "name": "Credential Type",
+      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
+      "id": "verifiable-credential-type",
+      "key": "Verifiable Credential Type",
+      "name": "Credential Type Identifier (vct)",
+      "description": "In SD-JWT VC, the identifier of a credential type. This string (vct) names the type and can link to its schema. Commonly used in EU and EWC attestation catalogs.",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
+      "aliases": [
+        "vct",
+        "VCT",
+        "Verifiable Credential Type"
+      ],
       "letter": "C"
     },
     {
@@ -935,6 +966,15 @@
       "aliases": [
         "eIDAS 1"
       ],
+      "letter": "E"
+    },
+    {
+      "id": "eidastrustservices",
+      "key": "eidasTrustServices",
+      "name": "Eidas Trust Services",
+      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
+      "url": "",
+      "aliases": [],
       "letter": "E"
     },
     {
@@ -1841,7 +1881,7 @@
       "id": "mandate",
       "key": "Mandate",
       "name": "Mandate",
-      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
+      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits. Mandates are a common topic in business wallet discussions, including the proposed European Business Wallet.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "delegation"
@@ -2498,6 +2538,127 @@
       "letter": "P"
     },
     {
+      "id": "qeaa",
+      "key": "QEAA",
+      "name": "QEAA",
+      "description": "Qualified electronic attestation of attributes — a QTSP-issued attestation of person or object attributes; core building block alongside PID in the EUDI Wallet.",
+      "url": "",
+      "aliases": [
+        "QEAA"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qearch",
+      "key": "QEArch",
+      "name": "QEArch",
+      "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
+      "url": "",
+      "aliases": [
+        "Q_EARCH"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qerds",
+      "key": "QERDS",
+      "name": "QERDS",
+      "description": "Qualified electronic registered delivery service — ensures secure delivery of data with proof of sending and receipt.",
+      "url": "",
+      "aliases": [
+        "Q_ERDS"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qeseal",
+      "key": "QESeal",
+      "name": "QESeal",
+      "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
+      "url": "",
+      "aliases": [
+        "Q_CERT_ESEAL"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qesig",
+      "key": "QESig",
+      "name": "QESig",
+      "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
+      "url": "",
+      "aliases": [
+        "Q_CERT_ESIG"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpres",
+      "key": "QPres",
+      "name": "QPres",
+      "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
+      "url": "",
+      "aliases": [
+        "Q_PRES"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpresseal",
+      "key": "QPresSeal",
+      "name": "QPresSeal",
+      "description": "Qualified preservation service for electronic seals.",
+      "url": "",
+      "aliases": [
+        "Q_PRES_ESEAL"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qpressig",
+      "key": "QPresSig",
+      "name": "QPresSig",
+      "description": "Qualified preservation service for electronic signatures.",
+      "url": "",
+      "aliases": [
+        "Q_PRES_ESIG"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qremseal",
+      "key": "QRemSeal",
+      "name": "QRemSeal",
+      "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
+      "url": "",
+      "aliases": [
+        "Q_REM_MANAGE_Q_SEAL_CD"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qremsig",
+      "key": "QRemSig",
+      "name": "QRemSig",
+      "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
+      "url": "",
+      "aliases": [
+        "Q_REM_MANAGE_Q_SIG_CD"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qtimestamp",
+      "key": "QTimestamp",
+      "name": "QTimestamp",
+      "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
+      "url": "",
+      "aliases": [
+        "Q_TIMESTAMP"
+      ],
+      "letter": "Q"
+    },
+    {
       "id": "qualified-electronic-attestation-of-attributes",
       "key": "Qualified Electronic Attestation of Attributes",
       "name": "Qualified Electronic Attestation of Attributes",
@@ -2574,6 +2735,50 @@
       "aliases": [
         "QVI",
         "Qualified vLEI Issuer credential"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qval",
+      "key": "QVal",
+      "name": "QVal",
+      "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
+      "url": "",
+      "aliases": [
+        "Q_VC"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qvalseal",
+      "key": "QValSeal",
+      "name": "QValSeal",
+      "description": "Qualified validation service for electronic seals.",
+      "url": "",
+      "aliases": [
+        "Q_VAL_ESEAL"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qvalsig",
+      "key": "QValSig",
+      "name": "QValSig",
+      "description": "Qualified validation service for electronic signatures.",
+      "url": "",
+      "aliases": [
+        "Q_VAL_ESIG"
+      ],
+      "letter": "Q"
+    },
+    {
+      "id": "qwac",
+      "key": "QWAC",
+      "name": "QWAC",
+      "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
+      "url": "",
+      "aliases": [
+        "Q_WAC"
       ],
       "letter": "Q"
     },
@@ -3213,18 +3418,6 @@
       "aliases": [
         "VC Data Integrity 1.0",
         "Data Integrity proofs"
-      ],
-      "letter": "V"
-    },
-    {
-      "id": "verifiable-credential-type",
-      "key": "Verifiable Credential Type",
-      "name": "Verifiable Credential Type",
-      "description": "A string identifier (vct) in SD-JWT VC metadata that names the credential type and links to its schema, commonly used in EU and EWC attestation catalogs.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
-      "aliases": [
-        "vct",
-        "VCT"
       ],
       "letter": "V"
     },

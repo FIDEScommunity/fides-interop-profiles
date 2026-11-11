@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -1098,7 +1098,7 @@
       "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
     },
     "Mandate": {
-      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
+      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits. Mandates are a common topic in business wallet discussions, including the proposed European Business Wallet.",
       "aliases": [
         "delegation"
       ],
@@ -1422,11 +1422,21 @@
       ],
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
     },
+    "Credential": {
+      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
+    },
+    "Credential Type": {
+      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types"
+    },
     "Verifiable Credential Type": {
-      "description": "A string identifier (vct) in SD-JWT VC metadata that names the credential type and links to its schema, commonly used in EU and EWC attestation catalogs.",
+      "title": "Credential Type Identifier (vct)",
+      "description": "In SD-JWT VC, the identifier of a credential type. This string (vct) names the type and can link to its schema. Commonly used in EU and EWC attestation catalogs.",
       "aliases": [
         "vct",
-        "VCT"
+        "VCT",
+        "Verifiable Credential Type"
       ],
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
