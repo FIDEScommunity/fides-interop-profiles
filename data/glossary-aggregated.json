@@ -1,6 +1,6 @@
 {
-  "version": "1.11.1",
-  "generatedAt": "2026-11-11T18:41:47.957Z",
+  "version": "1.11.2",
+  "generatedAt": "2026-11-11T19:04:00.543Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -1118,20 +1118,20 @@
       "letter": "E"
     },
     {
-      "id": "eudi-wallet",
-      "key": "eudi_wallet",
-      "name": "EUDI Wallet",
-      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
-      "url": "",
-      "aliases": [],
-      "letter": "E"
-    },
-    {
       "id": "eudi-wallet-arf",
       "key": "EUDI Wallet ARF",
       "name": "EUDI Wallet ARF",
       "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
       "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/",
+      "aliases": [],
+      "letter": "E"
+    },
+    {
+      "id": "eudi-wallet",
+      "key": "eudi_wallet",
+      "name": "EUDI Wallet Ecosystem",
+      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
+      "url": "",
       "aliases": [],
       "letter": "E"
     },
@@ -1326,17 +1326,6 @@
       "letter": "F"
     },
     {
-      "id": "gaia-x",
-      "key": "gaia_x",
-      "name": "Gaia-X",
-      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
-      "url": "",
-      "aliases": [
-        "GaiaX ecosystem"
-      ],
-      "letter": "G"
-    },
-    {
       "id": "gaia-x-2",
       "key": "Gaia-X",
       "name": "Gaia-X",
@@ -1357,6 +1346,17 @@
       "aliases": [
         "GX Compliance Credential",
         "Gaia-X Compliance"
+      ],
+      "letter": "G"
+    },
+    {
+      "id": "gaia-x",
+      "key": "gaia_x",
+      "name": "Gaia-X Ecosystem",
+      "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
+      "url": "",
+      "aliases": [
+        "GaiaX ecosystem"
       ],
       "letter": "G"
     },
@@ -1645,7 +1645,7 @@
     {
       "id": "iso-mdl",
       "key": "iso_mdl",
-      "name": "ISO mDL",
+      "name": "ISO mDL Ecosystem",
       "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards.",
       "url": "",
       "aliases": [],
@@ -3286,17 +3286,6 @@
       "letter": "U"
     },
     {
-      "id": "uncefact",
-      "key": "uncefact",
-      "name": "UN/CEFACT",
-      "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
-      "url": "",
-      "aliases": [
-        "UNTP ecosystem"
-      ],
-      "letter": "U"
-    },
-    {
       "id": "un-cefact",
       "key": "UN/CEFACT",
       "name": "UN/CEFACT",
@@ -3304,6 +3293,17 @@
       "url": "https://untp.unece.org/docs/specification/",
       "aliases": [
         "UNECE"
+      ],
+      "letter": "U"
+    },
+    {
+      "id": "uncefact",
+      "key": "uncefact",
+      "name": "UN/CEFACT Ecosystem",
+      "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
+      "url": "",
+      "aliases": [
+        "UNTP ecosystem"
       ],
       "letter": "U"
     },

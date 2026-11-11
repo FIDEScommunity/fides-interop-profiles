@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -454,16 +454,19 @@
       "description": "A broad interoperability or policy context a credential type is associated with (for example the EUDI Wallet ecosystem, UN/CEFACT trade data, or Gaia-X). Used to discover credentials that fit a given stack or programme."
     },
     "eudi_wallet": {
-      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications."
+      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
+      "title": "EUDI Wallet Ecosystem"
     },
     "uncefact": {
       "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
+      "title": "UN/CEFACT Ecosystem",
       "aliases": [
         "UNTP ecosystem"
       ]
     },
     "gaia_x": {
       "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
+      "title": "Gaia-X Ecosystem",
       "aliases": [
         "GaiaX ecosystem"
       ]
@@ -472,7 +475,8 @@
       "description": "Open Badges and open recognition ecosystems for education, training, and achievement credentials. See also Open Badges 3.0 and Comprehensive Learner Record (CLR)."
     },
     "iso_mdl": {
-      "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards."
+      "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards.",
+      "title": "ISO mDL Ecosystem"
     },
     "india_stack": {
       "description": "India Stack and related national digital infrastructure contexts where verifiable credentials are used. See also Aadhaar and UIDAI.",
