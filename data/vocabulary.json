@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -173,97 +173,143 @@
       "description": "How the validity of credentials is checked: whether they are revoked, suspended, or still valid. Different methods use different technical approaches."
     },
     "eidasTrustServices": {
-      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs)."
+      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
+      "title": "eIDAS Trust Services",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
     "QESig": {
       "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
+      "title": "Qualified Electronic Signature Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QESig",
         "Q_CERT_ESIG"
       ]
     },
     "QESeal": {
       "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
+      "title": "Qualified Electronic Seal Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QESeal",
         "Q_CERT_ESEAL"
       ]
     },
     "QTimestamp": {
       "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
+      "title": "Qualified Electronic Timestamp",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QTimestamp",
         "Q_TIMESTAMP"
       ]
     },
     "QERDS": {
-      "description": "Qualified electronic registered delivery service — ensures secure delivery of data with proof of sending and receipt.",
+      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery; offered alongside European Business Wallets.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QERDS",
         "Q_ERDS"
-      ]
+      ],
+      "duplicateOf": "Qualified Electronic Registered Delivery Service"
     },
     "QWAC": {
       "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
+      "title": "Qualified Website Authentication Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QWAC",
         "Q_WAC"
       ]
     },
     "QEArch": {
       "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
+      "title": "Qualified Electronic Archiving Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QEArch",
         "Q_EARCH"
       ]
     },
     "QVal": {
       "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
+      "title": "Qualified Validation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QVal",
         "Q_VC"
       ]
     },
     "QPres": {
       "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
+      "title": "Qualified Preservation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QPres",
         "Q_PRES"
       ]
     },
     "QPresSeal": {
       "description": "Qualified preservation service for electronic seals.",
+      "title": "Qualified Preservation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QPresSeal",
         "Q_PRES_ESEAL"
       ]
     },
     "QPresSig": {
       "description": "Qualified preservation service for electronic signatures.",
+      "title": "Qualified Preservation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QPresSig",
         "Q_PRES_ESIG"
       ]
     },
     "QValSeal": {
       "description": "Qualified validation service for electronic seals.",
+      "title": "Qualified Validation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QValSeal",
         "Q_VAL_ESEAL"
       ]
     },
     "QValSig": {
       "description": "Qualified validation service for electronic signatures.",
+      "title": "Qualified Validation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QValSig",
         "Q_VAL_ESIG"
       ]
     },
     "QRemSeal": {
       "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Seal Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QRemSeal",
         "Q_REM_MANAGE_Q_SEAL_CD"
       ]
     },
     "QRemSig": {
       "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Signature Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
+        "QRemSig",
         "Q_REM_MANAGE_Q_SIG_CD"
       ]
     },
     "QEAA": {
-      "description": "Qualified electronic attestation of attributes — a QTSP-issued attestation of person or object attributes; core building block alongside PID in the EUDI Wallet.",
+      "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "QEAA"
-      ]
+      ],
+      "duplicateOf": "Qualified Electronic Attestation of Attributes"
     },
     "license": {
       "description": "Software license type: open source (publicly available code) or proprietary (closed source)."
@@ -1140,8 +1186,7 @@
     "Qualified Electronic Seal": {
       "description": "An advanced electronic seal created with a qualified seal creation device and based on a qualified certificate; legally ensures origin and integrity of data for a legal person.",
       "aliases": [
-        "QSeal",
-        "QESeal"
+        "QSeal"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
