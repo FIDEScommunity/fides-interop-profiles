@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.10.0",
+  "version": "1.12.1",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -194,10 +194,10 @@
       "description": "International standard for mobile driver's licenses with device retrieval (local presentation)."
     },
     "iso18013_7": {
-      "description": "Extension of ISO 18013-5 adding remote presentation capabilities for mobile driver's licenses over the internet."
+      "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification."
     },
     "vcdm20": {
-      "description": "W3C standard data model for expressing verifiable credentials in a secure, privacy-respecting way."
+      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats."
     },
     "jwtValidity": {
       "description": "Credential status determined by JWT expiration timestamp."
@@ -450,11 +450,11 @@
       "description": "The kind of formal specification used to define the credential's structure (for example JSON Schema or an ISO data model)."
     },
     "sd_jwt_vc": {
-      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes.",
+      "description": "IETF SD-JWT-based verifiable credential format allowing holders to selectively reveal only necessary claims using salted hashes; builds on the core Selective Disclosure JWT (SD-JWT) specification.",
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
     "mdoc": {
-      "description": "ISO (18013-5 style) mobile document encoding (CBOR/COSE), often used for mDL and similar credentials."
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case."
     },
     "vcdm_1_1": {
       "description": "W3C Verifiable Credentials Data Model 1.1, commonly carried as JWT VC.",
@@ -541,7 +541,7 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation"
     },
     "European Business Wallet": {
-      "description": "A digital wallet for organizations, developed at EU level, that enables businesses and public sector bodies to identify themselves, manage mandates, exchange verifiable data, and interact securely across borders with full legal effect. A specialised form of an organizational wallet, built on the EUDI Wallet architecture.",
+      "description": "A digital wallet for businesses and public sector bodies that the European Commission has proposed in a draft regulation. The proposal aims to let them identify and authenticate themselves and exchange data across the EU. As proposed, public sector bodies would have to accept its core functions, while companies could choose whether to use it. Its technical architecture is intended to build on the EUDI Wallet. The proposal has not been adopted, so scope, requirements and legal effects can still change. A specific, proposed form of an organizational wallet.",
       "aliases": [
         "EU Business Wallet",
         "EUBW",
@@ -979,7 +979,7 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "European Digital Directory": {
-      "description": "A Commission-maintained directory of economic operators and public sector bodies using European Business Wallets, enabling trusted contact and identification across borders.",
+      "description": "A directory that the European Commission's proposal for European Business Wallets would establish. As proposed, the Commission would create and maintain it as a trusted source of information on economic operators and public sector bodies using European Business Wallets, so that they can be contacted across borders. It does not exist until the proposal is adopted and implemented.",
       "aliases": [
         "EDD"
       ],
@@ -994,7 +994,7 @@
       "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
     },
     "Mandate": {
-      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits; a core European Business Wallet capability for delegation.",
+      "description": "A digital authorization that lets one person act on behalf of an organization within defined limits. Mandates are a common topic in business wallet discussions, including the proposed European Business Wallet.",
       "aliases": [
         "delegation"
       ],
@@ -1005,21 +1005,21 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "Power of Attorney": {
-      "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; a key use case for European Business Wallets and the EU digital PoA.",
+      "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; an intended use case of the proposed European Business Wallets, which would enable the exchange of attestations for the EU digital power of attorney.",
       "aliases": [
         "PoA"
       ],
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "Legal equivalence": {
-      "description": "The principle that actions performed through a European Business Wallet have the same legal effect as equivalent actions in person, on paper, or via other established processes.",
+      "description": "In the European Commission's proposal for European Business Wallets, the principle that an action carried out through a core functionality of a European Business Wallet would have the same legal effect as the same action carried out in person, on paper or by other compliant means. It applies only if and as the proposal is adopted.",
       "aliases": [
         "principle of equivalence"
       ],
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "Core minimum functionalities": {
-      "description": "The minimum interoperable set of European Business Wallet functions that public sector bodies must accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications.",
+      "description": "In the European Commission's proposal for European Business Wallets, the minimum set of wallet functions that public sector bodies would have to accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications. The proposal has not been adopted, so the set can still change.",
       "aliases": [
         "core functionalities"
       ],
@@ -1319,7 +1319,7 @@
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
     },
     "Verifiable Credential Type": {
-      "description": "A string identifier (vct) in SD-JWT VC metadata that names the credential type and links to its schema, commonly used in EU and EWC attestation catalogs.",
+      "description": "In SD-JWT VC, the identifier of a credential type. This string (vct) names the type and can link to its schema. Commonly used in EU and EWC attestation catalogs.",
       "aliases": [
         "vct",
         "VCT"
@@ -1816,6 +1816,159 @@
         "modify"
       ],
       "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
+    },
+    "eidasTrustServices": {
+      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
+      "title": "eIDAS Trust Services",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
+    },
+    "QESig": {
+      "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
+      "title": "Qualified Electronic Signature Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESig",
+        "Q_CERT_ESIG"
+      ]
+    },
+    "QESeal": {
+      "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
+      "title": "Qualified Electronic Seal Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESeal",
+        "Q_CERT_ESEAL"
+      ]
+    },
+    "QTimestamp": {
+      "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
+      "title": "Qualified Electronic Timestamp",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QTimestamp",
+        "Q_TIMESTAMP"
+      ]
+    },
+    "QERDS": {
+      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery; offered alongside European Business Wallets.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QERDS",
+        "Q_ERDS"
+      ],
+      "duplicateOf": "Qualified Electronic Registered Delivery Service"
+    },
+    "QWAC": {
+      "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
+      "title": "Qualified Website Authentication Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QWAC",
+        "Q_WAC"
+      ]
+    },
+    "QEArch": {
+      "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
+      "title": "Qualified Electronic Archiving Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QEArch",
+        "Q_EARCH"
+      ]
+    },
+    "QVal": {
+      "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
+      "title": "Qualified Validation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QVal",
+        "Q_VC"
+      ]
+    },
+    "QPres": {
+      "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
+      "title": "Qualified Preservation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPres",
+        "Q_PRES"
+      ]
+    },
+    "QPresSeal": {
+      "description": "Qualified preservation service for electronic seals.",
+      "title": "Qualified Preservation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSeal",
+        "Q_PRES_ESEAL"
+      ]
+    },
+    "QPresSig": {
+      "description": "Qualified preservation service for electronic signatures.",
+      "title": "Qualified Preservation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSig",
+        "Q_PRES_ESIG"
+      ]
+    },
+    "QValSeal": {
+      "description": "Qualified validation service for electronic seals.",
+      "title": "Qualified Validation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSeal",
+        "Q_VAL_ESEAL"
+      ]
+    },
+    "QValSig": {
+      "description": "Qualified validation service for electronic signatures.",
+      "title": "Qualified Validation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSig",
+        "Q_VAL_ESIG"
+      ]
+    },
+    "QRemSeal": {
+      "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Seal Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSeal",
+        "Q_REM_MANAGE_Q_SEAL_CD"
+      ]
+    },
+    "QRemSig": {
+      "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Signature Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSig",
+        "Q_REM_MANAGE_Q_SIG_CD"
+      ]
+    },
+    "QEAA": {
+      "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
+      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [
+        "QEAA"
+      ],
+      "duplicateOf": "Qualified Electronic Attestation of Attributes"
+    },
+    "Wallet Relying Party Repository": {
+      "description": "A repository defined under the eIDAS 2.0 European Digital Identity Wallet framework that provides trusted information about relying parties, including their identifiers, authorizations and service metadata. EUDI Wallets can use the repository to validate relying parties and inform users before data is shared.",
+      "aliases": [
+        "WRPR"
+      ]
+    },
+    "Credential": {
+      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
+    },
+    "Credential Type": {
+      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types"
     }
   }
 }
