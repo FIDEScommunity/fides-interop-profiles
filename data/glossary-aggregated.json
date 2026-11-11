@@ -1,6 +1,6 @@
 {
   "version": "1.12.1",
-  "generatedAt": "2026-11-11T20:30:21.408Z",
+  "generatedAt": "2026-11-11T20:45:08.570Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -491,7 +491,7 @@
       "id": "core-minimum-functionalities",
       "key": "Core minimum functionalities",
       "name": "Core minimum functionalities",
-      "description": "The minimum interoperable set of European Business Wallet functions that public sector bodies must accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications.",
+      "description": "In the European Commission's proposal for European Business Wallets, the minimum set of wallet functions that public sector bodies would have to accept: identification/authentication, signing/sealing, and submission/receipt of documents and official notifications. The proposal has not been adopted, so the set can still change.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "core functionalities"
@@ -1173,7 +1173,7 @@
       "id": "european-digital-directory",
       "key": "European Digital Directory",
       "name": "European Digital Directory",
-      "description": "A Commission-maintained directory of economic operators and public sector bodies using European Business Wallets, enabling trusted contact and identification across borders.",
+      "description": "A directory that the European Commission's proposal for European Business Wallets would establish. As proposed, the Commission would create and maintain it as a trusted source of information on economic operators and public sector bodies using European Business Wallets, so that they can be contacted across borders. It does not exist until the proposal is adopted and implemented.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "EDD"
@@ -1799,7 +1799,7 @@
       "id": "legal-equivalence",
       "key": "Legal equivalence",
       "name": "Legal equivalence",
-      "description": "The principle that actions performed through a European Business Wallet have the same legal effect as equivalent actions in person, on paper, or via other established processes.",
+      "description": "In the European Commission's proposal for European Business Wallets, the principle that an action carried out through a core functionality of a European Business Wallet would have the same legal effect as the same action carried out in person, on paper or by other compliant means. It applies only if and as the proposal is adopted.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "principle of equivalence"
@@ -2369,7 +2369,7 @@
       "id": "power-of-attorney",
       "key": "Power of Attorney",
       "name": "Power of Attorney",
-      "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; a key use case for European Business Wallets and the EU digital PoA.",
+      "description": "A formal authorization for one party to act on another's behalf in legal or administrative matters; an intended use case of the proposed European Business Wallets, which would enable the exchange of attestations for the EU digital power of attorney.",
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets",
       "aliases": [
         "PoA"
