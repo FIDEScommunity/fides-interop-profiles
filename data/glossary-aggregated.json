@@ -1,6 +1,6 @@
 {
-  "version": "1.11.2",
-  "generatedAt": "2026-11-11T19:04:00.543Z",
+  "version": "1.12.0",
+  "generatedAt": "2026-11-11T19:12:47.948Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -1595,31 +1595,18 @@
       "letter": "I"
     },
     {
-      "id": "iso18013-5",
-      "key": "iso18013_5",
-      "name": "ISO 18013-5",
-      "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
-      "url": "",
-      "aliases": [],
-      "letter": "I"
-    },
-    {
       "id": "iso-18013-5",
       "key": "ISO 18013-5",
       "name": "ISO 18013-5",
       "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
       "url": "https://www.iso.org/standard/69084.html",
-      "aliases": [],
-      "letter": "I"
-    },
-    {
-      "id": "iso18013-7",
-      "key": "iso18013_7",
-      "name": "ISO 18013-7",
-      "description": "Extension of ISO 18013-5 adding remote presentation capabilities for mobile driver's licenses over the internet.",
-      "url": "",
-      "aliases": [],
-      "letter": "I"
+      "aliases": [
+        "iso18013_5"
+      ],
+      "letter": "I",
+      "legacyIds": [
+        "iso18013-5"
+      ]
     },
     {
       "id": "iso-18013-7",
@@ -1629,9 +1616,13 @@
       "url": "https://www.iso.org/standard/82772.html",
       "aliases": [
         "ISO mDL remote",
-        "18013-7"
+        "18013-7",
+        "iso18013_7"
       ],
-      "letter": "I"
+      "letter": "I",
+      "legacyIds": [
+        "iso18013-7"
+      ]
     },
     {
       "id": "iso-data-model",
@@ -1909,16 +1900,10 @@
         "mdoc",
         "ISO mdoc"
       ],
-      "letter": "M"
-    },
-    {
-      "id": "mdoc",
-      "key": "mdoc",
-      "name": "mdoc",
-      "description": "ISO (18013-5 style) mobile document encoding (CBOR/COSE), often used for mDL and similar credentials.",
-      "url": "",
-      "aliases": [],
-      "letter": "M"
+      "letter": "M",
+      "legacyIds": [
+        "mdoc"
+      ]
     },
     {
       "id": "member-state",
@@ -2199,24 +2184,6 @@
         "Organisation Wallet",
         "Business Wallet"
       ],
-      "letter": "O"
-    },
-    {
-      "id": "other",
-      "key": "other",
-      "name": "Other",
-      "description": "Credential format not covered by the standard formats listed in the catalog.",
-      "url": "",
-      "aliases": [],
-      "letter": "O"
-    },
-    {
-      "id": "other-2",
-      "key": "Other",
-      "name": "Other",
-      "description": "Other or proprietary schema specification type.",
-      "url": "",
-      "aliases": [],
       "letter": "O"
     },
     {
@@ -2558,7 +2525,10 @@
       "aliases": [
         "QEAA"
       ],
-      "letter": "Q"
+      "letter": "Q",
+      "legacyIds": [
+        "qeaa"
+      ]
     },
     {
       "id": "qualified-electronic-registered-delivery-service",
@@ -2571,7 +2541,10 @@
         "qualified eDelivery",
         "Q_ERDS"
       ],
-      "letter": "Q"
+      "letter": "Q",
+      "legacyIds": [
+        "qerds"
+      ]
     },
     {
       "id": "qualified-electronic-seal",
@@ -2952,18 +2925,13 @@
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
       "aliases": [
         "SD-JWT VC",
-        "SD JWT VC"
+        "SD JWT VC",
+        "sd_jwt_vc"
       ],
-      "letter": "S"
-    },
-    {
-      "id": "sd-jwt-vc-2",
-      "key": "sd_jwt_vc",
-      "name": "SD-JWT-VC",
-      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
-      "aliases": [],
-      "letter": "S"
+      "letter": "S",
+      "legacyIds": [
+        "sd-jwt-vc-2"
+      ]
     },
     {
       "id": "seafarer-credential",
@@ -3360,22 +3328,18 @@
       "letter": "V"
     },
     {
-      "id": "vcdm20",
-      "key": "vcdm20",
-      "name": "VCDM 2.0",
-      "description": "W3C standard data model for expressing verifiable credentials in a secure, privacy-respecting way.",
-      "url": "",
-      "aliases": [],
-      "letter": "V"
-    },
-    {
       "id": "vcdm-2-0",
       "key": "vcdm_2_0",
       "name": "VCDM 2.0",
       "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats.",
       "url": "https://www.w3.org/TR/vc-data-model-2.0/",
-      "aliases": [],
-      "letter": "V"
+      "aliases": [
+        "vcdm20"
+      ],
+      "letter": "V",
+      "legacyIds": [
+        "vcdm20"
+      ]
     },
     {
       "id": "vehicle-registration-certificate",

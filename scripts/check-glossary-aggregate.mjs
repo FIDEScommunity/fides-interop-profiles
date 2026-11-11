@@ -12,18 +12,11 @@ import { buildGlossaryTerms, findVocabularyProblems } from './glossary-build-lib
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
- * Labels that still resolve to two glossary terms; each is an open editorial question, not an accepted state.
- * - 'iso 18013-5', 'iso 18013-7', 'sd-jwt-vc', 'vcdm 2.0': the catalog filter value (iso18013_5, sd_jwt_vc, ...)
- *   and the standard describe the same thing. Both ids are published in the live sitemap (?term=...), so merging
- *   them with duplicateOf would drop a published id until the glossary page and the SEO core can resolve legacy ids.
- * - 'mdoc' (mDL/mDoc vs mdoc), 'other' (credential format vs schema type), 'fides' (FIDES vs FIDES Community):
- *   definitions differ; an editor has to decide whether they are one concept.
- * Remove a label here once its pair is resolved in vocabulary.json.
+ * Labels that resolve to two glossary terms on purpose.
+ * - 'fides': the project name (FIDES) and the community (FIDES Community, alias FIDES) are kept as two terms.
+ * Remove a label here only together with a vocabulary.json decision.
  */
-const KNOWN_COLLISIONS = [
-  'iso 18013-5', 'iso 18013-7', 'sd-jwt-vc', 'vcdm 2.0',
-  'mdoc', 'other', 'fides',
-];
+const KNOWN_COLLISIONS = ['fides'];
 
 const vocabulary = JSON.parse(readFileSync(join(root, 'data', 'vocabulary.json'), 'utf8'));
 const committed = JSON.parse(readFileSync(join(root, 'data', 'glossary-aggregated.json'), 'utf8'));
@@ -44,6 +37,16 @@ for (const id of expectedById.keys()) {
 }
 for (const id of committedById.keys()) {
   if (!expectedById.has(id)) failures.push(`aggregate has term "${id}" that vocabulary.json no longer produces`);
+}
+
+// A legacy id must never shadow a current id, and must belong to one term only.
+const legacyOwner = new Map();
+for (const t of expected.terms) {
+  for (const legacy of t.legacyIds || []) {
+    if (expectedById.has(legacy)) failures.push(`legacy id "${legacy}" of "${t.id}" is also a current term id`);
+    if (legacyOwner.has(legacy)) failures.push(`legacy id "${legacy}" belongs to "${legacyOwner.get(legacy)}" and "${t.id}"`);
+    legacyOwner.set(legacy, t.id);
+  }
 }
 
 if (failures.length) {

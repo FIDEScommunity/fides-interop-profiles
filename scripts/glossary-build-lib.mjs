@@ -5,6 +5,13 @@
  * Vocabulary entries may carry an optional `duplicateOf` field (the key of another entry). Such an entry stays in
  * vocabulary.json because catalog [i] popups look terms up by key (for example QEAA), but it is NOT listed as a
  * separate glossary term. Its key and aliases are merged into the target term's aliases instead.
+ *
+ * An entry may also carry `hidden: true`: it stays in vocabulary.json (popups and filters look it up by key) but is
+ * not listed in the glossary at all.
+ *
+ * Published ids must keep working. Every id an entry had in the previous scheme (all entries numbered in file
+ * order, so the second "Gaia-X" became gaia-x-2) is kept as `legacyIds` on the term that now represents it.
+ * Consumers (glossary page and the shared SEO core) resolve and redirect legacy ids to the current id.
  */
 import { formatDisplayName, sortLetter } from './glossary-display-name.mjs';
 
@@ -21,12 +28,30 @@ function cleanAliases(value) {
   return Array.isArray(value) ? value.map((a) => String(a).trim()).filter(Boolean) : [];
 }
 
+/** Number every key in file order, as the original build did (second "Gaia-X" becomes gaia-x-2). */
+function allocateIds(keys) {
+  const used = new Set();
+  const ids = new Map();
+  for (const key of keys) {
+    let id = slugify(key);
+    if (used.has(id)) {
+      let n = 2;
+      while (used.has(`${id}-${n}`)) n += 1;
+      id = `${id}-${n}`;
+    }
+    used.add(id);
+    ids.set(key, id);
+  }
+  return ids;
+}
+
 /**
  * @param {{version?: string, terms?: Record<string, any>}} raw parsed vocabulary.json
  * @returns {{version: string, terms: any[]}} aggregate without generatedAt
  */
 export function buildGlossaryTerms(raw) {
   const termsObj = raw.terms && typeof raw.terms === 'object' ? raw.terms : {};
+  const fullIds = allocateIds(Object.keys(termsObj).filter((k) => termsObj[k] && typeof termsObj[k] === 'object'));
   const slugUsed = new Map();
   const byKey = new Map();
   const terms = [];
@@ -34,6 +59,7 @@ export function buildGlossaryTerms(raw) {
   for (const [key, value] of Object.entries(termsObj)) {
     if (!value || typeof value !== 'object') continue;
     if (typeof value.duplicateOf === 'string' && value.duplicateOf.trim()) continue;
+    if (value.hidden === true) continue;
     let id = slugify(key);
     if (slugUsed.has(id)) {
       let n = 2;
@@ -53,7 +79,9 @@ export function buildGlossaryTerms(raw) {
       url: typeof value.url === 'string' ? value.url.trim() : '',
       aliases: cleanAliases(value.aliases),
       letter: sortLetter(name),
+      legacyIds: [],
     };
+    term._fullId = fullIds.get(key);
     byKey.set(canonicalKey, term);
     terms.push(term);
   }
@@ -63,6 +91,8 @@ export function buildGlossaryTerms(raw) {
     if (!value || typeof value.duplicateOf !== 'string' || !value.duplicateOf.trim()) continue;
     const target = byKey.get(value.duplicateOf.trim());
     if (!target) continue;
+    const dupId = fullIds.get(key);
+    if (dupId && !target.legacyIds.includes(dupId)) target.legacyIds.push(dupId);
     const have = new Set([target.name, target.key, ...target.aliases].map((s) => s.toLowerCase()));
     for (const label of [String(key).trim(), ...cleanAliases(value.aliases)]) {
       if (!have.has(label.toLowerCase())) {
@@ -70,6 +100,13 @@ export function buildGlossaryTerms(raw) {
         have.add(label.toLowerCase());
       }
     }
+  }
+
+  for (const t of terms) {
+    if (t._fullId && t._fullId !== t.id && !t.legacyIds.includes(t._fullId)) t.legacyIds.push(t._fullId);
+    delete t._fullId;
+    t.legacyIds = t.legacyIds.filter((x) => x !== t.id);
+    if (t.legacyIds.length === 0) delete t.legacyIds;
   }
 
   terms.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
@@ -91,6 +128,9 @@ export function findVocabularyProblems(raw, knownCollisions = []) {
     if (!target) {
       problems.push(`"${key}" is duplicateOf missing term "${value.duplicateOf}"`);
       continue;
+    }
+    if (target.hidden === true) {
+      problems.push(`"${key}" points at hidden term "${value.duplicateOf}"`);
     }
     if (typeof target.duplicateOf === 'string') {
       problems.push(`"${key}" points at "${value.duplicateOf}", which is itself a duplicate`);

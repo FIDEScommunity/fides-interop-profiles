@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -330,13 +330,19 @@
       "description": "Cryptographic algorithm used for signing credentials in this interoperability profile."
     },
     "iso18013_5": {
-      "description": "International standard for mobile driver's licenses with device retrieval (local presentation)."
+      "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
+      "url": "https://www.iso.org/standard/69084.html",
+      "duplicateOf": "ISO 18013-5"
     },
     "iso18013_7": {
-      "description": "Extension of ISO 18013-5 adding remote presentation capabilities for mobile driver's licenses over the internet."
+      "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification.",
+      "url": "https://www.iso.org/standard/82772.html",
+      "duplicateOf": "ISO 18013-7"
     },
     "vcdm20": {
-      "description": "W3C standard data model for expressing verifiable credentials in a secure, privacy-respecting way."
+      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "duplicateOf": "vcdm_2_0"
     },
     "jwtValidity": {
       "description": "Credential status determined by JWT expiration timestamp."
@@ -598,11 +604,13 @@
       "description": "The kind of formal specification used to define the credential's structure (for example JSON Schema or an ISO data model)."
     },
     "sd_jwt_vc": {
-      "description": "IETF SD-JWT-based verifiable credential format with selective disclosure via salted hashes.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
+      "description": "IETF SD-JWT-based verifiable credential format allowing holders to selectively reveal only necessary claims using salted hashes; builds on the core Selective Disclosure JWT (SD-JWT) specification.",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
+      "duplicateOf": "SD-JWT-VC"
     },
     "mdoc": {
-      "description": "ISO (18013-5 style) mobile document encoding (CBOR/COSE), often used for mDL and similar credentials."
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
+      "duplicateOf": "mDL/mDoc"
     },
     "vcdm_1_1": {
       "description": "W3C Verifiable Credentials Data Model 1.1, commonly carried as JWT VC.",
@@ -616,7 +624,8 @@
       "description": "Authentic Chained Data Container (KERI-related) credential representation; used notably in the GLEIF vLEI credential family."
     },
     "other": {
-      "description": "Credential format not covered by the standard formats listed in the catalog."
+      "description": "Credential format not covered by the standard formats listed in the catalog.",
+      "hidden": true
     },
     "JSON-LD Context": {
       "description": "Schema or context expressed as JSON-LD for semantic interoperability."
@@ -628,7 +637,8 @@
       "description": "Schema in the ACDC / KERI family for chained authentic data."
     },
     "Other": {
-      "description": "Other or proprietary schema specification type."
+      "description": "Other or proprietary schema specification type.",
+      "hidden": true
     },
     "Conformity Assessment Body": {
       "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program. In UNTP, CABs issue Digital Conformity Credentials.",
