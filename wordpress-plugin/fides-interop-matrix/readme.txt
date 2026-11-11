@@ -3,7 +3,7 @@ Contributors: fideslabs
 Tags: fides, interoperability, profiles, comparison, matrix, diip, haip
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.2.11
+Stable tag: 1.2.12
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -69,6 +69,9 @@ Yes, the plugin includes a local fallback for optimal performance and reliabilit
 3. Capability detail with tooltip
 
 == Changelog ==
+
+= 1.2.12 =
+* Resync the bundled fallback `assets/vocabulary.json` with glossary 1.12.2: the European Unique Identifier, QERDS (both entries), EU Company Certificate and Single Digital Gateway now describe their European Business Wallet link as part of the Commission proposal. No keys were removed or renamed. The live glossary on GitHub `main` stays the primary source.
 
 = 1.2.11 =
 * Refresh the bundled fallback `assets/vocabulary.json` from the published glossary source (1.12.1): updated descriptions (including the European Business Wallet, described as a Commission proposal) and 19 added terms. No existing keys were removed or renamed. The live glossary on GitHub `main` stays the primary source.

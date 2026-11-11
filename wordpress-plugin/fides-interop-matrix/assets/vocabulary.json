@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -972,7 +972,7 @@
       "url": "https://github.com/EWC-consortium/eudi-wallet-rulebooks-and-schemas"
     },
     "European Unique Identifier": {
-      "description": "A Union-wide unique identifier for companies and other legal entities, used in European Business Wallets where assigned under EU company law or anti-money-laundering rules.",
+      "description": "A Union-wide unique identifier for companies and other legal entities, assigned under EU company law (Directive (EU) 2017/1132) or anti-money-laundering rules and used by the business registers interconnection systems. The European Commission's proposal for European Business Wallets would use it as the unique identifier of wallet owners where one has been attributed.",
       "aliases": [
         "EUID"
       ],
@@ -1026,7 +1026,7 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "Qualified Electronic Registered Delivery Service": {
-      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery; offered alongside European Business Wallets.",
+      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery. The European Commission's proposal for European Business Wallets would make it one of the wallets' core functionalities.",
       "aliases": [
         "QERDS",
         "qualified eDelivery"
@@ -1054,13 +1054,13 @@
       "url": "https://aptitude.digital-identity-wallet.eu/"
     },
     "Single Digital Gateway": {
-      "description": "An EU initiative requiring key public services to be accessible online across borders, complemented by European Business Wallets for trusted B2G identification and data exchange.",
+      "description": "An EU initiative requiring key public services to be accessible online across borders. The European Commission's proposal for European Business Wallets is intended to complement it with trusted identification of businesses and public bodies and a secure data exchange layer.",
       "aliases": [
         "SDG"
       ]
     },
     "EU Company Certificate": {
-      "description": "A digital certificate attesting company information for use in cross-border business procedures, intended for use within European Business Wallets under the EU 28th regime framework."
+      "description": "A digital certificate attesting company information for use in cross-border business procedures, introduced by Directive (EU) 2025/25. The European Commission's proposal for European Business Wallets would enable companies to exchange it through their wallets."
     },
     "Business Registers Interconnection System": {
       "description": "An EU system interconnecting national business registers, using the European Unique Identifier (EUID) to identify companies across Member States; linked to European Business Wallet identity data.",
@@ -1850,7 +1850,7 @@
       ]
     },
     "QERDS": {
-      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery; offered alongside European Business Wallets.",
+      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery. The European Commission's proposal for European Business Wallets would make it one of the wallets' core functionalities.",
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
       "aliases": [
         "QERDS",
