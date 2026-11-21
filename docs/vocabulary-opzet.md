@@ -150,16 +150,16 @@ Alle content in het **Engels**. Voor elk term: `description` (1-2 zinnen); optio
 Added in vocabulary `v1.3.0`. These terms are not all bound to a single filter
 facet; they exist so the `[i]` tooltips and the LLM assistant can explain the
 core EUDI Wallet / ARF terminology a visitor encounters. Source: EUDI Wallet
-ARF 2.9.0 Annex 1 (Definitions) and the Commission Implementing Regulations.
+ARF 3.0.0 Annex 1 (Definitions) and the Commission Implementing Regulations.
 
 House style for these terms: **full name as key, abbreviation as alias** (the
 alias resolver is case-insensitive, so case/spacing variants are not needed).
 
 | Group | Vocabulary keys (alias) |
 |-------|--------------------------|
-| Core roles & objects | `Person Identification Data` (PID), `PID Provider`, `Electronic Attestation of Attributes` (EAA), `Qualified Electronic Attestation of Attributes` (QEAA), `Public Sector Body EAA` (PuB-EAA), `Attestation`, `Attestation Provider`, `Wallet Unit`, `Wallet Instance`, `Wallet Solution`, `Wallet Provider`, `Relying Party` (RP) |
+| Core roles & objects | `Person Identification Data` (PID), `PID Provider`, `Electronic Attestation of Attributes` (EAA), `Qualified Electronic Attestation of Attributes` (QEAA), `Public Sector Body EAA` (PuB-EAA), `Attestation`, `Device-bound attestation`, `Non-device-bound attestation`, `Attestation Provider`, `Wallet Unit`, `Wallet Instance`, `Wallet Solution`, `Wallet Provider`, `Wallet Provider backend`, `Relying Party` (RP), `Relying Party Service` |
 | Trust infrastructure | `Trust Anchor`, `Trusted List`, `List of Trusted Entities` (LoTE), `Certificate Authority` (CA), `Access Certificate Authority` (Access CA), `Access Certificate`, `Registrar`, `Authentic Source`, `Intermediary`, `EUDI Wallet Trust Mark` |
-| Attestation lifecycle & wallet security | `Wallet Unit Attestation` (WUA), `Wallet Instance Attestation` (WIA), `Key Attestation` (KA), `Wallet Secure Cryptographic Application` (WSCA), `Wallet Secure Cryptographic Device` (WSCD), `Keystore`, `Attestation Rulebook`, `Attestation Type`, `Namespace`, `Attestation Revocation List` (ARL), `Attestation Status List`, `Administrative validity period`, `Technical validity period` |
+| Attestation lifecycle & wallet security | `Wallet Unit Attestation` (WUA), `Wallet Instance Attestation` (WIA), `Key Attestation` (KA), `Wallet Secure Cryptographic Application` (WSCA), `Wallet Secure Cryptographic Device` (WSCD), `Keystore`, `Attestation Rulebook`, `Attestation scheme`, `Attestation Scheme Provider`, `Attestation Type`, `Namespace`, `Attestation revocation mechanism`, `Attestation Revocation List` (ARL), `Attestation Status List`, `Administrative validity period`, `Technical validity period`, `Logical PID or attestation`, `Technical PID or attestation` |
 | Protocols, query languages & APIs | `Digital Credentials Query Language` (DCQL), `Digital Credentials API` (DC API), `Presentation Exchange` (PEX), `Verifiable Credential` (VC), `Verifiable Presentation` (VP), `Credential Offer`, `Decentralized Identifier` (DID), `Verifiable Credentials Data Model` (VCDM), `Key Binding` |
 | Privacy & authentication | `Selective Disclosure`, `Embedded Disclosure Policy` (EDP), `Pseudonym`, `Zero-Knowledge Proof` (ZKP), `Attribute`, `Strong User Authentication` (SCA) |
 | Regulation & abbreviations | `eIDAS`, `European Digital Identity Regulation` (eIDAS 2), `Implementing Act` (CIR), `Qualified Electronic Signature` (QES), `Qualified Electronic Signature Creation Device` (QSCD), `Electronic Seal`, `Large Scale Pilot` (LSP), `Member State` |
@@ -212,7 +212,7 @@ and other medium-priority items deferred. Source: [UNTP v0.7.0 specifications](h
 
 Added in vocabulary `v1.6.0`. ETSI Electronic Signatures and Infrastructures
 (ESI) specs referenced in the EUDI Wallet essential standards list and ARF
-bibliography. Source: [EUDI ARF 2.9.0 Essential STS](https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/).
+bibliography. Source: [EUDI ARF 3.0.0 Essential STS](https://eudi.dev/3.0.0/technical-specifications/).
 
 House style unchanged: **concept name as key, ETSI document number as alias**.
 

@@ -18,9 +18,13 @@ const URL_REPLACEMENTS = {
   "https://www.gleif.org/en/organizational-identity/introducing-the-verifiable-lei-vlei":
     "https://www.gleif.org/en/organizational-identity/lei-vlei/the-verifiable-lei-vlei",
   "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/annex-1-definitions/":
-    "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+    "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+  "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/":
+    "https://eudi.dev/3.0.0/main/",
+  "https://eudi.dev/3.0.0/architecture-and-reference-framework-main/":
+    "https://eudi.dev/3.0.0/main/",
   "https://eudi.dev/2.9.0/technical-specifications/essential-standards-and-technical-specifications/":
-    "https://eudi.dev/2.9.0/technical-specifications/",
+    "https://eudi.dev/3.0.0/technical-specifications/",
   "https://digital-strategy.ec.europa.eu/en/policies/digital-identity-wallet/large-scale-pilots":
     "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet-implementation",
   "https://digital-strategy.ec.europa.eu/en/policies/eudi-wallet":

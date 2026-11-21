@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.12.2",
+  "version": "1.13.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -56,7 +56,7 @@
     },
     "EUDI Wallet ARF": {
       "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/"
+      "url": "https://eudi.dev/3.0.0/main/"
     },
     "availability": {
       "description": "Whether the wallet is generally available to users or still in development."
@@ -172,6 +172,145 @@
     "credentialStatus": {
       "description": "How the validity of credentials is checked: whether they are revoked, suspended, or still valid. Different methods use different technical approaches."
     },
+    "eidasTrustServices": {
+      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
+      "title": "eIDAS Trust Services",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
+    },
+    "QESig": {
+      "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
+      "title": "Qualified Electronic Signature Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESig",
+        "Q_CERT_ESIG"
+      ]
+    },
+    "QESeal": {
+      "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
+      "title": "Qualified Electronic Seal Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QESeal",
+        "Q_CERT_ESEAL"
+      ]
+    },
+    "QTimestamp": {
+      "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
+      "title": "Qualified Electronic Timestamp",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QTimestamp",
+        "Q_TIMESTAMP"
+      ]
+    },
+    "QERDS": {
+      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery. The European Commission's proposal for European Business Wallets would make it one of the wallets' core functionalities.",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QERDS",
+        "Q_ERDS"
+      ],
+      "duplicateOf": "Qualified Electronic Registered Delivery Service"
+    },
+    "QWAC": {
+      "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
+      "title": "Qualified Website Authentication Certificate",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QWAC",
+        "Q_WAC"
+      ]
+    },
+    "QEArch": {
+      "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
+      "title": "Qualified Electronic Archiving Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QEArch",
+        "Q_EARCH"
+      ]
+    },
+    "QVal": {
+      "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
+      "title": "Qualified Validation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QVal",
+        "Q_VC"
+      ]
+    },
+    "QPres": {
+      "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
+      "title": "Qualified Preservation Service",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPres",
+        "Q_PRES"
+      ]
+    },
+    "QPresSeal": {
+      "description": "Qualified preservation service for electronic seals.",
+      "title": "Qualified Preservation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSeal",
+        "Q_PRES_ESEAL"
+      ]
+    },
+    "QPresSig": {
+      "description": "Qualified preservation service for electronic signatures.",
+      "title": "Qualified Preservation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QPresSig",
+        "Q_PRES_ESIG"
+      ]
+    },
+    "QValSeal": {
+      "description": "Qualified validation service for electronic seals.",
+      "title": "Qualified Validation Service for Electronic Seals",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSeal",
+        "Q_VAL_ESEAL"
+      ]
+    },
+    "QValSig": {
+      "description": "Qualified validation service for electronic signatures.",
+      "title": "Qualified Validation Service for Electronic Signatures",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QValSig",
+        "Q_VAL_ESIG"
+      ]
+    },
+    "QRemSeal": {
+      "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Seal Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSeal",
+        "Q_REM_MANAGE_Q_SEAL_CD"
+      ]
+    },
+    "QRemSig": {
+      "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
+      "title": "Qualified Management of Remote Signature Creation Devices",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
+      "aliases": [
+        "QRemSig",
+        "Q_REM_MANAGE_Q_SIG_CD"
+      ]
+    },
+    "QEAA": {
+      "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [
+        "QEAA"
+      ],
+      "duplicateOf": "Qualified Electronic Attestation of Attributes"
+    },
     "license": {
       "description": "Software license type: open source (publicly available code) or proprietary (closed source)."
     },
@@ -191,13 +330,19 @@
       "description": "Cryptographic algorithm used for signing credentials in this interoperability profile."
     },
     "iso18013_5": {
-      "description": "International standard for mobile driver's licenses with device retrieval (local presentation)."
+      "description": "International standard for mobile driver's licenses with device retrieval (local presentation).",
+      "url": "https://www.iso.org/standard/69084.html",
+      "duplicateOf": "ISO 18013-5"
     },
     "iso18013_7": {
-      "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification."
+      "description": "ISO standard for remote presentation of mobile documents including mDL; extends ISO 18013-5 proximity flows for internet-based verification.",
+      "url": "https://www.iso.org/standard/82772.html",
+      "duplicateOf": "ISO 18013-7"
     },
     "vcdm20": {
-      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats."
+      "description": "W3C Verifiable Credentials Data Model 2.0, including JSON-LD and related proof formats.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+      "duplicateOf": "vcdm_2_0"
     },
     "jwtValidity": {
       "description": "Credential status determined by JWT expiration timestamp."
@@ -237,7 +382,12 @@
       "description": "OAuth 2.0 client identifier used in OpenID4VC flows to identify wallets and applications in authorization."
     },
     "x509Certificate": {
-      "description": "PKI certificate binding an identity to a public key; enables trust through established certificate chains."
+      "description": "PKI certificate binding an identity to a public key; enables trust through established certificate chains.",
+      "title": "X.509 Certificate",
+      "aliases": [
+        "x509",
+        "x.509"
+      ]
     },
     "joseJws": {
       "description": "JSON-based signature format for web applications providing integrity and authenticity."
@@ -310,16 +460,19 @@
       "description": "A broad interoperability or policy context a credential type is associated with (for example the EUDI Wallet ecosystem, UN/CEFACT trade data, or Gaia-X). Used to discover credentials that fit a given stack or programme."
     },
     "eudi_wallet": {
-      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications."
+      "description": "European Digital Identity Wallet context: credential types aligned with the EU Digital Identity Wallet framework and related specifications.",
+      "title": "EUDI Wallet Ecosystem"
     },
     "uncefact": {
       "description": "UN/CEFACT and related trade and supply-chain data exchange contexts, including the UN Transparency Protocol (UNTP) and cross-border trade credentials.",
+      "title": "UN/CEFACT Ecosystem",
       "aliases": [
         "UNTP ecosystem"
       ]
     },
     "gaia_x": {
       "description": "Gaia-X and federated data infrastructure contexts where credentials may describe trust, compliance, or data space participation. See also Gaia-X (glossary).",
+      "title": "Gaia-X Ecosystem",
       "aliases": [
         "GaiaX ecosystem"
       ]
@@ -328,7 +481,8 @@
       "description": "Open Badges and open recognition ecosystems for education, training, and achievement credentials. See also Open Badges 3.0 and Comprehensive Learner Record (CLR)."
     },
     "iso_mdl": {
-      "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards."
+      "description": "ISO mobile document (mDL / mdoc) ecosystem: credentials based on ISO/IEC 18013-5 and related standards.",
+      "title": "ISO mDL Ecosystem"
     },
     "india_stack": {
       "description": "India Stack and related national digital infrastructure contexts where verifiable credentials are used. See also Aadhaar and UIDAI.",
@@ -451,10 +605,12 @@
     },
     "sd_jwt_vc": {
       "description": "IETF SD-JWT-based verifiable credential format allowing holders to selectively reveal only necessary claims using salted hashes; builds on the core Selective Disclosure JWT (SD-JWT) specification.",
-      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/",
+      "duplicateOf": "SD-JWT-VC"
     },
     "mdoc": {
-      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case."
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
+      "duplicateOf": "mDL/mDoc"
     },
     "vcdm_1_1": {
       "description": "W3C Verifiable Credentials Data Model 1.1, commonly carried as JWT VC.",
@@ -468,7 +624,8 @@
       "description": "Authentic Chained Data Container (KERI-related) credential representation; used notably in the GLEIF vLEI credential family."
     },
     "other": {
-      "description": "Credential format not covered by the standard formats listed in the catalog."
+      "description": "Credential format not covered by the standard formats listed in the catalog.",
+      "hidden": true
     },
     "JSON-LD Context": {
       "description": "Schema or context expressed as JSON-LD for semantic interoperability."
@@ -480,7 +637,8 @@
       "description": "Schema in the ACDC / KERI family for chained authentic data."
     },
     "Other": {
-      "description": "Other or proprietary schema specification type."
+      "description": "Other or proprietary schema specification type.",
+      "hidden": true
     },
     "Conformity Assessment Body": {
       "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program. In UNTP, CABs issue Digital Conformity Credentials.",
@@ -582,35 +740,35 @@
       "aliases": [
         "PID"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "PID Provider": {
       "description": "The party responsible for issuing and revoking Person Identification Data and for cryptographically binding it to a Wallet Unit.",
       "aliases": [
         "Provider of person identification data"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Electronic Attestation of Attributes": {
       "description": "An attestation in electronic form that allows attributes of a person or object to be authenticated. The general building block alongside PID.",
       "aliases": [
         "EAA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Qualified Electronic Attestation of Attributes": {
       "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
       "aliases": [
         "QEAA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Public Sector Body EAA": {
       "description": "An Electronic Attestation of Attributes issued by, or on behalf of, a public sector body responsible for an authentic source.",
       "aliases": [
         "PuB-EAA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation": {
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or (non-qualified) EAA that can be stored in and presented from a Wallet Unit. Not the same as a UNTP Conformity Attestation (supply chain conformity assessment).",
@@ -618,42 +776,61 @@
         "EUDI attestation",
         "EAA attestation"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Device-bound attestation": {
+      "description": "An attestation cryptographically bound to a private key that was generated and is kept in a WSCA/WSCD or keystore of the Wallet Unit, so a relying party can check that it is presented from the Wallet Unit it was issued to.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Non-device-bound attestation": {
+      "description": "An attestation that is not cryptographically bound to a private key kept in a WSCA/WSCD or keystore available to the Wallet Unit.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation Provider": {
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or EAA Provider that issues wallet attestations. For UNTP conformity issuers, see Conformity Assessment Body.",
       "aliases": [
         "Attestation Issuer"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Unit": {
-      "description": "A unique configuration of a Wallet Solution, including Wallet Instances and the Wallet Secure Cryptographic Applications and Devices, provided by a Wallet Provider to an individual user.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "description": "A unique configuration of a Wallet Solution provided by a Wallet Provider to an individual user. It includes Wallet Instances, Wallet Secure Cryptographic Applications and Devices, and may also include one or more keystores.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Instance": {
       "description": "The application installed and configured on a user's device or environment that the user interacts with; part of a Wallet Unit. Can also be a web application.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Solution": {
       "description": "The combination of software, hardware, services, settings and configurations (including Wallet Instances, WSCAs and WSCDs) that makes up a wallet product.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Provider": {
-      "description": "A natural or legal person who provides Wallet Solutions in the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "description": "A natural or legal person who provides Wallet Solutions under Article 5a of Regulation (EU) No 910/2014.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Wallet Provider backend": {
+      "description": "The part of a Wallet Solution that the Wallet Provider operates. It supports users with their Wallet Units, performs essential maintenance, and issues Key Attestations and Wallet Instance Attestations.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Relying Party": {
-      "description": "A service provider that interacts with a Wallet Unit to request and receive user attributes (for example to authenticate a user or verify a credential).",
+      "description": "In the EUDI Wallet ARF, a service provider that interacts with a Wallet Unit to request and receive user attributes. The ARF keeps PID Providers and Attestation Providers separate from this term; the regulation's relying party is broader, and the implementing regulations use wallet-relying party for parties that rely on wallet units.",
       "aliases": [
         "RP",
         "Wallet-relying party"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Relying Party Service": {
+      "description": "A service that a Relying Party registers, with its own identifier, trade name, and intended uses, so that separate services can request different attributes and use separate access and registration certificates. A Relying Party registers at least one service; the service identifier is unique for that party.",
+      "aliases": [
+        "Relying Party Services"
+      ],
+      "url": "https://eudi.dev/3.0.0/main/03-roles-within-the-eudi-wallet-ecosystem/#3112-relying-party-services"
     },
     "Trust Anchor": {
       "description": "An authoritative entity, represented by a public key and associated data, that serves as a root of trust for validating certificates and attestations.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Trusted List": {
       "description": "A list providing the status and status history of trust services from trust service providers regarding compliance with applicable requirements (ETSI TS 119 612).",
@@ -678,14 +855,14 @@
       "aliases": [
         "CA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Access Certificate Authority": {
       "description": "A provider mandated by a Member State to issue Relying Party access certificates to (wallet-)relying parties registered in that Member State.",
       "aliases": [
         "Access CA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Access Certificate": {
       "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates; governed by ETSI TS 119 411-8 (RP Access Certificate Policy).",
@@ -697,15 +874,15 @@
     },
     "Registrar": {
       "description": "The body designated by a Member State that establishes and maintains the list of registered wallet-relying parties in its territory.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Authentic Source": {
       "description": "A repository or system, under the responsibility of a public or private body, that is the primary or recognized source of attributes about a person or object.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Intermediary": {
-      "description": "A Relying Party that offers services to other (intermediated) Relying Parties to connect to Wallet Units and request user attributes on their behalf.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "description": "A natural or legal person that, under Article 5b(10) of the European Digital Identity Regulation, interacts with Wallet Units on behalf of one or more relying parties to request and receive user attributes. An intermediary is itself deemed a Relying Party.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "EUDI Wallet Trust Mark": {
       "description": "A mark indicating that a wallet or service is a recognized, certified part of the European Digital Identity Wallet ecosystem.",
@@ -715,80 +892,106 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation"
     },
     "Wallet Unit Attestation": {
-      "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components.",
+      "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components. The ARF defines two subtypes: the Wallet Instance Attestation (WIA) and the Key Attestation (KA).",
       "aliases": [
         "WUA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Instance Attestation": {
       "description": "A type of Wallet Unit Attestation that attests the integrity and authenticity of a Wallet Instance and carries information about the Wallet Solution.",
       "aliases": [
         "WIA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Key Attestation": {
       "description": "A type of Wallet Unit Attestation that attests the certification and properties of a WSCA/WSCD or keystore and the public keys whose private keys it protects.",
       "aliases": [
         "KA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Secure Cryptographic Application": {
       "description": "An application that manages critical assets by using the cryptographic and non-cryptographic functions provided by the Wallet Secure Cryptographic Device.",
       "aliases": [
         "WSCA"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Wallet Secure Cryptographic Device": {
       "description": "A tamper-resistant device that protects critical assets and provides cryptographic functions for the secure execution of critical operations in a Wallet Unit.",
       "aliases": [
         "WSCD"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Keystore": {
       "description": "A hardware-backed repository and service in which non-critical cryptographic keys are generated, stored and used inside a dedicated hardware security boundary (e.g. Secure Element, TPM, TEE, secure enclave, or remote HSM).",
       "aliases": [
         "key store"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation Rulebook": {
       "description": "A document describing an attestation type, its namespace(s) and other features for a specific attestation type.",
       "aliases": [
         "Rulebook"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Attestation scheme": {
+      "description": "The machine-readable counterpart of an Attestation Rulebook for one attestation type. Software uses it to build requests to Wallet Units and to validate the responses.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Attestation Scheme Provider": {
+      "description": "A natural or legal person that defines an attestation type and publishes the Attestation Rulebook and attestation scheme for it.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Wallet Relying Party Repository": {
+      "description": "A repository defined under the eIDAS 2.0 European Digital Identity Wallet framework that provides trusted information about relying parties, including their identifiers, authorizations and service metadata. EUDI Wallets can use the repository to validate relying parties and inform users before data is shared.",
+      "aliases": [
+        "WRPR"
+      ]
     },
     "Attestation Type": {
       "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Namespace": {
       "description": "A specification of the attribute identifiers, syntax and semantics of attributes that can be used in an attestation, with an identifier unique within the ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation Revocation List": {
-      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing a list of identifiers of revoked items.",
+      "description": "An attestation revocation mechanism that publishes a list of identifiers of revoked PIDs or attestations.",
       "aliases": [
         "ARL"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation Status List": {
-      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing Valid or Invalid status information for all relevant items.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "description": "An attestation revocation mechanism that publishes Valid or Invalid status for the PIDs and attestations the publisher treats as relevant, such as those whose validity period has not yet ended.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Attestation revocation mechanism": {
+      "description": "A mechanism, run by a PID Provider or Attestation Provider or by someone acting for them, that communicates whether PIDs and attestations have been revoked. The ARF defines two forms: the Attestation Revocation List and the Attestation Status List.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Administrative validity period": {
       "description": "The date(s) from and/or up to which the attributes in a PID or attestation are valid, represented as attributes in the attestation (some attestations, such as diplomas, have none).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Technical validity period": {
-      "description": "The dates from and up to which an attestation is technically valid, represented as metadata; typically much shorter than the administrative validity period for privacy reasons.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "description": "The dates from and up to which a technical PID or attestation is valid, stored as metadata. It is typically much shorter than the administrative validity period of the corresponding logical PID or attestation, and the provider sets it from a risk analysis, including user privacy.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Logical PID or attestation": {
+      "description": "A PID or attestation as the user understands it and sees it in the Wallet Unit, independent of data structure, encoding, or proof mechanism. One logical PID or attestation can match several technical PIDs or attestations, at the same time or over time.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "Technical PID or attestation": {
+      "description": "A PID or attestation as a concrete data structure with a specific encoding and proof mechanism, stored in a Wallet Unit and corresponding to a logical PID or attestation. When the ARF says PID or attestation without further qualification, it means this technical form.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Digital Credentials Query Language": {
       "description": "A query language used in OpenID4VP that lets a verifier describe exactly which credentials and claims it requests from a wallet.",
@@ -803,7 +1006,7 @@
         "DC API",
         "DC-API"
       ],
-      "url": "https://eudi.dev/2.9.0/technical-specifications/"
+      "url": "https://eudi.dev/3.0.0/technical-specifications/"
     },
     "Presentation Exchange": {
       "description": "A DIF specification format used to describe which credentials and claims a verifier requires and how a wallet should respond.",
@@ -861,11 +1064,11 @@
       "aliases": [
         "EDP"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Pseudonym": {
       "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Zero-Knowledge Proof": {
       "description": "A cryptographic method that proves a statement is true without revealing the underlying data (for example proving age over 18 without revealing the birth date).",
@@ -873,7 +1076,7 @@
         "ZKP",
         "zero knowledge proof"
       ],
-      "url": "https://eudi.dev/2.9.0/technical-specifications/"
+      "url": "https://eudi.dev/3.0.0/technical-specifications/"
     },
     "Attribute": {
       "description": "A characteristic, quality, right or permission of a natural or legal person or of an object, carried inside a PID or attestation."
@@ -943,7 +1146,7 @@
       "aliases": [
         "MS"
       ],
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Organizational Wallet": {
       "description": "A digital wallet used by organizations to issue, hold, and verify credentials. Often called a business wallet; broader than the EU-regulated European Business Wallet product.",
@@ -991,7 +1194,7 @@
     },
     "Legal person": {
       "description": "A legal entity such as a company, association, or public body, as distinct from a natural person (an individual human being).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Mandate": {
       "description": "A digital authorization that lets one person act on behalf of an organization within defined limits. Mandates are a common topic in business wallet discussions, including the proposed European Business Wallet.",
@@ -1036,8 +1239,7 @@
     "Qualified Electronic Seal": {
       "description": "An advanced electronic seal created with a qualified seal creation device and based on a qualified certificate; legally ensures origin and integrity of data for a legal person.",
       "aliases": [
-        "QSeal",
-        "QESeal"
+        "QSeal"
       ],
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
     },
@@ -1091,7 +1293,7 @@
         "TS 119 472-2",
         "TS 119 472-3"
       ],
-      "url": "https://eudi.dev/2.9.0/technical-specifications/"
+      "url": "https://eudi.dev/3.0.0/technical-specifications/"
     },
     "Relying Party Attributes": {
       "description": "Standardized information about a Relying Party shown to the user when deciding whether to share attributes, as specified in ETSI TS 119 475.",
@@ -1318,11 +1520,21 @@
       ],
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
     },
+    "Credential": {
+      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
+    },
+    "Credential Type": {
+      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
+      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types"
+    },
     "Verifiable Credential Type": {
+      "title": "Credential Type Identifier (vct)",
       "description": "In SD-JWT VC, the identifier of a credential type. This string (vct) names the type and can link to its schema. Commonly used in EU and EWC attestation catalogs.",
       "aliases": [
         "vct",
-        "VCT"
+        "VCT",
+        "Verifiable Credential Type"
       ],
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
@@ -1816,159 +2028,6 @@
         "modify"
       ],
       "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
-    },
-    "eidasTrustServices": {
-      "description": "Qualified trust services under eIDAS that a wallet may integrate with or rely on through Qualified Trust Service Providers (QTSPs).",
-      "title": "eIDAS Trust Services",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
-    },
-    "QESig": {
-      "description": "Qualified electronic signature certificate — a QTSP-issued certificate enabling legally binding electronic signatures by natural persons.",
-      "title": "Qualified Electronic Signature Certificate",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QESig",
-        "Q_CERT_ESIG"
-      ]
-    },
-    "QESeal": {
-      "description": "Qualified electronic seal certificate — a QTSP-issued certificate enabling legally binding electronic seals for legal entities.",
-      "title": "Qualified Electronic Seal Certificate",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QESeal",
-        "Q_CERT_ESEAL"
-      ]
-    },
-    "QTimestamp": {
-      "description": "Qualified timestamp — proof that data existed at a specific point in time, issued by a qualified trust service provider.",
-      "title": "Qualified Electronic Timestamp",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QTimestamp",
-        "Q_TIMESTAMP"
-      ]
-    },
-    "QERDS": {
-      "description": "A qualified trust service that transmits data between third parties by electronic means and provides evidence on the handling of the data, including proof of delivery. The European Commission's proposal for European Business Wallets would make it one of the wallets' core functionalities.",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QERDS",
-        "Q_ERDS"
-      ],
-      "duplicateOf": "Qualified Electronic Registered Delivery Service"
-    },
-    "QWAC": {
-      "description": "Qualified website authentication certificate — binds a legal entity to a website for TLS authentication under eIDAS.",
-      "title": "Qualified Website Authentication Certificate",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QWAC",
-        "Q_WAC"
-      ]
-    },
-    "QEArch": {
-      "description": "Qualified electronic archiving — long-term preservation of electronic documents with integrity and authenticity guarantees.",
-      "title": "Qualified Electronic Archiving Service",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QEArch",
-        "Q_EARCH"
-      ]
-    },
-    "QVal": {
-      "description": "Qualified validation service — verifies whether an electronic signature or seal is valid at a given time.",
-      "title": "Qualified Validation Service",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QVal",
-        "Q_VC"
-      ]
-    },
-    "QPres": {
-      "description": "Qualified preservation service — maintains the integrity and readability of qualified electronic signatures or seals over time.",
-      "title": "Qualified Preservation Service",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QPres",
-        "Q_PRES"
-      ]
-    },
-    "QPresSeal": {
-      "description": "Qualified preservation service for electronic seals.",
-      "title": "Qualified Preservation Service for Electronic Seals",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QPresSeal",
-        "Q_PRES_ESEAL"
-      ]
-    },
-    "QPresSig": {
-      "description": "Qualified preservation service for electronic signatures.",
-      "title": "Qualified Preservation Service for Electronic Signatures",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QPresSig",
-        "Q_PRES_ESIG"
-      ]
-    },
-    "QValSeal": {
-      "description": "Qualified validation service for electronic seals.",
-      "title": "Qualified Validation Service for Electronic Seals",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QValSeal",
-        "Q_VAL_ESEAL"
-      ]
-    },
-    "QValSig": {
-      "description": "Qualified validation service for electronic signatures.",
-      "title": "Qualified Validation Service for Electronic Signatures",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QValSig",
-        "Q_VAL_ESIG"
-      ]
-    },
-    "QRemSeal": {
-      "description": "Qualified management of remote seal creation devices — cloud or server-based qualified seal creation under QTSP supervision.",
-      "title": "Qualified Management of Remote Seal Creation Devices",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QRemSeal",
-        "Q_REM_MANAGE_Q_SEAL_CD"
-      ]
-    },
-    "QRemSig": {
-      "description": "Qualified management of remote signature creation devices — cloud or server-based qualified signature creation under QTSP supervision.",
-      "title": "Qualified Management of Remote Signature Creation Devices",
-      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910",
-      "aliases": [
-        "QRemSig",
-        "Q_REM_MANAGE_Q_SIG_CD"
-      ]
-    },
-    "QEAA": {
-      "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
-      "aliases": [
-        "QEAA"
-      ],
-      "duplicateOf": "Qualified Electronic Attestation of Attributes"
-    },
-    "Wallet Relying Party Repository": {
-      "description": "A repository defined under the eIDAS 2.0 European Digital Identity Wallet framework that provides trusted information about relying parties, including their identifiers, authorizations and service metadata. EUDI Wallets can use the repository to validate relying parties and inform users before data is shared.",
-      "aliases": [
-        "WRPR"
-      ]
-    },
-    "Credential": {
-      "description": "Information about a subject, such as a person or an organisation, that an issuer provides so the subject can show it to others. The term does not identify a technical format or a legal status.",
-      "url": "https://www.w3.org/TR/vc-data-model-2.0/"
-    },
-    "Credential Type": {
-      "description": "A kind of credential, such as a diploma or an employee card. It describes what information a credential of that type is expected to contain and can point to the rules or schema that apply. How a type is defined and identified depends on the ecosystem and the format. The EUDI Wallet ecosystem speaks of an attestation type.",
-      "url": "https://www.w3.org/TR/vc-data-model-2.0/#types"
     }
   }
 }
