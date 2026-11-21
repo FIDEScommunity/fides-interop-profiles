@@ -1,6 +1,6 @@
 {
-  "version": "1.12.2",
-  "generatedAt": "2026-11-11T20:59:17.451Z",
+  "version": "1.13.0",
+  "generatedAt": "2026-11-21T05:11:46.569Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -31,7 +31,7 @@
       "key": "Access Certificate Authority",
       "name": "Access Certificate Authority",
       "description": "A provider mandated by a Member State to issue Relying Party access certificates to (wallet-)relying parties registered in that Member State.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Access CA"
       ],
@@ -69,7 +69,7 @@
       "key": "Administrative validity period",
       "name": "Administrative validity period",
       "description": "The date(s) from and/or up to which the attributes in a PID or attestation are valid, represented as attributes in the attestation (some attestations, such as diplomas, have none).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -135,7 +135,7 @@
       "key": "Attestation",
       "name": "Attestation",
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or (non-qualified) EAA that can be stored in and presented from a Wallet Unit. Not the same as a UNTP Conformity Attestation (supply chain conformity assessment).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EUDI attestation",
         "EAA attestation"
@@ -147,7 +147,7 @@
       "key": "Attestation Provider",
       "name": "Attestation Provider",
       "description": "In the EUDI Wallet context, a collective term for a QEAA, PuB-EAA, or EAA Provider that issues wallet attestations. For UNTP conformity issuers, see Conformity Assessment Body.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Attestation Issuer"
       ],
@@ -157,11 +157,20 @@
       "id": "attestation-revocation-list",
       "key": "Attestation Revocation List",
       "name": "Attestation Revocation List",
-      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing a list of identifiers of revoked items.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "An attestation revocation mechanism that publishes a list of identifiers of revoked PIDs or attestations.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "ARL"
       ],
+      "letter": "A"
+    },
+    {
+      "id": "attestation-revocation-mechanism",
+      "key": "Attestation revocation mechanism",
+      "name": "Attestation revocation mechanism",
+      "description": "A mechanism, run by a PID Provider or Attestation Provider or by someone acting for them, that communicates whether PIDs and attestations have been revoked. The ARF defines two forms: the Attestation Revocation List and the Attestation Status List.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
       "letter": "A"
     },
     {
@@ -169,18 +178,36 @@
       "key": "Attestation Rulebook",
       "name": "Attestation Rulebook",
       "description": "A document describing an attestation type, its namespace(s) and other features for a specific attestation type.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Rulebook"
       ],
       "letter": "A"
     },
     {
+      "id": "attestation-scheme",
+      "key": "Attestation scheme",
+      "name": "Attestation scheme",
+      "description": "The machine-readable counterpart of an Attestation Rulebook for one attestation type. Software uses it to build requests to Wallet Units and to validate the responses.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "A"
+    },
+    {
+      "id": "attestation-scheme-provider",
+      "key": "Attestation Scheme Provider",
+      "name": "Attestation Scheme Provider",
+      "description": "A natural or legal person that defines an attestation type and publishes the Attestation Rulebook and attestation scheme for it.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "A"
+    },
+    {
       "id": "attestation-status-list",
       "key": "Attestation Status List",
       "name": "Attestation Status List",
-      "description": "A mechanism that communicates the revocation status of PIDs and attestations by publishing Valid or Invalid status information for all relevant items.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "An attestation revocation mechanism that publishes Valid or Invalid status for the PIDs and attestations the publisher treats as relevant, such as those whose validity period has not yet ended.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -189,7 +216,7 @@
       "key": "Attestation Type",
       "name": "Attestation Type",
       "description": "An identifier for a type of attestation, unique within the context of the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -207,7 +234,7 @@
       "key": "Authentic Source",
       "name": "Authentic Source",
       "description": "A repository or system, under the responsibility of a public or private body, that is the primary or recognized source of attributes about a person or object.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "A"
     },
@@ -328,7 +355,7 @@
       "key": "Certificate Authority",
       "name": "Certificate Authority",
       "description": "An entity trusted by one or more parties in the ecosystem to create and seal certificates.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "CA"
       ],
@@ -670,6 +697,15 @@
       "letter": "D"
     },
     {
+      "id": "device-bound-attestation",
+      "key": "Device-bound attestation",
+      "name": "Device-bound attestation",
+      "description": "An attestation cryptographically bound to a private key that was generated and is kept in a WSCA/WSCD or keystore of the Wallet Unit, so a relying party can check that it is presented from the Wallet Unit it was issued to.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "D"
+    },
+    {
       "id": "didebsi",
       "key": "didEbsi",
       "name": "did:ebsi",
@@ -767,7 +803,7 @@
       "key": "Digital Credentials API",
       "name": "Digital Credentials API",
       "description": "A browser and operating-system API that lets websites and apps invoke a wallet to request and present digital credentials.",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/",
+      "url": "https://eudi.dev/3.0.0/technical-specifications/",
       "aliases": [
         "DC API",
         "DC-API"
@@ -891,7 +927,7 @@
       "key": "EAA and PID Profiles",
       "name": "EAA and PID Profiles",
       "description": "ETSI technical specifications defining general, presentation, and issuance requirements for Person Identification Data and Electronic Attestations of Attributes in the EUDI Wallet (ETSI TS 119 472 parts 1–3).",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/",
+      "url": "https://eudi.dev/3.0.0/technical-specifications/",
       "aliases": [
         "ETSI TS 119 472",
         "TS 119 472",
@@ -982,7 +1018,7 @@
       "key": "Electronic Attestation of Attributes",
       "name": "Electronic Attestation of Attributes",
       "description": "An attestation in electronic form that allows attributes of a person or object to be authenticated. The general building block alongside PID.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EAA"
       ],
@@ -1016,7 +1052,7 @@
       "key": "Embedded Disclosure Policy",
       "name": "Embedded Disclosure Policy",
       "description": "A set of rules embedded in an attestation by its provider that indicates the conditions a relying party must meet to access the attestation.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "EDP"
       ],
@@ -1122,7 +1158,7 @@
       "key": "EUDI Wallet ARF",
       "name": "EUDI Wallet ARF",
       "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
-      "url": "https://eudi.dev/2.9.0/architecture-and-reference-framework-main/",
+      "url": "https://eudi.dev/3.0.0/main/",
       "aliases": [],
       "letter": "E"
     },
@@ -1580,8 +1616,8 @@
       "id": "intermediary",
       "key": "Intermediary",
       "name": "Intermediary",
-      "description": "A Relying Party that offers services to other (intermediated) Relying Parties to connect to Wallet Units and request user attributes on their behalf.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "A natural or legal person that, under Article 5b(10) of the European Digital Identity Regulation, interacts with Wallet Units on behalf of one or more relying parties to request and receive user attributes. An intermediary is itself deemed a Relying Party.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "I"
     },
@@ -1735,7 +1771,7 @@
       "key": "Key Attestation",
       "name": "Key Attestation",
       "description": "A type of Wallet Unit Attestation that attests the certification and properties of a WSCA/WSCD or keystore and the public keys whose private keys it protects.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "KA"
       ],
@@ -1767,7 +1803,7 @@
       "key": "Keystore",
       "name": "Keystore",
       "description": "A hardware-backed repository and service in which non-critical cryptographic keys are generated, stored and used inside a dedicated hardware security boundary (e.g. Secure Element, TPM, TEE, secure enclave, or remote HSM).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "key store"
       ],
@@ -1811,7 +1847,7 @@
       "key": "Legal person",
       "name": "Legal person",
       "description": "A legal entity such as a company, association, or public body, as distinct from a natural person (an individual human being).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "L"
     },
@@ -1855,6 +1891,15 @@
         "ETSI TS 119 602",
         "TS 119 602"
       ],
+      "letter": "L"
+    },
+    {
+      "id": "logical-pid-or-attestation",
+      "key": "Logical PID or attestation",
+      "name": "Logical PID or attestation",
+      "description": "A PID or attestation as the user understands it and sees it in the Wallet Unit, independent of data structure, encoding, or proof mechanism. One logical PID or attestation can match several technical PIDs or attestations, at the same time or over time.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
       "letter": "L"
     },
     {
@@ -1910,7 +1955,7 @@
       "key": "Member State",
       "name": "Member State",
       "description": "A country of the European Union, obligated under the European Digital Identity Regulation to offer at least one EUDI Wallet to its citizens and residents.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "MS"
       ],
@@ -1998,7 +2043,7 @@
       "key": "Namespace",
       "name": "Namespace",
       "description": "A specification of the attribute identifiers, syntax and semantics of attributes that can be used in an attestation, with an identifier unique within the ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "N"
     },
@@ -2022,6 +2067,15 @@
       "aliases": [
         "NCCA"
       ],
+      "letter": "N"
+    },
+    {
+      "id": "non-device-bound-attestation",
+      "key": "Non-device-bound attestation",
+      "name": "Non-device-bound attestation",
+      "description": "An attestation that is not cryptographically bound to a private key kept in a WSCA/WSCD or keystore available to the Wallet Unit.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
       "letter": "N"
     },
     {
@@ -2263,7 +2317,7 @@
       "key": "Person Identification Data",
       "name": "Person Identification Data",
       "description": "A set of identity attributes, issued under EU or national law, that establishes the identity of a natural or legal person. Forms the foundational identity in the EUDI Wallet.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "PID"
       ],
@@ -2304,7 +2358,7 @@
       "key": "PID Provider",
       "name": "PID Provider",
       "description": "The party responsible for issuing and revoking Person Identification Data and for cryptographically binding it to a Wallet Unit.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "Provider of person identification data"
       ],
@@ -2480,7 +2534,7 @@
       "key": "Pseudonym",
       "name": "Pseudonym",
       "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "P"
     },
@@ -2498,7 +2552,7 @@
       "key": "Public Sector Body EAA",
       "name": "Public Sector Body EAA",
       "description": "An Electronic Attestation of Attributes issued by, or on behalf of, a public sector body responsible for an authentic source.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "PuB-EAA"
       ],
@@ -2521,7 +2575,7 @@
       "key": "Qualified Electronic Attestation of Attributes",
       "name": "Qualified Electronic Attestation of Attributes",
       "description": "An Electronic Attestation of Attributes issued by a Qualified Trust Service Provider and meeting the requirements of Annex V of the European Digital Identity Regulation.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "QEAA"
       ],
@@ -2769,7 +2823,7 @@
       "key": "Registrar",
       "name": "Registrar",
       "description": "The body designated by a Member State that establishes and maintains the list of registered wallet-relying parties in its territory.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "R"
     },
@@ -2777,8 +2831,8 @@
       "id": "relying-party",
       "key": "Relying Party",
       "name": "Relying Party",
-      "description": "A service provider that interacts with a Wallet Unit to request and receive user attributes (for example to authenticate a user or verify a credential).",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "In the EUDI Wallet ARF, a service provider that interacts with a Wallet Unit to request and receive user attributes. The ARF keeps PID Providers and Attestation Providers separate from this term; the regulation's relying party is broader, and the implementing regulations use wallet-relying party for parties that rely on wallet units.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "RP",
         "Wallet-relying party"
@@ -2794,6 +2848,17 @@
       "aliases": [
         "ETSI TS 119 475",
         "TS 119 475"
+      ],
+      "letter": "R"
+    },
+    {
+      "id": "relying-party-service",
+      "key": "Relying Party Service",
+      "name": "Relying Party Service",
+      "description": "A service that a Relying Party registers, with its own identifier, trade name, and intended uses, so that separate services can request different attributes and use separate access and registration certificates. A Relying Party registers at least one service; the service identifier is unique for that party.",
+      "url": "https://eudi.dev/3.0.0/main/03-roles-within-the-eudi-wallet-ecosystem/#3112-relying-party-services",
+      "aliases": [
+        "Relying Party Services"
       ],
       "letter": "R"
     },
@@ -3164,11 +3229,20 @@
       "letter": "T"
     },
     {
+      "id": "technical-pid-or-attestation",
+      "key": "Technical PID or attestation",
+      "name": "Technical PID or attestation",
+      "description": "A PID or attestation as a concrete data structure with a specific encoding and proof mechanism, stored in a Wallet Unit and corresponding to a logical PID or attestation. When the ARF says PID or attestation without further qualification, it means this technical form.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "T"
+    },
+    {
       "id": "technical-validity-period",
       "key": "Technical validity period",
       "name": "Technical validity period",
-      "description": "The dates from and up to which an attestation is technically valid, represented as metadata; typically much shorter than the administrative validity period for privacy reasons.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "The dates from and up to which a technical PID or attestation is valid, stored as metadata. It is typically much shorter than the administrative validity period of the corresponding logical PID or attestation, and the provider sets it from a risk analysis, including user privacy.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "T"
     },
@@ -3216,7 +3290,7 @@
       "key": "Trust Anchor",
       "name": "Trust Anchor",
       "description": "An authoritative entity, represented by a public key and associated data, that serves as a root of trust for validating certificates and attestations.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "T"
     },
@@ -3477,7 +3551,7 @@
       "key": "Wallet Instance",
       "name": "Wallet Instance",
       "description": "The application installed and configured on a user's device or environment that the user interacts with; part of a Wallet Unit. Can also be a web application.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3486,7 +3560,7 @@
       "key": "Wallet Instance Attestation",
       "name": "Wallet Instance Attestation",
       "description": "A type of Wallet Unit Attestation that attests the integrity and authenticity of a Wallet Instance and carries information about the Wallet Solution.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WIA"
       ],
@@ -3496,8 +3570,17 @@
       "id": "wallet-provider",
       "key": "Wallet Provider",
       "name": "Wallet Provider",
-      "description": "A natural or legal person who provides Wallet Solutions in the EUDI Wallet ecosystem.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "A natural or legal person who provides Wallet Solutions under Article 5a of Regulation (EU) No 910/2014.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "W"
+    },
+    {
+      "id": "wallet-provider-backend",
+      "key": "Wallet Provider backend",
+      "name": "Wallet Provider backend",
+      "description": "The part of a Wallet Solution that the Wallet Provider operates. It supports users with their Wallet Units, performs essential maintenance, and issues Key Attestations and Wallet Instance Attestations.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3517,7 +3600,7 @@
       "key": "Wallet Secure Cryptographic Application",
       "name": "Wallet Secure Cryptographic Application",
       "description": "An application that manages critical assets by using the cryptographic and non-cryptographic functions provided by the Wallet Secure Cryptographic Device.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WSCA"
       ],
@@ -3528,7 +3611,7 @@
       "key": "Wallet Secure Cryptographic Device",
       "name": "Wallet Secure Cryptographic Device",
       "description": "A tamper-resistant device that protects critical assets and provides cryptographic functions for the secure execution of critical operations in a Wallet Unit.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WSCD"
       ],
@@ -3539,7 +3622,7 @@
       "key": "Wallet Solution",
       "name": "Wallet Solution",
       "description": "The combination of software, hardware, services, settings and configurations (including Wallet Instances, WSCAs and WSCDs) that makes up a wallet product.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3547,8 +3630,8 @@
       "id": "wallet-unit",
       "key": "Wallet Unit",
       "name": "Wallet Unit",
-      "description": "A unique configuration of a Wallet Solution, including Wallet Instances and the Wallet Secure Cryptographic Applications and Devices, provided by a Wallet Provider to an individual user.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "A unique configuration of a Wallet Solution provided by a Wallet Provider to an individual user. It includes Wallet Instances, Wallet Secure Cryptographic Applications and Devices, and may also include one or more keystores.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [],
       "letter": "W"
     },
@@ -3556,8 +3639,8 @@
       "id": "wallet-unit-attestation",
       "key": "Wallet Unit Attestation",
       "name": "Wallet Unit Attestation",
-      "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components.",
-      "url": "https://eudi.dev/2.9.0/annexes/annex-1/annex-1-definitions/",
+      "description": "A data object that describes the components of a Wallet Unit or allows authentication and validation of those components. The ARF defines two subtypes: the Wallet Instance Attestation (WIA) and the Key Attestation (KA).",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
       "aliases": [
         "WUA"
       ],
@@ -3616,7 +3699,7 @@
       "key": "Zero-Knowledge Proof",
       "name": "Zero-Knowledge Proof",
       "description": "A cryptographic method that proves a statement is true without revealing the underlying data (for example proving age over 18 without revealing the birth date).",
-      "url": "https://eudi.dev/2.9.0/technical-specifications/",
+      "url": "https://eudi.dev/3.0.0/technical-specifications/",
       "aliases": [
         "ZKP",
         "zero knowledge proof"
