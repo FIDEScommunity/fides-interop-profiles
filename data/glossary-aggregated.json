@@ -1,6 +1,6 @@
 {
-  "version": "1.13.0",
-  "generatedAt": "2026-11-21T05:11:46.569Z",
+  "version": "1.14.0",
+  "generatedAt": "2026-11-26T19:37:29.248Z",
   "terms": [
     {
       "id": "aadhaar",
@@ -257,6 +257,15 @@
       "letter": "A"
     },
     {
+      "id": "backendintegrations",
+      "key": "backendIntegrations",
+      "name": "Backend Integrations",
+      "description": "How a customer's backend systems connect to the connector, for example through standard authentication protocols, an API, event callbacks or a server-side library.",
+      "url": "",
+      "aliases": [],
+      "letter": "B"
+    },
+    {
       "id": "bbs",
       "key": "BBS+",
       "name": "BBS+",
@@ -359,6 +368,15 @@
       "aliases": [
         "CA"
       ],
+      "letter": "C"
+    },
+    {
+      "id": "certificatemanagement",
+      "key": "certificateManagement",
+      "name": "Certificate Management",
+      "description": "Who manages the certificates the connector uses in wallet interactions, such as access and seal certificates: the provider, the customer, or either.",
+      "url": "",
+      "aliases": [],
       "letter": "C"
     },
     {
@@ -506,6 +524,24 @@
       "letter": "C"
     },
     {
+      "id": "connectorfunctions",
+      "key": "connectorFunctions",
+      "name": "Connector Functions",
+      "description": "What a wallet connector lets applications do: issue credentials to wallets (issuer), verify credentials presented by wallets (verifier), or both.",
+      "url": "",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
+      "id": "connectorstatus",
+      "key": "connectorStatus",
+      "name": "Connector Status",
+      "description": "Maturity of the connector. In Development: still being built. Beta: available for early adopters and testing. Production: ready for live use. Deprecated: still listed but being phased out.",
+      "url": "",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
       "id": "construction",
       "key": "construction",
       "name": "Construction",
@@ -633,6 +669,15 @@
       "letter": "C"
     },
     {
+      "id": "customer-managed-certificates",
+      "key": "Customer-managed certificates",
+      "name": "Customer-managed certificates",
+      "description": "The customer obtains and renews its own certificates and configures them in the connector.",
+      "url": "",
+      "aliases": [],
+      "letter": "C"
+    },
+    {
       "id": "data-space",
       "key": "Data Space",
       "name": "Data Space",
@@ -694,6 +739,15 @@
         "deferred issuance",
         "deferred credential"
       ],
+      "letter": "D"
+    },
+    {
+      "id": "deploymentmodel",
+      "key": "deploymentModel",
+      "name": "Deployment Model",
+      "description": "How customers run the connector: vendor-hosted in the cloud (SaaS), on their own infrastructure (on-premises), or a combination of both (hybrid).",
+      "url": "",
+      "aliases": [],
       "letter": "D"
     },
     {
@@ -938,6 +992,15 @@
       "letter": "E"
     },
     {
+      "id": "eaa-provider",
+      "key": "EAA Provider",
+      "name": "EAA Provider",
+      "description": "A provider that issues electronic attestations of attributes (EAA) that are not qualified, for use in EUDI Wallets.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "E"
+    },
+    {
       "id": "ebwoid",
       "key": "EBWOID",
       "name": "EBWOID",
@@ -1002,6 +1065,15 @@
       "aliases": [
         "eIDAS 1"
       ],
+      "letter": "E"
+    },
+    {
+      "id": "eidasroles",
+      "key": "eidasRoles",
+      "name": "Eidas Roles",
+      "description": "Optional eIDAS-related roles the provider fulfils with this connector. Each role has prerequisites, such as the verifier function, a managed service model and the EUDI Wallet ARF interop profile.",
+      "url": "",
+      "aliases": [],
       "letter": "E"
     },
     {
@@ -1362,6 +1434,24 @@
       "letter": "F"
     },
     {
+      "id": "frontendintegrations",
+      "key": "frontendIntegrations",
+      "name": "Frontend Integrations",
+      "description": "How the user-facing part of the flow is embedded in a customer's application or website.",
+      "url": "",
+      "aliases": [],
+      "letter": "F"
+    },
+    {
+      "id": "frontend-sdk",
+      "key": "Frontend SDK",
+      "name": "Frontend SDK",
+      "description": "A client-side library, for example for JavaScript or mobile apps, that embeds the issuance or verification flow in the application's own frontend.",
+      "url": "",
+      "aliases": [],
+      "letter": "F"
+    },
+    {
       "id": "gaia-x-2",
       "key": "Gaia-X",
       "name": "Gaia-X",
@@ -1476,6 +1566,15 @@
       "letter": "H"
     },
     {
+      "id": "headless-api",
+      "key": "Headless API",
+      "name": "Headless API",
+      "description": "No pre-built user interface: the application builds its own screens and drives the flow through the connector's API.",
+      "url": "",
+      "aliases": [],
+      "letter": "H"
+    },
+    {
       "id": "health-id",
       "key": "Health ID",
       "name": "Health ID",
@@ -1507,6 +1606,15 @@
       "letter": "H"
     },
     {
+      "id": "hosted-ui-redirect",
+      "key": "Hosted UI (redirect)",
+      "name": "Hosted UI (redirect)",
+      "description": "The connector provides a ready-made page that it hosts. The application redirects the user there to complete issuance or verification, and the user is sent back afterwards.",
+      "url": "",
+      "aliases": [],
+      "letter": "H"
+    },
+    {
       "id": "hsm",
       "key": "hsm",
       "name": "HSM",
@@ -1520,6 +1628,15 @@
       "key": "httpsIss",
       "name": "HTTPS ISS",
       "description": "Issuer identified by HTTPS URL; credential issuer metadata and public keys retrieved from a web endpoint.",
+      "url": "",
+      "aliases": [],
+      "letter": "H"
+    },
+    {
+      "id": "hybrid-deployment",
+      "key": "Hybrid deployment",
+      "name": "Hybrid deployment",
+      "description": "A mix of hosted and self-operated components, for example a provider-hosted service combined with customer-hosted parts such as a gateway or key store.",
       "url": "",
       "aliases": [],
       "letter": "H"
@@ -1914,6 +2031,24 @@
       "letter": "M"
     },
     {
+      "id": "managed-issuance",
+      "key": "Managed issuance",
+      "name": "Managed issuance",
+      "description": "The provider runs credential issuance as a service: it issues credentials to wallets on the customer's behalf, under the customer's issuer identity.",
+      "url": "",
+      "aliases": [],
+      "letter": "M"
+    },
+    {
+      "id": "managed-verification",
+      "key": "Managed verification",
+      "name": "Managed verification",
+      "description": "The provider runs credential verification as a service: it requests and checks credentials from wallets and returns the verified result to the customer's application.",
+      "url": "",
+      "aliases": [],
+      "letter": "M"
+    },
+    {
       "id": "mandate",
       "key": "Mandate",
       "name": "Mandate",
@@ -2100,6 +2235,24 @@
         "OOR",
         "Official Organizational Role credential"
       ],
+      "letter": "O"
+    },
+    {
+      "id": "oidc-oauth-2-0",
+      "key": "OIDC / OAuth 2.0",
+      "name": "OIDC / OAuth 2.0",
+      "description": "Integration through OpenID Connect and OAuth 2.0: the application delegates issuance or verification to the connector and receives tokens or claims, much like with a regular identity provider. See also OpenID Connect and OAuth 2.0.",
+      "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+      "aliases": [],
+      "letter": "O"
+    },
+    {
+      "id": "on-premises",
+      "key": "On-premises",
+      "name": "On-premises",
+      "description": "The connector is installed and operated on the customer's own infrastructure or private cloud, so the customer controls hosting, updates and data location.",
+      "url": "",
+      "aliases": [],
       "letter": "O"
     },
     {
@@ -2512,6 +2665,24 @@
       "letter": "P"
     },
     {
+      "id": "provider-or-customer-managed-certificates",
+      "key": "Provider- or customer-managed certificates",
+      "name": "Provider- or customer-managed certificates",
+      "description": "Both models are supported: the provider can manage the certificates, or the customer can bring its own.",
+      "url": "",
+      "aliases": [],
+      "letter": "P"
+    },
+    {
+      "id": "provider-managed-certificates",
+      "key": "Provider-managed certificates",
+      "name": "Provider-managed certificates",
+      "description": "The connector provider obtains, installs and renews the certificates on behalf of the customer.",
+      "url": "",
+      "aliases": [],
+      "letter": "P"
+    },
+    {
       "id": "proximity",
       "key": "proximity",
       "name": "Proximity",
@@ -2557,6 +2728,15 @@
         "PuB-EAA"
       ],
       "letter": "P"
+    },
+    {
+      "id": "qeaa-provider",
+      "key": "QEAA Provider",
+      "name": "QEAA Provider",
+      "description": "A provider that issues qualified electronic attestations of attributes (QEAA). It must be a Qualified Trust Service Provider.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [],
+      "letter": "Q"
     },
     {
       "id": "qearch",
@@ -2916,6 +3096,15 @@
       "letter": "R"
     },
     {
+      "id": "rest-api",
+      "key": "REST API",
+      "name": "REST API",
+      "description": "Integration through an HTTP API that follows REST conventions: the backend calls endpoints to start issuance or verification flows and to retrieve their results.",
+      "url": "",
+      "aliases": [],
+      "letter": "R"
+    },
+    {
       "id": "retail",
       "key": "retail",
       "name": "Retail",
@@ -2954,6 +3143,24 @@
       "url": "",
       "aliases": [],
       "letter": "R"
+    },
+    {
+      "id": "saas",
+      "key": "SaaS",
+      "name": "SaaS",
+      "description": "Software as a service: the provider hosts and operates the connector in its own cloud, and customers integrate over the internet without running the software themselves.",
+      "url": "",
+      "aliases": [],
+      "letter": "S"
+    },
+    {
+      "id": "saml-2-0",
+      "key": "SAML 2.0",
+      "name": "SAML 2.0",
+      "description": "Integration through the SAML 2.0 federation standard (XML-based), so existing SAML-enabled applications can use the connector as an identity provider.",
+      "url": "https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf",
+      "aliases": [],
+      "letter": "S"
     },
     {
       "id": "schematype",
@@ -3049,6 +3256,24 @@
       "letter": "S"
     },
     {
+      "id": "server-sdk",
+      "key": "Server SDK",
+      "name": "Server SDK",
+      "description": "A server-side software library, for example for Java, .NET, Node.js or Python, that wraps the connector's API so a backend can integrate with less code.",
+      "url": "",
+      "aliases": [],
+      "letter": "S"
+    },
+    {
+      "id": "servicemodels",
+      "key": "serviceModels",
+      "name": "Service Models",
+      "description": "Whether the provider only delivers software, or also operates part of the credential flow as a managed service on behalf of the customer.",
+      "url": "",
+      "aliases": [],
+      "letter": "S"
+    },
+    {
       "id": "signaturealgorithm",
       "key": "signatureAlgorithm",
       "name": "Signature Algorithm",
@@ -3109,6 +3334,15 @@
       "key": "softwareKeyStorage",
       "name": "Software Key Storage",
       "description": "Keys stored in software (e.g. encrypted storage), without dedicated hardware protection.",
+      "url": "",
+      "aliases": [],
+      "letter": "S"
+    },
+    {
+      "id": "software-only",
+      "key": "Software only",
+      "name": "Software only",
+      "description": "The provider supplies the connector software or API. The customer operates the issuance or verification flow and remains responsible for it.",
       "url": "",
       "aliases": [],
       "letter": "S"
@@ -3667,6 +3901,24 @@
       "aliases": [
         "WebAuthn"
       ],
+      "letter": "W"
+    },
+    {
+      "id": "web-component",
+      "key": "Web component",
+      "name": "Web component",
+      "description": "A reusable, framework-independent HTML element that the application embeds in its pages to show the wallet interaction, for example a QR code or a button.",
+      "url": "",
+      "aliases": [],
+      "letter": "W"
+    },
+    {
+      "id": "webhooks",
+      "key": "Webhooks",
+      "name": "Webhooks",
+      "description": "Integration through HTTP callbacks: the connector sends events, such as credential issued or presentation verified, to an endpoint on the customer's backend.",
+      "url": "",
+      "aliases": [],
       "letter": "W"
     },
     {
