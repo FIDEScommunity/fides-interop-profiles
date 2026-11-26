@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -2028,6 +2028,94 @@
         "modify"
       ],
       "url": "https://untp.unece.org/docs/specification/DigitalTraceabilityEvents/"
+    },
+    "connectorFunctions": {
+      "description": "What a wallet connector lets applications do: issue credentials to wallets (issuer), verify credentials presented by wallets (verifier), or both."
+    },
+    "deploymentModel": {
+      "description": "How customers run the connector: vendor-hosted in the cloud (SaaS), on their own infrastructure (on-premises), or a combination of both (hybrid)."
+    },
+    "SaaS": {
+      "description": "Software as a service: the provider hosts and operates the connector in its own cloud, and customers integrate over the internet without running the software themselves."
+    },
+    "On-premises": {
+      "description": "The connector is installed and operated on the customer's own infrastructure or private cloud, so the customer controls hosting, updates and data location."
+    },
+    "Hybrid deployment": {
+      "description": "A mix of hosted and self-operated components, for example a provider-hosted service combined with customer-hosted parts such as a gateway or key store."
+    },
+    "serviceModels": {
+      "description": "Whether the provider only delivers software, or also operates part of the credential flow as a managed service on behalf of the customer."
+    },
+    "Software only": {
+      "description": "The provider supplies the connector software or API. The customer operates the issuance or verification flow and remains responsible for it."
+    },
+    "Managed verification": {
+      "description": "The provider runs credential verification as a service: it requests and checks credentials from wallets and returns the verified result to the customer's application."
+    },
+    "Managed issuance": {
+      "description": "The provider runs credential issuance as a service: it issues credentials to wallets on the customer's behalf, under the customer's issuer identity."
+    },
+    "backendIntegrations": {
+      "description": "How a customer's backend systems connect to the connector, for example through standard authentication protocols, an API, event callbacks or a server-side library."
+    },
+    "OIDC / OAuth 2.0": {
+      "description": "Integration through OpenID Connect and OAuth 2.0: the application delegates issuance or verification to the connector and receives tokens or claims, much like with a regular identity provider. See also OpenID Connect and OAuth 2.0.",
+      "url": "https://openid.net/specs/openid-connect-core-1_0.html"
+    },
+    "SAML 2.0": {
+      "description": "Integration through the SAML 2.0 federation standard (XML-based), so existing SAML-enabled applications can use the connector as an identity provider.",
+      "url": "https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf"
+    },
+    "REST API": {
+      "description": "Integration through an HTTP API that follows REST conventions: the backend calls endpoints to start issuance or verification flows and to retrieve their results."
+    },
+    "Webhooks": {
+      "description": "Integration through HTTP callbacks: the connector sends events, such as credential issued or presentation verified, to an endpoint on the customer's backend."
+    },
+    "Server SDK": {
+      "description": "A server-side software library, for example for Java, .NET, Node.js or Python, that wraps the connector's API so a backend can integrate with less code."
+    },
+    "frontendIntegrations": {
+      "description": "How the user-facing part of the flow is embedded in a customer's application or website."
+    },
+    "Hosted UI (redirect)": {
+      "description": "The connector provides a ready-made page that it hosts. The application redirects the user there to complete issuance or verification, and the user is sent back afterwards."
+    },
+    "Headless API": {
+      "description": "No pre-built user interface: the application builds its own screens and drives the flow through the connector's API."
+    },
+    "Frontend SDK": {
+      "description": "A client-side library, for example for JavaScript or mobile apps, that embeds the issuance or verification flow in the application's own frontend."
+    },
+    "Web component": {
+      "description": "A reusable, framework-independent HTML element that the application embeds in its pages to show the wallet interaction, for example a QR code or a button."
+    },
+    "eidasRoles": {
+      "description": "Optional eIDAS-related roles the provider fulfils with this connector. Each role has prerequisites, such as the verifier function, a managed service model and the EUDI Wallet ARF interop profile."
+    },
+    "EAA Provider": {
+      "description": "A provider that issues electronic attestations of attributes (EAA) that are not qualified, for use in EUDI Wallets.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "QEAA Provider": {
+      "description": "A provider that issues qualified electronic attestations of attributes (QEAA). It must be a Qualified Trust Service Provider.",
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "certificateManagement": {
+      "description": "Who manages the certificates the connector uses in wallet interactions, such as access and seal certificates: the provider, the customer, or either."
+    },
+    "Provider-managed certificates": {
+      "description": "The connector provider obtains, installs and renews the certificates on behalf of the customer."
+    },
+    "Customer-managed certificates": {
+      "description": "The customer obtains and renews its own certificates and configures them in the connector."
+    },
+    "Provider- or customer-managed certificates": {
+      "description": "Both models are supported: the provider can manage the certificates, or the customer can bring its own."
+    },
+    "connectorStatus": {
+      "description": "Maturity of the connector. In Development: still being built. Beta: available for early adopters and testing. Production: ready for live use. Deprecated: still listed but being phased out."
     }
   }
 }
