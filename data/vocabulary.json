@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -15,13 +15,13 @@
       "description": "What business wallets can do: store credentials (holder), issue new credentials (issuer), or verify credentials from others (verifier)."
     },
     "holder": {
-      "description": "Can store and present credentials to verifiers (holder role)."
+      "description": "Can store and present credentials to verifiers (holder role). The holder is the person or organization that keeps the credentials and decides what to share."
     },
     "issuer": {
-      "description": "Can create and issue new credentials to users or businesses (issuer role)."
+      "description": "Can create and issue new credentials to users or businesses (issuer role). The issuer is the source that signs those credentials."
     },
     "verifier": {
-      "description": "Can request and verify credentials presented by holders (verifier role)."
+      "description": "Can request and verify credentials presented by holders (verifier role). Verification checks the issuer's signature, so the verifier does not need to query the issuer when the credential is presented. See also Relying Party."
     },
     "interopProfile": {
       "description": "Interoperability profiles define choices within existing standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations."
@@ -106,7 +106,7 @@
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/"
     },
     "mDL/mDoc": {
-      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure, including presentation when the holder and verifier are offline. See also Mobile Driving Licence Credential for the mDL use case.",
       "aliases": [
         "mDL",
         "mDoc",
@@ -609,7 +609,7 @@
       "duplicateOf": "SD-JWT-VC"
     },
     "mdoc": {
-      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure. See also Mobile Driving Licence Credential for the mDL use case.",
+      "description": "ISO (18013-5) binary (CBOR) format for mobile documents with strong authentication and selective disclosure, including presentation when the holder and verifier are offline. See also Mobile Driving Licence Credential for the mDL use case.",
       "duplicateOf": "mDL/mDoc"
     },
     "vcdm_1_1": {
@@ -641,7 +641,7 @@
       "hidden": true
     },
     "Conformity Assessment Body": {
-      "description": "An organization that assesses whether products, services, systems, processes, organizations, or claims conform to the requirements of a specific scheme, standard, trust framework, or conformity assessment program. In UNTP, CABs issue Digital Conformity Credentials.",
+      "description": "An organization that assesses whether a product, service, system, process, organization, or claim meets the requirements of a scheme or standard. Under eIDAS, a conformity assessment body assesses qualified trust service providers and, where required, wallet solutions, and is itself accredited. In UNTP, CABs issue Digital Conformity Credentials.",
       "aliases": [
         "CAB"
       ],
@@ -673,7 +673,7 @@
       "description": "The organization responsible for defining, governing, maintaining, and evolving a scheme, including its requirements, policies, governance processes, and oversight mechanisms."
     },
     "Supervisory Body": {
-      "description": "An organization responsible for overseeing ongoing compliance with the requirements of a scheme, trust framework, or regulatory programme and for taking corrective or enforcement actions where necessary."
+      "description": "A body that oversees compliance and can take corrective or enforcement action. Under eIDAS, each Member State designates a supervisory body for trust services and for European Digital Identity Wallets. It supervises before and after the fact and can suspend or terminate a service after a security breach. The same word is also used for the oversight body of a private scheme or trust framework."
     },
     "Certification Scheme": {
       "description": "A defined set of rules, requirements, assessment criteria, governance processes, and assurance mechanisms used to evaluate and certify conformance."
@@ -689,7 +689,7 @@
       "description": "The formal attestation that a product, service, system, process, organization, or claim has successfully demonstrated conformance with the requirements of a certification scheme or assessment programme."
     },
     "European Digital Identity Wallet": {
-      "description": "A digital wallet that enables individuals and organizations to securely store, manage, and share identity data, attributes, and credentials within the European Digital Identity ecosystem.",
+      "description": "A digital wallet under the European Digital Identity Regulation for a natural person, a legal person, or a natural person representing another person, used to store, manage, and share identity data, attributes, and credentials.",
       "aliases": [
         "EUDI Wallet",
         "EUDIW",
@@ -736,11 +736,11 @@
       "description": "The digital equivalent of a physical wallet. A wallet enables a person or organization to securely store, manage, receive, present, and use digital identities, credentials, certificates, documents, payment instruments, digital currencies, and other digital assets."
     },
     "Person Identification Data": {
-      "description": "A set of identity attributes, issued under EU or national law, that establishes the identity of a natural or legal person. Forms the foundational identity in the EUDI Wallet.",
+      "description": "A set of data, issued under EU or national law, that establishes the identity of a natural person, a legal person, or a natural person representing another person. It is the foundational identity in the EUDI Wallet. Commission Implementing Regulation (EU) 2024/2977, as amended by Implementing Regulation (EU) 2026/1731, sets the attributes. For a natural person the mandatory attributes are family name, given name, date of birth, place of birth and nationality. From 11 August 2028 the portrait is also mandatory, unless the user opts out where the Member State allows that. For a legal person the mandatory attributes are the current legal name and a unique identifier assigned by the Member State. The same annex requires issuing authority and issuing country as metadata.",
       "aliases": [
         "PID"
       ],
-      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2024/2977/oj"
     },
     "PID Provider": {
       "description": "The party responsible for issuing and revoking Person Identification Data and for cryptographically binding it to a Wallet Unit.",
@@ -780,7 +780,10 @@
     },
     "Device-bound attestation": {
       "description": "An attestation cryptographically bound to a private key that was generated and is kept in a WSCA/WSCD or keystore of the Wallet Unit, so a relying party can check that it is presented from the Wallet Unit it was issued to.",
-      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/",
+      "aliases": [
+        "device binding"
+      ]
     },
     "Non-device-bound attestation": {
       "description": "An attestation that is not cryptographically bound to a private key kept in a WSCA/WSCD or keystore available to the Wallet Unit.",
@@ -814,7 +817,7 @@
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Relying Party": {
-      "description": "In the EUDI Wallet ARF, a service provider that interacts with a Wallet Unit to request and receive user attributes. The ARF keeps PID Providers and Attestation Providers separate from this term; the regulation's relying party is broader, and the implementing regulations use wallet-relying party for parties that rely on wallet units.",
+      "description": "A person or organization that relies on a wallet to identify someone or to request attributes, and that registers before requesting them. In the EUDI Wallet ARF this is a service provider that interacts with a Wallet Unit. The ARF keeps PID Providers and Attestation Providers separate from this term. The regulation's relying party is broader, and the implementing regulations use wallet-relying party for parties that rely on wallet units. A verifier checks a presentation. That technical role is not always the same party as the relying party.",
       "aliases": [
         "RP",
         "Wallet-relying party"
@@ -865,10 +868,11 @@
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Access Certificate": {
-      "description": "A certificate for electronic seals or signatures that authenticates and validates a (Wallet-)Relying Party, issued by a provider of access certificates; governed by ETSI TS 119 411-8 (RP Access Certificate Policy).",
+      "description": "A certificate for electronic seals or signatures that authenticates a wallet-relying party to the wallet and answers who is requesting data. Policy requirements are in ETSI TS 119 411-8. The Registration Certificate, specified in ETSI TS 119 475, answers what that party may request.",
       "aliases": [
         "RP access certificate",
-        "Relying Party access certificate"
+        "Relying Party access certificate",
+        "WRPAC"
       ],
       "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/11941108/01.01.01_60/ts_11941108v010101p.pdf"
     },
@@ -941,7 +945,7 @@
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation scheme": {
-      "description": "The machine-readable counterpart of an Attestation Rulebook for one attestation type. Software uses it to build requests to Wallet Units and to validate the responses.",
+      "description": "The machine-readable counterpart of an Attestation Rulebook for one attestation type: the attributes, their permitted values, and the technical form. Software uses it to build requests to Wallet Units and to validate the responses. The rulebook explains the same type in human-readable form.",
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation Scheme Provider": {
@@ -974,7 +978,7 @@
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Attestation revocation mechanism": {
-      "description": "A mechanism, run by a PID Provider or Attestation Provider or by someone acting for them, that communicates whether PIDs and attestations have been revoked. The ARF defines two forms: the Attestation Revocation List and the Attestation Status List.",
+      "description": "A mechanism, run by a PID Provider or Attestation Provider or by someone acting for them, that communicates whether PIDs and attestations have been revoked. The ARF defines two forms: the Attestation Revocation List and the Attestation Status List. The shorter the publication cycle, the sooner a verifier can see a revocation.",
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Administrative validity period": {
@@ -1017,7 +1021,7 @@
       "url": "https://identity.foundation/presentation-exchange/"
     },
     "Verifiable Credential": {
-      "description": "A tamper-evident credential whose authorship (issuer) can be cryptographically verified.",
+      "description": "A tamper-evident credential whose authorship (issuer) can be cryptographically verified. In the EUDI Wallet ecosystem, a verifiable credential is one technical form of an Electronic Attestation of Attributes. See also Attestation.",
       "aliases": [
         "VC"
       ],
@@ -1048,26 +1052,25 @@
       "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Key Binding": {
-      "description": "Cryptographic proof that the wallet holder controls the private key bound to a presented credential, preventing replay by another party.",
+      "description": "Cryptographic proof that the wallet holder controls the private key bound to a presented credential, so only that holder can present it and another party cannot replay it. In the EUDI Wallet, device binding is the form in which that key was generated and is kept in the Wallet Unit. See also Device-bound attestation.",
       "aliases": [
-        "holder binding",
-        "device binding"
+        "holder binding"
       ],
       "url": "https://www.w3.org/TR/vc-data-model-2.0/"
     },
     "Selective Disclosure": {
-      "description": "The capability that enables a user to present only a subset of the attributes contained in a PID or attestation.",
+      "description": "The capability that enables a user to present only a subset of the attributes contained in a PID or attestation. From a driving licence, for example, the holder can present the driving entitlement and withhold the date of birth and address.",
       "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/"
     },
     "Embedded Disclosure Policy": {
-      "description": "A set of rules embedded in an attestation by its provider that indicates the conditions a relying party must meet to access the attestation.",
+      "description": "A set of rules embedded in an attestation by its provider that indicates the conditions a relying party must meet to access the attestation. The wallet checks a request against those rules and against the registration, and can show the user the result before anything is shared.",
       "aliases": [
         "EDP"
       ],
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Pseudonym": {
-      "description": "Data uniquely representing a user that, in itself, does not allow inferring the user's attributes or identity without additional information held separately by the issuer.",
+      "description": "Data that uniquely represents a user and, by itself, does not reveal the user's other attributes or identity. Linking it back to the person requires additional information held separately by the issuer. A pseudonym does not by itself prevent relying parties from linking the same person across services.",
       "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
     },
     "Zero-Knowledge Proof": {
@@ -1157,7 +1160,7 @@
       "url": "https://digital-strategy.ec.europa.eu/en/policies/business-wallets"
     },
     "Legal Person Identification Data": {
-      "description": "A set of standardized identity attributes that establishes the identity of a legal person (such as a company). The organizational counterpart to Person Identification Data (PID) in business wallet ecosystems.",
+      "description": "Identity attributes that establish a legal person, such as a company. Under Implementing Regulation (EU) 2024/2977 this is the legal-person set of person identification data. Business-wallet profiles often label that set LPID. See also European Business Wallet Owner Identification Data.",
       "aliases": [
         "LPID"
       ],
@@ -2116,6 +2119,67 @@
     },
     "connectorStatus": {
       "description": "Maturity of the connector. In Development: still being built. Beta: available for early adopters and testing. Production: ready for live use. Deprecated: still listed but being phased out."
+    },
+    "Level of Assurance": {
+      "description": "The degree of confidence in an electronic identification: low, substantial, or high. European Digital Identity Wallets are provided under an electronic identification scheme of assurance level high.",
+      "aliases": [
+        "LoA",
+        "assurance level"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0910"
+    },
+    "Intended Use": {
+      "description": "The purpose for which a wallet-relying party registers a service, together with the attributes it intends to request for that purpose. Each intended use is expressed in a registration certificate. See also Relying Party Service and Registration Certificate.",
+      "aliases": [
+        "intended uses",
+        "beoogd gebruik"
+      ],
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2025/848/oj"
+    },
+    "Registration Certificate": {
+      "description": "A data object that states one intended use of a wallet-relying party and the attributes that party has registered to request, so the wallet can show the user whether a request fits the registration. It complements the Access Certificate, which authenticates who is asking. Specified in ETSI TS 119 475 and Article 8 of Implementing Regulation (EU) 2025/848.",
+      "aliases": [
+        "WRPRC",
+        "wallet-relying party registration certificate"
+      ],
+      "url": "https://www.etsi.org/deliver/etsi_ts/119400_119499/119475/01.02.01_60/ts_119475v010201p.pdf"
+    },
+    "Wallet-Relying Party Register": {
+      "description": "The list, maintained by a Member State's Registrar, of wallet-relying parties in that Member State, including their services, intended uses, and the attributes they register to request. This is the legal register. The Wallet Relying Party Repository is the technical source a wallet consults.",
+      "aliases": [
+        "relying party register",
+        "national register of wallet-relying parties"
+      ],
+      "url": "https://eudi.dev/3.0.0/annexes/annex-1/annex-1-definitions/"
+    },
+    "EUCC": {
+      "description": "The European cybersecurity certification scheme adopted under the Cybersecurity Act by Implementing Regulation (EU) 2024/482. EUDI Wallet solutions and their secure components are certified under this scheme or under a national scheme.",
+      "aliases": [
+        "European cybersecurity certification scheme",
+        "European Common Criteria scheme"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R0482"
+    },
+    "GDPR": {
+      "description": "Regulation (EU) 2016/679 on the protection of natural persons with regard to the processing of personal data. It applies in full to personal data processed in the European Digital Identity Wallet ecosystem.",
+      "aliases": [
+        "AVG",
+        "General Data Protection Regulation"
+      ],
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679"
+    },
+    "Legal Representation": {
+      "description": "Authority to act for another person that arises from the law, rather than from a power of attorney that person grants. National law names the forms, such as parental responsibility or court-appointed representation of an adult who cannot act for themselves. See also Power of Attorney and Power of Representation.",
+      "aliases": [
+        "statutory representation",
+        "wettelijke vertegenwoordiging"
+      ]
+    },
+    "Work Identity": {
+      "description": "A partial identity issued by an organization so that a person can act for it without using their private identity. Roles, mandates, and access attach to this identity. See also Mandate and Legal Person Identification Data.",
+      "aliases": [
+        "werkidentiteit"
+      ]
     }
   }
 }
