@@ -1,6 +1,6 @@
 {
   "$schema": "https://fides.community/schemas/vocabulary/v1",
-  "version": "1.15.0",
+  "version": "1.17.0",
   "terms": {
     "type": {
       "description": "Wallet type: designed for individual users (personal) or for organizations to manage credentials (organizational)."
@@ -24,25 +24,25 @@
       "description": "Can request and verify credentials presented by holders (verifier role). Verification checks the issuer's signature, so the verifier does not need to query the issuer when the credential is presented. See also Relying Party."
     },
     "interopProfile": {
-      "description": "Interoperability profiles define choices within existing standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations."
+      "description": "Interoperability profiles define choices within existing standards and protocols that ensure wallets, issuers, and verifiers work together seamlessly across different implementations. Compare them on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/"
     },
     "DIIP v4": {
-      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP combined with DIDs, VCDM 2.0 and SD-JWT VC credentials.",
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP combined with DIDs, VCDM 2.0 and SD-JWT VC credentials. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
       "url": "https://fidescommunity.github.io/DIIP/"
     },
     "DIIP v5": {
-      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials.",
+      "description": "Community-driven interoperability profile based on OpenID4VCI and OpenID4VP 1.0 versions combined with DIDs, VCDM 2.0 and SD-JWT VC credentials. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
       "url": "https://fidescommunity.github.io/DIIP/"
     },
     "EWC v3": {
-      "description": "European Wallet Consortium LSP interoperability profile with specification set and conformance approach targeting EUDI Wallet implementations. See also European Wallet Consortium (EWC).",
+      "description": "Interoperability profile from the European Wallet Consortium large-scale pilot, used for early EUDI Wallet pilots. Current EUDI Wallet protocol rules are HAIP v1 as applied by the EUDI Wallet ARF. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
       "aliases": [
         "EWC profile"
       ],
       "url": "https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/920064565/LSP-EWC"
     },
     "swiyu v0": {
-      "description": "Swiss national digital identity interoperability profile (public beta) for SD-JWT VC credentials using OpenID4VCI and OpenID4VP. Published by the swiyu (Swiss e-ID) programme.",
+      "description": "Swiss national digital identity interoperability profile (public beta) for SD-JWT VC credentials using OpenID4VCI and OpenID4VP. Published by the swiyu (Swiss e-ID) programme. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
       "aliases": [
         "Swiyu beta",
         "swiyu Interoperability Profile",
@@ -51,11 +51,11 @@
       "url": "https://swiyu-admin-ch.github.io/specifications/introduction/"
     },
     "HAIP v1": {
-      "description": "OpenID Foundation interoperability profile for high-assurance exchanges, including both SD-JWT VC and ISO mdoc vc formats. Will be used in EUDI-Wallet implementations.",
-      "url": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0.html"
+      "description": "OpenID Foundation profile of OpenID4VCI 1.0 and OpenID4VP 1.0 for high-assurance exchange of SD-JWT VC and ISO mdoc, with at least one of those formats required. The EUDI Wallet uses it for issuance and remote presentation; ecosystem rules that HAIP leaves open are set in the EUDI Wallet ARF. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
+      "url": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0-final.html"
     },
     "EUDI Wallet ARF": {
-      "description": "EUDI Wallet Architecture and Reference Framework defining requirements and guidance for interoperable EUDI Wallets.",
+      "description": "EUDI Wallet application of HAIP 1.0, as set by Architecture and Reference Framework 3.0.0 and Commission Implementing Regulation (EU) 2026/1731. It requires both SD-JWT VC and ISO mdoc for PID, proximity presentation over ISO/IEC 18013-5, and EU trust and wallet-attestation rules on top of the HAIP protocol choices. Compare it on the FIDES Interop Profiles page: https://fides.community/community-tools/interop-profiles/",
       "url": "https://eudi.dev/3.0.0/main/"
     },
     "availability": {
@@ -1697,7 +1697,7 @@
       "url": "https://github.com/FIDEScommunity/fides-credential-catalog/tree/main/community-catalogs/gx"
     },
     "European Wallet Consortium": {
-      "description": "An EU Large Scale Pilot consortium developing EUDI Wallet specifications, schemas, and conformance tooling. Publishes the EWC v3 interoperability profile.",
+      "description": "An EU Large Scale Pilot consortium that tested EUDI Wallet use cases and published pilot specifications, including the EWC v3 interoperability profile.",
       "aliases": [
         "EWC",
         "EU Digital Wallet Consortium"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-05T16:31:28.015Z",
+  "generatedAt": "2026-11-27T11:14:07.387Z",
   "profiles": [
     {
       "schemaVersion": "v2",
@@ -53,7 +53,7 @@
             "supported": false
           },
           "ietfTokenStatusList": {
-            "supported": false
+            "supported": true
           }
         },
         "identifiers": {
@@ -67,8 +67,7 @@
             "supported": true
           },
           "httpsIss": {
-            "supported": false,
-            "note": "Issuer identified by DID:Web (DID-first)."
+            "supported": false
           },
           "openidClientId": {
             "supported": false,
@@ -96,8 +95,7 @@
         },
         "signatureAlgorithm": {
           "ecdsaEs256": {
-            "supported": true,
-            "note": "ES256 baseline"
+            "supported": true
           }
         }
       }
@@ -162,15 +160,13 @@
             "supported": true
           },
           "didWebvh": {
-            "supported": false,
-            "note": "Not supported in DIIP v5."
+            "supported": false
           },
           "didJwk": {
             "supported": true
           },
           "httpsIss": {
-            "supported": false,
-            "note": "Issuer identified by DID:Web (DID-first)."
+            "supported": false
           },
           "openidClientId": {
             "supported": false,
@@ -198,8 +194,121 @@
         },
         "signatureAlgorithm": {
           "ecdsaEs256": {
+            "supported": true
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "v2",
+      "profile": {
+        "id": "eudi-arf",
+        "name": "EUDI Wallet Architecture and Reference Framework",
+        "shortName": "EUDI Wallet ARF",
+        "version": "3.0.0",
+        "status": "stable",
+        "specUrl": "https://eudi.dev/3.0.0/main/",
+        "publisher": "European Commission",
+        "updated": "2026-11-27T11:10:00Z",
+        "notes": "ARF 3.0.0 and Commission Implementing Regulation (EU) 2026/1731 apply HAIP 1.0 and add the EUDI ecosystem rules. This column shows the choices that fit the matrix. Wallet-attestation claims, access and registration certificates, overasking checks, trusted lists and the PID rulebook are part of the ARF and have no separate row here."
+      },
+      "capabilities": {
+        "issuanceProtocol": {
+          "oid4vci": {
             "supported": true,
-            "note": "ES256 baseline"
+            "version": "v1.0",
+            "note": "OpenID4VCI 1.0 as profiled by HAIP clause 4, extended by ETSI TS 119 472-3. The wallet supports the authorization code flow and the pre-authorized code flow. Credential offers use eu-eaa-offer://. Issuer metadata is signed with the provider access certificate."
+          },
+          "iso18013_5": {
+            "supported": true,
+            "note": "Proximity presentation is mandatory (ISO/IEC-mdoc profile). Server retrieval is not allowed. ISO/IEC 18013-5 is not used to issue credentials."
+          }
+        },
+        "remotePresentationProtocol": {
+          "oid4vp": {
+            "supported": true,
+            "version": "v1.0",
+            "note": "OpenID4VC-HAIP profile: HAIP sections 5, 5.1 or 5.2, 5.3, 6, 7 and 8. Redirects and the Digital Credentials API. The x509_hash leaf is a relying-party access certificate (ETSI TS 119 475). The request carries a registration certificate."
+          },
+          "iso18013_7": {
+            "supported": true,
+            "note": "API-mediated mdoc presentation uses Annex C of ISO/IEC 18013-7:2025, beside the HAIP profile for OpenID4VP."
+          }
+        },
+        "credentialFormat": {
+          "vcdm20": {
+            "supported": false
+          },
+          "sdJwtVc": {
+            "supported": true,
+            "note": "Required for PID, together with ISO mdoc. Attestation type and namespace eu.europa.ec.eudi.pid.1. Revocation uses Token Status List unless the attestation is valid for at most 24 hours."
+          },
+          "isoMdoc": {
+            "supported": true,
+            "note": "Required for PID, together with SD-JWT VC. Type eu.europa.ec.eudi.pid.1. Revocation is a status list, an identifier list, or a validity of at most 24 hours."
+          }
+        },
+        "credentialStatus": {
+          "jwtValidity": {
+            "supported": true,
+            "note": "Validity windows still apply. They do not replace revocation for PID and attestations that live longer than 24 hours."
+          },
+          "pkiCertValidity": {
+            "supported": true,
+            "note": "Issuer and access certificates are validated, including their validity period."
+          },
+          "ietfTokenStatusList": {
+            "supported": true,
+            "note": "Mandatory for SD-JWT VC PID and attestations that are valid for more than 24 hours. Also used for wallet instance and key attestation revocation. CIR 2026/1731 pins Token Status List draft-20."
+          }
+        },
+        "identifiers": {
+          "didWeb": {
+            "supported": false
+          },
+          "didWebvh": {
+            "supported": false
+          },
+          "didJwk": {
+            "supported": false
+          },
+          "httpsIss": {
+            "supported": true,
+            "note": "SD-JWT VC issuer identifier is an HTTPS URL. Trust is resolved through the x5c certificate and the notified trust lists."
+          },
+          "openidClientId": {
+            "supported": true,
+            "note": "x509_hash. The leaf certificate is the relying-party access certificate."
+          },
+          "x509Certificate": {
+            "supported": true,
+            "note": "Access certificates (ETSI TS 119 475 and TS 119 411-8), issuer certificates and document signer certificates. Trust anchors come from notified lists."
+          }
+        },
+        "keyBinding": {
+          "keyBindingPop": {
+            "supported": true,
+            "note": "SD-JWT VC key binding via cnf, plus proof of possession during issuance (ETSI TS 119 472-3)."
+          },
+          "hardwareDeviceBinding": {
+            "supported": true,
+            "note": "PID is device-bound. A key attestation for a WSCD uses iso_18045_high. mdoc device binding applies."
+          }
+        },
+        "signatureScheme": {
+          "joseJws": {
+            "supported": true,
+            "note": "SD-JWT VC, wallet instance attestations and key attestations."
+          },
+          "cose": {
+            "supported": true,
+            "note": "ISO mdoc."
+          }
+        },
+        "signatureAlgorithm": {
+          "ecdsaEs256": {
+            "supported": true,
+            "note": "Baseline ES256. Wallet instance attestations, key attestations and their status lists also allow ES384 and ES512. Issuers must accept all three."
           }
         }
       }
@@ -212,28 +321,32 @@
         "shortName": "HAIP v1",
         "version": "1.0",
         "status": "stable",
-        "specUrl": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0.html",
+        "specUrl": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0-final.html",
         "publisher": "OpenID Foundation",
-        "updated": "2026-01-28T19:20:13Z",
-        "notes": "HAIP v1.0 profiles OpenID flows for SD-JWT VC (JOSE) and ISO mDoc (COSE) with high-assurance verifier authentication."
+        "updated": "2026-11-27T11:10:00Z",
+        "notes": "HAIP 1.0 (final, 24 December 2025) profiles OpenID4VCI 1.0 and OpenID4VP 1.0 for SD-JWT VC and ISO mdoc. An implementation supports at least one of those formats. Trust management and proximity presentation are out of scope. The EUDI Wallet applies this profile and adds the rules recorded under EUDI Wallet ARF."
       },
       "capabilities": {
         "issuanceProtocol": {
           "oid4vci": {
             "supported": true,
-            "version": "v1.0"
+            "version": "v1.0",
+            "note": "Authorization code flow is mandatory. Wallet attestation and key attestation formats are left to the ecosystem."
           },
           "iso18013_5": {
-            "supported": true
+            "supported": false,
+            "note": "Proximity presentation is out of scope. mdoc credentials are issued with OpenID4VCI, not over ISO/IEC 18013-5."
           }
         },
         "remotePresentationProtocol": {
           "oid4vp": {
             "supported": true,
-            "version": "v1.0"
+            "version": "v1.0",
+            "note": "Redirects (section 5.1) and the W3C Digital Credentials API (section 5.2). Verifiers authenticate with the x509_hash client identifier prefix."
           },
           "iso18013_7": {
-            "supported": true
+            "supported": false,
+            "note": "mdoc presentation is carried in OpenID4VP Annex B.2. ISO/IEC 18013-7 is not a HAIP requirement."
           }
         },
         "credentialFormat": {
@@ -241,23 +354,26 @@
             "supported": false
           },
           "sdJwtVc": {
-            "supported": true
+            "supported": true,
+            "note": "Format identifier dc+sd-jwt. Support at least this or ISO mdoc. Compact serialization. Issuer key in x5c. A status claim, when present, uses Token Status List."
           },
           "isoMdoc": {
-            "supported": true
+            "supported": true,
+            "note": "Format identifier mso_mdoc. Support at least this or SD-JWT VC. Issued and presented through OpenID4VCI and OpenID4VP."
           }
         },
         "credentialStatus": {
           "jwtValidity": {
             "supported": true,
-            "note": "exp, nbf"
+            "note": "When an issuer limits SD-JWT VC lifetime, it uses exp, a status claim, or both. exp is recommended, not required on every credential."
           },
           "pkiCertValidity": {
             "supported": true,
-            "note": "notBefore, notAfter (cert validity)."
+            "note": "Issuer and status-list certificates in x5c are checked, including their validity period. HAIP defines no separate certificate-status protocol."
           },
           "ietfTokenStatusList": {
-            "supported": false
+            "supported": true,
+            "note": "Required when an SD-JWT VC includes a status claim (status_list). HAIP 1.0 pins Token Status List draft-14. Not required on every credential."
           }
         },
         "identifiers": {
@@ -272,41 +388,41 @@
           },
           "httpsIss": {
             "supported": true,
-            "note": "SD-JWT VC issuer identifier via iss (HTTPS URL)."
+            "note": "SD-JWT VC issuer identifier is an HTTPS URL. Signature validation uses the x5c certificate, not the URL alone."
           },
           "openidClientId": {
             "supported": true,
-            "note": "OpenID client_id and client authentication."
+            "note": "Verifier client identifier prefix x509_hash. Certificate profiles are out of scope."
           },
           "x509Certificate": {
             "supported": true,
-            "note": "ISO mDoc issuer identifier via Document Signer certificate. | ISO mDoc reader authentication via X.509 reader certificate."
+            "note": "SD-JWT VC issuer and status-list keys via x5c. mdoc document signer certificate. Verifier via x509_hash. Trust anchors are out of scope."
           }
         },
         "keyBinding": {
           "keyBindingPop": {
             "supported": true,
-            "note": "SD-JWT VC key binding via cnf."
+            "note": "SD-JWT VC holder binding via cnf.jwk. A key-bound presentation includes a KB-JWT."
           },
           "hardwareDeviceBinding": {
-            "supported": true,
-            "note": "ISO mDoc is device-bound."
+            "supported": false,
+            "note": "mdoc is device-bound and SD-JWT VC can be key-bound. HAIP does not require a hardware secure element."
           }
         },
         "signatureScheme": {
           "joseJws": {
             "supported": true,
-            "note": "SD-JWT VC"
+            "note": "SD-JWT VC."
           },
           "cose": {
             "supported": true,
-            "note": "ISO mDoc"
+            "note": "ISO mdoc."
           }
         },
         "signatureAlgorithm": {
           "ecdsaEs256": {
             "supported": true,
-            "note": "ES256 baseline (ECDSA P-256 + SHA-256)."
+            "note": "Minimum: ES256 (JOSE) and COSE -7 or -9. An ecosystem may require additional algorithms."
           }
         }
       }
@@ -316,89 +432,73 @@
       "profile": {
         "id": "swiyu-v0",
         "name": "swiyu Trust Infrastructure Interoperability Profile (Public Beta)",
-        "shortName": "swiyu beta",
+        "shortName": "Swiyu beta",
         "version": "v0",
         "status": "draft",
         "specUrl": "https://swiyu-admin-ch.github.io/specifications/interoperability-profile/",
         "publisher": "swiyu (Swiss e-ID program)",
-        "updated": "2026-02-02T19:01:00Z",
+        "updated": "2026-02-02T19:02:00Z",
         "notes": "Mapped to the swiyu Interoperability Profile page. OID4VCI and OID4VP draft numbers and DID method names reflect the profile's stated mappings; where the profile uses DID:TDW terminology, this is mapped to didWebvh in the FIDES capability set."
       },
       "capabilities": {
         "issuanceProtocol": {
           "oid4vci": {
             "supported": true,
-            "version": "draft-13",
-            "note": "Uses OpenID4VCI draft-13 mapping; supports issuance for vc+sd-jwt (SD-JWT VC)."
+            "version": "draft-13"
           },
           "iso18013_5": {
-            "supported": false,
-            "note": "No other issuance protocols profiled for Public Beta."
+            "supported": false
           }
         },
         "remotePresentationProtocol": {
           "oid4vp": {
             "supported": true,
-            "version": "draft-20",
-            "note": "Uses OpenID4VP draft-20 mapping; presentation for vc+sd-jwt."
+            "version": "draft-20"
           },
           "iso18013_7": {
-            "supported": false,
-            "note": "Other presentation transports (e.g., offline/BLE) are out of scope for this profile."
+            "supported": false
           }
         },
         "credentialFormat": {
           "vcdm20": {
-            "supported": false,
-            "note": "Profile focuses on SD-JWT VC (JWT/JOSE). It does not profile W3C VCDM 2.0 with Data Integrity proofs."
+            "supported": false
           },
           "sdJwtVc": {
-            "supported": true,
-            "note": "SD-JWT VC is the profiled credential format (OID4VCI/OID4VP format identifier: vc+sd-jwt)."
+            "supported": true
           },
           "isoMdoc": {
-            "supported": false,
-            "note": "ISO mdoc is not included in the Public Beta interop profile."
+            "supported": false
           }
         },
         "credentialStatus": {
           "jwtValidity": {
-            "supported": true,
-            "note": "JWT validity fields (e.g., exp/iat) are used/supported in profiled flows."
+            "supported": true
           },
           "pkiCertValidity": {
-            "supported": false,
-            "note": "No PKI certificate validity model is specified for credential status."
+            "supported": false
           },
           "ietfTokenStatusList": {
-            "supported": true,
-            "note": "IETF Token Status List is used/supported for SD-JWT VC status."
+            "supported": true
           }
         },
         "identifiers": {
           "didWeb": {
-            "supported": false,
-            "note": "Profile uses DID:TDW (mapped here to didWebvh), not did:web. | Verifier identification is DID:TDW (mapped here to didWebvh), not did:web."
+            "supported": false
           },
           "didWebvh": {
-            "supported": true,
-            "note": "Profile uses DID:TDW terminology (mapped to did:webvh in this capability set) for issuer identity. | Profile uses DID:TDW terminology (mapped to did:webvh) for verifier identity."
+            "supported": true
           },
           "didJwk": {
-            "supported": false,
-            "note": "did:jwk is used for wallet proof key references (see holder binding), not as issuer identifier. | did:jwk is used for holder key references rather than verifier identifiers."
+            "supported": true
           },
           "httpsIss": {
-            "supported": false,
-            "note": "Issuer identification is DID-based in the profile rather than https issuer identifiers."
+            "supported": false
           },
           "openidClientId": {
-            "supported": true,
-            "note": "OID4VP client_id / client_id_scheme mechanisms are used as profiled."
+            "supported": true
           },
           "x509Certificate": {
-            "supported": false,
-            "note": "No X.509 document signer identifier scheme is specified. | No X.509 reader certificate mechanism is profiled."
+            "supported": false
           }
         },
         "keyBinding": {
@@ -413,28 +513,25 @@
         },
         "signatureScheme": {
           "joseJws": {
-            "supported": true,
-            "note": "JWT/JOSE signing is used for SD-JWT VC and proof JWTs."
+            "supported": true
           },
           "cose": {
-            "supported": false,
-            "note": "COSE is not in scope of this profile."
+            "supported": false
           }
         },
         "signatureAlgorithm": {
           "ecdsaEs256": {
-            "supported": true,
-            "note": "ES256 (P-256) is profiled."
+            "supported": true
           }
         }
       }
     }
   ],
   "statistics": {
-    "totalProfiles": 4,
+    "totalProfiles": 5,
     "byStatus": {
       "draft": 1,
-      "stable": 3,
+      "stable": 4,
       "deprecated": 0
     }
   }

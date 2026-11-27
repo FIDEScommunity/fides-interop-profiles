@@ -86,6 +86,8 @@
   let hideEmptyRows = localStorage.getItem('fides-interop-hide-empty') === 'true';
   let selectedProfiles = [];
   const MAX_SELECTED_PROFILES = 3;
+  const DEFAULT_PROFILE_IDS = ['diip-v5', 'eudi-arf', 'haip-v1'];
+  const SELECTED_PROFILES_STORAGE_KEY = 'fides-interop-selected-profiles-v2';
   let vocabulary = null;
 
   function isFidesLocalDevHost() {
@@ -298,7 +300,7 @@
    * Get selected profiles from localStorage or use defaults
    */
   function getSelectedProfiles(availableProfiles) {
-    const stored = localStorage.getItem('fides-interop-selected-profiles');
+    const stored = localStorage.getItem(SELECTED_PROFILES_STORAGE_KEY);
     
     if (stored) {
       try {
@@ -316,10 +318,9 @@
       }
     }
     
-    // Default: select first 3 profiles (typically DIIP v4, DIIP v5, HAIP v1)
-    const defaultIds = ['diip-v4', 'diip-v5', 'haip-v1'];
+    // Default comparison: DIIP v5, EUDI Wallet ARF, HAIP v1.
     const defaults = availableProfiles
-      .filter(p => defaultIds.includes(p.profile.id))
+      .filter(p => DEFAULT_PROFILE_IDS.includes(p.profile.id))
       .map(p => p.profile.id);
     
     // If those don't exist, fall back to first 3 profiles
@@ -337,7 +338,7 @@
    */
   function setSelectedProfiles(profileIds) {
     try {
-      localStorage.setItem('fides-interop-selected-profiles', JSON.stringify(profileIds));
+      localStorage.setItem(SELECTED_PROFILES_STORAGE_KEY, JSON.stringify(profileIds));
       selectedProfiles = profileIds;
     } catch (e) {
       console.warn('Failed to save profile selection', e);
@@ -992,12 +993,11 @@
       });
     });
 
-    // Reset button - reset to default selection (DIIP v4, DIIP v5, HAIP v1)
+    // Reset button - restore DIIP v5, EUDI Wallet ARF and HAIP v1.
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        const defaultIds = ['diip-v4', 'diip-v5', 'haip-v1'];
         const defaultSelection = allProfiles
-          .filter(p => defaultIds.includes(p.profile.id))
+          .filter(p => DEFAULT_PROFILE_IDS.includes(p.profile.id))
           .map(p => p.profile.id);
         
         // If defaults don't exist, use first 3

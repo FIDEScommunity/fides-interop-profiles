@@ -17,7 +17,7 @@ profiles/interop-profile.<profile-id>.json
 Examples:
 - `diip-v4` → `interop-profile.diip-v4.json`
 - `haip-v1` → `interop-profile.haip-v1.json`
-- `ewc-v3` → `interop-profile.ewc-v3.json`
+- `eudi-arf` → `interop-profile.eudi-arf.json`
 
 ### 2. Use the Template
 

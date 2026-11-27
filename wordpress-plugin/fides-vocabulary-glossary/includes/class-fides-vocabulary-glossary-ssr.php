@@ -169,6 +169,19 @@ if (! class_exists('Fides_Vocabulary_Glossary_SSR')) {
                         : '—',
                 );
 
+                $comparison = 'https://fides.community/community-tools/interop-profiles/';
+                $description = isset($item['description']) ? (string) $item['description'] : '';
+                if ($description !== '' && strpos($description, $comparison) !== false) {
+                    $rows[] = array(
+                        'label' => __('Interop Profiles', $td),
+                        'html'  => sprintf(
+                            '<a href="%1$s">%2$s</a>',
+                            esc_url($comparison),
+                            esc_html__('Compare this profile', 'fides-vocabulary-glossary')
+                        ),
+                    );
+                }
+
                 return $rows;
             }
 

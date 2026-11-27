@@ -3,7 +3,7 @@
  * Plugin Name: FIDES Interop Profile Matrix
  * Plugin URI: https://fides.community
  * Description: Interactive matrix comparison of interoperability profiles (DIIP, HAIP, EWC, Swiyu)
- * Version: 1.2.13
+ * Version: 1.2.14
  * Author: FIDES Labs BV
  * Author URI: https://fides.community
  * License: Apache-2.0
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('FIDES_INTEROP_MATRIX_VERSION', '1.2.13');
+define('FIDES_INTEROP_MATRIX_VERSION', '1.2.14');
 
 class FIDES_Interop_Matrix {
     
@@ -276,7 +276,7 @@ class FIDES_Interop_Matrix {
             <p>Users can compare up to <strong>3 profiles at a time</strong> using the profile selector on desktop view. The selector allows users to:</p>
             <ul>
                 <li>Check/uncheck profiles to compare (maximum 3 selected)</li>
-                <li>Use "Reset" to restore the default selection (first 3 profiles)</li>
+                <li>Use "Reset" to restore the default selection (DIIP v5, EUDI Wallet ARF, HAIP v1)</li>
                 <li>Use "Select All" to quickly select the first 3 available profiles</li>
                 <li>Their selection is automatically saved and restored on next visit</li>
             </ul>
@@ -306,7 +306,7 @@ class FIDES_Interop_Matrix {
             </table>
             
             <h3>Examples</h3>
-            <p><code>[fides_interop_matrix]</code> - Show all available profiles with profile selector (default: first 3 selected)</p>
+            <p><code>[fides_interop_matrix]</code> - Show all available profiles with profile selector (default: DIIP v5, EUDI Wallet ARF, HAIP v1)</p>
             <p><code>[fides_interop_matrix profiles="diip-v5,haip-v1"]</code> - Pre-filter to only show DIIP v5 and HAIP v1 in the selector</p>
             <p><code>[fides_interop_matrix theme="dark"]</code> - Use dark theme variant</p>
             
@@ -315,7 +315,9 @@ class FIDES_Interop_Matrix {
             <ul>
                 <li><strong>DIIP v4</strong> - Digital Identity Interoperability Profile v4</li>
                 <li><strong>DIIP v5</strong> - Digital Identity Interoperability Profile v5</li>
-                <li><strong>HAIP v1</strong> - OpenID4VC High Assurance Interoperability Profile v1</li>
+                <li><strong>HAIP v1</strong> - OpenID4VC High Assurance Interoperability Profile 1.0</li>
+                <li><strong>EUDI Wallet ARF</strong> - HAIP 1.0 as applied by ARF 3.0.0 and Implementing Regulation (EU) 2026/1731</li>
+                <li><strong>Swiyu beta</strong> - swiyu Trust Infrastructure Interoperability Profile (public beta)</li>
             </ul>
         </div>
         <?php

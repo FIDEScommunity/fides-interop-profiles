@@ -3,7 +3,7 @@ Contributors: fideslabs
 Tags: fides, interoperability, profiles, comparison, matrix, diip, haip
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -69,6 +69,10 @@ Yes, the plugin includes a local fallback for optimal performance and reliabilit
 3. Capability detail with tooltip
 
 == Changelog ==
+
+= 1.2.14 =
+* Open the matrix on DIIP v5, EUDI Wallet ARF and HAIP v1. A selection saved before this version is not restored, so the new default is what visitors see.
+* Interop profile glossary terms point to the FIDES Interop Profiles page.
 
 = 1.2.13 =
 * Resync the bundled fallback `assets/vocabulary.json` with glossary 1.13.0 (EUDI Wallet ARF 3.0.0). No existing keys were removed or renamed. The live glossary on GitHub `main` stays the primary source.

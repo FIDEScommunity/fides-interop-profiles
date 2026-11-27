@@ -200,12 +200,26 @@
     };
   }
 
+  function linkifyVocabularyModalUrls() {
+    const modal = document.querySelector('.fides-modal-overlay--vocabulary:not(.fides-modal-overlay--nested) .fides-modal-body');
+    if (!modal) return;
+    modal.querySelectorAll('.fides-modal-description').forEach(function (node) {
+      if (node.querySelector('a')) return;
+      const text = node.textContent || '';
+      if (!/https?:\/\//.test(text)) return;
+      node.innerHTML = escapeHtml(text).replace(/https?:\/\/[^\s)]+/g, function (url) {
+        return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(url) + '</a>';
+      });
+    });
+  }
+
   function openTermById(id, pushState) {
     const term = termById[id];
     if (!term || !window.FidesCatalogUI || typeof window.FidesCatalogUI.openVocabularyModal !== 'function') {
       return;
     }
     window.FidesCatalogUI.openVocabularyModal(term, modalOptions());
+    linkifyVocabularyModalUrls();
     if (pushState !== false) {
       const url = new URL(window.location.href);
       url.searchParams.set('term', term.id);
@@ -278,10 +292,20 @@
     if (spinner) spinner.remove();
   }
 
+  function isFidesLocalDevHost() {
+    try {
+      const host = window.location.hostname || '';
+      const href = window.location.href || '';
+      return host.indexOf('.local') !== -1 || href.indexOf('.local') !== -1;
+    } catch (err) {
+      return false;
+    }
+  }
+
   async function loadTerms() {
-    const urls = [];
-    if (config.githubDataUrl) urls.push(config.githubDataUrl);
-    if (config.localDataUrl) urls.push(config.localDataUrl);
+    const remote = config.githubDataUrl ? [config.githubDataUrl] : [];
+    const local = config.localDataUrl ? [config.localDataUrl] : [];
+    const urls = isFidesLocalDevHost() ? local.concat(remote) : remote.concat(local);
 
     for (let i = 0; i < urls.length; i += 1) {
       try {

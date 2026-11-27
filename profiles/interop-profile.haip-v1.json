@@ -6,28 +6,32 @@
     "shortName": "HAIP v1",
     "version": "1.0",
     "status": "stable",
-    "specUrl": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0.html",
+    "specUrl": "https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-1_0-final.html",
     "publisher": "OpenID Foundation",
-    "updated": "2026-01-28T19:20:13Z",
-    "notes": "HAIP v1.0 profiles OpenID flows for SD-JWT VC (JOSE) and ISO mDoc (COSE) with high-assurance verifier authentication."
+    "updated": "2026-11-27T11:10:00Z",
+    "notes": "HAIP 1.0 (final, 24 December 2025) profiles OpenID4VCI 1.0 and OpenID4VP 1.0 for SD-JWT VC and ISO mdoc. An implementation supports at least one of those formats. Trust management and proximity presentation are out of scope. The EUDI Wallet applies this profile and adds the rules recorded under EUDI Wallet ARF."
   },
   "capabilities": {
     "issuanceProtocol": {
       "oid4vci": {
         "supported": true,
-        "version": "v1.0"
+        "version": "v1.0",
+        "note": "Authorization code flow is mandatory. Wallet attestation and key attestation formats are left to the ecosystem."
       },
       "iso18013_5": {
-        "supported": true
+        "supported": false,
+        "note": "Proximity presentation is out of scope. mdoc credentials are issued with OpenID4VCI, not over ISO/IEC 18013-5."
       }
     },
     "remotePresentationProtocol": {
       "oid4vp": {
         "supported": true,
-        "version": "v1.0"
+        "version": "v1.0",
+        "note": "Redirects (section 5.1) and the W3C Digital Credentials API (section 5.2). Verifiers authenticate with the x509_hash client identifier prefix."
       },
       "iso18013_7": {
-        "supported": true
+        "supported": false,
+        "note": "mdoc presentation is carried in OpenID4VP Annex B.2. ISO/IEC 18013-7 is not a HAIP requirement."
       }
     },
     "credentialFormat": {
@@ -35,23 +39,26 @@
         "supported": false
       },
       "sdJwtVc": {
-        "supported": true
+        "supported": true,
+        "note": "Format identifier dc+sd-jwt. Support at least this or ISO mdoc. Compact serialization. Issuer key in x5c. A status claim, when present, uses Token Status List."
       },
       "isoMdoc": {
-        "supported": true
+        "supported": true,
+        "note": "Format identifier mso_mdoc. Support at least this or SD-JWT VC. Issued and presented through OpenID4VCI and OpenID4VP."
       }
     },
     "credentialStatus": {
       "jwtValidity": {
         "supported": true,
-        "note": "exp, nbf"
+        "note": "When an issuer limits SD-JWT VC lifetime, it uses exp, a status claim, or both. exp is recommended, not required on every credential."
       },
       "pkiCertValidity": {
         "supported": true,
-        "note": "notBefore, notAfter (cert validity)."
+        "note": "Issuer and status-list certificates in x5c are checked, including their validity period. HAIP defines no separate certificate-status protocol."
       },
       "ietfTokenStatusList": {
-        "supported": false
+        "supported": true,
+        "note": "Required when an SD-JWT VC includes a status claim (status_list). HAIP 1.0 pins Token Status List draft-14. Not required on every credential."
       }
     },
     "identifiers": {
@@ -66,41 +73,41 @@
       },
       "httpsIss": {
         "supported": true,
-        "note": "SD-JWT VC issuer identifier via iss (HTTPS URL)."
+        "note": "SD-JWT VC issuer identifier is an HTTPS URL. Signature validation uses the x5c certificate, not the URL alone."
       },
       "openidClientId": {
         "supported": true,
-        "note": "OpenID client_id and client authentication."
+        "note": "Verifier client identifier prefix x509_hash. Certificate profiles are out of scope."
       },
       "x509Certificate": {
         "supported": true,
-        "note": "ISO mDoc issuer identifier via Document Signer certificate. | ISO mDoc reader authentication via X.509 reader certificate."
+        "note": "SD-JWT VC issuer and status-list keys via x5c. mdoc document signer certificate. Verifier via x509_hash. Trust anchors are out of scope."
       }
     },
     "keyBinding": {
       "keyBindingPop": {
         "supported": true,
-        "note": "SD-JWT VC key binding via cnf."
+        "note": "SD-JWT VC holder binding via cnf.jwk. A key-bound presentation includes a KB-JWT."
       },
       "hardwareDeviceBinding": {
-        "supported": true,
-        "note": "ISO mDoc is device-bound."
+        "supported": false,
+        "note": "mdoc is device-bound and SD-JWT VC can be key-bound. HAIP does not require a hardware secure element."
       }
     },
     "signatureScheme": {
       "joseJws": {
         "supported": true,
-        "note": "SD-JWT VC"
+        "note": "SD-JWT VC."
       },
       "cose": {
         "supported": true,
-        "note": "ISO mDoc"
+        "note": "ISO mdoc."
       }
     },
     "signatureAlgorithm": {
       "ecdsaEs256": {
         "supported": true,
-        "note": "ES256 baseline (ECDSA P-256 + SHA-256)."
+        "note": "Minimum: ES256 (JOSE) and COSE -7 or -9. An ecosystem may require additional algorithms."
       }
     }
   }

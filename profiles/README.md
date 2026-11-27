@@ -17,7 +17,7 @@ Where `<profile-id>` has the format: `<abbreviation>-<version>`
 - `interop-profile.diip-v4.json` - DIIP version 4
 - `interop-profile.diip-v5.json` - DIIP version 5
 - `interop-profile.haip-v1.json` - HAIP version 1
-- `interop-profile.ewc-v3.json` - EWC version 3
+- `interop-profile.eudi-arf.json` - EUDI Wallet ARF 3.0.0
 - `interop-profile.swiyu-v0.json` - Swiyu version 0
 
 ## Profile ID Format

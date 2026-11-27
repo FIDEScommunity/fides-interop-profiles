@@ -44,7 +44,7 @@ profiles/interop-profile.<profile-id>.json
 Examples:
 - `interop-profile.diip-v4.json`
 - `interop-profile.haip-v1.json`
-- `interop-profile.ewc-v3.json`
+- `interop-profile.eudi-arf.json`
 
 ### 2. Validate and Aggregate Data
 
@@ -90,8 +90,8 @@ Profile IDs follow the format: `<abbreviation>-<version>`
 Examples:
 - `diip-v4`, `diip-v5`
 - `haip-v1`
-- `ewc-v3`
-- `swiyu-v1`
+- `eudi-arf`
+- `swiyu-v0`
 
 ## Design Decisions
 
